@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GoRogue;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,12 +25,12 @@ namespace SadConsole
         /// </summary>
         /// <param name="name">The factory id of a blueprint.</param>
         /// <returns>A new object.</returns>
-        public TProduced Create(string name)
+        public TProduced Create(string name, Coord position)
         {
             if (!_blueprints.ContainsKey(name))
                 throw new ItemNotDefinedException(name);
 
-            return _blueprints[name].Create();
+            return _blueprints[name].Create(position);
         }
 
         /// <summary>

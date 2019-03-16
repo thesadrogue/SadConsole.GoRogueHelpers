@@ -8,19 +8,20 @@ using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 using SadConsole.Input;
 using SadConsole.Entities;
-using SadConsole.GameObjects;
+// using SadConsole.GameObjects;
 
 namespace SadConsole.Components
 {
+/*
     /// <summary>
-    /// Manages one or more <see cref="Entity"/> objects in relation to a <see cref="Console"/> and provides events for <see cref="Hotspot"/> and <see cref="Zone"/> interactions.
+    /// Manages one or more <see cref="BasicEntity"/> objects in relation to a <see cref="Console"/> and provides events for <see cref="Hotspot"/> and <see cref="Zone"/> interactions.
     /// </summary>
     public class EntityManager: ConsoleComponent
     {
         private bool _hasBeenAdded;
         private Rectangle _cachedView;
-        private Dictionary<Entity, EntityState> _entityStates;
-        private Dictionary<Point, Entity[]> _entityByPosition;
+        private Dictionary<BasicEntity, EntityState> _entityStates;
+        private Dictionary<Point, BasicEntity[]> _entityByPosition;
         private Console _console;
         
         /// <summary>
@@ -51,7 +52,7 @@ namespace SadConsole.Components
         /// <summary>
         /// An event to indicate that an entity moved.
         /// </summary>
-        public event EventHandler<Entity.EntityMovedEventArgs> EntityMoved;
+        public event EventHandler<BasicEntity.EntityMovedEventArgs> EntityMoved;
 
         /// <summary>
         /// When <see langword="true"/>, indicates that the attached console is <see cref="ScrollingConsole"/>.
@@ -62,7 +63,7 @@ namespace SadConsole.Components
         /// <summary>
         /// The entities this manager manages.
         /// </summary>
-        public ObservableCollection<Entity> Entities { get; } = new ObservableCollection<Entity>();
+        public ObservableCollection<BasicEntity> Entities { get; } = new ObservableCollection<BasicEntity>();
 
         /// <summary>
         /// The entities this manager manages.
@@ -81,8 +82,8 @@ namespace SadConsole.Components
         public EntityManager()
         {
             _cachedView = default;
-            _entityStates = new Dictionary<Entity, EntityState>();
-            _entityByPosition = new Dictionary<Point, Entity[]>();
+            _entityStates = new Dictionary<BasicEntity, EntityState>();
+            _entityByPosition = new Dictionary<Point, BasicEntity[]>();
 
             Entities.CollectionChanged += EntitiesOnCollectionChanged;
             Zones.CollectionChanged += EntitiesOnCollectionChanged;
@@ -99,7 +100,7 @@ namespace SadConsole.Components
                     {
                         if (((Console)item).Parent != null) throw new Exception("Object can't be parented to another and added to the entity manager.");
 
-                        if (item is Entity ent)
+                        if (item is BasicEntity ent)
                         {
                             var state = new EntityState();
 
@@ -122,7 +123,7 @@ namespace SadConsole.Components
 
                     foreach (var item in e.OldItems)
                     {
-                        if (item is Entity ent)
+                        if (item is BasicEntity ent)
                         {
                             _entityStates.Remove(ent);
                             RemoveEntityPositionCollection(ent, ent.Position);
@@ -136,7 +137,7 @@ namespace SadConsole.Components
 
                     foreach (var item in e.OldItems)
                     {
-                        if (item is Entity ent)
+                        if (item is BasicEntity ent)
                         {
                             _entityStates.Remove(ent);
                             RemoveEntityPositionCollection(ent, ent.Position);
@@ -149,7 +150,7 @@ namespace SadConsole.Components
                     { 
                         if (((Console)item).Parent != null) throw new Exception("Object can't be parented to another and added to the entity manager.");
 
-                        if (item is Entity ent)
+                        if (item is BasicEntity ent)
                         {
                             var state = new EntityState();
 
@@ -177,8 +178,8 @@ namespace SadConsole.Components
             }
         }
         
-        private void Entity_Moved(object sender, Entity.EntityMovedEventArgs e) =>
-            EvaluateEntityState((Entity)sender);
+        private void Entity_Moved(object sender, BasicEntity.EntityMovedEventArgs e) =>
+            EvaluateEntityState((BasicEntity)sender);
 
         private bool IsPositionZone(in Point point, out Zone zone)
         {
@@ -263,7 +264,7 @@ namespace SadConsole.Components
         /// </summary>
         /// <param name="position">The position to get entities from.</param>
         /// <returns>A collecction of entities at the specified position.</returns>
-        public IEnumerable<Entity> GetEntities(Point position)
+        public IEnumerable<BasicEntity> GetEntities(Point position)
         {
             if (_entityByPosition.ContainsKey(position))
             {
@@ -273,7 +274,7 @@ namespace SadConsole.Components
             }
         }
 
-        private void EvaluateEntityState(Entity entity)
+        private void EvaluateEntityState(BasicEntity entity)
         {
             var state = _entityStates[entity];
 
@@ -284,7 +285,7 @@ namespace SadConsole.Components
                 var isZone = IsPositionZone(entity.Position, out var zone);
 
                 OnEntityMoved(entity, entity.Position, state.Position);
-                EntityMoved?.Invoke(this, new Entity.EntityMovedEventArgs(entity, state.Position));
+                EntityMoved?.Invoke(this, new BasicEntity.EntityMovedEventArgs(entity, state.Position));
 
                 if (!state.IsDisabled)
                 {
@@ -364,12 +365,12 @@ namespace SadConsole.Components
             }
         }
 
-        private void UpdateEntityPositionCollection(Entity entity)
+        private void UpdateEntityPositionCollection(BasicEntity entity)
         {
             if (_entityByPosition.ContainsKey(entity.Position))
             {
                 var entities = _entityByPosition[entity.Position];
-                var newList = new Entity[entities.Length];
+                var newList = new BasicEntity[entities.Length];
                 entities.CopyTo(newList, 0);
                 newList[newList.Length] = entity;
                 _entityByPosition[entity.Position] = newList;
@@ -378,7 +379,7 @@ namespace SadConsole.Components
                 _entityByPosition.Add(entity.Position, new[] { entity });
         }
 
-        private void RemoveEntityPositionCollection(Entity entity, Point oldPosition)
+        private void RemoveEntityPositionCollection(BasicEntity entity, Point oldPosition)
         {
             if (_entityByPosition.ContainsKey(oldPosition))
             {
@@ -387,7 +388,7 @@ namespace SadConsole.Components
                     _entityByPosition.Remove(oldPosition);
                 else
                 {
-                    var newList = new Entity[entities.Length - 1];
+                    var newList = new BasicEntity[entities.Length - 1];
                     int index = 0;
                     foreach (var item in entities)
                     {
@@ -459,7 +460,7 @@ namespace SadConsole.Components
         /// Prevents an entity from being processed with the <see cref="Hotspots"/> and <see cref="Zones"/>.
         /// </summary>
         /// <param name="entity">The entity to disable.</param>
-        public void DisableEntity(Entity entity)
+        public void DisableEntity(BasicEntity entity)
         {
             if (_entityStates.ContainsKey(entity)) throw new Exception("Entity is not managed by this entity manager.");
 
@@ -470,7 +471,7 @@ namespace SadConsole.Components
         /// Enables the entity to be processed with with the <see cref="Hotspots"/> and <see cref="Zones"/>.
         /// </summary>
         /// <param name="entity">The entity to disable.</param>
-        public void EnableEntity(Entity entity)
+        public void EnableEntity(BasicEntity entity)
         {
             if (_entityStates.ContainsKey(entity)) throw new Exception("Entity is not managed by this entity manager.");
 
@@ -478,11 +479,11 @@ namespace SadConsole.Components
         }
 
         /// <summary>
-        /// Returns <see langword="true"/> when the entity has been disabled by <see cref="DisableEntity(Entity)"/>; otherwise <see langword="false"/>.
+        /// Returns <see langword="true"/> when the entity has been disabled by <see cref="DisableEntity(BasicEntity)"/>; otherwise <see langword="false"/>.
         /// </summary>
         /// <param name="entity">The entity to check.</param>
         /// <returns><see langword="true"/> when the entity is disabled.</returns>
-        public bool IsEntityDisabled(Entity entity)
+        public bool IsEntityDisabled(BasicEntity entity)
         {
             if (_entityStates.ContainsKey(entity)) throw new Exception("Entity is not managed by this entity manager.");
 
@@ -494,14 +495,14 @@ namespace SadConsole.Components
         /// </summary>
         /// <param name="host">The console this manager is attached to.</param>
         /// <param name="entity">The entity added.</param>
-        protected virtual void OnEntityAdded(Console host, Entity entity) { }
+        protected virtual void OnEntityAdded(Console host, BasicEntity entity) { }
 
         /// <summary>
         /// Called when an entity is removed from the manager.
         /// </summary>
         /// <param name="host">The console this manager is attached to.</param>
         /// <param name="entity">The entity removed.</param>
-        protected virtual void OnEntityRemoved(Console host, Entity entity) { }
+        protected virtual void OnEntityRemoved(Console host, BasicEntity entity) { }
 
         /// <summary>
         /// Called when an entity enters a hotspot.
@@ -510,7 +511,7 @@ namespace SadConsole.Components
         /// <param name="hotspot">The hotspot the entity entered.</param>
         /// <param name="entity">The entity that entered a hotspot.</param>
         /// <param name="triggeredPosition">The position within the <see cref="Hotspot.Positions"/>.</param>
-        protected virtual void OnEntityEnterHotspot(Console host, Hotspot hotspot, Entity entity, Point triggeredPosition) { }
+        protected virtual void OnEntityEnterHotspot(Console host, Hotspot hotspot, BasicEntity entity, Point triggeredPosition) { }
 
         /// <summary>
         /// Called when an entity exits a hotspot.
@@ -519,7 +520,7 @@ namespace SadConsole.Components
         /// <param name="hotspot">The hotspot the entity exited.</param>
         /// <param name="entity">The entity that exited a hotspot.</param>
         /// <param name="triggeredPosition">The position within the <see cref="Hotspot.Positions"/>.</param>
-        protected virtual void OnEntityExitHotspot(Console host, Hotspot hotspot, Entity entity, Point triggeredPosition) { }
+        protected virtual void OnEntityExitHotspot(Console host, Hotspot hotspot, BasicEntity entity, Point triggeredPosition) { }
 
         /// <summary>
         /// Called when an entity enters a zone.
@@ -528,7 +529,7 @@ namespace SadConsole.Components
         /// <param name="zone">The zone the entity entered.</param>
         /// <param name="entity">The entity that entered the zone.</param>
         /// <param name="triggeredPosition">The position the entity entered.</param>
-        protected virtual void OnEntityEnterZone(Console host, Zone zone, Entity entity, Point triggeredPosition) { }
+        protected virtual void OnEntityEnterZone(Console host, Zone zone, BasicEntity entity, Point triggeredPosition) { }
 
         /// <summary>
         /// Called when an entity enters a zone.
@@ -537,7 +538,7 @@ namespace SadConsole.Components
         /// <param name="zone">The zone the entity exited.</param>
         /// <param name="entity">The entity that exited the zone.</param>
         /// <param name="triggeredPosition">The new position the entity left.</param>
-        protected virtual void OnEntityExitZone(Console host, Zone zone, Entity entity, Point triggeredPosition) { }
+        protected virtual void OnEntityExitZone(Console host, Zone zone, BasicEntity entity, Point triggeredPosition) { }
 
         /// <summary>
         /// Called when an entity moves within a zone.
@@ -547,7 +548,7 @@ namespace SadConsole.Components
         /// <param name="entity">The entity that moved in the zone.</param>
         /// <param name="newPosition">The position the entity moved to.</param>
         /// <param name="oldPosition">The position the entity moved from.</param>
-        protected virtual void OnEntityMoveZone(Console host, Zone zone, Entity entity, Point newPosition, Point oldPosition) { }
+        protected virtual void OnEntityMoveZone(Console host, Zone zone, BasicEntity entity, Point newPosition, Point oldPosition) { }
 
         /// <summary>
         /// Creates a new event args for the entity movement.
@@ -555,7 +556,7 @@ namespace SadConsole.Components
         /// <param name="entity">The entity associated with the event.</param>
         /// <param name="newPosition">The position the entity moved to.</param>
         /// <param name="oldPosition">The position the entity moved from.</param>
-        protected virtual void OnEntityMoved(Entity entity, Point newPosition, Point oldPosition) { }
+        protected virtual void OnEntityMoved(BasicEntity entity, Point newPosition, Point oldPosition) { }
 
         private class EntityState
         {
@@ -580,7 +581,7 @@ namespace SadConsole.Components
             /// <summary>
             /// The entity associated with the event.
             /// </summary>
-            public readonly Entity Entity;
+            public readonly BasicEntity Entity;
 
             /// <summary>
             /// The host console that the hotspot and entity share.
@@ -599,7 +600,7 @@ namespace SadConsole.Components
             /// <param name="hotspot">The hotspot associated with the event.</param>
             /// <param name="entity">The entity associated with the event.</param>
             /// <param name="triggeredPosition">The position within the <see cref="Hotspot.Positions"/> associated with the event.</param>
-            public HotspotEventArgs(Console host, Hotspot hotspot, Entity entity, Point triggeredPosition)
+            public HotspotEventArgs(Console host, Hotspot hotspot, BasicEntity entity, Point triggeredPosition)
             {
                 Host = host;
                 Hotspot = hotspot;
@@ -621,7 +622,7 @@ namespace SadConsole.Components
             /// <summary>
             /// The entity associated with the event.
             /// </summary>
-            public readonly Entity Entity;
+            public readonly BasicEntity Entity;
 
             /// <summary>
             /// The host console that the zone and entity share.
@@ -640,7 +641,7 @@ namespace SadConsole.Components
             /// <param name="zone">The zone associated with the event.</param>
             /// <param name="entity">The entity associated with the event.</param>
             /// <param name="triggeredPosition">The new position within the zone associated with the event.</param>
-            public ZoneEventArgs(Console host, Zone zone, Entity entity, Point triggeredPosition)
+            public ZoneEventArgs(Console host, Zone zone, BasicEntity entity, Point triggeredPosition)
             {
                 Host = host;
                 Zone = zone;
@@ -650,7 +651,7 @@ namespace SadConsole.Components
         }
 
         /// <summary>
-        /// Contains event data for a <see cref="Zone"/> and <see cref="Entity"/> interaction.
+        /// Contains event data for a <see cref="Zone"/> and <see cref="BasicEntity"/> interaction.
         /// </summary>
         public class ZoneMoveEventArgs : ZoneEventArgs
         {
@@ -668,10 +669,11 @@ namespace SadConsole.Components
             /// <param name="entity">The entity associated with the event.</param>
             /// <param name="triggeredPosition">The new position within the zone associated with the event.</param>
             /// <param name="movedFromPosition">The position within the zone that the entity moved from.</param>
-            public ZoneMoveEventArgs(Console host, Zone zone, Entity entity, Point triggeredPosition, Point movedFromPosition): base(host, zone, entity, triggeredPosition)
+            public ZoneMoveEventArgs(Console host, Zone zone, BasicEntity entity, Point triggeredPosition, Point movedFromPosition): base(host, zone, entity, triggeredPosition)
             {
                 MovedFromPosition = movedFromPosition;
             }
         }
     }
+	*/
 }

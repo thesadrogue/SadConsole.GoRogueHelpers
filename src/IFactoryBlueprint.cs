@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using GoRogue;
 
 namespace SadConsole
 {
@@ -20,7 +16,8 @@ namespace SadConsole
         /// <summary>
         /// Creates a <typeparamref name="TProduced"/> object.
         /// </summary>
+		/// <param name="position">The position of the item.</param>
         /// <returns>The created object.</returns>
-        TProduced Create();
+        TProduced Create(Coord position);
     }
 }

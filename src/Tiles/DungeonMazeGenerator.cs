@@ -1,14 +1,10 @@
-﻿using Microsoft.Xna.Framework;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using System.Collections.Generic;
 using System.Linq;
-using SadConsole;
-using System.Threading.Tasks;
+using SadConsole.Maps;
 using GoRogue.MapViews;
-using GoRogue.Random;
+using GoRogue;
 
-namespace SadConsole.Maps.Generators
+namespace SadConsole.Tiles
 {
     /// <summary>
     /// Generates a maze-room dungeon.
@@ -94,6 +90,12 @@ namespace SadConsole.Maps.Generators
             /// The blueprint to use with the <see cref="Tile.Factory"/> to generate a wall tile.
             /// </summary>
             public string TileBlueprintWall = "wall";
+
+			public Distance DistanceMeasurement = Distance.CHEBYSHEV;
+			public int NumberOfEntityLayers = 1;
+			public uint LayersBlockingWalkability = uint.MaxValue;
+			public uint LayersBlockingTransparency = uint.MaxValue;
+			public uint EntityLayersSupportingMultipleItems = uint.MaxValue;
         }
 
         /// <summary>
@@ -104,7 +106,7 @@ namespace SadConsole.Maps.Generators
         /// <summary>
         /// The SadConsole map generated from the <see cref="GoRogueMap"/>.
         /// </summary>
-        public Maps.MapConsole SadConsoleMap { get; protected set; }
+        public Tiles.TileMap SadConsoleMap { get; protected set; }
 
         /// <summary>
         /// Settings used to generate the map.
@@ -126,16 +128,6 @@ namespace SadConsole.Maps.Generators
         /// </summary>
         protected int MapHeight;
 
-        /// <summary>
-        /// The width of the viewport used in the map.
-        /// </summary>
-        protected int ViewPortWidth;
-
-        /// <summary>
-        /// The height of the viewport used in the map.
-        /// </summary>
-        protected int ViewPortHeight;
-
 
         /// <summary>
         /// Creates a new dungeon generator.
@@ -151,15 +143,13 @@ namespace SadConsole.Maps.Generators
         /// <param name="viewPortWidth">The width of the viewport used in the map.</param>
         /// <param name="viewPortHeight">The height of the viewport used in the map.</param>
         /// <returns>The generator.</returns>
-        public static DungeonMazeGenerator Create(GeneratorSettings settings, int mapWidth, int mapHeight, int viewPortWidth, int viewPortHeight)
+        public static DungeonMazeGenerator Create(GeneratorSettings settings, int mapWidth, int mapHeight)
         {
             var generator = new DungeonMazeGenerator
             {
                 Settings = settings,
                 MapWidth = mapWidth,
                 MapHeight = mapHeight,
-                ViewPortWidth = viewPortWidth,
-                ViewPortHeight = viewPortHeight
             };
 
             generator.Generate();
@@ -175,9 +165,9 @@ namespace SadConsole.Maps.Generators
         /// <param name="viewPortWidth">The width of the viewport used in the map.</param>
         /// <param name="viewPortHeight">The height of the viewport used in the map.</param>
         /// <returns>The generator.</returns>
-        public static DungeonMazeGenerator Create(int mapWidth, int mapHeight, int viewPortWidth, int viewPortHeight)
+        public static DungeonMazeGenerator Create(int mapWidth, int mapHeight)
         {
-            return Create(new GeneratorSettings(), mapWidth, mapHeight, viewPortWidth, viewPortHeight);
+            return Create(new GeneratorSettings(), mapWidth, mapHeight);
         }
         
         /// <summary>
@@ -185,9 +175,11 @@ namespace SadConsole.Maps.Generators
         /// </summary>
         protected virtual void Generate()
         {
-            SadConsoleMap = new SadConsole.Maps.MapConsole(MapWidth, MapHeight);
-            GoRogueMap = new GoRogue.MapViews.ArrayMap<bool>(MapWidth, MapHeight);
+            SadConsoleMap = new Tiles.TileMap(MapWidth, MapHeight, Settings.NumberOfEntityLayers, Settings.DistanceMeasurement, Settings.TileBlueprintWall,
+											  Settings.LayersBlockingWalkability, Settings.LayersBlockingTransparency, Settings.EntityLayersSupportingMultipleItems);
+            GoRogueMap = new ArrayMap<bool>(MapWidth, MapHeight);
 
+			// TODO: Replace with GoRogue.MapGeneration.QuickGenerators equivalent
             // Generate rooms
             var mapRooms = GoRogue.MapGeneration.Generators.RoomsGenerator.Generate(GoRogueMap, Settings.RoomsCountMin, Settings.RoomsCountMax, 
                                                                                                 Settings.RoomsSizeMin, Settings.RoomsSizeMax, 
@@ -203,16 +195,16 @@ namespace SadConsole.Maps.Generators
                                                                          Settings.RoomsConnectionsCancelPlacementChance, Settings.RoomsConnectionsCancelPlacementChanceIncrease);
             // Transform rooms into regions
             Rooms = (from c in connections
-                    let innerRect = (Rectangle)c.Room
-                    let outerRect = (Rectangle)c.Room.Expand(1, 1)
+                    let innerRect = c.Room
+                    let outerRect = c.Room.Expand(1, 1)
                     select new Region()
                     {
                         IsRectangle = true,
                         InnerRect = innerRect,
                         OuterRect = outerRect,
-                        InnerPoints = new List<Point>(innerRect.GetPoints()),
-                        OuterPoints = new List<Point>(outerRect.GetPoints()),
-                        Connections = c.Connections.SelectMany(a => a).Select(a => (Point)a).ToList()
+                        InnerPoints = innerRect.Positions().ToList(),
+                        OuterPoints = outerRect.Positions().ToList(),
+                        Connections = c.Connections.SelectMany(a => a).ToList()
                     }).ToList();
 
             // Copy regions to map
@@ -221,17 +213,17 @@ namespace SadConsole.Maps.Generators
             // Create tiles in the SadConsole map
             foreach (var position in GoRogueMap.Positions())
             {
-                if (GoRogueMap[position])
-                    SadConsoleMap[position] = Tile.Factory.Create(Settings.TileBlueprintFloor);
-                else
-                    SadConsoleMap[position] = Tile.Factory.Create(Settings.TileBlueprintWall);
+				if (GoRogueMap[position])
+					SadConsoleMap.SetTerrain(Tile.Factory.Create(Settings.TileBlueprintFloor, position));
+				else
+					SadConsoleMap.SetTerrain(Tile.Factory.Create(Settings.TileBlueprintWall, position));
             }
 
             foreach (var region in Rooms)
             {
                 foreach (var point in region.InnerPoints)
                 {
-                    SadConsoleMap[point].SetFlag(TileFlags.RegionLighted);
+                    SadConsoleMap.GetTerrain<Tile>(point).SetFlag(TileFlags.RegionLighted);
                 }
             }
         }
