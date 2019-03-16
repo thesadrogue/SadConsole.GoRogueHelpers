@@ -146,6 +146,16 @@ namespace SadConsole.Tiles
 			if (!isTransparent)
 				SetFlag(TileFlags.BlockLOS);
 
+			Color dimFore = Foreground * DimAmount;
+			Color dimBack = Background * DimAmount;
+			dimFore.A = 255;
+			dimBack.A = 255;
+
+			AppearanceDim = new Cell(dimFore, dimBack, Glyph);
+			AppearanceNormal = new Cell(Foreground, Background, Glyph);
+
+			AppearanceNeverSeen.CopyAppearanceTo(this);
+
 			TileChanged += OnSelfChanged;
 		}
 

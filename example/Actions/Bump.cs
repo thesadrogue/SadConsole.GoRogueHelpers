@@ -7,9 +7,9 @@ using SadConsole.Entities;
 
 namespace SadConsole.Actions
 {
-    class BumpTile : ActionBase<GameObjects.GameObjectBase, Maps.Tile>
+    class BumpTile : ActionBase<ActionBasedEntity, Tiles.Tile>
     {
-        public BumpTile(GameObjects.GameObjectBase source, Maps.Tile target): base (source, target) { }
+        public BumpTile(ActionBasedEntity source, Tiles.Tile target): base (source, target) { }
 
         public override void Run(TimeSpan timeElapsed)
         {
@@ -21,9 +21,9 @@ namespace SadConsole.Actions
         }
     }
 
-    class BumpGameObject : ActionBase<GameObjects.GameObjectBase, GameObjects.GameObjectBase>
+    class BumpGameObject : ActionBase<ActionBasedEntity, ActionBasedEntity>
     {
-        public BumpGameObject(GameObjects.GameObjectBase source, GameObjects.GameObjectBase target): base (source, target) { }
+        public BumpGameObject(ActionBasedEntity source, ActionBasedEntity target): base (source, target) { }
 
         public override void Run(TimeSpan timeElapsed)
         {

@@ -2,17 +2,20 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using GoRogue.MapViews;
 using Microsoft.Xna.Framework;
 using SadConsole.Entities;
 using SadConsole.Maps;
+using SadConsole.Tiles;
 using SadConsole;
 using SadConsole.Actions;
+using GoRogue;
 
 namespace BasicTutorial.GameObjects
 {
-    abstract class LivingCharacter : SadConsole.GameObjects.GameObjectBase
+    abstract class LivingCharacter : ActionBasedEntity
     {
+
         protected int baseHealthMax = 10;
         protected int baseAttack = 10;
         protected int baseDefense = 10;
@@ -49,6 +52,8 @@ namespace BasicTutorial.GameObjects
         /// </summary>
         public int LightSourceDistance { get { return baseLightSourceDistance + GetInventoryLightingMods(); } }
 
+		public new TileMap CurrentMap => (TileMap)base.CurrentMap;
+
 
         /// <summary>
         /// The inventory of a character.
@@ -69,10 +74,13 @@ namespace BasicTutorial.GameObjects
         protected GoRogue.FOV FOVSight;
         protected GoRogue.FOV FOVLighted;
 
-        protected LivingCharacter(MapConsole map, Color foreground, Color background, int glyph) : base(map, foreground, background, glyph)
+        protected LivingCharacter(TileMap map, Coord position, Color foreground, Color background, int glyph)
+			: base(foreground, background, glyph, position, 1, isWalkable: false, isTransparent: true)
         {
-            FOVSight = new GoRogue.FOV(map.MapToFOV);
-            FOVLighted = new GoRogue.FOV(map.MapToFOV);
+            FOVSight = new GoRogue.FOV(map.TransparencyView);
+            FOVLighted = new GoRogue.FOV(map.TransparencyView);
+
+			map.AddEntity(this);
         }
         
         public override void ProcessGameFrame()
@@ -87,22 +95,22 @@ namespace BasicTutorial.GameObjects
             if (currentRegion != null && !currentRegion.InnerPoints.Contains(Position))
             {
                 // If player, handle room lighting
-                if (this == map.ControlledGameObject)
+                if (this == CurrentMap.ControlledGameObject)
                 {
                     foreach (var point in currentRegion.InnerPoints)
                     {
-                        map[point].UnsetFlag(TileFlags.Lighted, TileFlags.InLOS);
+                        CurrentMap.GetTerrain<Tile>(point).UnsetFlag(TileFlags.Lighted, TileFlags.InLOS);
                     }
                     foreach (var point in currentRegion.OuterPoints)
                     {
-                        map[point].UnsetFlag(TileFlags.Lighted, TileFlags.InLOS);
+                        CurrentMap.GetTerrain<Tile>(point).UnsetFlag(TileFlags.Lighted, TileFlags.InLOS);
                     }
 
                     foreach (var tile in FOVSight.CurrentFOV)
-                        map[tile].SetFlag(TileFlags.InLOS);
+                        CurrentMap.GetTerrain<Tile>(tile).SetFlag(TileFlags.InLOS);
 
                     foreach (var tile in FOVLighted.CurrentFOV)
-                        map[tile].SetFlag(TileFlags.Lighted);
+                        CurrentMap.GetTerrain<Tile>(tile).SetFlag(TileFlags.Lighted);
                 }
 
                 // We're not in this region anymore
@@ -113,7 +121,7 @@ namespace BasicTutorial.GameObjects
             if (currentRegion == null)
             {
                 // See if we're in a different region
-                foreach (var region in map.Regions)
+                foreach (var region in CurrentMap.Regions)
                 {
                     if (region.InnerPoints.Contains(Position))
                     {
@@ -133,25 +141,25 @@ namespace BasicTutorial.GameObjects
             FOVSight.Calculate(Position, VisibilityDistance);
 
             // If player, handle LOS flags for tiles.
-            if (this == map.ControlledGameObject)
+            if (this == CurrentMap.ControlledGameObject)
             {
                 foreach (var tile in FOVSight.NewlyUnseen)
-                    map[tile].UnsetFlag(TileFlags.InLOS);
+                    CurrentMap.GetTerrain<Tile>(tile).UnsetFlag(TileFlags.InLOS);
 
                 foreach (var tile in FOVSight.NewlySeen)
-                    map[tile].SetFlag(TileFlags.InLOS);
+                    CurrentMap.GetTerrain<Tile>(tile).SetFlag(TileFlags.InLOS);
             }
 
             // Lighting
             FOVLighted.Calculate(Position, LightSourceDistance);
 
-            if (this == map.ControlledGameObject)
+            if (this == CurrentMap.ControlledGameObject)
             {
                 foreach (var tile in FOVLighted.NewlyUnseen)
-                    map[tile].UnsetFlag(TileFlags.Lighted);
+                    CurrentMap.GetTerrain<Tile>(tile).UnsetFlag(TileFlags.Lighted);
 
                 foreach (var tile in FOVLighted.NewlySeen)
-                    map[tile].SetFlag(TileFlags.Lighted, TileFlags.Seen);
+                    CurrentMap.GetTerrain<Tile>(tile).SetFlag(TileFlags.Lighted, TileFlags.Seen);
             }
 
 
@@ -163,10 +171,10 @@ namespace BasicTutorial.GameObjects
                 // Make sure these are lit
                 foreach (var point in currentRegion.InnerPoints)
                 {
-                    tile = map[point];
+                    tile = CurrentMap.GetTerrain<Tile>(point);
 
                     // If player, handle room lighting
-                    if (this == map.ControlledGameObject)
+                    if (this == CurrentMap.ControlledGameObject)
                         tile.SetFlag(TileFlags.Lighted, TileFlags.InLOS, TileFlags.Seen);
 
                     // Add tile to visible list, for calculating if the player can see.
@@ -175,10 +183,10 @@ namespace BasicTutorial.GameObjects
 
                 foreach (var point in currentRegion.OuterPoints)
                 {
-                    tile = map[point];
+                    tile = CurrentMap.GetTerrain<Tile>(point);
 
                     // If player, handle room lighting
-                    if (this == map.ControlledGameObject)
+                    if (this == CurrentMap.ControlledGameObject)
                         tile.SetFlag(TileFlags.Lighted, TileFlags.InLOS, TileFlags.Seen);
 
                     // Add tile to visible list, for calculating if the player can see.
@@ -189,9 +197,9 @@ namespace BasicTutorial.GameObjects
 
         protected void AddVisibleTile(int x, int y)
         {
-            if (map.IsTileValid(x, y))
+            if (CurrentMap.Bounds().Contains(x, y))
             {
-                Tile tile = map[x, y];
+                Tile tile = CurrentMap.GetTerrain<Tile>(x, y);
                 tile.SetFlag(TileFlags.InLOS);
                 newVisibleTiles.Add(tile);
             }
@@ -199,9 +207,9 @@ namespace BasicTutorial.GameObjects
 
         protected void AddLightVisbilityTile(int x, int y)
         {
-            if (map.IsTileValid(x, y))
+            if (CurrentMap.Bounds().Contains(x, y))
             {
-                Tile tile = map[x, y];
+                Tile tile = CurrentMap.GetTerrain<Tile>(x, y);
                 tile.SetFlag(TileFlags.Lighted);
                 newLightSourceTiles.Add(tile);
             }

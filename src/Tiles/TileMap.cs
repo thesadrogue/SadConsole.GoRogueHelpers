@@ -19,6 +19,11 @@ namespace SadConsole.Tiles
 		/// </summary>
 		public event EventHandler<TileChangedEventArgs> MapTileChanged;
 
+		/// <summary>
+		/// The game object that will be controlled by the player.
+		/// </summary>
+		public ActionBasedEntity ControlledGameObject { get; set; }
+
 		public TileMap(int width, int height, int numberOfEntityLayers, Distance distanceMeasurement, string defaultTileBlueprint = "wall", 
 						uint layersBlockingWalkability = uint.MaxValue, uint layersBlockingTransparency = uint.MaxValue,
 						uint entityLayersSupportingMultipleItems = uint.MaxValue)

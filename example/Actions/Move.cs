@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using GoRogue;
+using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,15 +11,15 @@ namespace SadConsole.Actions
 {
     class Move : ActionBase
     {
-        public static Move MoveBy(GameObjects.GameObjectBase source, Point change, Maps.MapConsole map)
+        public static Move MoveBy(ActionBasedEntity source, Direction change)
         {
-            return new Move() { Source = source, PositionChange = change, Map = map };
+            return new Move() { Source = source, PositionChange = change };
         }
 
-        public Maps.MapConsole Map;
-        public GameObjects.GameObjectBase Source;
-        public Point PositionChange;
-        public Point TargetPosition;
+        //public Maps.MapConsole Map;
+        public ActionBasedEntity Source;
+        public Direction PositionChange;
+        public Coord TargetPosition;
 
         public override void Run(TimeSpan timeElapsed)
         {
@@ -27,40 +28,35 @@ namespace SadConsole.Actions
             if (TargetPosition == Source.Position)
                 return;
 
-            if (Map.IsTileWalkable(TargetPosition.X, TargetPosition.Y))
-            {
-                var ents = Map.GameObjects.GetEntities(TargetPosition).ToArray();
-
-                if (ents.Length == 0)
-                {
-                    Source.MoveBy(PositionChange);
-
-                    if (Source == Map.ControlledGameObject)
-                    {
-                        if (PositionChange == Directions.West)
-                            BasicTutorial.GameState.Dungeon.Messages.Print("You move west.", BasicTutorial.MessageConsole.MessageTypes.Status);
-                        else if (PositionChange == Directions.East)
-                            BasicTutorial.GameState.Dungeon.Messages.Print("You move east.", BasicTutorial.MessageConsole.MessageTypes.Status);
-                        else if (PositionChange == Directions.North)
-                            BasicTutorial.GameState.Dungeon.Messages.Print("You move north.", BasicTutorial.MessageConsole.MessageTypes.Status);
-                        else if (PositionChange == Directions.South)
-                            BasicTutorial.GameState.Dungeon.Messages.Print("You move south.", BasicTutorial.MessageConsole.MessageTypes.Status);
-                    }
-                }
-                else
-                {
-                    foreach (var item in ents)
-                    {
-                        BumpGameObject bump = new BumpGameObject(Source, (GameObjects.GameObjectBase)item);
-                        BasicTutorial.GameState.Dungeon.ActionProcessor.PushAndRun(bump);
-                    }
-                }
-            }
-            else
-            {
-                BumpTile bump = new BumpTile(Source, Map[TargetPosition]);
-                BasicTutorial.GameState.Dungeon.ActionProcessor.PushAndRun(bump);
-            }
+			bool moved = Source.MoveIn(PositionChange);
+			if (!moved)
+			{
+				Tiles.Tile tile = Source.CurrentMap.GetTerrain<Tiles.Tile>(TargetPosition);
+				if (!tile.IsWalkable)
+				{
+					BumpTile bump = new BumpTile(Source, tile);
+					BasicTutorial.GameState.Dungeon.ActionProcessor.PushAndRun(bump);
+				}
+				else
+				{
+					foreach (var item in Source.CurrentMap.GetEntities<ActionBasedEntity>(TargetPosition)) // Something blocked us
+					{
+						BumpGameObject bump = new BumpGameObject(Source, item);
+						BasicTutorial.GameState.Dungeon.ActionProcessor.PushAndRun(bump);
+					}
+				}
+			}
+			else if (Source == ((Tiles.TileMap)Source.CurrentMap).ControlledGameObject) // We are the player
+			{
+				if (PositionChange == Direction.LEFT)
+					BasicTutorial.GameState.Dungeon.Messages.Print("You move west.", BasicTutorial.MessageConsole.MessageTypes.Status);
+				else if (PositionChange == Direction.RIGHT)
+					BasicTutorial.GameState.Dungeon.Messages.Print("You move east.", BasicTutorial.MessageConsole.MessageTypes.Status);
+				else if (PositionChange == Direction.UP)
+					BasicTutorial.GameState.Dungeon.Messages.Print("You move north.", BasicTutorial.MessageConsole.MessageTypes.Status);
+				else if (PositionChange == Direction.DOWN)
+					BasicTutorial.GameState.Dungeon.Messages.Print("You move south.", BasicTutorial.MessageConsole.MessageTypes.Status);
+			}
 
             Finish(ActionResult.Success);
         }

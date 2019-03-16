@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using GoRogue;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 using SadConsole;
 using SadConsole.Actions;
+using Rectangle = Microsoft.Xna.Framework.Rectangle;
 using Console = SadConsole.Console;
 
 namespace BasicTutorial
@@ -20,16 +22,21 @@ namespace BasicTutorial
         public bool RunLogicFrame;
         public bool RedrawMap;
 
-        public SadConsole.Maps.MapConsole Map { get; }
+        public SadConsole.ScrollingConsole MapConsole { get; }
+		public SadConsole.Tiles.TileMap Map { get; }
 
         public MessageConsole Messages { get; }
 
-        public DungeonScreen(SadConsole.Maps.MapConsole map)
+        public DungeonScreen(SadConsole.Tiles.TileMap map)
         {
             // Setup map
             Map = map;
-            Map.Position = ScreenRegionMap.Location;
-            Map.ViewPort = new Rectangle(0, 0, ScreenRegionMap.Width, ScreenRegionMap.Height);
+			MapConsole = new ScrollingConsole(map.Width, map.Height, SadConsole.Global.FontDefault,
+											  new Rectangle(0, 0, ScreenRegionMap.Width, ScreenRegionMap.Height), null);
+			Map.ConfigureAsRenderer(MapConsole);
+
+            MapConsole.Position = ScreenRegionMap.Location;
+            //MapConsole.ViewPort = new Rectangle(0, 0, ScreenRegionMap.Width, ScreenRegionMap.Height);
 
             // Setup actions
             ActionProcessor = new SadConsole.Actions.ActionStack();
@@ -39,7 +46,7 @@ namespace BasicTutorial
             Messages = new MessageConsole(ScreenRegionMessages.Width, ScreenRegionMessages.Height);
             Messages.Position = ScreenRegionMessages.Location;
             Children.Add(Messages);
-            Children.Add(Map);
+            Children.Add(MapConsole);
         }
 
         public override void Update(TimeSpan timeElapsed)
@@ -60,7 +67,7 @@ namespace BasicTutorial
                 ActionProcessor.Pop();
 
             // Center view on player
-            Map.CenterViewPortOnPoint(Map.ControlledGameObject.Position);
+            MapConsole.CenterViewPortOnPoint(Map.ControlledGameObject.Position);
 
             // Run logic if valid move made by player
             if (RunLogicFrame)
@@ -68,7 +75,7 @@ namespace BasicTutorial
 
             if (RedrawMap)
             {
-                Map.IsDirty = true;
+                MapConsole.IsDirty = true;
                 RedrawMap = false;
             }
             //point.X = Math.Max(0, point.X);
@@ -86,33 +93,33 @@ namespace BasicTutorial
             // Handle keyboard when this screen is being run
             if (SadConsole.Global.KeyboardState.IsKeyPressed(Keys.Left))
             {
-                ActionProcessor.PushAndRun(Move.MoveBy(Map.ControlledGameObject, Directions.West, Map));
+                ActionProcessor.PushAndRun(Move.MoveBy(Map.ControlledGameObject, Direction.LEFT));
                 RunLogicFrame = true;
             }
 
             else if (SadConsole.Global.KeyboardState.IsKeyPressed(Keys.Right))
             {
-                ActionProcessor.PushAndRun(Move.MoveBy(Map.ControlledGameObject, Directions.East, Map));
+                ActionProcessor.PushAndRun(Move.MoveBy(Map.ControlledGameObject, Direction.RIGHT));
                 RunLogicFrame = true;
             }
 
             if (SadConsole.Global.KeyboardState.IsKeyPressed(Keys.Up))
             {
-                ActionProcessor.PushAndRun(Move.MoveBy(Map.ControlledGameObject, Directions.North, Map));
+                ActionProcessor.PushAndRun(Move.MoveBy(Map.ControlledGameObject, Direction.UP));
                 RunLogicFrame = true;
             }
             else if (SadConsole.Global.KeyboardState.IsKeyPressed(Keys.Down))
             {
-                ActionProcessor.PushAndRun(Move.MoveBy(Map.ControlledGameObject, Directions.South, Map));
+                ActionProcessor.PushAndRun(Move.MoveBy(Map.ControlledGameObject, Direction.DOWN));
                 RunLogicFrame = true;
             }
         }
 
         private void RunGameLogicFrame()
         {
-            foreach (var ent in Map.GameObjects.Entities)
+            foreach (var ent in Map.Entities.Items.Cast<ActionBasedEntity>())
                 if (ent != Map.ControlledGameObject)
-                    ((SadConsole.GameObjects.GameObjectBase)ent).ProcessGameFrame();
+                    ent.ProcessGameFrame();
 
             // Process player (though it was proc in the previous loop) to make sure they are last to be processed
             Map.ControlledGameObject.ProcessGameFrame();
