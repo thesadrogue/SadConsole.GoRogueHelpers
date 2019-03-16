@@ -2,7 +2,6 @@
 using GoRogue.GameFramework;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using SadConsole.Actions;
 using System;
 using System.Collections.Generic;
 
@@ -48,8 +47,6 @@ namespace SadConsole
 			_backingField = new GameObject(position, 0, this, true, isWalkable, isTransparent);
 		}
 		#endregion Constructors
-
-		public virtual void ProcessAction(ActionBase command) { }
 
 		#region IGameObject Implementation
 

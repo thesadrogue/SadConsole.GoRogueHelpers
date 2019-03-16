@@ -1,7 +1,6 @@
 ﻿using GoRogue;
 using GoRogue.GameFramework;
 using Microsoft.Xna.Framework;
-using SadConsole.Actions;
 using System;
 using System.Collections.Generic;
 
@@ -12,16 +11,6 @@ namespace SadConsole
 	public class BasicEntity : Entities.Entity, IGameObject
 	{
 		private IGameObject _backingField;
-
-		/// <summary>
-		/// Gets or sets a friendly short title for the object.
-		/// </summary>
-		public string Title { get; set; }
-
-		/// <summary>
-		/// Gets or sets a longer description for the object.
-		/// </summary>
-		public string Description { get; set; }
 
 		#region Constructors
 
@@ -56,18 +45,9 @@ namespace SadConsole
 
 			base.Moved += SadConsole_Moved;
 			_backingField.Moved += GoRogue_Moved;
-
-			Title = "Unknown";
-			Description = "Not much is known about this object.";
 		}
 
 		#endregion Constructors
-
-		public virtual void ProcessAction(ActionBase command) { }
-
-		public virtual void ProcessGameFrame() { }
-
-		public virtual void OnDestroy() { }
 
 		// Handle the case where GoRogue's position was the one that initiated the move
 		private void GoRogue_Moved(object sender, ItemMovedEventArgs<IGameObject> e)

@@ -151,6 +151,7 @@ namespace SadConsole.Tiles
 
 		#endregion Constructors
 
+
 		public void ChangeAppearance(Cell normal)
 		{
 			Color dimFore = normal.Foreground * DimAmount;
@@ -204,7 +205,7 @@ namespace SadConsole.Tiles
 			Flags = Helpers.UnsetFlag(this.flags, total);
 		}
 
-		public override void ProcessAction(Actions.ActionBase action) => OnProcessAction?.Invoke(this, action);
+		public virtual void ProcessAction(Actions.ActionBase action) => OnProcessAction?.Invoke(this, action);
 
 		protected virtual void UpdateAppearance()
 		{
