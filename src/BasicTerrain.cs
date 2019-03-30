@@ -7,6 +7,10 @@ using System.Collections.Generic;
 
 namespace SadConsole
 {
+	/// <summary>
+	/// A GoRogue.GameFramework.GameObject that also inherits from SadConsole.Cell, that can be used to represent terrain
+	/// on a map.
+	/// </summary>
 	public class BasicTerrain : Cell, IGameObject
 	{
 		private IGameObject _backingField;

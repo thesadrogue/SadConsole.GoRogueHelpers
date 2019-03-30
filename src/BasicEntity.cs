@@ -6,8 +6,10 @@ using System.Collections.Generic;
 
 namespace SadConsole
 {
-// TODO: Action system isn't technically needed to make gorogue integration work... but it seems harmless enough to leave in,
-// and can potentially be parsed out later
+	/// <summary>
+	/// A GoRogue.GameFramework.GameObject that also inherits from SadConsole.Entities.Entity, that can be used to represent
+	/// non-terrain objects on a map.
+	/// </summary>
 	public class BasicEntity : Entities.Entity, IGameObject
 	{
 		private IGameObject _backingField;
@@ -49,25 +51,27 @@ namespace SadConsole
 
 		#endregion Constructors
 
-		// Handle the case where GoRogue's position was the one that initiated the move
+		// Handle the case where GoRogue's Position property was the one that initiated the move
 		private void GoRogue_Moved(object sender, ItemMovedEventArgs<IGameObject> e)
 		{
-			// Casts are necessary for now due to GoRogue bug #131
-			if ((Point)Position != base.Position) // We need to sync entity
+			if (Position != base.Position) // We need to sync entity
 				base.Position = Position;
 
-			// SadConsole's Entity position set can't fail so no need to do other checks here
+			// SadConsole's Entity position set can't fail so no need to check for success here
 		}
 
-		// Handle the case where you set the position when its casted to Entity
+		// Handle the case where SadConsole's Position property was the one that initiated the move
 		private void SadConsole_Moved(object sender, EntityMovedEventArgs e)
 		{
-			// Casts are necessary for now due to GoRogue bug #131
-			if ((Point)Position != base.Position)
+			if (Position != base.Position)
+			{
 				Position = base.Position;
 
-			if ((Point)Position != base.Position) // GoRogue wouldn't allow the position set
-				base.Position = Position; // Set it back.  This shouldn't infinite loop because Position is still equal to the old base.Position
+				// GoRogue wouldn't allow the position set, so set SadConsole's position back to the way it was
+				// to keep them in sync.  Since GoRogue's position never changed, this won't infinite loop.
+				if (Position != base.Position)
+					base.Position = Position;
+			}
 		}
 
 		#region IGameObject Implementation
