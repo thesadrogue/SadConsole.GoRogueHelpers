@@ -19,7 +19,8 @@ namespace BasicTutorial
         public static readonly Rectangle ScreenRegionMessages = new Rectangle(0, ScreenRegionMap.Bottom + 1, Program.ScreenWidth - 10, Program.ScreenHeight - ScreenRegionMap.Height - 1);
         public SadConsole.Actions.ActionStack ActionProcessor;
 
-        public bool RunLogicFrame;
+		private GameFrameManager _frameManager;
+
         public bool RedrawMap;
 
         public SadConsole.ScrollingConsole MapConsole { get; }
@@ -41,6 +42,9 @@ namespace BasicTutorial
             // Setup actions
             ActionProcessor = new SadConsole.Actions.ActionStack();
             ActionProcessor.Push(new SadConsole.Actions.ActionDelegate(ActionKeyboardProcessor));
+
+			_frameManager = new GameFrameManager(map);
+			_frameManager.LogicFrameCompleted += (s, e) => RedrawMap = true;
 
             // Setup messages
             Messages = new MessageConsole(ScreenRegionMessages.Width, ScreenRegionMessages.Height);
@@ -69,9 +73,8 @@ namespace BasicTutorial
             // Center view on player
             MapConsole.CenterViewPortOnPoint(Map.ControlledGameObject.Position);
 
-            // Run logic if valid move made by player
-            if (RunLogicFrame)
-                RunGameLogicFrame();
+			// Run logic if valid move made by player
+			_frameManager.Update();
 
             if (RedrawMap)
             {
@@ -94,40 +97,25 @@ namespace BasicTutorial
             if (SadConsole.Global.KeyboardState.IsKeyPressed(Keys.Left))
             {
                 ActionProcessor.PushAndRun(Move.MoveBy(Map.ControlledGameObject, Direction.LEFT));
-                RunLogicFrame = true;
+                _frameManager.RunLogicFrame = true;
             }
 
             else if (SadConsole.Global.KeyboardState.IsKeyPressed(Keys.Right))
             {
                 ActionProcessor.PushAndRun(Move.MoveBy(Map.ControlledGameObject, Direction.RIGHT));
-                RunLogicFrame = true;
+                _frameManager.RunLogicFrame = true;
             }
 
             if (SadConsole.Global.KeyboardState.IsKeyPressed(Keys.Up))
             {
                 ActionProcessor.PushAndRun(Move.MoveBy(Map.ControlledGameObject, Direction.UP));
-                RunLogicFrame = true;
+                _frameManager.RunLogicFrame = true;
             }
             else if (SadConsole.Global.KeyboardState.IsKeyPressed(Keys.Down))
             {
                 ActionProcessor.PushAndRun(Move.MoveBy(Map.ControlledGameObject, Direction.DOWN));
-                RunLogicFrame = true;
+                _frameManager.RunLogicFrame = true;
             }
-        }
-
-        private void RunGameLogicFrame()
-        {
-            foreach (var ent in Map.Entities.Items.Cast<ActionBasedEntity>())
-                if (ent != Map.ControlledGameObject)
-                    ent.ProcessGameFrame();
-
-            // Process player (though it was proc in the previous loop) to make sure they are last to be processed
-            Map.ControlledGameObject.ProcessGameFrame();
-
-            // Redraw the map
-            RedrawMap = true;
-
-            RunLogicFrame = false;
         }
     }
 }

@@ -7,9 +7,9 @@ using SadConsole.Entities;
 
 namespace SadConsole.Actions
 {
-    class BumpTile : ActionBase<ActionBasedEntity, Tiles.Tile>
+    class BumpTile : ActionBase<BasicEntity, Tiles.Tile>
     {
-        public BumpTile(ActionBasedEntity source, Tiles.Tile target): base (source, target) { }
+        public BumpTile(BasicEntity source, Tiles.Tile target): base (source, target) { }
 
         public override void Run(TimeSpan timeElapsed)
         {
@@ -21,17 +21,18 @@ namespace SadConsole.Actions
         }
     }
 
-    class BumpGameObject : ActionBase<ActionBasedEntity, ActionBasedEntity>
+    class BumpGameObject : ActionBase<BasicEntity, BasicEntity>
     {
-        public BumpGameObject(ActionBasedEntity source, ActionBasedEntity target): base (source, target) { }
+        public BumpGameObject(BasicEntity source, BasicEntity target): base (source, target) { }
 
         public override void Run(TimeSpan timeElapsed)
         {
             // Assume that this bump is a failure
             Finish(ActionResult.Failure);
 
-            // Tell the entity to process this bump. The entity may set Finish to success or failure.
-            Target.ProcessAction(this);
+			// Tell the entity to process this bump. The entity may set Finish to success or failure.
+			foreach (var processor in Target.GetComponents<Components.GoRogue.ActionProcessor>())
+				processor.ProcessAction(this);
         }
     }
 }

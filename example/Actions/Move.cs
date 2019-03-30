@@ -11,13 +11,13 @@ namespace SadConsole.Actions
 {
     class Move : ActionBase
     {
-        public static Move MoveBy(ActionBasedEntity source, Direction change)
+        public static Move MoveBy(BasicEntity source, Direction change)
         {
             return new Move() { Source = source, PositionChange = change };
         }
 
         //public Maps.MapConsole Map;
-        public ActionBasedEntity Source;
+        public BasicEntity Source;
         public Direction PositionChange;
         public Coord TargetPosition;
 
@@ -39,7 +39,7 @@ namespace SadConsole.Actions
 				}
 				else
 				{
-					foreach (var item in Source.CurrentMap.GetEntities<ActionBasedEntity>(TargetPosition)) // Something blocked us
+					foreach (var item in Source.CurrentMap.GetEntities<BasicEntity>(TargetPosition)) // Something blocked us
 					{
 						BumpGameObject bump = new BumpGameObject(Source, item);
 						BasicTutorial.GameState.Dungeon.ActionProcessor.PushAndRun(bump);

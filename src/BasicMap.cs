@@ -19,6 +19,11 @@ namespace SadConsole
 
 		private List<Console> _renderers;
 
+		/// <summary>
+		/// The game object that will be controlled by the player.
+		/// </summary>
+		public BasicEntity ControlledGameObject { get; set; }
+
 		public BasicMap(int width, int height, int numberOfEntityLayers, Distance distanceMeasurement, uint layersBlockingWalkability = uint.MaxValue,
 				   uint layersBlockingTransparency = uint.MaxValue, uint entityLayersSupportingMultipleItems = uint.MaxValue)
 			: base(CreateTerrain(width, height), numberOfEntityLayers, distanceMeasurement, layersBlockingWalkability,

@@ -13,7 +13,16 @@ using GoRogue;
 
 namespace BasicTutorial.GameObjects
 {
-    abstract class LivingCharacter : ActionBasedEntity
+	class GameFrameTileVisibilityRefresher : SadConsole.Components.GoRogue.GameFrameProcessor
+	{
+		public new LivingCharacter Parent => (LivingCharacter)base.Parent;
+		public override void ProcessGameFrame()
+		{
+			Parent.RefreshVisibilityTiles();
+		}
+	}
+
+	abstract class LivingCharacter : BasicEntity
     {
 
         protected int baseHealthMax = 10;
@@ -52,6 +61,16 @@ namespace BasicTutorial.GameObjects
         /// </summary>
         public int LightSourceDistance { get { return baseLightSourceDistance + GetInventoryLightingMods(); } }
 
+		/// <summary>
+		/// Gets or sets a friendly short title for the object.
+		/// </summary>
+		public string Title { get; set; }
+
+		/// <summary>
+		/// Gets or sets a longer description for the object.
+		/// </summary>
+		public string Description { get; set; }
+
 		public new TileMap CurrentMap => (TileMap)base.CurrentMap;
 
 
@@ -77,15 +96,15 @@ namespace BasicTutorial.GameObjects
         protected LivingCharacter(TileMap map, Coord position, Color foreground, Color background, int glyph)
 			: base(foreground, background, glyph, position, 1, isWalkable: false, isTransparent: true)
         {
-            FOVSight = new GoRogue.FOV(map.TransparencyView);
+			Title = "Unknown";
+			Description = "Not much is known about this object.";
+
+			FOVSight = new GoRogue.FOV(map.TransparencyView);
             FOVLighted = new GoRogue.FOV(map.TransparencyView);
 
 			map.AddEntity(this);
-        }
-        
-        public override void ProcessGameFrame()
-        {
-            RefreshVisibilityTiles();
+
+			AddComponent(new GameFrameTileVisibilityRefresher());
         }
         
         public void RefreshVisibilityTiles()
