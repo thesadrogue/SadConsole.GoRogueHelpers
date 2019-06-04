@@ -2,6 +2,7 @@
 using GoRogue.GameFramework;
 using GoRogue.MapViews;
 using SadConsole.Components;
+using System;
 using System.Collections.Generic;
 using XnaRectangle = Microsoft.Xna.Framework.Rectangle;
 
@@ -18,6 +19,25 @@ namespace SadConsole
 		private MultipleConsoleEntityDrawingComponent[] _entitySyncersByLayer;
 
 		private List<Console> _renderers;
+
+		private bool _drawingComponentsHandleVisibility;
+		public bool DrawingComponentsHandleVisibility
+		{
+			get => _drawingComponentsHandleVisibility;
+
+			set
+			{
+				if (_drawingComponentsHandleVisibility != value)
+				{
+					_drawingComponentsHandleVisibility = value;
+
+					foreach (var syncComponent in _entitySyncersByLayer)
+						syncComponent.HandleIsVisible = value;
+				}
+			}
+		}
+
+		public event EventHandler FOVRecalculated;
 
 		/// <summary>
 		/// The game object that will be controlled by the player.
@@ -37,6 +57,8 @@ namespace SadConsole
 			_entitySyncersByLayer = new MultipleConsoleEntityDrawingComponent[numberOfEntityLayers];
 			for (int i = 0; i < _entitySyncersByLayer.Length; i++)
 				_entitySyncersByLayer[i] = new MultipleConsoleEntityDrawingComponent();
+
+			DrawingComponentsHandleVisibility = true;
 
 			// Ensure sync components/IsDirty flag stay up to date
 			ObjectAdded += GRMap_ObjectAdded;
@@ -111,6 +133,20 @@ namespace SadConsole
 			foreach (var syncer in _entitySyncersByLayer)
 				renderer.Components.Add(syncer);
 			renderer.IsDirty = true; // Make sure we re-render
+		}
+
+		public override void CalculateFOV(int x, int y, double radius, Distance radiusShape)
+		{
+			base.CalculateFOV(x, y, radius, radiusShape);
+
+			FOVRecalculated?.Invoke(this, EventArgs.Empty);
+		}
+
+		public override void CalculateFOV(int x, int y, double radius, Distance radiusShape, double angle, double span)
+		{
+			base.CalculateFOV(x, y, radius, radiusShape, angle, span);
+
+			FOVRecalculated?.Invoke(this, EventArgs.Empty);
 		}
 
 		// Create new map, and return as something GoRogue understands
