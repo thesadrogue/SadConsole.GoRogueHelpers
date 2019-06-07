@@ -65,9 +65,9 @@ namespace SadConsole.Tiles
 
 			public TileBlueprint(string id) => Id = id;
 
-			public virtual Tile Create(Coord position)
+			public virtual Tile Create()
 			{
-				var tile = new Tile(Appearance.Foreground, Appearance.Background, Appearance.Glyph, position, true, true)
+				var tile = new Tile(Appearance.Foreground, Appearance.Background, Appearance.Glyph, new Coord(-1, -1), true, true)
 				{
 					tileType = Type,
 					Title = Title,

@@ -13,10 +13,15 @@ namespace BasicTutorial.Maps.Generators
         {
             bool PercentageCheck(int outOfHundred) => outOfHundred != 0 && GoRogue.Random.SingletonRandom.DefaultRNG.Next(101) < outOfHundred;
 
-            foreach (var room in rooms)
-            foreach (var point in room.Connections)
-                if (!PercentageCheck(leaveFloorAloneChance))
-                    map.SetTerrain(SadConsole.Tiles.Tile.Factory.Create(doorBlueprint, point));
+			foreach (var room in rooms)
+				foreach (var point in room.Connections)
+					if (!PercentageCheck(leaveFloorAloneChance))
+					{
+						var tile = SadConsole.Tiles.Tile.Factory.Create(doorBlueprint);
+						tile.Position = point;
+						// TODO: Can't do this. Object is static.
+						map.SetTerrain(tile);
+					}
         }
     }
 }

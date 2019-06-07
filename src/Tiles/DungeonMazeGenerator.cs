@@ -213,11 +213,15 @@ namespace SadConsole.Tiles
             // Create tiles in the SadConsole map
             foreach (var position in GoRogueMap.Positions())
             {
+				Tile terrain;
 				if (GoRogueMap[position])
-					SadConsoleMap.SetTerrain(Tile.Factory.Create(Settings.TileBlueprintFloor, position));
+					terrain = Tile.Factory.Create(Settings.TileBlueprintFloor);
 				else
-					SadConsoleMap.SetTerrain(Tile.Factory.Create(Settings.TileBlueprintWall, position));
-            }
+					terrain = Tile.Factory.Create(Settings.TileBlueprintWall);
+
+				terrain.Position = position;
+				SadConsoleMap.SetTerrain(terrain);
+			}
 
             foreach (var region in Rooms)
             {

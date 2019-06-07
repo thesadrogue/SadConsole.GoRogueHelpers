@@ -13,7 +13,7 @@ namespace SadConsole
 	/// Then, the controlled game object will have its components ProcessGameFrame functions called.  Finally, the <see cref="RunLogicFrame"/> value
 	/// is set to false, <see cref="LogicFrameCompleted"/> event is fired.
 	/// </remarks>
-	public class GameFrameManager
+	public class GameFrameManager : SadConsole.Components.UpdateConsoleComponent
 	{
 		public bool RunLogicFrame;
 
@@ -26,7 +26,7 @@ namespace SadConsole
 			Map = map;
 		}
 
-		public void Update()
+		public override void Update(Console console, TimeSpan delta)
 		{
 			// Run logic if valid move made by player
 			if (RunLogicFrame)

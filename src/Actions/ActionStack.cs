@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using SadConsole.Components;
 using SadConsole.Input;
 
@@ -26,7 +23,7 @@ namespace SadConsole.Actions
         public int ComponentSortOrder { get; set; }
 
         /// <summary>
-        /// Pushes the action to the stack and immediently calls <see cref="ActionBase.Run(TimeSpan)"/>. Removes it if it finishes.
+        /// Pushes the action to the stack and immediently calls <see cref="ActionBase.Run(TimeSpan)"/>.
         /// </summary>
         /// <param name="action"></param>
         /// <param name="timeElapsed"></param>
@@ -38,9 +35,6 @@ namespace SadConsole.Actions
                     Push(action);
 
                 action.Run(timeElapsed);
-
-                if (action.IsFinished && Peek() == action)
-                    Pop();
             }
         }
 
@@ -52,15 +46,19 @@ namespace SadConsole.Actions
         {
             if (Count == 0) return;
 
-            // Pop off all finished commands (happens when they get chained together)
-            // to get to one that needs to be run
-            while (Count != 0 && Peek().IsFinished)
+			// Pop off all finished commands (happens when they get chained together)
+			// to get to one that needs to be run
+			while (Count != 0 && Peek().IsFinished)
                 Pop();
 
             // Run the existing command.
             if (Count != 0)
                 Peek().Run(timeElapsed);
-        }
+
+			// Pop off any commands that have finished
+			while (Count != 0 && Peek().IsFinished)
+				Pop();
+		}
 
         void IConsoleComponent.Draw(Console console, TimeSpan delta)
         {

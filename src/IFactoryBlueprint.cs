@@ -16,8 +16,7 @@ namespace SadConsole
         /// <summary>
         /// Creates a <typeparamref name="TProduced"/> object.
         /// </summary>
-		/// <param name="position">The position of the item.</param>
         /// <returns>The created object.</returns>
-        TProduced Create(Coord position);
+        TProduced Create();
     }
 }

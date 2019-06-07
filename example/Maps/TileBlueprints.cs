@@ -51,9 +51,9 @@ namespace BasicTutorial.Maps.TileBlueprints
 
         }
 
-        public override Tile Create(Coord position)
+        public override Tile Create()
         {
-            var tile = base.Create(position);
+            var tile = base.Create();
 
             if (StartClosed)
                 tile.TileState = (int)TileStates.Door.Closed;

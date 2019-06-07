@@ -32,9 +32,8 @@ namespace SadConsole
 			Initialize(position, layer, isWalkable, isTransparent);
 		}
 
-		// TODO: Omit this constructor?  Can be misleading as it will display nothing
 		/// <summary>
-		/// Creates a new entity with the given parameters and using the default font.
+		/// Creates a new, invisible entity using the given parameters and the default font.
 		/// </summary>
 		/// <param name="position">Position to create the entity at.</param>
 		/// <param name="layer">The layer of of a <see cref="BasicEntity"/> the object should be assigned to.</param>
@@ -47,7 +46,7 @@ namespace SadConsole
 		}
 
 		/// <summary>
-		/// Creates a new entity with the given parameters and using the specified font.
+		/// Creates a new, invisible entity using the given parameters and the specified font.
 		/// </summary>
 		/// <param name="font">The font to use to display the entity.</param>
 		/// <param name="position">Position to create the entity at.</param>

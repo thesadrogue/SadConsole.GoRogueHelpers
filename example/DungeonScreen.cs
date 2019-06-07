@@ -59,22 +59,14 @@ namespace BasicTutorial
             if (Global.FocusedConsoles.Console != null)
                 return;
 
-            // Can through the list of actions and pop out the finished ones
-            while (ActionProcessor.Peek().IsFinished)
-                ActionProcessor.Pop();
-
-            // Run the latest action.
-            ActionProcessor.Peek().Run(timeElapsed);
-
-            // If the action finished, pop it out.
-            if (ActionProcessor.Peek().IsFinished)
-                ActionProcessor.Pop();
+            // Run the latest action(s).
+            ActionProcessor.Run(timeElapsed);
 
             // Center view on player
             MapConsole.CenterViewPortOnPoint(Map.ControlledGameObject.Position);
 
 			// Run logic if valid move made by player
-			_frameManager.Update();
+			_frameManager.Update(this, timeElapsed);
 
             if (RedrawMap)
             {
