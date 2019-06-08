@@ -16,12 +16,7 @@ namespace BasicTutorial.Maps.Generators
 			foreach (var room in rooms)
 				foreach (var point in room.Connections)
 					if (!PercentageCheck(leaveFloorAloneChance))
-					{
-						var tile = SadConsole.Tiles.Tile.Factory.Create(doorBlueprint);
-						tile.Position = point;
-						// TODO: Can't do this. Object is static.
-						map.SetTerrain(tile);
-					}
+						map.SetTerrain(SadConsole.Tiles.Tile.Factory.Create(doorBlueprint, point));
         }
     }
 }

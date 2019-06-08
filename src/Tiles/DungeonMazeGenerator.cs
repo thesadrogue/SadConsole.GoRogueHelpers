@@ -215,9 +215,9 @@ namespace SadConsole.Tiles
             {
 				Tile terrain;
 				if (GoRogueMap[position])
-					terrain = Tile.Factory.Create(Settings.TileBlueprintFloor);
+					terrain = Tile.Factory.Create(Settings.TileBlueprintFloor, position);
 				else
-					terrain = Tile.Factory.Create(Settings.TileBlueprintWall);
+					terrain = Tile.Factory.Create(Settings.TileBlueprintWall, position);
 
 				terrain.Position = position;
 				SadConsoleMap.SetTerrain(terrain);

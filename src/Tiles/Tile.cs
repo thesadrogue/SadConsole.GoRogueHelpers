@@ -30,7 +30,7 @@ namespace SadConsole.Tiles
 		public Action<Tile, Actions.ActionBase> OnProcessAction { get; set; }
 
 
-		public string DefinitionId { get; protected set; }
+		public string DefinitionId { get; set; }
 
 		/// <summary>
 		/// The type of tile represented.

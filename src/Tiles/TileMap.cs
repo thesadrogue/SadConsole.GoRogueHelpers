@@ -36,12 +36,7 @@ namespace SadConsole.Tiles
 
 			// Fill the map with walls
 			foreach (var pos in this.Positions())
-			{
-				var terrain = defaultTile.Create();
-				terrain.Position = pos;
-				System.Console.WriteLine(terrain.Position);
-				SetTerrain(terrain);
-			}
+				SetTerrain(defaultTile.Create(pos));
 		}
 
 		public Tile FindEmptyTile() => GetTerrain<Tile>(WalkabilityView.RandomPosition(true));
