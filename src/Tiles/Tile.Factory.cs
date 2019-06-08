@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using SadConsole.Factory;
+using System;
 using Microsoft.Xna.Framework;
 
-namespace SadConsole.Maps
+namespace SadConsole.Tiles
 {
-    public partial class Tile: IFactoryObject
+    public partial class Tile : IFactoryObject
     {
         /// <summary>Represents a floor tile type.</summary>
         internal const int TileTypeFloor = 0;
@@ -18,11 +15,11 @@ namespace SadConsole.Maps
         /// <summary>
         /// The factory instance to generate tiles from.
         /// </summary>
-        public static TileFactory Factory;
+        public static Factory<TileBlueprintConfig, Tile> Factory;
 
         static Tile()
         {
-            Factory = new TileFactory
+            Factory = new Factory<TileBlueprintConfig, Tile>
             {
                 new TileBlueprint("wall")
                 {
@@ -45,14 +42,9 @@ namespace SadConsole.Maps
         }
 
         /// <summary>
-        ///  Simple implementation of the Factory class that deals with tiles.
-        /// </summary>
-        public class TileFactory: Factory<TileBlueprint, Tile> { }
-
-        /// <summary>
         /// A simple blueprint representing a tile.
         /// </summary>
-        public class TileBlueprint: IFactoryBlueprint<Tile>
+        public class TileBlueprint : IBlueprint<TileBlueprintConfig, Tile>
         {
             public string Id { get; }
 
@@ -68,9 +60,9 @@ namespace SadConsole.Maps
 
             public TileBlueprint(string id) => Id = id;
 
-            public virtual Tile Create()
+            public virtual Tile Create(TileBlueprintConfig config)
             {
-                var tile = new Tile(Appearance.Foreground, Appearance.Background, Appearance.Glyph)
+                var tile = new Tile(Appearance.Foreground, Appearance.Background, Appearance.Glyph, config.Position, true, true)
                 {
                     tileType = Type,
                     Title = Title,

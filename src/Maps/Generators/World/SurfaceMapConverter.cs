@@ -10,7 +10,7 @@ namespace SadConsole.Maps.Generators.World
         T GetMoistureMapTexture(int width, int height, Tile[,] tiles);
         T GetBiomeMapTexture(int width, int height, Tile[,] tiles, float coldest, float colder, float cold);
     }
-    
+
     internal struct ColorF
     {
         byte R;
@@ -32,7 +32,7 @@ namespace SadConsole.Maps.Generators.World
         }
     }
 
-    public class SurfaceMap: IMapConverter<CellSurface>
+    public class SurfaceMap : IMapConverter<CellSurface>
     {
         #region Colors
         // Height Map Colors
@@ -215,8 +215,8 @@ namespace SadConsole.Maps.Generators.World
                         pixels[x + y * width] = Color.Lerp(pixels[x + y * width], Color.Black, 0.4f);
                 }
             }
-            
-            
+
+
             surface.SetPixels(pixels);
             return surface;
         }

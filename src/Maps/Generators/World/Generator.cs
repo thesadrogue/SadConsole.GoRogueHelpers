@@ -138,7 +138,7 @@ namespace SadConsole.Maps.Generators.World
             MoistureMapRenderer = MapConverter.GetMoistureMapTexture(Width, Height, Tiles);
             BiomeMapRenderer = MapConverter.GetBiomeMapTexture(Width, Height, Tiles, ColdestValue, ColderValue, ColdValue);
         }
-        
+
 
         private void UpdateBiomeBitmask()
         {
@@ -184,7 +184,7 @@ namespace SadConsole.Maps.Generators.World
                 int x1 = MathHelper.Mod(t.X - curr, Width);
                 int x2 = MathHelper.Mod(t.X + curr, Width);
                 int y = t.Y;
-                
+
                 AddMoisture(Tiles[x1, y], 0.025f / (center - new Vector2(x1, y)).Length());
 
                 for (int i = 0; i < curr; i++)
@@ -322,7 +322,7 @@ namespace SadConsole.Maps.Generators.World
                 }
             }
         }
-        
+
         private void GenerateRivers()
         {
             int attempts = 0;
@@ -332,7 +332,7 @@ namespace SadConsole.Maps.Generators.World
             // Generate some rivers
             while (rivercount > 0 && attempts < MaxRiverAttempts)
             {
-                
+
                 // Get a random tile
                 int x = Random.Next(0, Width);
                 int y = Random.Next(0, Height);
@@ -469,7 +469,8 @@ namespace SadConsole.Maps.Generators.World
             {
                 count1 = intersectionCount;
             }
-            else {
+            else
+            {
                 count1 = 0;
                 count2 = 0;
                 count3 = 0;
@@ -498,7 +499,8 @@ namespace SadConsole.Maps.Generators.World
                 {
                     t.DigRiver(river, 1);
                 }
-                else {
+                else
+                {
                     t.DigRiver(river, 0);
                 }
                 counter++;
@@ -580,7 +582,8 @@ namespace SadConsole.Maps.Generators.World
                 {
                     t.DigRiver(river, 1);
                 }
-                else {
+                else
+                {
                     t.DigRiver(river, 0);
                 }
                 counter++;
@@ -750,7 +753,8 @@ namespace SadConsole.Maps.Generators.World
                         t.HeightType = HeightType.Rock;
                         t.Collidable = true;
                     }
-                    else {
+                    else
+                    {
                         t.HeightType = HeightType.Snow;
                         t.Collidable = true;
                     }
@@ -801,7 +805,8 @@ namespace SadConsole.Maps.Generators.World
                     {
                         HeatData.Data[t.X, t.Y] -= 0.4f * t.HeightValue;
                     }
-                    else {
+                    else
+                    {
                         HeatData.Data[t.X, t.Y] += 0.01f * t.HeightValue;
                     }
 
@@ -893,7 +898,8 @@ namespace SadConsole.Maps.Generators.World
                             Lands.Add(group);
                     }
                     // Water
-                    else {
+                    else
+                    {
                         TileGroup group = new TileGroup();
                         group.Type = TileGroupType.Water;
                         stack.Push(t);

@@ -16,7 +16,7 @@ namespace SadConsole.Actions
             //{
             //    tile.SetFlag(Tiles.Flags.Seen);
             //}
-            
+
             Finish(ActionResult.Success);
         }
     }

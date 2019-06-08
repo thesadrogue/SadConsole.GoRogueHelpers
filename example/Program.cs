@@ -44,11 +44,11 @@ namespace BasicTutorial
 
         private static void Init()
         {
-            SadConsole.Maps.Tile.Factory.Add(new BasicTutorial.Maps.TileBlueprints.Door());
+            SadConsole.Tiles.Tile.Factory.Add(new BasicTutorial.Maps.TileBlueprints.Door());
 
             GameState.FirstDungeonSetup();
             Global.CurrentScreen.Children.Add(GameState.Dungeon);
-            
+
         }
     }
 }

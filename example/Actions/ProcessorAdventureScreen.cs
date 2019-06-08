@@ -84,7 +84,7 @@ namespace SadConsole.Actions
 
             //else if (SadConsole.Global.KeyboardState.IsKeyPressed(Keys.Escape))
             //{
-                
+
             //}
         }
     }

@@ -8,11 +8,13 @@ using SadConsole.Entities;
 using SadConsole.Maps;
 using SadConsole;
 using SadConsole.Actions;
+using SadConsole.Tiles;
+using GoRogue;
 
 namespace BasicTutorial.GameObjects
 {
     class Player : GameObjects.LivingCharacter
     {
-        public Player(MapConsole map): base(map, Color.Green, Color.Black, 1) { }
+        public Player(TileMap map, Coord position) : base(map, position, Color.Green, Color.Black, 1) { }
     }
 }

@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using GoRogue;
 using Microsoft.Xna.Framework;
 using SadConsole;
-using SadConsole.Maps;
+using SadConsole.Tiles;
 
 namespace BasicTutorial.Maps.TileBlueprints
 {
@@ -37,7 +38,7 @@ namespace BasicTutorial.Maps.TileBlueprints
                 }
             };
 
-            OnProcessAction = (tile, action) => 
+            OnProcessAction = (tile, action) =>
             {
                 if (action is SadConsole.Actions.BumpTile)
                 {
@@ -50,9 +51,9 @@ namespace BasicTutorial.Maps.TileBlueprints
 
         }
 
-        public override Tile Create()
+        public override Tile Create(TileBlueprintConfig config)
         {
-            var tile = base.Create();
+            var tile = base.Create(config);
 
             if (StartClosed)
                 tile.TileState = (int)TileStates.Door.Closed;
