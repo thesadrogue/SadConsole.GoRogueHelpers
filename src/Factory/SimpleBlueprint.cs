@@ -4,7 +4,7 @@
 	/// A simple <see cref="IBlueprint{TBlueprintConfig, TProduced}"/> that can be used when no configuration object is necessary to create the object.
 	/// Implements <see cref="IBlueprint{BlueprintConfig, TProduced}"/>.
 	/// </summary>
-	/// /// <typeparam name="TProduced">The type of object to create.</typeparam>
+	/// <typeparam name="TProduced">The type of object to create.</typeparam>
 	abstract public class SimpleBlueprint<TProduced> : IBlueprint<BlueprintConfig, TProduced>
 	{
 		/// <summary>

@@ -21,6 +21,12 @@ namespace SadConsole
 		private List<Console> _renderers;
 
 		private bool _drawingComponentsHandleVisibility;
+
+		/// <summary>
+		/// Whether or not the MultipleConsoleEntityDrawingComponents added to all consoles configured to render this map should handle setting the visibility
+		/// of each entity as appropriate.  For cases where you want visibility to be controlled by some other means (for example, FOV), you may want to set this to false.
+		/// <see cref="FOVVisibilityHandler"/> sets this to false for you.
+		/// </summary>
 		public bool DrawingComponentsHandleVisibility
 		{
 			get => _drawingComponentsHandleVisibility;
@@ -37,6 +43,9 @@ namespace SadConsole
 			}
 		}
 
+		/// <summary>
+		/// Fires whenever FOV is recalculated.
+		/// </summary>
 		public event EventHandler FOVRecalculated;
 
 		/// <summary>
@@ -44,6 +53,19 @@ namespace SadConsole
 		/// </summary>
 		public BasicEntity ControlledGameObject { get; set; }
 
+		/// <summary>
+		/// Creates a BasicMap.
+		/// </summary>
+		/// /// <param name="width">Width of the map.</param>
+		/// <param name="height">Height of the map.</param>
+		/// <param name="numberOfEntityLayers">Number of non-terrain layers for the map.</param>
+		/// <param name="distanceMeasurement"><see cref="Distance"/> measurement to use for pathing/measuring distance on the map.</param>
+		/// <param name="layersBlockingWalkability">Layer mask containing those layers that should be allowed to have items that block walkability.
+		/// Defaults to all layers.</param>
+		/// <param name="layersBlockingTransparency">Layer mask containing those layers that should be allowed to have items that block FOV.
+		/// Defaults to all layers.</param>
+		/// <param name="entityLayersSupportingMultipleItems">Layer mask containing those layers that should be allowed to have multiple objects at the same
+		/// location on the same layer.  Defaults to all layers.</param>
 		public BasicMap(int width, int height, int numberOfEntityLayers, Distance distanceMeasurement, uint layersBlockingWalkability = uint.MaxValue,
 				   uint layersBlockingTransparency = uint.MaxValue, uint entityLayersSupportingMultipleItems = uint.MaxValue)
 			: base(CreateTerrain(width, height), numberOfEntityLayers, distanceMeasurement, layersBlockingWalkability,
@@ -135,6 +157,7 @@ namespace SadConsole
 			renderer.IsDirty = true; // Make sure we re-render
 		}
 
+		/// <inheritdoc />
 		public override void CalculateFOV(int x, int y, double radius, Distance radiusShape)
 		{
 			base.CalculateFOV(x, y, radius, radiusShape);
@@ -142,6 +165,7 @@ namespace SadConsole
 			FOVRecalculated?.Invoke(this, EventArgs.Empty);
 		}
 
+		/// <inheritdoc />
 		public override void CalculateFOV(int x, int y, double radius, Distance radiusShape, double angle, double span)
 		{
 			base.CalculateFOV(x, y, radius, radiusShape, angle, span);

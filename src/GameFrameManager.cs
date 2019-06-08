@@ -15,17 +15,35 @@ namespace SadConsole
 	/// </remarks>
 	public class GameFrameManager : SadConsole.Components.UpdateConsoleComponent
 	{
+		/// <summary>
+		/// Set to true to run a logic frame during the next Update call.
+		/// </summary>
 		public bool RunLogicFrame;
 
+		/// <summary>
+		/// Fires whenever a logic frame completes.
+		/// </summary>
 		public event EventHandler LogicFrameCompleted;
 
+		/// <summary>
+		/// Map that this manager runs game frames for.
+		/// </summary>
 		public BasicMap Map { get; }
 
+		/// <summary>
+		/// Creates a GameFrameManager that runs logic frames for the given map.
+		/// </summary>
+		/// <param name="map">The map to run logic frames for.</param>
 		public GameFrameManager(BasicMap map)
 		{
 			Map = map;
 		}
 
+		/// <summary>
+		/// Runs a single logic frame if <see cref="RunLogicFrame"/> is set to true.
+		/// </summary>
+		/// <param name="console"></param>
+		/// <param name="delta"></param>
 		public override void Update(Console console, TimeSpan delta)
 		{
 			// Run logic if valid move made by player

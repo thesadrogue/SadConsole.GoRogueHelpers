@@ -1,5 +1,4 @@
-﻿using GoRogue;
-using SadConsole.Factory;
+﻿using SadConsole.Factory;
 using System;
 using Microsoft.Xna.Framework;
 

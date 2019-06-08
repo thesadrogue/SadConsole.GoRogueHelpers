@@ -9,6 +9,9 @@ namespace SadConsole.Components.GoRogue
 	public abstract class GameFrameProcessor : IGameObjectComponent
 	{
 		private IGameObject _parent;
+		/// <summary>
+		/// The IGameObject that this GameFrameProcessor is attached to.
+		/// </summary>
 		public IGameObject Parent
 		{
 			get => _parent;
@@ -21,6 +24,9 @@ namespace SadConsole.Components.GoRogue
 			}
 		}
 
+		/// <summary>
+		/// Implements logic for processing a logic frame.
+		/// </summary>
 		public abstract void ProcessGameFrame();
 	}
 }
