@@ -8,7 +8,18 @@ namespace SadConsole.Components.GoRogue
 	/// </summary>
 	public abstract class GameFrameProcessor : IGameObjectComponent
 	{
-		public IGameObject Parent { get; set; }
+		private IGameObject _parent;
+		public IGameObject Parent
+		{
+			get => _parent;
+			set
+			{
+				if (value.Layer == 0)
+					throw new System.Exception($"Cannot add {nameof(GameFrameProcessor)} component to terrain objects.");
+
+				_parent = value;
+			}
+		}
 
 		public abstract void ProcessGameFrame();
 	}
