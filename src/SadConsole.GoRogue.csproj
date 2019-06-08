@@ -13,12 +13,26 @@
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <DefineConstants>TRACE;XNA</DefineConstants>
+    <DocumentationFile>bin\Debug\netstandard2.0\SadConsole.GoRogue.xml</DocumentationFile>
+    <NoWarn>1701;1702;1591</NoWarn>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DocumentationFile>bin\Release\netstandard2.0\SadConsole.GoRogue.xml</DocumentationFile>
+    <NoWarn>1701;1702;1591</NoWarn>
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="InheritDoc" Version="2.0.2" PrivateAssets="All">
+      <NoWarn>NU1701</NoWarn>
+    </PackageReference>
     <PackageReference Include="GoRogue" Version="2.4.0" />
     <PackageReference Include="MonoGame.Framework.DesktopGL.Core" Version="3.7.0.7" PrivateAssets="All" />
     <PackageReference Include="SadConsole" Version="8.6.0" />
   </ItemGroup>
-
+  
+  <!-- Run InheritDoc on the final builds. -->
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="&quot;%userprofile%\.nuget\packages\inheritdoc\2.0.2\tools\InheritDoc.exe&quot; -o -b &quot;$(OutDir)\&quot;" />
+  </Target>
 </Project>
