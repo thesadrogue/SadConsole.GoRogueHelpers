@@ -24,7 +24,7 @@ namespace SadConsole.Actions
         /// A success or failure result for this action.
         /// </summary>
         public ActionResult Result { get; private set; } = ActionResult.Failure;
-        
+
         /// <summary>
         /// Finishes the action with the specified result.
         /// </summary>

@@ -13,16 +13,16 @@ using GoRogue;
 
 namespace BasicTutorial.GameObjects
 {
-	class GameFrameTileVisibilityRefresher : SadConsole.Components.GoRogue.GameFrameProcessor
-	{
-		public new LivingCharacter Parent => (LivingCharacter)base.Parent;
-		public override void ProcessGameFrame()
-		{
-			Parent.RefreshVisibilityTiles();
-		}
-	}
+    class GameFrameTileVisibilityRefresher : SadConsole.Components.GoRogue.GameFrameProcessor
+    {
+        public new LivingCharacter Parent => (LivingCharacter)base.Parent;
+        public override void ProcessGameFrame()
+        {
+            Parent.RefreshVisibilityTiles();
+        }
+    }
 
-	abstract class LivingCharacter : BasicEntity
+    abstract class LivingCharacter : BasicEntity
     {
 
         protected int baseHealthMax = 10;
@@ -61,17 +61,17 @@ namespace BasicTutorial.GameObjects
         /// </summary>
         public int LightSourceDistance { get { return baseLightSourceDistance + GetInventoryLightingMods(); } }
 
-		/// <summary>
-		/// Gets or sets a friendly short title for the object.
-		/// </summary>
-		public string Title { get; set; }
+        /// <summary>
+        /// Gets or sets a friendly short title for the object.
+        /// </summary>
+        public string Title { get; set; }
 
-		/// <summary>
-		/// Gets or sets a longer description for the object.
-		/// </summary>
-		public string Description { get; set; }
+        /// <summary>
+        /// Gets or sets a longer description for the object.
+        /// </summary>
+        public string Description { get; set; }
 
-		public new TileMap CurrentMap => (TileMap)base.CurrentMap;
+        public new TileMap CurrentMap => (TileMap)base.CurrentMap;
 
 
         /// <summary>
@@ -94,19 +94,19 @@ namespace BasicTutorial.GameObjects
         protected GoRogue.FOV FOVLighted;
 
         protected LivingCharacter(TileMap map, Coord position, Color foreground, Color background, int glyph)
-			: base(foreground, background, glyph, position, 1, isWalkable: false, isTransparent: true)
+            : base(foreground, background, glyph, position, 1, isWalkable: false, isTransparent: true)
         {
-			Title = "Unknown";
-			Description = "Not much is known about this object.";
+            Title = "Unknown";
+            Description = "Not much is known about this object.";
 
-			FOVSight = new GoRogue.FOV(map.TransparencyView);
+            FOVSight = new GoRogue.FOV(map.TransparencyView);
             FOVLighted = new GoRogue.FOV(map.TransparencyView);
 
-			map.AddEntity(this);
+            map.AddEntity(this);
 
-			AddComponent(new GameFrameTileVisibilityRefresher());
+            AddComponent(new GameFrameTileVisibilityRefresher());
         }
-        
+
         public void RefreshVisibilityTiles()
         {
 
@@ -233,7 +233,7 @@ namespace BasicTutorial.GameObjects
                 newLightSourceTiles.Add(tile);
             }
         }
-        
+
         protected int GetInventoryHealthMods()
         {
             int result = 0;

@@ -38,7 +38,7 @@ namespace BasicTutorial.Maps.TileBlueprints
                 }
             };
 
-            OnProcessAction = (tile, action) => 
+            OnProcessAction = (tile, action) =>
             {
                 if (action is SadConsole.Actions.BumpTile)
                 {

@@ -48,7 +48,7 @@ namespace BasicTutorial
 
             GameState.FirstDungeonSetup();
             Global.CurrentScreen.Children.Add(GameState.Dungeon);
-            
+
         }
     }
 }

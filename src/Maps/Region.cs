@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace SadConsole.Maps
 {
-	// TODO: Perhaps representable by GoRogue MapArea (subclass/composition)?
+    // TODO: Perhaps representable by GoRogue MapArea (subclass/composition)?
     /// <summary>
     /// Region of a map.
     /// </summary>

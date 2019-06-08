@@ -9,7 +9,7 @@ namespace SadConsole.Actions
     /// <summary>
     /// Action that calls a delegate.
     /// </summary>
-    public class ActionDelegate: ActionBase
+    public class ActionDelegate : ActionBase
     {
         private readonly Action<TimeSpan> _actionCode;
 

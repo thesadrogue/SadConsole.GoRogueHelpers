@@ -4,7 +4,7 @@ using TinkerWorX.AccidentalNoiseLibrary;
 
 namespace SadConsole.Maps.Generators.World
 {
-    public class WorldGenerator: WorldGeneratorGeneric<SurfaceMap, CellSurface>
+    public class WorldGenerator : WorldGeneratorGeneric<SurfaceMap, CellSurface>
     {
 
     }

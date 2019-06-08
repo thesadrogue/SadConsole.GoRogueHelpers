@@ -46,19 +46,19 @@ namespace SadConsole.Actions
         {
             if (Count == 0) return;
 
-			// Pop off all finished commands (happens when they get chained together)
-			// to get to one that needs to be run
-			while (Count != 0 && Peek().IsFinished)
+            // Pop off all finished commands (happens when they get chained together)
+            // to get to one that needs to be run
+            while (Count != 0 && Peek().IsFinished)
                 Pop();
 
             // Run the existing command.
             if (Count != 0)
                 Peek().Run(timeElapsed);
 
-			// Pop off any commands that have finished
-			while (Count != 0 && Peek().IsFinished)
-				Pop();
-		}
+            // Pop off any commands that have finished
+            while (Count != 0 && Peek().IsFinished)
+                Pop();
+        }
 
         void IConsoleComponent.Draw(Console console, TimeSpan delta)
         {

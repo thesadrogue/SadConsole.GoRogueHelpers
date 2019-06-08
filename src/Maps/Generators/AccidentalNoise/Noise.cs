@@ -15,7 +15,7 @@ namespace TinkerWorX.AccidentalNoiseLibrary
     public static class Noise
     {
         public const Int32 MAX_SOURCES = 20;
-        
+
         internal static Int32 FastFloor(Double t)
         {
             return (t > 0 ? (Int32)t : (Int32)t - 1);
@@ -23,22 +23,22 @@ namespace TinkerWorX.AccidentalNoiseLibrary
 
         internal static Double ArrayDot(Double[] arr, Double a, Double b)
         {
-            return a*arr[0] + b*arr[1];
+            return a * arr[0] + b * arr[1];
         }
 
         internal static Double ArrayDot(Double[] arr, Double a, Double b, Double c)
         {
-            return a*arr[0] + b*arr[1] + c*arr[2];
+            return a * arr[0] + b * arr[1] + c * arr[2];
         }
 
         internal static Double ArrayDot(Double[] arr, Double x, Double y, Double z, Double w)
         {
-            return x*arr[0] + y*arr[1] + z*arr[2] + w*arr[3];
+            return x * arr[0] + y * arr[1] + z * arr[2] + w * arr[3];
         }
 
         internal static Double ArrayDot(Double[] arr, Double x, Double y, Double z, Double w, Double u, Double v)
         {
-            return x*arr[0] + y*arr[1] + z*arr[2] + w*arr[3] + u*arr[4] + v*arr[5];
+            return x * arr[0] + y * arr[1] + z * arr[2] + w * arr[3] + u * arr[4] + v * arr[5];
         }
 
         internal static void AddDistance(Double[] f, Double[] disp, Double testdist, Double testdisp)
@@ -49,7 +49,7 @@ namespace TinkerWorX.AccidentalNoiseLibrary
             var index = 3;
             while (index > 0 && testdist < f[index - 1]) index--;
 
-            for (var i = 3; i-- > index; )
+            for (var i = 3; i-- > index;)
             {
                 f[i + 1] = f[i];
                 disp[i + 1] = disp[i];
@@ -135,8 +135,8 @@ namespace TinkerWorX.AccidentalNoiseLibrary
 
         internal static UInt32 FNV1A_3d(Double x, Double y, Double z, Int32 seed)
         {
-            Double[] d = {x, y, z, seed};
-            return FNV32Buffer(d, sizeof (Double)*4);
+            Double[] d = { x, y, z, seed };
+            return FNV32Buffer(d, sizeof(Double) * 4);
         }
 
         internal static Byte XORFoldHash(UInt32 hash)
@@ -172,26 +172,26 @@ namespace TinkerWorX.AccidentalNoiseLibrary
 
         internal static UInt32 HashCoordinates(Double x, Double y, Int32 seed)
         {
-            Double[] d = {x, y, seed};
-            return XORFoldHash(FNV32Buffer(d, sizeof (Double)*3));
+            Double[] d = { x, y, seed };
+            return XORFoldHash(FNV32Buffer(d, sizeof(Double) * 3));
         }
 
         internal static UInt32 HashCoordinates(Double x, Double y, Double z, Int32 seed)
         {
-            Double[] d = {x, y, z, seed};
-            return XORFoldHash(FNV32Buffer(d, sizeof (Double)*4));
+            Double[] d = { x, y, z, seed };
+            return XORFoldHash(FNV32Buffer(d, sizeof(Double) * 4));
         }
 
         internal static UInt32 HashCoordinates(Double x, Double y, Double z, Double w, Int32 seed)
         {
-            Double[] d = {x, y, z, w, seed};
-            return XORFoldHash(FNV32Buffer(d, sizeof (Double)*5));
+            Double[] d = { x, y, z, w, seed };
+            return XORFoldHash(FNV32Buffer(d, sizeof(Double) * 5));
         }
 
         internal static UInt32 HashCoordinates(Double x, Double y, Double z, Double w, Double u, Double v, Int32 seed)
         {
-            Double[] d = {x, y, z, w, u, v, seed};
-            return XORFoldHash(FNV32Buffer(d, sizeof (Double)*7));
+            Double[] d = { x, y, z, w, u, v, seed };
+            return XORFoldHash(FNV32Buffer(d, sizeof(Double) * 7));
         }
 
         internal delegate Double WorkerNoise2(Double x, Double y, Int32 ix, Int32 iy, Int32 seed);
@@ -204,8 +204,8 @@ namespace TinkerWorX.AccidentalNoiseLibrary
 
         // Noise generators
         internal static Double InternalValueNoise(
-            Double x, Double y, 
-            Int32 ix, Int32 iy, 
+            Double x, Double y,
+            Int32 ix, Int32 iy,
             Int32 seed)
         {
             var noise = Noise.HashCoordinates(ix, iy, seed) / 255.0;
@@ -213,8 +213,8 @@ namespace TinkerWorX.AccidentalNoiseLibrary
         }
 
         internal static Double InternalValueNoise(
-            Double x, Double y, Double z, 
-            Int32 ix, Int32 iy, Int32 iz, 
+            Double x, Double y, Double z,
+            Int32 ix, Int32 iy, Int32 iz,
             Int32 seed)
         {
             var noise = Noise.HashCoordinates(ix, iy, iz, seed) / (255.0);
@@ -222,8 +222,8 @@ namespace TinkerWorX.AccidentalNoiseLibrary
         }
 
         internal static Double InternalValueNoise(
-            Double x, Double y, Double z, Double w, 
-            Int32 ix, Int32 iy, Int32 iz, Int32 iw, 
+            Double x, Double y, Double z, Double w,
+            Int32 ix, Int32 iy, Int32 iz, Int32 iw,
             Int32 seed)
         {
             var noise = Noise.HashCoordinates(ix, iy, iz, iw, seed) / 255.0;
@@ -231,8 +231,8 @@ namespace TinkerWorX.AccidentalNoiseLibrary
         }
 
         internal static Double InternalValueNoise(
-            Double x, Double y, Double z, Double w, Double u, Double v, 
-            Int32 ix, Int32 iy, Int32 iz, Int32 iw, Int32 iu, Int32 iv, 
+            Double x, Double y, Double z, Double w, Double u, Double v,
+            Int32 ix, Int32 iy, Int32 iz, Int32 iw, Int32 iu, Int32 iv,
             Int32 seed)
         {
             var noise = Noise.HashCoordinates(ix, iy, iz, iw, iu, iv, seed) / 255.0;
@@ -240,8 +240,8 @@ namespace TinkerWorX.AccidentalNoiseLibrary
         }
 
         internal static Double InternalGradientNoise(
-            Double x, Double y, 
-            Int32 ix, Int32 iy, 
+            Double x, Double y,
+            Int32 ix, Int32 iy,
             Int32 seed)
         {
             var hash = Noise.HashCoordinates(ix, iy, seed);
@@ -270,7 +270,7 @@ namespace TinkerWorX.AccidentalNoiseLibrary
         }
 
         internal static Double InternalGradientNoise(
-            Double x, Double y, Double z, Double w, 
+            Double x, Double y, Double z, Double w,
             Int32 ix, Int32 iy, Int32 iz, Int32 iw,
             Int32 seed)
         {
@@ -289,7 +289,7 @@ namespace TinkerWorX.AccidentalNoiseLibrary
 
         internal static Double InternalGradientNoise(
             Double x, Double y, Double z, Double w, Double u, Double v,
-            Int32 ix, Int32 iy, Int32 iz, Int32 iw, Int32 iu, Int32 iv, 
+            Int32 ix, Int32 iy, Int32 iz, Int32 iw, Int32 iu, Int32 iv,
             Int32 seed)
         {
             var hash = Noise.HashCoordinates(ix, iy, iz, iw, iu, iv, seed);
@@ -321,7 +321,7 @@ namespace TinkerWorX.AccidentalNoiseLibrary
         }
 
         internal static Double interpolate_XY_2(
-            Double x, Double y, Double xs, Double ys, 
+            Double x, Double y, Double xs, Double ys,
             Int32 x0, Int32 x1, Int32 y0, Int32 y1,
             Int32 seed, WorkerNoise2 noisefunc)
         {
@@ -344,7 +344,7 @@ namespace TinkerWorX.AccidentalNoiseLibrary
 
         internal static Double interpolate_XY_3(
             Double x, Double y, Double z, Double xs, Double ys,
-            Int32 x0, Int32 x1, Int32 y0, Int32 y1, Int32 iz, 
+            Int32 x0, Int32 x1, Int32 y0, Int32 y1, Int32 iz,
             Int32 seed, WorkerNoise3 noisefunc)
         {
             var v1 = interpolate_X_3(x, y, z, xs, x0, x1, y0, iz, seed, noisefunc);
@@ -420,7 +420,7 @@ namespace TinkerWorX.AccidentalNoiseLibrary
         }
 
         internal static Double interpolate_XY_6(
-            Double x, Double y, Double z, Double w, Double u, Double v, 
+            Double x, Double y, Double z, Double w, Double u, Double v,
             Double xs, Double ys,
             Int32 x0, Int32 x1, Int32 y0, Int32 y1, Int32 iz, Int32 iw, Int32 iu, Int32 iv,
             Int32 seed, WorkerNoise6 noisefunc)
@@ -432,7 +432,7 @@ namespace TinkerWorX.AccidentalNoiseLibrary
         }
 
         internal static Double interpolate_XYZ_6(
-            Double x, Double y, Double z, Double w, Double u, Double v, 
+            Double x, Double y, Double z, Double w, Double u, Double v,
             Double xs, Double ys, Double zs,
             Int32 x0, Int32 x1, Int32 y0, Int32 y1, Int32 z0, Int32 z1, Int32 iw, Int32 iu, Int32 iv,
             Int32 seed, WorkerNoise6 noisefunc)
@@ -444,7 +444,7 @@ namespace TinkerWorX.AccidentalNoiseLibrary
         }
 
         internal static Double interpolate_XYZW_6(
-            Double x, Double y, Double z, Double w, Double u, Double v, 
+            Double x, Double y, Double z, Double w, Double u, Double v,
             Double xs, Double ys, Double zs, Double ws,
             Int32 x0, Int32 x1, Int32 y0, Int32 y1, Int32 z0, Int32 z1, Int32 w0, Int32 w1, Int32 iu, Int32 iv,
             Int32 seed, WorkerNoise6 noisefunc)
@@ -456,7 +456,7 @@ namespace TinkerWorX.AccidentalNoiseLibrary
         }
 
         internal static Double interpolate_XYZWU_6(
-            Double x, Double y, Double z, Double w, Double u, Double v, 
+            Double x, Double y, Double z, Double w, Double u, Double v,
             Double xs, Double ys, Double zs, Double ws, Double us,
             Int32 x0, Int32 x1, Int32 y0, Int32 y1, Int32 z0, Int32 z1, Int32 w0, Int32 w1, Int32 u0, Int32 u1, Int32 iv,
             Int32 seed, WorkerNoise6 noisefunc)
@@ -468,7 +468,7 @@ namespace TinkerWorX.AccidentalNoiseLibrary
         }
 
         internal static Double interpolate_XYZWUV_6(
-            Double x, Double y, Double z, Double w, Double u, Double v, 
+            Double x, Double y, Double z, Double w, Double u, Double v,
             Double xs, Double ys, Double zs, Double ws, Double us, Double vs,
             Int32 x0, Int32 x1, Int32 y0, Int32 y1, Int32 z0, Int32 z1, Int32 w0, Int32 w1, Int32 u0, Int32 u1, Int32 v0, Int32 v1,
             Int32 seed, WorkerNoise6 noisefunc)
@@ -841,21 +841,21 @@ namespace TinkerWorX.AccidentalNoiseLibrary
         private const Double G3 = 1.0 / 6.0;
 
         private static readonly Int32[,] Simplex = {
-                                            {0, 1, 2, 3}, {0, 1, 3, 2}, {0, 0, 0, 0}, {0, 2, 3, 1}, 
+                                            {0, 1, 2, 3}, {0, 1, 3, 2}, {0, 0, 0, 0}, {0, 2, 3, 1},
                                             {0, 0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0, 0}, {1, 2, 3, 0},
-                                            {0, 2, 1, 3}, {0, 0, 0, 0}, {0, 3, 1, 2}, {0, 3, 2, 1}, 
+                                            {0, 2, 1, 3}, {0, 0, 0, 0}, {0, 3, 1, 2}, {0, 3, 2, 1},
                                             {0, 0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0, 0}, {1, 3, 2, 0},
-                                            {0, 0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0, 0}, 
                                             {0, 0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0, 0},
-                                            {1, 2, 0, 3}, {0, 0, 0, 0}, {1, 3, 0, 2}, {0, 0, 0, 0}, 
+                                            {0, 0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0, 0},
+                                            {1, 2, 0, 3}, {0, 0, 0, 0}, {1, 3, 0, 2}, {0, 0, 0, 0},
                                             {0, 0, 0, 0}, {0, 0, 0, 0}, {2, 3, 0, 1}, {2, 3, 1, 0},
-                                            {1, 0, 2, 3}, {1, 0, 3, 2}, {0, 0, 0, 0}, {0, 0, 0, 0}, 
+                                            {1, 0, 2, 3}, {1, 0, 3, 2}, {0, 0, 0, 0}, {0, 0, 0, 0},
                                             {0, 0, 0, 0}, {2, 0, 3, 1}, {0, 0, 0, 0}, {2, 1, 3, 0},
                                             {0, 0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0, 0},
                                             {0, 0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0, 0},
-                                            {2, 0, 1, 3}, {0, 0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0, 0}, 
+                                            {2, 0, 1, 3}, {0, 0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0, 0},
                                             {3, 0, 1, 2}, {3, 0, 2, 1}, {0, 0, 0, 0}, {3, 1, 2, 0},
-                                            {2, 1, 0, 3}, {0, 0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0, 0}, 
+                                            {2, 1, 0, 3}, {0, 0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0, 0},
                                             {3, 1, 0, 2}, {0, 0, 0, 0}, {3, 2, 0, 1}, {3, 2, 1, 0}
                                         };
 
@@ -937,14 +937,14 @@ namespace TinkerWorX.AccidentalNoiseLibrary
                 l2[c] = a[c].Axis;
             }
         }
-         
+
         public static Double SimplexNoise(Double x, Double y, Int32 seed, InterpolationDelegate interp)
         {
-            Double s = (x + y)*F2;
+            Double s = (x + y) * F2;
             int i = FastFloor(x + s);
             int j = FastFloor(y + s);
 
-            Double t = (i + j)*G2;
+            Double t = (i + j) * G2;
             Double X0 = i - t;
             Double Y0 = j - t;
             Double x0 = x - X0;
@@ -962,49 +962,49 @@ namespace TinkerWorX.AccidentalNoiseLibrary
                 j1 = 1;
             }
 
-            Double x1 = x0 - (Double) i1 + G2;
-            Double y1 = y0 - (Double) j1 + G2;
-            Double x2 = x0 - 1.0 + 2.0*G2;
-            Double y2 = y0 - 1.0 + 2.0*G2;
+            Double x1 = x0 - (Double)i1 + G2;
+            Double y1 = y0 - (Double)j1 + G2;
+            Double x2 = x0 - 1.0 + 2.0 * G2;
+            Double y2 = y0 - 1.0 + 2.0 * G2;
 
             // Hash the triangle coordinates to index the gradient table
-            uint h0 = HashCoordinates(i, j, (int) seed);
-            uint h1 = HashCoordinates(i + i1, j + j1, (int) seed);
-            uint h2 = HashCoordinates(i + 1, j + 1, (int) seed);
+            uint h0 = HashCoordinates(i, j, (int)seed);
+            uint h1 = HashCoordinates(i + i1, j + j1, (int)seed);
+            uint h2 = HashCoordinates(i + 1, j + 1, (int)seed);
 
             // Now, index the tables
-            Double[] g0 = {NoiseLookupTable.Gradient2D[h0, 0], NoiseLookupTable.Gradient2D[h0, 1]};
-            Double[] g1 = {NoiseLookupTable.Gradient2D[h1, 0], NoiseLookupTable.Gradient2D[h1, 1]};
-            Double[] g2 = {NoiseLookupTable.Gradient2D[h2, 0], NoiseLookupTable.Gradient2D[h2, 1]};
+            Double[] g0 = { NoiseLookupTable.Gradient2D[h0, 0], NoiseLookupTable.Gradient2D[h0, 1] };
+            Double[] g1 = { NoiseLookupTable.Gradient2D[h1, 0], NoiseLookupTable.Gradient2D[h1, 1] };
+            Double[] g2 = { NoiseLookupTable.Gradient2D[h2, 0], NoiseLookupTable.Gradient2D[h2, 1] };
 
             Double n0, n1, n2;
             // Calculate the contributions from the 3 corners
-            Double t0 = 0.5 - x0*x0 - y0*y0;
+            Double t0 = 0.5 - x0 * x0 - y0 * y0;
             if (t0 < 0) n0 = 0;
             else
             {
                 t0 *= t0;
-                n0 = t0*t0*ArrayDot(g0, x0, y0);
+                n0 = t0 * t0 * ArrayDot(g0, x0, y0);
             }
 
-            Double t1 = 0.5 - x1*x1 - y1*y1;
+            Double t1 = 0.5 - x1 * x1 - y1 * y1;
             if (t1 < 0) n1 = 0;
             else
             {
                 t1 *= t1;
-                n1 = t1*t1*ArrayDot(g1, x1, y1);
+                n1 = t1 * t1 * ArrayDot(g1, x1, y1);
             }
 
-            Double t2 = 0.5 - x2*x2 - y2*y2;
+            Double t2 = 0.5 - x2 * x2 - y2 * y2;
             if (t2 < 0) n2 = 0;
             else
             {
                 t2 *= t2;
-                n2 = t2*t2*ArrayDot(g2, x2, y2);
+                n2 = t2 * t2 * ArrayDot(g2, x2, y2);
             }
 
             // Add contributions together
-            return (70.0*(n0 + n1 + n2))*1.42188695 + 0.001054489;
+            return (70.0 * (n0 + n1 + n2)) * 1.42188695 + 0.001054489;
         }
 
         public static Double SimplexNoise(Double x, Double y, Double z, Int32 seed, InterpolationDelegate interp)
@@ -1013,12 +1013,12 @@ namespace TinkerWorX.AccidentalNoiseLibrary
             //static Double G3 = 1.0/6.0;
             Double n0, n1, n2, n3;
 
-            Double s = (x + y + z)*F3;
+            Double s = (x + y + z) * F3;
             int i = FastFloor(x + s);
             int j = FastFloor(y + s);
             int k = FastFloor(z + s);
 
-            Double t = (i + j + k)*G3;
+            Double t = (i + j + k) * G3;
             Double X0 = i - t;
             Double Y0 = j - t;
             Double Z0 = k - t;
@@ -1101,10 +1101,10 @@ namespace TinkerWorX.AccidentalNoiseLibrary
             var y3 = y0 - 1.0 + 3.0 * G3;
             var z3 = z0 - 1.0 + 3.0 * G3;
 
-            var h0 = HashCoordinates(i, j, k, (int) seed);
-            var h1 = HashCoordinates(i + i1, j + j1, k + k1, (int) seed);
-            var h2 = HashCoordinates(i + i2, j + j2, k + k2, (int) seed);
-            var h3 = HashCoordinates(i + 1, j + 1, k + 1, (int) seed);
+            var h0 = HashCoordinates(i, j, k, (int)seed);
+            var h1 = HashCoordinates(i + i1, j + j1, k + k1, (int)seed);
+            var h2 = HashCoordinates(i + i2, j + j2, k + k2, (int)seed);
+            var h3 = HashCoordinates(i + 1, j + 1, k + 1, (int)seed);
 
             Double[] g0 = {
                               NoiseLookupTable.Gradient3D[h0, 0], NoiseLookupTable.Gradient3D[h0, 1],
@@ -1128,7 +1128,7 @@ namespace TinkerWorX.AccidentalNoiseLibrary
             else
             {
                 t0 *= t0;
-                n0 = t0*t0*ArrayDot(g0, x0, y0, z0);
+                n0 = t0 * t0 * ArrayDot(g0, x0, y0, z0);
             }
 
             var t1 = 0.6 - x1 * x1 - y1 * y1 - z1 * z1;
@@ -1136,7 +1136,7 @@ namespace TinkerWorX.AccidentalNoiseLibrary
             else
             {
                 t1 *= t1;
-                n1 = t1*t1*ArrayDot(g1, x1, y1, z1);
+                n1 = t1 * t1 * ArrayDot(g1, x1, y1, z1);
             }
 
             var t2 = 0.6 - x2 * x2 - y2 * y2 - z2 * z2;
@@ -1144,7 +1144,7 @@ namespace TinkerWorX.AccidentalNoiseLibrary
             else
             {
                 t2 *= t2;
-                n2 = t2*t2*ArrayDot(g2, x2, y2, z2);
+                n2 = t2 * t2 * ArrayDot(g2, x2, y2, z2);
             }
 
             var t3 = 0.6 - x3 * x3 - y3 * y3 - z3 * z3;
@@ -1152,25 +1152,25 @@ namespace TinkerWorX.AccidentalNoiseLibrary
             else
             {
                 t3 *= t3;
-                n3 = t3*t3*ArrayDot(g3, x3, y3, z3);
+                n3 = t3 * t3 * ArrayDot(g3, x3, y3, z3);
             }
 
-            return (32.0*(n0 + n1 + n2 + n3))*1.25086885 + 0.0003194984;
+            return (32.0 * (n0 + n1 + n2 + n3)) * 1.25086885 + 0.0003194984;
         }
 
         public static Double SimplexNoise(Double x, Double y, Double z, Double w, Int32 seed, InterpolationDelegate interp)
         {
 
-            Double F4 = (Math.Sqrt(5.0) - 1.0)/4.0;
-            Double G4 = (5.0 - Math.Sqrt(5.0))/20.0;
+            Double F4 = (Math.Sqrt(5.0) - 1.0) / 4.0;
+            Double G4 = (5.0 - Math.Sqrt(5.0)) / 20.0;
             Double n0, n1, n2, n3, n4; // Noise contributions from the five corners
             // Skew the (x,y,z,w) space to determine which cell of 24 simplices we're in
-            Double s = (x + y + z + w)*F4; // Factor for 4D skewing
+            Double s = (x + y + z + w) * F4; // Factor for 4D skewing
             int i = FastFloor(x + s);
             int j = FastFloor(y + s);
             int k = FastFloor(z + s);
             int l = FastFloor(w + s);
-            Double t = (i + j + k + l)*G4; // Factor for 4D unskewing
+            Double t = (i + j + k + l) * G4; // Factor for 4D unskewing
             Double X0 = i - t; // Unskew the cell origin back to (x,y,z,w) space
             Double Y0 = j - t;
             Double Z0 = k - t;
@@ -1221,24 +1221,24 @@ namespace TinkerWorX.AccidentalNoiseLibrary
             Double y1 = y0 - j1 + G4;
             Double z1 = z0 - k1 + G4;
             Double w1 = w0 - l1 + G4;
-            Double x2 = x0 - i2 + 2.0*G4; // Offsets for third corner in (x,y,z,w) coords
-            Double y2 = y0 - j2 + 2.0*G4;
-            Double z2 = z0 - k2 + 2.0*G4;
-            Double w2 = w0 - l2 + 2.0*G4;
-            Double x3 = x0 - i3 + 3.0*G4; // Offsets for fourth corner in (x,y,z,w) coords
-            Double y3 = y0 - j3 + 3.0*G4;
-            Double z3 = z0 - k3 + 3.0*G4;
-            Double w3 = w0 - l3 + 3.0*G4;
-            Double x4 = x0 - 1.0 + 4.0*G4; // Offsets for last corner in (x,y,z,w) coords
-            Double y4 = y0 - 1.0 + 4.0*G4;
-            Double z4 = z0 - 1.0 + 4.0*G4;
-            Double w4 = w0 - 1.0 + 4.0*G4;
+            Double x2 = x0 - i2 + 2.0 * G4; // Offsets for third corner in (x,y,z,w) coords
+            Double y2 = y0 - j2 + 2.0 * G4;
+            Double z2 = z0 - k2 + 2.0 * G4;
+            Double w2 = w0 - l2 + 2.0 * G4;
+            Double x3 = x0 - i3 + 3.0 * G4; // Offsets for fourth corner in (x,y,z,w) coords
+            Double y3 = y0 - j3 + 3.0 * G4;
+            Double z3 = z0 - k3 + 3.0 * G4;
+            Double w3 = w0 - l3 + 3.0 * G4;
+            Double x4 = x0 - 1.0 + 4.0 * G4; // Offsets for last corner in (x,y,z,w) coords
+            Double y4 = y0 - 1.0 + 4.0 * G4;
+            Double z4 = z0 - 1.0 + 4.0 * G4;
+            Double w4 = w0 - 1.0 + 4.0 * G4;
             // Work out the hashed gradient indices of the five simplex corners
-            uint h0 = HashCoordinates(i, j, k, l, (int) seed);
-            uint h1 = HashCoordinates(i + i1, j + j1, k + k1, l + l1, (int) seed);
-            uint h2 = HashCoordinates(i + i2, j + j2, k + k2, l + l2, (int) seed);
-            uint h3 = HashCoordinates(i + i3, j + j3, k + k3, l + l3, (int) seed);
-            uint h4 = HashCoordinates(i + 1, j + 1, k + 1, l + 1, (int) seed);
+            uint h0 = HashCoordinates(i, j, k, l, (int)seed);
+            uint h1 = HashCoordinates(i + i1, j + j1, k + k1, l + l1, (int)seed);
+            uint h2 = HashCoordinates(i + i2, j + j2, k + k2, l + l2, (int)seed);
+            uint h3 = HashCoordinates(i + i3, j + j3, k + k3, l + l3, (int)seed);
+            uint h4 = HashCoordinates(i + 1, j + 1, k + 1, l + 1, (int)seed);
 
             Double[] g0 = {
                               NoiseLookupTable.Gradient4D[h0, 0], NoiseLookupTable.Gradient4D[h0, 1],
@@ -1263,66 +1263,66 @@ namespace TinkerWorX.AccidentalNoiseLibrary
 
 
             // Calculate the contribution from the five corners
-            Double t0 = 0.6 - x0*x0 - y0*y0 - z0*z0 - w0*w0;
+            Double t0 = 0.6 - x0 * x0 - y0 * y0 - z0 * z0 - w0 * w0;
             if (t0 < 0) n0 = 0.0;
             else
             {
                 t0 *= t0;
-                n0 = t0*t0*ArrayDot(g0, x0, y0, z0, w0);
+                n0 = t0 * t0 * ArrayDot(g0, x0, y0, z0, w0);
             }
-            Double t1 = 0.6 - x1*x1 - y1*y1 - z1*z1 - w1*w1;
+            Double t1 = 0.6 - x1 * x1 - y1 * y1 - z1 * z1 - w1 * w1;
             if (t1 < 0) n1 = 0.0;
             else
             {
                 t1 *= t1;
-                n1 = t1*t1*ArrayDot(g1, x1, y1, z1, w1);
+                n1 = t1 * t1 * ArrayDot(g1, x1, y1, z1, w1);
             }
-            Double t2 = 0.6 - x2*x2 - y2*y2 - z2*z2 - w2*w2;
+            Double t2 = 0.6 - x2 * x2 - y2 * y2 - z2 * z2 - w2 * w2;
             if (t2 < 0) n2 = 0.0;
             else
             {
                 t2 *= t2;
-                n2 = t2*t2*ArrayDot(g2, x2, y2, z2, w2);
+                n2 = t2 * t2 * ArrayDot(g2, x2, y2, z2, w2);
             }
-            Double t3 = 0.6 - x3*x3 - y3*y3 - z3*z3 - w3*w3;
+            Double t3 = 0.6 - x3 * x3 - y3 * y3 - z3 * z3 - w3 * w3;
             if (t3 < 0) n3 = 0.0;
             else
             {
                 t3 *= t3;
-                n3 = t3*t3*ArrayDot(g3, x3, y3, z3, w3);
+                n3 = t3 * t3 * ArrayDot(g3, x3, y3, z3, w3);
             }
-            Double t4 = 0.6 - x4*x4 - y4*y4 - z4*z4 - w4*w4;
+            Double t4 = 0.6 - x4 * x4 - y4 * y4 - z4 * z4 - w4 * w4;
             if (t4 < 0) n4 = 0.0;
             else
             {
                 t4 *= t4;
-                n4 = t4*t4*ArrayDot(g4, x4, y4, z4, w4);
+                n4 = t4 * t4 * ArrayDot(g4, x4, y4, z4, w4);
             }
             // Sum up and scale the result to cover the range [-1,1]
-            return 27.0*(n0 + n1 + n2 + n3 + n4);
+            return 27.0 * (n0 + n1 + n2 + n3 + n4);
         }
 
         public static Double NewSimplexNoise4D(Double x, Double y, Double z, Double w, Int32 seed, InterpolationDelegate interp)
         {
-            var f4 = (Math.Sqrt(5.0) - 1.0)/4.0;
-            var sideLength = 2.0/(4.0*f4 + 1.0);
-            var a = Math.Sqrt((sideLength*sideLength) - ((sideLength/2.0)*(sideLength/2.0)));
-            var cornerToFace = Math.Sqrt((a*a + (a/2.0)*(a/2.0)));
-            var cornerToFaceSquared = cornerToFace*cornerToFace;
+            var f4 = (Math.Sqrt(5.0) - 1.0) / 4.0;
+            var sideLength = 2.0 / (4.0 * f4 + 1.0);
+            var a = Math.Sqrt((sideLength * sideLength) - ((sideLength / 2.0) * (sideLength / 2.0)));
+            var cornerToFace = Math.Sqrt((a * a + (a / 2.0) * (a / 2.0)));
+            var cornerToFaceSquared = cornerToFace * cornerToFace;
 
             var valueScaler = Math.Pow(3.0, -0.5);
 
-            var g4 = f4/(1.0 + 4.0*f4);
-            valueScaler *= Math.Pow(3.0, -3.5)*100.0 + 13.0;
+            var g4 = f4 / (1.0 + 4.0 * f4);
+            valueScaler *= Math.Pow(3.0, -3.5) * 100.0 + 13.0;
 
-            Double[] loc = {x, y, z, w};
+            Double[] loc = { x, y, z, w };
             Double s = 0;
             for (var c = 0; c < 4; ++c)
                 s += loc[c];
             s *= f4;
 
-            var skewLoc = new[] {FastFloor(x + s), FastFloor(y + s), FastFloor(z + s), FastFloor(w + s)};
-            var intLoc = new[] {FastFloor(x + s), FastFloor(y + s), FastFloor(z + s), FastFloor(w + s)};
+            var skewLoc = new[] { FastFloor(x + s), FastFloor(y + s), FastFloor(z + s), FastFloor(w + s) };
+            var intLoc = new[] { FastFloor(x + s), FastFloor(y + s), FastFloor(z + s), FastFloor(w + s) };
             var unskew = 0.00;
             for (var c = 0; c < 4; ++c)
                 unskew += skewLoc[c];
@@ -1332,10 +1332,10 @@ namespace TinkerWorX.AccidentalNoiseLibrary
                 loc[0] - skewLoc[0] + unskew, loc[1] - skewLoc[1] + unskew,
                 loc[2] - skewLoc[2] + unskew, loc[3] - skewLoc[3] + unskew
             };
-            var distOrder = new[] {0, 1, 2, 3};
+            var distOrder = new[] { 0, 1, 2, 3 };
             SortBy4(cellDist, distOrder);
 
-            var newDistOrder = new[] {-1, distOrder[0], distOrder[1], distOrder[2], distOrder[3]};
+            var newDistOrder = new[] { -1, distOrder[0], distOrder[1], distOrder[2], distOrder[3] };
 
             var n = 0.00;
             var skewOffset = 0.00;
@@ -1356,7 +1356,7 @@ namespace TinkerWorX.AccidentalNoiseLibrary
 
                 for (var d = 0; d < 4; ++d)
                 {
-                    t -= u[d]*u[d];
+                    t -= u[d] * u[d];
                 }
 
                 if (t > 0.0)
@@ -1365,10 +1365,10 @@ namespace TinkerWorX.AccidentalNoiseLibrary
                     var gr = 0.00;
                     for (var d = 0; d < 4; ++d)
                     {
-                        gr += NoiseLookupTable.Gradient4D[h, d]*u[d];
+                        gr += NoiseLookupTable.Gradient4D[h, d] * u[d];
                     }
 
-                    n += gr*t*t*t*t;
+                    n += gr * t * t * t * t;
                 }
                 skewOffset += g4;
             }
@@ -1382,9 +1382,9 @@ namespace TinkerWorX.AccidentalNoiseLibrary
             var f4 = (Math.Sqrt(7.0) - 1.0) / 6.0;
 
             // Unskew
-            var g4 = f4/(1.0 + 6.0*f4);
+            var g4 = f4 / (1.0 + 6.0 * f4);
 
-            var sideLength = Math.Sqrt(6.0)/(6.0*f4 + 1.0);
+            var sideLength = Math.Sqrt(6.0) / (6.0 * f4 + 1.0);
             var a = Math.Sqrt((sideLength * sideLength) - ((sideLength / 2.0) * (sideLength / 2.0)));
             var cornerFace = Math.Sqrt(a * a + (a / 2.0) * (a / 2.0));
 
@@ -1400,7 +1400,7 @@ namespace TinkerWorX.AccidentalNoiseLibrary
             s *= f4;
 
             var skewLoc = new[]{
-                FastFloor(x + s), FastFloor(y + s), FastFloor(z + s), 
+                FastFloor(x + s), FastFloor(y + s), FastFloor(z + s),
                 FastFloor(w + s), FastFloor(u + s), FastFloor(v + s)
             };
             var intLoc = new[]{
@@ -1408,7 +1408,7 @@ namespace TinkerWorX.AccidentalNoiseLibrary
                 FastFloor(w + s), FastFloor(u + s), FastFloor(v + s)
             };
             var unskew = 0.0;
-            for (var c = 0; c < 6; ++c) 
+            for (var c = 0; c < 6; ++c)
                 unskew += skewLoc[c];
             unskew *= g4;
 
@@ -1421,7 +1421,7 @@ namespace TinkerWorX.AccidentalNoiseLibrary
             var distOrder = new[] { 0, 1, 2, 3, 4, 5 };
             SortBy6(cellDist, distOrder);
 
-            var newDistOrder = new[] 
+            var newDistOrder = new[]
             {
                 -1, distOrder[0], distOrder[1], distOrder[2], distOrder[3], distOrder[4], distOrder[5]
             };
@@ -1432,7 +1432,7 @@ namespace TinkerWorX.AccidentalNoiseLibrary
             for (var c = 0; c < 7; ++c)
             {
                 var i = newDistOrder[c];
-                if (i != -1) 
+                if (i != -1)
                     intLoc[i] += 1;
 
                 var uu = new Double[6];
@@ -1445,7 +1445,7 @@ namespace TinkerWorX.AccidentalNoiseLibrary
 
                 for (var d = 0; d < 6; ++d)
                 {
-                    t -= uu[d]*uu[d];
+                    t -= uu[d] * uu[d];
                 }
 
                 if (t > 0.0)
@@ -1453,14 +1453,14 @@ namespace TinkerWorX.AccidentalNoiseLibrary
                     var h = HashCoordinates(intLoc[0], intLoc[1], intLoc[2], intLoc[3], intLoc[4], intLoc[5], seed);
                     var gr = 0.00;
 
-                    gr += NoiseLookupTable.Gradient6D[h, 0]*uu[0];
-                    gr += NoiseLookupTable.Gradient6D[h, 1]*uu[1];
-                    gr += NoiseLookupTable.Gradient6D[h, 2]*uu[2];
-                    gr += NoiseLookupTable.Gradient6D[h, 3]*uu[3];
-                    gr += NoiseLookupTable.Gradient6D[h, 4]*uu[4];
-                    gr += NoiseLookupTable.Gradient6D[h, 5]*uu[5];
+                    gr += NoiseLookupTable.Gradient6D[h, 0] * uu[0];
+                    gr += NoiseLookupTable.Gradient6D[h, 1] * uu[1];
+                    gr += NoiseLookupTable.Gradient6D[h, 2] * uu[2];
+                    gr += NoiseLookupTable.Gradient6D[h, 3] * uu[3];
+                    gr += NoiseLookupTable.Gradient6D[h, 4] * uu[4];
+                    gr += NoiseLookupTable.Gradient6D[h, 5] * uu[5];
 
-                    n += gr*t*t*t*t;
+                    n += gr * t * t * t * t;
                 }
                 skewOffset += g4;
             }

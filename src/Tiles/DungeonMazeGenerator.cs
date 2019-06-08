@@ -60,7 +60,7 @@ namespace SadConsole.Tiles
             /// The chance (out of 100) to stop nominating sides for connections.
             /// </summary>
             public int RoomsConnectionsCancelSideSelectChance = 50;
-            
+
             /// <summary>
             /// The chance (out of 100) to stop placing connections on a selected side.
             /// </summary>
@@ -91,11 +91,11 @@ namespace SadConsole.Tiles
             /// </summary>
             public string TileBlueprintWall = "wall";
 
-			public Distance DistanceMeasurement = Distance.CHEBYSHEV;
-			public int NumberOfEntityLayers = 1;
-			public uint LayersBlockingWalkability = uint.MaxValue;
-			public uint LayersBlockingTransparency = uint.MaxValue;
-			public uint EntityLayersSupportingMultipleItems = uint.MaxValue;
+            public Distance DistanceMeasurement = Distance.CHEBYSHEV;
+            public int NumberOfEntityLayers = 1;
+            public uint LayersBlockingWalkability = uint.MaxValue;
+            public uint LayersBlockingTransparency = uint.MaxValue;
+            public uint EntityLayersSupportingMultipleItems = uint.MaxValue;
         }
 
         /// <summary>
@@ -169,43 +169,43 @@ namespace SadConsole.Tiles
         {
             return Create(new GeneratorSettings(), mapWidth, mapHeight);
         }
-        
+
         /// <summary>
         /// Generates the map.
         /// </summary>
         protected virtual void Generate()
         {
             SadConsoleMap = new Tiles.TileMap(MapWidth, MapHeight, Settings.NumberOfEntityLayers, Settings.DistanceMeasurement, Settings.TileBlueprintWall,
-											  Settings.LayersBlockingWalkability, Settings.LayersBlockingTransparency, Settings.EntityLayersSupportingMultipleItems);
+                                              Settings.LayersBlockingWalkability, Settings.LayersBlockingTransparency, Settings.EntityLayersSupportingMultipleItems);
             GoRogueMap = new ArrayMap<bool>(MapWidth, MapHeight);
 
-			// TODO: Replace with GoRogue.MapGeneration.QuickGenerators equivalent
+            // TODO: Replace with GoRogue.MapGeneration.QuickGenerators equivalent
             // Generate rooms
-            var mapRooms = GoRogue.MapGeneration.Generators.RoomsGenerator.Generate(GoRogueMap, Settings.RoomsCountMin, Settings.RoomsCountMax, 
-                                                                                                Settings.RoomsSizeMin, Settings.RoomsSizeMax, 
+            var mapRooms = GoRogue.MapGeneration.Generators.RoomsGenerator.Generate(GoRogueMap, Settings.RoomsCountMin, Settings.RoomsCountMax,
+                                                                                                Settings.RoomsSizeMin, Settings.RoomsSizeMax,
                                                                                                 Settings.RoomsSizeFontRatioX, Settings.RoomsSizeFontRatioY);
 
             // Generate maze
             GoRogue.MapGeneration.Generators.MazeGenerator.Generate(GoRogueMap, Settings.MazeChangeDirectionImprovement);
-            
+
             // Conenct rooms to maze
-            var connections = GoRogue.MapGeneration.Connectors.RoomDoorConnector.ConnectRooms(GoRogueMap, mapRooms, 
-                                                                         Settings.RoomsConnectionsMinSides, Settings.RoomsConnectionsMaxSides, 
-                                                                         Settings.RoomsConnectionsCancelSideSelectChance, 
+            var connections = GoRogue.MapGeneration.Connectors.RoomDoorConnector.ConnectRooms(GoRogueMap, mapRooms,
+                                                                         Settings.RoomsConnectionsMinSides, Settings.RoomsConnectionsMaxSides,
+                                                                         Settings.RoomsConnectionsCancelSideSelectChance,
                                                                          Settings.RoomsConnectionsCancelPlacementChance, Settings.RoomsConnectionsCancelPlacementChanceIncrease);
             // Transform rooms into regions
             Rooms = (from c in connections
-                    let innerRect = c.Room
-                    let outerRect = c.Room.Expand(1, 1)
-                    select new Region()
-                    {
-                        IsRectangle = true,
-                        InnerRect = innerRect,
-                        OuterRect = outerRect,
-                        InnerPoints = innerRect.Positions().ToList(),
-                        OuterPoints = outerRect.Positions().ToList(),
-                        Connections = c.Connections.SelectMany(a => a).ToList()
-                    }).ToList();
+                     let innerRect = c.Room
+                     let outerRect = c.Room.Expand(1, 1)
+                     select new Region()
+                     {
+                         IsRectangle = true,
+                         InnerRect = innerRect,
+                         OuterRect = outerRect,
+                         InnerPoints = innerRect.Positions().ToList(),
+                         OuterPoints = outerRect.Positions().ToList(),
+                         Connections = c.Connections.SelectMany(a => a).ToList()
+                     }).ToList();
 
             // Copy regions to map
             SadConsoleMap.Regions = new List<Region>(Rooms);
@@ -213,15 +213,15 @@ namespace SadConsole.Tiles
             // Create tiles in the SadConsole map
             foreach (var position in GoRogueMap.Positions())
             {
-				Tile terrain;
-				if (GoRogueMap[position])
-					terrain = Tile.Factory.Create(Settings.TileBlueprintFloor, position);
-				else
-					terrain = Tile.Factory.Create(Settings.TileBlueprintWall, position);
+                Tile terrain;
+                if (GoRogueMap[position])
+                    terrain = Tile.Factory.Create(Settings.TileBlueprintFloor, position);
+                else
+                    terrain = Tile.Factory.Create(Settings.TileBlueprintWall, position);
 
-				terrain.Position = position;
-				SadConsoleMap.SetTerrain(terrain);
-			}
+                terrain.Position = position;
+                SadConsoleMap.SetTerrain(terrain);
+            }
 
             foreach (var region in Rooms)
             {

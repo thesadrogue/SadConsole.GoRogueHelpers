@@ -19,12 +19,12 @@ namespace BasicTutorial
         public static readonly Rectangle ScreenRegionMessages = new Rectangle(0, ScreenRegionMap.Bottom + 1, Program.ScreenWidth - 10, Program.ScreenHeight - ScreenRegionMap.Height - 1);
         public SadConsole.Actions.ActionStack ActionProcessor;
 
-		private GameFrameManager _frameManager;
+        private GameFrameManager _frameManager;
 
         public bool RedrawMap;
 
         public SadConsole.ScrollingConsole MapConsole { get; }
-		public SadConsole.Tiles.TileMap Map { get; }
+        public SadConsole.Tiles.TileMap Map { get; }
 
         public MessageConsole Messages { get; }
 
@@ -32,9 +32,9 @@ namespace BasicTutorial
         {
             // Setup map
             Map = map;
-			MapConsole = new ScrollingConsole(map.Width, map.Height, SadConsole.Global.FontDefault,
-											  new Rectangle(0, 0, ScreenRegionMap.Width, ScreenRegionMap.Height), null);
-			Map.ConfigureAsRenderer(MapConsole);
+            MapConsole = new ScrollingConsole(map.Width, map.Height, SadConsole.Global.FontDefault,
+                                              new Rectangle(0, 0, ScreenRegionMap.Width, ScreenRegionMap.Height), null);
+            Map.ConfigureAsRenderer(MapConsole);
 
             MapConsole.Position = ScreenRegionMap.Location;
             //MapConsole.ViewPort = new Rectangle(0, 0, ScreenRegionMap.Width, ScreenRegionMap.Height);
@@ -43,8 +43,8 @@ namespace BasicTutorial
             ActionProcessor = new SadConsole.Actions.ActionStack();
             ActionProcessor.Push(new SadConsole.Actions.ActionDelegate(ActionKeyboardProcessor));
 
-			_frameManager = new GameFrameManager(map);
-			_frameManager.LogicFrameCompleted += (s, e) => RedrawMap = true;
+            _frameManager = new GameFrameManager(map);
+            _frameManager.LogicFrameCompleted += (s, e) => RedrawMap = true;
 
             // Setup messages
             Messages = new MessageConsole(ScreenRegionMessages.Width, ScreenRegionMessages.Height);
@@ -65,8 +65,8 @@ namespace BasicTutorial
             // Center view on player
             MapConsole.CenterViewPortOnPoint(Map.ControlledGameObject.Position);
 
-			// Run logic if valid move made by player
-			_frameManager.Update(this, timeElapsed);
+            // Run logic if valid move made by player
+            _frameManager.Update(this, timeElapsed);
 
             if (RedrawMap)
             {
