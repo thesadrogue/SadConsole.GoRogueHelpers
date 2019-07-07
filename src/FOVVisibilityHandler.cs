@@ -35,7 +35,7 @@ namespace SadConsole
                 var terrain = map.GetTerrain<BasicTerrain>(pos);
                 if (terrain != null && map.FOV.BooleanFOV[pos])
                     UpdateTerrainSeen(terrain);
-                else
+                else if (terrain != null)
                     UpdateTerrainUnseen(terrain);
             }
 
@@ -104,14 +104,18 @@ namespace SadConsole
 
             foreach (var position in Map.FOV.NewlySeen)
             {
-                UpdateTerrainSeen(Map.GetTerrain<BasicTerrain>(position));
+                var terrain = Map.GetTerrain<BasicTerrain>(position);
+                if (terrain != null)
+                    UpdateTerrainSeen(terrain);
                 foreach (var entity in Map.GetEntities<BasicEntity>(position))
                     UpdateEntitySeen(entity);
             }
 
             foreach (var position in Map.FOV.NewlyUnseen)
             {
-                UpdateTerrainUnseen(Map.GetTerrain<BasicTerrain>(position));
+                var terrain = Map.GetTerrain<BasicTerrain>(position);
+                if (terrain != null)
+                    UpdateTerrainUnseen(terrain);
                 foreach (var entity in Map.GetEntities<BasicEntity>(position))
                     UpdateEntityUnseen(entity);
             }
