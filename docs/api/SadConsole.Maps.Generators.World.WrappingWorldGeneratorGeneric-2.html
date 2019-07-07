@@ -1,0 +1,664 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class WrappingWorldGeneratorGeneric&lt;TMapConverter, TMapConverterOutput&gt;
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class WrappingWorldGeneratorGeneric&lt;TMapConverter, TMapConverterOutput&gt;
+   ">
+    <meta name="generator" content="docfx 2.41.0.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="SadConsole.Maps.Generators.World.WrappingWorldGeneratorGeneric`2">
+  
+  
+  <h1 id="SadConsole_Maps_Generators_World_WrappingWorldGeneratorGeneric_2" data-uid="SadConsole.Maps.Generators.World.WrappingWorldGeneratorGeneric`2" class="text-break">Class WrappingWorldGeneratorGeneric&lt;TMapConverter, TMapConverterOutput&gt;
+  </h1>
+  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><a class="xref" href="SadConsole.Maps.Generators.World.Generator-2.html">Generator</a>&lt;TMapConverter, TMapConverterOutput&gt;</div>
+    <div class="level2"><span class="xref">WrappingWorldGeneratorGeneric&lt;TMapConverter, TMapConverterOutput&gt;</span></div>
+      <div class="level3"><a class="xref" href="SadConsole.Maps.Generators.World.WrappingWorldGenerator.html">WrappingWorldGenerator</a></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="SadConsole.Maps.Generators.World.Generator-2.html#SadConsole_Maps_Generators_World_Generator_2_Seed">Generator&lt;TMapConverter, TMapConverterOutput&gt;.Seed</a>
+    </div>
+    <div>
+      <a class="xref" href="SadConsole.Maps.Generators.World.Generator-2.html#SadConsole_Maps_Generators_World_Generator_2_Random">Generator&lt;TMapConverter, TMapConverterOutput&gt;.Random</a>
+    </div>
+    <div>
+      <a class="xref" href="SadConsole.Maps.Generators.World.Generator-2.html#SadConsole_Maps_Generators_World_Generator_2_Width">Generator&lt;TMapConverter, TMapConverterOutput&gt;.Width</a>
+    </div>
+    <div>
+      <a class="xref" href="SadConsole.Maps.Generators.World.Generator-2.html#SadConsole_Maps_Generators_World_Generator_2_Height">Generator&lt;TMapConverter, TMapConverterOutput&gt;.Height</a>
+    </div>
+    <div>
+      <a class="xref" href="SadConsole.Maps.Generators.World.Generator-2.html#SadConsole_Maps_Generators_World_Generator_2_TerrainOctaves">Generator&lt;TMapConverter, TMapConverterOutput&gt;.TerrainOctaves</a>
+    </div>
+    <div>
+      <a class="xref" href="SadConsole.Maps.Generators.World.Generator-2.html#SadConsole_Maps_Generators_World_Generator_2_TerrainFrequency">Generator&lt;TMapConverter, TMapConverterOutput&gt;.TerrainFrequency</a>
+    </div>
+    <div>
+      <a class="xref" href="SadConsole.Maps.Generators.World.Generator-2.html#SadConsole_Maps_Generators_World_Generator_2_DeepWater">Generator&lt;TMapConverter, TMapConverterOutput&gt;.DeepWater</a>
+    </div>
+    <div>
+      <a class="xref" href="SadConsole.Maps.Generators.World.Generator-2.html#SadConsole_Maps_Generators_World_Generator_2_ShallowWater">Generator&lt;TMapConverter, TMapConverterOutput&gt;.ShallowWater</a>
+    </div>
+    <div>
+      <a class="xref" href="SadConsole.Maps.Generators.World.Generator-2.html#SadConsole_Maps_Generators_World_Generator_2_Sand">Generator&lt;TMapConverter, TMapConverterOutput&gt;.Sand</a>
+    </div>
+    <div>
+      <a class="xref" href="SadConsole.Maps.Generators.World.Generator-2.html#SadConsole_Maps_Generators_World_Generator_2_Grass">Generator&lt;TMapConverter, TMapConverterOutput&gt;.Grass</a>
+    </div>
+    <div>
+      <a class="xref" href="SadConsole.Maps.Generators.World.Generator-2.html#SadConsole_Maps_Generators_World_Generator_2_Forest">Generator&lt;TMapConverter, TMapConverterOutput&gt;.Forest</a>
+    </div>
+    <div>
+      <a class="xref" href="SadConsole.Maps.Generators.World.Generator-2.html#SadConsole_Maps_Generators_World_Generator_2_Rock">Generator&lt;TMapConverter, TMapConverterOutput&gt;.Rock</a>
+    </div>
+    <div>
+      <a class="xref" href="SadConsole.Maps.Generators.World.Generator-2.html#SadConsole_Maps_Generators_World_Generator_2_HeatOctaves">Generator&lt;TMapConverter, TMapConverterOutput&gt;.HeatOctaves</a>
+    </div>
+    <div>
+      <a class="xref" href="SadConsole.Maps.Generators.World.Generator-2.html#SadConsole_Maps_Generators_World_Generator_2_HeatFrequency">Generator&lt;TMapConverter, TMapConverterOutput&gt;.HeatFrequency</a>
+    </div>
+    <div>
+      <a class="xref" href="SadConsole.Maps.Generators.World.Generator-2.html#SadConsole_Maps_Generators_World_Generator_2_ColdestValue">Generator&lt;TMapConverter, TMapConverterOutput&gt;.ColdestValue</a>
+    </div>
+    <div>
+      <a class="xref" href="SadConsole.Maps.Generators.World.Generator-2.html#SadConsole_Maps_Generators_World_Generator_2_ColderValue">Generator&lt;TMapConverter, TMapConverterOutput&gt;.ColderValue</a>
+    </div>
+    <div>
+      <a class="xref" href="SadConsole.Maps.Generators.World.Generator-2.html#SadConsole_Maps_Generators_World_Generator_2_ColdValue">Generator&lt;TMapConverter, TMapConverterOutput&gt;.ColdValue</a>
+    </div>
+    <div>
+      <a class="xref" href="SadConsole.Maps.Generators.World.Generator-2.html#SadConsole_Maps_Generators_World_Generator_2_WarmValue">Generator&lt;TMapConverter, TMapConverterOutput&gt;.WarmValue</a>
+    </div>
+    <div>
+      <a class="xref" href="SadConsole.Maps.Generators.World.Generator-2.html#SadConsole_Maps_Generators_World_Generator_2_WarmerValue">Generator&lt;TMapConverter, TMapConverterOutput&gt;.WarmerValue</a>
+    </div>
+    <div>
+      <a class="xref" href="SadConsole.Maps.Generators.World.Generator-2.html#SadConsole_Maps_Generators_World_Generator_2_MoistureOctaves">Generator&lt;TMapConverter, TMapConverterOutput&gt;.MoistureOctaves</a>
+    </div>
+    <div>
+      <a class="xref" href="SadConsole.Maps.Generators.World.Generator-2.html#SadConsole_Maps_Generators_World_Generator_2_MoistureFrequency">Generator&lt;TMapConverter, TMapConverterOutput&gt;.MoistureFrequency</a>
+    </div>
+    <div>
+      <a class="xref" href="SadConsole.Maps.Generators.World.Generator-2.html#SadConsole_Maps_Generators_World_Generator_2_DryerValue">Generator&lt;TMapConverter, TMapConverterOutput&gt;.DryerValue</a>
+    </div>
+    <div>
+      <a class="xref" href="SadConsole.Maps.Generators.World.Generator-2.html#SadConsole_Maps_Generators_World_Generator_2_DryValue">Generator&lt;TMapConverter, TMapConverterOutput&gt;.DryValue</a>
+    </div>
+    <div>
+      <a class="xref" href="SadConsole.Maps.Generators.World.Generator-2.html#SadConsole_Maps_Generators_World_Generator_2_WetValue">Generator&lt;TMapConverter, TMapConverterOutput&gt;.WetValue</a>
+    </div>
+    <div>
+      <a class="xref" href="SadConsole.Maps.Generators.World.Generator-2.html#SadConsole_Maps_Generators_World_Generator_2_WetterValue">Generator&lt;TMapConverter, TMapConverterOutput&gt;.WetterValue</a>
+    </div>
+    <div>
+      <a class="xref" href="SadConsole.Maps.Generators.World.Generator-2.html#SadConsole_Maps_Generators_World_Generator_2_WettestValue">Generator&lt;TMapConverter, TMapConverterOutput&gt;.WettestValue</a>
+    </div>
+    <div>
+      <a class="xref" href="SadConsole.Maps.Generators.World.Generator-2.html#SadConsole_Maps_Generators_World_Generator_2_RiverCount">Generator&lt;TMapConverter, TMapConverterOutput&gt;.RiverCount</a>
+    </div>
+    <div>
+      <a class="xref" href="SadConsole.Maps.Generators.World.Generator-2.html#SadConsole_Maps_Generators_World_Generator_2_MinRiverHeight">Generator&lt;TMapConverter, TMapConverterOutput&gt;.MinRiverHeight</a>
+    </div>
+    <div>
+      <a class="xref" href="SadConsole.Maps.Generators.World.Generator-2.html#SadConsole_Maps_Generators_World_Generator_2_MaxRiverAttempts">Generator&lt;TMapConverter, TMapConverterOutput&gt;.MaxRiverAttempts</a>
+    </div>
+    <div>
+      <a class="xref" href="SadConsole.Maps.Generators.World.Generator-2.html#SadConsole_Maps_Generators_World_Generator_2_MinRiverTurns">Generator&lt;TMapConverter, TMapConverterOutput&gt;.MinRiverTurns</a>
+    </div>
+    <div>
+      <a class="xref" href="SadConsole.Maps.Generators.World.Generator-2.html#SadConsole_Maps_Generators_World_Generator_2_MinRiverLength">Generator&lt;TMapConverter, TMapConverterOutput&gt;.MinRiverLength</a>
+    </div>
+    <div>
+      <a class="xref" href="SadConsole.Maps.Generators.World.Generator-2.html#SadConsole_Maps_Generators_World_Generator_2_MaxRiverIntersections">Generator&lt;TMapConverter, TMapConverterOutput&gt;.MaxRiverIntersections</a>
+    </div>
+    <div>
+      <a class="xref" href="SadConsole.Maps.Generators.World.Generator-2.html#SadConsole_Maps_Generators_World_Generator_2_HeightData">Generator&lt;TMapConverter, TMapConverterOutput&gt;.HeightData</a>
+    </div>
+    <div>
+      <a class="xref" href="SadConsole.Maps.Generators.World.Generator-2.html#SadConsole_Maps_Generators_World_Generator_2_HeatData">Generator&lt;TMapConverter, TMapConverterOutput&gt;.HeatData</a>
+    </div>
+    <div>
+      <a class="xref" href="SadConsole.Maps.Generators.World.Generator-2.html#SadConsole_Maps_Generators_World_Generator_2_MoistureData">Generator&lt;TMapConverter, TMapConverterOutput&gt;.MoistureData</a>
+    </div>
+    <div>
+      <a class="xref" href="SadConsole.Maps.Generators.World.Generator-2.html#SadConsole_Maps_Generators_World_Generator_2_Tiles">Generator&lt;TMapConverter, TMapConverterOutput&gt;.Tiles</a>
+    </div>
+    <div>
+      <a class="xref" href="SadConsole.Maps.Generators.World.Generator-2.html#SadConsole_Maps_Generators_World_Generator_2_Waters">Generator&lt;TMapConverter, TMapConverterOutput&gt;.Waters</a>
+    </div>
+    <div>
+      <a class="xref" href="SadConsole.Maps.Generators.World.Generator-2.html#SadConsole_Maps_Generators_World_Generator_2_Lands">Generator&lt;TMapConverter, TMapConverterOutput&gt;.Lands</a>
+    </div>
+    <div>
+      <a class="xref" href="SadConsole.Maps.Generators.World.Generator-2.html#SadConsole_Maps_Generators_World_Generator_2_Rivers">Generator&lt;TMapConverter, TMapConverterOutput&gt;.Rivers</a>
+    </div>
+    <div>
+      <a class="xref" href="SadConsole.Maps.Generators.World.Generator-2.html#SadConsole_Maps_Generators_World_Generator_2_RiverGroups">Generator&lt;TMapConverter, TMapConverterOutput&gt;.RiverGroups</a>
+    </div>
+    <div>
+      <a class="xref" href="SadConsole.Maps.Generators.World.Generator-2.html#SadConsole_Maps_Generators_World_Generator_2_BiomeTable">Generator&lt;TMapConverter, TMapConverterOutput&gt;.BiomeTable</a>
+    </div>
+    <div>
+      <a class="xref" href="SadConsole.Maps.Generators.World.Generator-2.html#SadConsole_Maps_Generators_World_Generator_2_Start_System_Int32_System_Int32_">Generator&lt;TMapConverter, TMapConverterOutput&gt;.Start(Int32, Int32)</a>
+    </div>
+    <div>
+      <a class="xref" href="SadConsole.Maps.Generators.World.Generator-2.html#SadConsole_Maps_Generators_World_Generator_2_Initialize">Generator&lt;TMapConverter, TMapConverterOutput&gt;.Initialize()</a>
+    </div>
+    <div>
+      <a class="xref" href="SadConsole.Maps.Generators.World.Generator-2.html#SadConsole_Maps_Generators_World_Generator_2_GetData">Generator&lt;TMapConverter, TMapConverterOutput&gt;.GetData()</a>
+    </div>
+    <div>
+      <a class="xref" href="SadConsole.Maps.Generators.World.Generator-2.html#SadConsole_Maps_Generators_World_Generator_2_GetTop_SadConsole_Maps_Generators_World_Tile_">Generator&lt;TMapConverter, TMapConverterOutput&gt;.GetTop(Tile)</a>
+    </div>
+    <div>
+      <a class="xref" href="SadConsole.Maps.Generators.World.Generator-2.html#SadConsole_Maps_Generators_World_Generator_2_GetBottom_SadConsole_Maps_Generators_World_Tile_">Generator&lt;TMapConverter, TMapConverterOutput&gt;.GetBottom(Tile)</a>
+    </div>
+    <div>
+      <a class="xref" href="SadConsole.Maps.Generators.World.Generator-2.html#SadConsole_Maps_Generators_World_Generator_2_GetLeft_SadConsole_Maps_Generators_World_Tile_">Generator&lt;TMapConverter, TMapConverterOutput&gt;.GetLeft(Tile)</a>
+    </div>
+    <div>
+      <a class="xref" href="SadConsole.Maps.Generators.World.Generator-2.html#SadConsole_Maps_Generators_World_Generator_2_GetRight_SadConsole_Maps_Generators_World_Tile_">Generator&lt;TMapConverter, TMapConverterOutput&gt;.GetRight(Tile)</a>
+    </div>
+    <div>
+      <a class="xref" href="SadConsole.Maps.Generators.World.Generator-2.html#SadConsole_Maps_Generators_World_Generator_2_HeightMapRenderer">Generator&lt;TMapConverter, TMapConverterOutput&gt;.HeightMapRenderer</a>
+    </div>
+    <div>
+      <a class="xref" href="SadConsole.Maps.Generators.World.Generator-2.html#SadConsole_Maps_Generators_World_Generator_2_HeatMapRenderer">Generator&lt;TMapConverter, TMapConverterOutput&gt;.HeatMapRenderer</a>
+    </div>
+    <div>
+      <a class="xref" href="SadConsole.Maps.Generators.World.Generator-2.html#SadConsole_Maps_Generators_World_Generator_2_MoistureMapRenderer">Generator&lt;TMapConverter, TMapConverterOutput&gt;.MoistureMapRenderer</a>
+    </div>
+    <div>
+      <a class="xref" href="SadConsole.Maps.Generators.World.Generator-2.html#SadConsole_Maps_Generators_World_Generator_2_BiomeMapRenderer">Generator&lt;TMapConverter, TMapConverterOutput&gt;.BiomeMapRenderer</a>
+    </div>
+    <div>
+      <a class="xref" href="SadConsole.Maps.Generators.World.Generator-2.html#SadConsole_Maps_Generators_World_Generator_2_MapConverter">Generator&lt;TMapConverter, TMapConverterOutput&gt;.MapConverter</a>
+    </div>
+    <div>
+      <a class="xref" href="SadConsole.Maps.Generators.World.Generator-2.html#SadConsole_Maps_Generators_World_Generator_2_Reset">Generator&lt;TMapConverter, TMapConverterOutput&gt;.Reset()</a>
+    </div>
+    <div>
+      <a class="xref" href="SadConsole.Maps.Generators.World.Generator-2.html#SadConsole_Maps_Generators_World_Generator_2_Generate">Generator&lt;TMapConverter, TMapConverterOutput&gt;.Generate()</a>
+    </div>
+    <div>
+      <a class="xref" href="SadConsole.Maps.Generators.World.Generator-2.html#SadConsole_Maps_Generators_World_Generator_2_GetBiomeType_SadConsole_Maps_Generators_World_Tile_">Generator&lt;TMapConverter, TMapConverterOutput&gt;.GetBiomeType(Tile)</a>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.MemberwiseClone()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ToString()</span>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="SadConsole.Maps.Generators.World.html">SadConsole.Maps.Generators.World</a></h6>
+  <h6><strong>Assembly</strong>: SadConsole.GoRogue.dll</h6>
+  <h5 id="SadConsole_Maps_Generators_World_WrappingWorldGeneratorGeneric_2_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class WrappingWorldGeneratorGeneric&lt;TMapConverter, TMapConverterOutput&gt; : Generator&lt;TMapConverter, TMapConverterOutput&gt; where TMapConverter : IMapConverter&lt;TMapConverterOutput&gt;, new()</code></pre>
+  </div>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TMapConverter</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="parametername">TMapConverterOutput</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="fields">Fields
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/thesadrogue/SadConsole.GoRogueHelpers/new/docs-setup/apiSpec/new?filename=SadConsole_Maps_Generators_World_WrappingWorldGeneratorGeneric_2_HeatMap.md&amp;value=---%0Auid%3A%20SadConsole.Maps.Generators.World.WrappingWorldGeneratorGeneric%602.HeatMap%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/thesadrogue/SadConsole.GoRogueHelpers/blob/docs-setup/src/Maps/Generators/World/WrappingWorldGenerator.cs/#L17">View Source</a>
+  </span>
+  <h4 id="SadConsole_Maps_Generators_World_WrappingWorldGeneratorGeneric_2_HeatMap" data-uid="SadConsole.Maps.Generators.World.WrappingWorldGeneratorGeneric`2.HeatMap">HeatMap</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected ImplicitCombiner HeatMap</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="TinkerWorX.AccidentalNoiseLibrary.ImplicitCombiner.html">ImplicitCombiner</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/thesadrogue/SadConsole.GoRogueHelpers/new/docs-setup/apiSpec/new?filename=SadConsole_Maps_Generators_World_WrappingWorldGeneratorGeneric_2_HeightMap.md&amp;value=---%0Auid%3A%20SadConsole.Maps.Generators.World.WrappingWorldGeneratorGeneric%602.HeightMap%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/thesadrogue/SadConsole.GoRogueHelpers/blob/docs-setup/src/Maps/Generators/World/WrappingWorldGenerator.cs/#L16">View Source</a>
+  </span>
+  <h4 id="SadConsole_Maps_Generators_World_WrappingWorldGeneratorGeneric_2_HeightMap" data-uid="SadConsole.Maps.Generators.World.WrappingWorldGeneratorGeneric`2.HeightMap">HeightMap</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected ImplicitFractal HeightMap</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="TinkerWorX.AccidentalNoiseLibrary.ImplicitFractal.html">ImplicitFractal</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/thesadrogue/SadConsole.GoRogueHelpers/new/docs-setup/apiSpec/new?filename=SadConsole_Maps_Generators_World_WrappingWorldGeneratorGeneric_2_MoistureMap.md&amp;value=---%0Auid%3A%20SadConsole.Maps.Generators.World.WrappingWorldGeneratorGeneric%602.MoistureMap%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/thesadrogue/SadConsole.GoRogueHelpers/blob/docs-setup/src/Maps/Generators/World/WrappingWorldGenerator.cs/#L18">View Source</a>
+  </span>
+  <h4 id="SadConsole_Maps_Generators_World_WrappingWorldGeneratorGeneric_2_MoistureMap" data-uid="SadConsole.Maps.Generators.World.WrappingWorldGeneratorGeneric`2.MoistureMap">MoistureMap</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected ImplicitFractal MoistureMap</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="TinkerWorX.AccidentalNoiseLibrary.ImplicitFractal.html">ImplicitFractal</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/thesadrogue/SadConsole.GoRogueHelpers/new/docs-setup/apiSpec/new?filename=SadConsole_Maps_Generators_World_WrappingWorldGeneratorGeneric_2_GetBottom_SadConsole_Maps_Generators_World_Tile_.md&amp;value=---%0Auid%3A%20SadConsole.Maps.Generators.World.WrappingWorldGeneratorGeneric%602.GetBottom(SadConsole.Maps.Generators.World.Tile)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/thesadrogue/SadConsole.GoRogueHelpers/blob/docs-setup/src/Maps/Generators/World/WrappingWorldGenerator.cs/#L106">View Source</a>
+  </span>
+  <a id="SadConsole_Maps_Generators_World_WrappingWorldGeneratorGeneric_2_GetBottom_" data-uid="SadConsole.Maps.Generators.World.WrappingWorldGeneratorGeneric`2.GetBottom*"></a>
+  <h4 id="SadConsole_Maps_Generators_World_WrappingWorldGeneratorGeneric_2_GetBottom_SadConsole_Maps_Generators_World_Tile_" data-uid="SadConsole.Maps.Generators.World.WrappingWorldGeneratorGeneric`2.GetBottom(SadConsole.Maps.Generators.World.Tile)">GetBottom(Tile)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override Tile GetBottom(Tile t)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SadConsole.Maps.Generators.World.Tile.html">Tile</a></td>
+        <td><span class="parametername">t</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SadConsole.Maps.Generators.World.Tile.html">Tile</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">SadConsole.Maps.Generators.World.Generator&lt;TMapConverter, TMapConverterOutput&gt;.GetBottom(SadConsole.Maps.Generators.World.Tile)</span></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/thesadrogue/SadConsole.GoRogueHelpers/new/docs-setup/apiSpec/new?filename=SadConsole_Maps_Generators_World_WrappingWorldGeneratorGeneric_2_GetData.md&amp;value=---%0Auid%3A%20SadConsole.Maps.Generators.World.WrappingWorldGeneratorGeneric%602.GetData%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/thesadrogue/SadConsole.GoRogueHelpers/blob/docs-setup/src/Maps/Generators/World/WrappingWorldGenerator.cs/#L52">View Source</a>
+  </span>
+  <a id="SadConsole_Maps_Generators_World_WrappingWorldGeneratorGeneric_2_GetData_" data-uid="SadConsole.Maps.Generators.World.WrappingWorldGeneratorGeneric`2.GetData*"></a>
+  <h4 id="SadConsole_Maps_Generators_World_WrappingWorldGeneratorGeneric_2_GetData" data-uid="SadConsole.Maps.Generators.World.WrappingWorldGeneratorGeneric`2.GetData">GetData()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void GetData()</code></pre>
+  </div>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">SadConsole.Maps.Generators.World.Generator&lt;TMapConverter, TMapConverterOutput&gt;.GetData()</span></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/thesadrogue/SadConsole.GoRogueHelpers/new/docs-setup/apiSpec/new?filename=SadConsole_Maps_Generators_World_WrappingWorldGeneratorGeneric_2_GetLeft_SadConsole_Maps_Generators_World_Tile_.md&amp;value=---%0Auid%3A%20SadConsole.Maps.Generators.World.WrappingWorldGeneratorGeneric%602.GetLeft(SadConsole.Maps.Generators.World.Tile)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/thesadrogue/SadConsole.GoRogueHelpers/blob/docs-setup/src/Maps/Generators/World/WrappingWorldGenerator.cs/#L110">View Source</a>
+  </span>
+  <a id="SadConsole_Maps_Generators_World_WrappingWorldGeneratorGeneric_2_GetLeft_" data-uid="SadConsole.Maps.Generators.World.WrappingWorldGeneratorGeneric`2.GetLeft*"></a>
+  <h4 id="SadConsole_Maps_Generators_World_WrappingWorldGeneratorGeneric_2_GetLeft_SadConsole_Maps_Generators_World_Tile_" data-uid="SadConsole.Maps.Generators.World.WrappingWorldGeneratorGeneric`2.GetLeft(SadConsole.Maps.Generators.World.Tile)">GetLeft(Tile)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override Tile GetLeft(Tile t)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SadConsole.Maps.Generators.World.Tile.html">Tile</a></td>
+        <td><span class="parametername">t</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SadConsole.Maps.Generators.World.Tile.html">Tile</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">SadConsole.Maps.Generators.World.Generator&lt;TMapConverter, TMapConverterOutput&gt;.GetLeft(SadConsole.Maps.Generators.World.Tile)</span></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/thesadrogue/SadConsole.GoRogueHelpers/new/docs-setup/apiSpec/new?filename=SadConsole_Maps_Generators_World_WrappingWorldGeneratorGeneric_2_GetRight_SadConsole_Maps_Generators_World_Tile_.md&amp;value=---%0Auid%3A%20SadConsole.Maps.Generators.World.WrappingWorldGeneratorGeneric%602.GetRight(SadConsole.Maps.Generators.World.Tile)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/thesadrogue/SadConsole.GoRogueHelpers/blob/docs-setup/src/Maps/Generators/World/WrappingWorldGenerator.cs/#L114">View Source</a>
+  </span>
+  <a id="SadConsole_Maps_Generators_World_WrappingWorldGeneratorGeneric_2_GetRight_" data-uid="SadConsole.Maps.Generators.World.WrappingWorldGeneratorGeneric`2.GetRight*"></a>
+  <h4 id="SadConsole_Maps_Generators_World_WrappingWorldGeneratorGeneric_2_GetRight_SadConsole_Maps_Generators_World_Tile_" data-uid="SadConsole.Maps.Generators.World.WrappingWorldGeneratorGeneric`2.GetRight(SadConsole.Maps.Generators.World.Tile)">GetRight(Tile)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override Tile GetRight(Tile t)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SadConsole.Maps.Generators.World.Tile.html">Tile</a></td>
+        <td><span class="parametername">t</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SadConsole.Maps.Generators.World.Tile.html">Tile</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">SadConsole.Maps.Generators.World.Generator&lt;TMapConverter, TMapConverterOutput&gt;.GetRight(SadConsole.Maps.Generators.World.Tile)</span></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/thesadrogue/SadConsole.GoRogueHelpers/new/docs-setup/apiSpec/new?filename=SadConsole_Maps_Generators_World_WrappingWorldGeneratorGeneric_2_GetTop_SadConsole_Maps_Generators_World_Tile_.md&amp;value=---%0Auid%3A%20SadConsole.Maps.Generators.World.WrappingWorldGeneratorGeneric%602.GetTop(SadConsole.Maps.Generators.World.Tile)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/thesadrogue/SadConsole.GoRogueHelpers/blob/docs-setup/src/Maps/Generators/World/WrappingWorldGenerator.cs/#L102">View Source</a>
+  </span>
+  <a id="SadConsole_Maps_Generators_World_WrappingWorldGeneratorGeneric_2_GetTop_" data-uid="SadConsole.Maps.Generators.World.WrappingWorldGeneratorGeneric`2.GetTop*"></a>
+  <h4 id="SadConsole_Maps_Generators_World_WrappingWorldGeneratorGeneric_2_GetTop_SadConsole_Maps_Generators_World_Tile_" data-uid="SadConsole.Maps.Generators.World.WrappingWorldGeneratorGeneric`2.GetTop(SadConsole.Maps.Generators.World.Tile)">GetTop(Tile)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override Tile GetTop(Tile t)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SadConsole.Maps.Generators.World.Tile.html">Tile</a></td>
+        <td><span class="parametername">t</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SadConsole.Maps.Generators.World.Tile.html">Tile</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">SadConsole.Maps.Generators.World.Generator&lt;TMapConverter, TMapConverterOutput&gt;.GetTop(SadConsole.Maps.Generators.World.Tile)</span></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/thesadrogue/SadConsole.GoRogueHelpers/new/docs-setup/apiSpec/new?filename=SadConsole_Maps_Generators_World_WrappingWorldGeneratorGeneric_2_Initialize.md&amp;value=---%0Auid%3A%20SadConsole.Maps.Generators.World.WrappingWorldGeneratorGeneric%602.Initialize%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/thesadrogue/SadConsole.GoRogueHelpers/blob/docs-setup/src/Maps/Generators/World/WrappingWorldGenerator.cs/#L20">View Source</a>
+  </span>
+  <a id="SadConsole_Maps_Generators_World_WrappingWorldGeneratorGeneric_2_Initialize_" data-uid="SadConsole.Maps.Generators.World.WrappingWorldGeneratorGeneric`2.Initialize*"></a>
+  <h4 id="SadConsole_Maps_Generators_World_WrappingWorldGeneratorGeneric_2_Initialize" data-uid="SadConsole.Maps.Generators.World.WrappingWorldGeneratorGeneric`2.Initialize">Initialize()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void Initialize()</code></pre>
+  </div>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">SadConsole.Maps.Generators.World.Generator&lt;TMapConverter, TMapConverterOutput&gt;.Initialize()</span></div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/thesadrogue/SadConsole.GoRogueHelpers/new/docs-setup/apiSpec/new?filename=SadConsole_Maps_Generators_World_WrappingWorldGeneratorGeneric_2.md&amp;value=---%0Auid%3A%20SadConsole.Maps.Generators.World.WrappingWorldGeneratorGeneric%602%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/thesadrogue/SadConsole.GoRogueHelpers/blob/docs-setup/src/Maps/Generators/World/WrappingWorldGenerator.cs/#L12" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

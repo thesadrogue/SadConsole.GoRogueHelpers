@@ -1,0 +1,333 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class WorldGenerator
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class WorldGenerator
+   ">
+    <meta name="generator" content="docfx 2.41.0.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="SadConsole.Maps.Generators.World.WorldGenerator">
+  
+  
+  <h1 id="SadConsole_Maps_Generators_World_WorldGenerator" data-uid="SadConsole.Maps.Generators.World.WorldGenerator" class="text-break">Class WorldGenerator
+  </h1>
+  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><a class="xref" href="SadConsole.Maps.Generators.World.Generator-2.html">Generator</a>&lt;<a class="xref" href="SadConsole.Maps.Generators.World.SurfaceMap.html">SurfaceMap</a>, <span class="xref">SadConsole.CellSurface</span>&gt;</div>
+    <div class="level2"><a class="xref" href="SadConsole.Maps.Generators.World.WorldGeneratorGeneric-2.html">WorldGeneratorGeneric</a>&lt;<a class="xref" href="SadConsole.Maps.Generators.World.SurfaceMap.html">SurfaceMap</a>, <span class="xref">SadConsole.CellSurface</span>&gt;</div>
+    <div class="level3"><span class="xref">WorldGenerator</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="SadConsole.Maps.Generators.World.WorldGeneratorGeneric-2.html#SadConsole_Maps_Generators_World_WorldGeneratorGeneric_2_HeightMap">WorldGeneratorGeneric&lt;SurfaceMap, CellSurface&gt;.HeightMap</a>
+    </div>
+    <div>
+      <a class="xref" href="SadConsole.Maps.Generators.World.WorldGeneratorGeneric-2.html#SadConsole_Maps_Generators_World_WorldGeneratorGeneric_2_HeatMap">WorldGeneratorGeneric&lt;SurfaceMap, CellSurface&gt;.HeatMap</a>
+    </div>
+    <div>
+      <a class="xref" href="SadConsole.Maps.Generators.World.WorldGeneratorGeneric-2.html#SadConsole_Maps_Generators_World_WorldGeneratorGeneric_2_MoistureMap">WorldGeneratorGeneric&lt;SurfaceMap, CellSurface&gt;.MoistureMap</a>
+    </div>
+    <div>
+      <a class="xref" href="SadConsole.Maps.Generators.World.WorldGeneratorGeneric-2.html#SadConsole_Maps_Generators_World_WorldGeneratorGeneric_2_Initialize">WorldGeneratorGeneric&lt;SurfaceMap, CellSurface&gt;.Initialize()</a>
+    </div>
+    <div>
+      <a class="xref" href="SadConsole.Maps.Generators.World.WorldGeneratorGeneric-2.html#SadConsole_Maps_Generators_World_WorldGeneratorGeneric_2_GetData">WorldGeneratorGeneric&lt;SurfaceMap, CellSurface&gt;.GetData()</a>
+    </div>
+    <div>
+      <a class="xref" href="SadConsole.Maps.Generators.World.WorldGeneratorGeneric-2.html#SadConsole_Maps_Generators_World_WorldGeneratorGeneric_2_GetTop_SadConsole_Maps_Generators_World_Tile_">WorldGeneratorGeneric&lt;SurfaceMap, CellSurface&gt;.GetTop(Tile)</a>
+    </div>
+    <div>
+      <a class="xref" href="SadConsole.Maps.Generators.World.WorldGeneratorGeneric-2.html#SadConsole_Maps_Generators_World_WorldGeneratorGeneric_2_GetBottom_SadConsole_Maps_Generators_World_Tile_">WorldGeneratorGeneric&lt;SurfaceMap, CellSurface&gt;.GetBottom(Tile)</a>
+    </div>
+    <div>
+      <a class="xref" href="SadConsole.Maps.Generators.World.WorldGeneratorGeneric-2.html#SadConsole_Maps_Generators_World_WorldGeneratorGeneric_2_GetLeft_SadConsole_Maps_Generators_World_Tile_">WorldGeneratorGeneric&lt;SurfaceMap, CellSurface&gt;.GetLeft(Tile)</a>
+    </div>
+    <div>
+      <a class="xref" href="SadConsole.Maps.Generators.World.WorldGeneratorGeneric-2.html#SadConsole_Maps_Generators_World_WorldGeneratorGeneric_2_GetRight_SadConsole_Maps_Generators_World_Tile_">WorldGeneratorGeneric&lt;SurfaceMap, CellSurface&gt;.GetRight(Tile)</a>
+    </div>
+    <div>
+      <a class="xref" href="SadConsole.Maps.Generators.World.Generator-2.html#SadConsole_Maps_Generators_World_Generator_2_Seed">Generator&lt;SurfaceMap, CellSurface&gt;.Seed</a>
+    </div>
+    <div>
+      <a class="xref" href="SadConsole.Maps.Generators.World.Generator-2.html#SadConsole_Maps_Generators_World_Generator_2_Random">Generator&lt;SurfaceMap, CellSurface&gt;.Random</a>
+    </div>
+    <div>
+      <a class="xref" href="SadConsole.Maps.Generators.World.Generator-2.html#SadConsole_Maps_Generators_World_Generator_2_Width">Generator&lt;SurfaceMap, CellSurface&gt;.Width</a>
+    </div>
+    <div>
+      <a class="xref" href="SadConsole.Maps.Generators.World.Generator-2.html#SadConsole_Maps_Generators_World_Generator_2_Height">Generator&lt;SurfaceMap, CellSurface&gt;.Height</a>
+    </div>
+    <div>
+      <a class="xref" href="SadConsole.Maps.Generators.World.Generator-2.html#SadConsole_Maps_Generators_World_Generator_2_TerrainOctaves">Generator&lt;SurfaceMap, CellSurface&gt;.TerrainOctaves</a>
+    </div>
+    <div>
+      <a class="xref" href="SadConsole.Maps.Generators.World.Generator-2.html#SadConsole_Maps_Generators_World_Generator_2_TerrainFrequency">Generator&lt;SurfaceMap, CellSurface&gt;.TerrainFrequency</a>
+    </div>
+    <div>
+      <a class="xref" href="SadConsole.Maps.Generators.World.Generator-2.html#SadConsole_Maps_Generators_World_Generator_2_DeepWater">Generator&lt;SurfaceMap, CellSurface&gt;.DeepWater</a>
+    </div>
+    <div>
+      <a class="xref" href="SadConsole.Maps.Generators.World.Generator-2.html#SadConsole_Maps_Generators_World_Generator_2_ShallowWater">Generator&lt;SurfaceMap, CellSurface&gt;.ShallowWater</a>
+    </div>
+    <div>
+      <a class="xref" href="SadConsole.Maps.Generators.World.Generator-2.html#SadConsole_Maps_Generators_World_Generator_2_Sand">Generator&lt;SurfaceMap, CellSurface&gt;.Sand</a>
+    </div>
+    <div>
+      <a class="xref" href="SadConsole.Maps.Generators.World.Generator-2.html#SadConsole_Maps_Generators_World_Generator_2_Grass">Generator&lt;SurfaceMap, CellSurface&gt;.Grass</a>
+    </div>
+    <div>
+      <a class="xref" href="SadConsole.Maps.Generators.World.Generator-2.html#SadConsole_Maps_Generators_World_Generator_2_Forest">Generator&lt;SurfaceMap, CellSurface&gt;.Forest</a>
+    </div>
+    <div>
+      <a class="xref" href="SadConsole.Maps.Generators.World.Generator-2.html#SadConsole_Maps_Generators_World_Generator_2_Rock">Generator&lt;SurfaceMap, CellSurface&gt;.Rock</a>
+    </div>
+    <div>
+      <a class="xref" href="SadConsole.Maps.Generators.World.Generator-2.html#SadConsole_Maps_Generators_World_Generator_2_HeatOctaves">Generator&lt;SurfaceMap, CellSurface&gt;.HeatOctaves</a>
+    </div>
+    <div>
+      <a class="xref" href="SadConsole.Maps.Generators.World.Generator-2.html#SadConsole_Maps_Generators_World_Generator_2_HeatFrequency">Generator&lt;SurfaceMap, CellSurface&gt;.HeatFrequency</a>
+    </div>
+    <div>
+      <a class="xref" href="SadConsole.Maps.Generators.World.Generator-2.html#SadConsole_Maps_Generators_World_Generator_2_ColdestValue">Generator&lt;SurfaceMap, CellSurface&gt;.ColdestValue</a>
+    </div>
+    <div>
+      <a class="xref" href="SadConsole.Maps.Generators.World.Generator-2.html#SadConsole_Maps_Generators_World_Generator_2_ColderValue">Generator&lt;SurfaceMap, CellSurface&gt;.ColderValue</a>
+    </div>
+    <div>
+      <a class="xref" href="SadConsole.Maps.Generators.World.Generator-2.html#SadConsole_Maps_Generators_World_Generator_2_ColdValue">Generator&lt;SurfaceMap, CellSurface&gt;.ColdValue</a>
+    </div>
+    <div>
+      <a class="xref" href="SadConsole.Maps.Generators.World.Generator-2.html#SadConsole_Maps_Generators_World_Generator_2_WarmValue">Generator&lt;SurfaceMap, CellSurface&gt;.WarmValue</a>
+    </div>
+    <div>
+      <a class="xref" href="SadConsole.Maps.Generators.World.Generator-2.html#SadConsole_Maps_Generators_World_Generator_2_WarmerValue">Generator&lt;SurfaceMap, CellSurface&gt;.WarmerValue</a>
+    </div>
+    <div>
+      <a class="xref" href="SadConsole.Maps.Generators.World.Generator-2.html#SadConsole_Maps_Generators_World_Generator_2_MoistureOctaves">Generator&lt;SurfaceMap, CellSurface&gt;.MoistureOctaves</a>
+    </div>
+    <div>
+      <a class="xref" href="SadConsole.Maps.Generators.World.Generator-2.html#SadConsole_Maps_Generators_World_Generator_2_MoistureFrequency">Generator&lt;SurfaceMap, CellSurface&gt;.MoistureFrequency</a>
+    </div>
+    <div>
+      <a class="xref" href="SadConsole.Maps.Generators.World.Generator-2.html#SadConsole_Maps_Generators_World_Generator_2_DryerValue">Generator&lt;SurfaceMap, CellSurface&gt;.DryerValue</a>
+    </div>
+    <div>
+      <a class="xref" href="SadConsole.Maps.Generators.World.Generator-2.html#SadConsole_Maps_Generators_World_Generator_2_DryValue">Generator&lt;SurfaceMap, CellSurface&gt;.DryValue</a>
+    </div>
+    <div>
+      <a class="xref" href="SadConsole.Maps.Generators.World.Generator-2.html#SadConsole_Maps_Generators_World_Generator_2_WetValue">Generator&lt;SurfaceMap, CellSurface&gt;.WetValue</a>
+    </div>
+    <div>
+      <a class="xref" href="SadConsole.Maps.Generators.World.Generator-2.html#SadConsole_Maps_Generators_World_Generator_2_WetterValue">Generator&lt;SurfaceMap, CellSurface&gt;.WetterValue</a>
+    </div>
+    <div>
+      <a class="xref" href="SadConsole.Maps.Generators.World.Generator-2.html#SadConsole_Maps_Generators_World_Generator_2_WettestValue">Generator&lt;SurfaceMap, CellSurface&gt;.WettestValue</a>
+    </div>
+    <div>
+      <a class="xref" href="SadConsole.Maps.Generators.World.Generator-2.html#SadConsole_Maps_Generators_World_Generator_2_RiverCount">Generator&lt;SurfaceMap, CellSurface&gt;.RiverCount</a>
+    </div>
+    <div>
+      <a class="xref" href="SadConsole.Maps.Generators.World.Generator-2.html#SadConsole_Maps_Generators_World_Generator_2_MinRiverHeight">Generator&lt;SurfaceMap, CellSurface&gt;.MinRiverHeight</a>
+    </div>
+    <div>
+      <a class="xref" href="SadConsole.Maps.Generators.World.Generator-2.html#SadConsole_Maps_Generators_World_Generator_2_MaxRiverAttempts">Generator&lt;SurfaceMap, CellSurface&gt;.MaxRiverAttempts</a>
+    </div>
+    <div>
+      <a class="xref" href="SadConsole.Maps.Generators.World.Generator-2.html#SadConsole_Maps_Generators_World_Generator_2_MinRiverTurns">Generator&lt;SurfaceMap, CellSurface&gt;.MinRiverTurns</a>
+    </div>
+    <div>
+      <a class="xref" href="SadConsole.Maps.Generators.World.Generator-2.html#SadConsole_Maps_Generators_World_Generator_2_MinRiverLength">Generator&lt;SurfaceMap, CellSurface&gt;.MinRiverLength</a>
+    </div>
+    <div>
+      <a class="xref" href="SadConsole.Maps.Generators.World.Generator-2.html#SadConsole_Maps_Generators_World_Generator_2_MaxRiverIntersections">Generator&lt;SurfaceMap, CellSurface&gt;.MaxRiverIntersections</a>
+    </div>
+    <div>
+      <a class="xref" href="SadConsole.Maps.Generators.World.Generator-2.html#SadConsole_Maps_Generators_World_Generator_2_HeightData">Generator&lt;SurfaceMap, CellSurface&gt;.HeightData</a>
+    </div>
+    <div>
+      <a class="xref" href="SadConsole.Maps.Generators.World.Generator-2.html#SadConsole_Maps_Generators_World_Generator_2_HeatData">Generator&lt;SurfaceMap, CellSurface&gt;.HeatData</a>
+    </div>
+    <div>
+      <a class="xref" href="SadConsole.Maps.Generators.World.Generator-2.html#SadConsole_Maps_Generators_World_Generator_2_MoistureData">Generator&lt;SurfaceMap, CellSurface&gt;.MoistureData</a>
+    </div>
+    <div>
+      <a class="xref" href="SadConsole.Maps.Generators.World.Generator-2.html#SadConsole_Maps_Generators_World_Generator_2_Tiles">Generator&lt;SurfaceMap, CellSurface&gt;.Tiles</a>
+    </div>
+    <div>
+      <a class="xref" href="SadConsole.Maps.Generators.World.Generator-2.html#SadConsole_Maps_Generators_World_Generator_2_Waters">Generator&lt;SurfaceMap, CellSurface&gt;.Waters</a>
+    </div>
+    <div>
+      <a class="xref" href="SadConsole.Maps.Generators.World.Generator-2.html#SadConsole_Maps_Generators_World_Generator_2_Lands">Generator&lt;SurfaceMap, CellSurface&gt;.Lands</a>
+    </div>
+    <div>
+      <a class="xref" href="SadConsole.Maps.Generators.World.Generator-2.html#SadConsole_Maps_Generators_World_Generator_2_Rivers">Generator&lt;SurfaceMap, CellSurface&gt;.Rivers</a>
+    </div>
+    <div>
+      <a class="xref" href="SadConsole.Maps.Generators.World.Generator-2.html#SadConsole_Maps_Generators_World_Generator_2_RiverGroups">Generator&lt;SurfaceMap, CellSurface&gt;.RiverGroups</a>
+    </div>
+    <div>
+      <a class="xref" href="SadConsole.Maps.Generators.World.Generator-2.html#SadConsole_Maps_Generators_World_Generator_2_BiomeTable">Generator&lt;SurfaceMap, CellSurface&gt;.BiomeTable</a>
+    </div>
+    <div>
+      <a class="xref" href="SadConsole.Maps.Generators.World.Generator-2.html#SadConsole_Maps_Generators_World_Generator_2_Start_System_Int32_System_Int32_">Generator&lt;SurfaceMap, CellSurface&gt;.Start(Int32, Int32)</a>
+    </div>
+    <div>
+      <a class="xref" href="SadConsole.Maps.Generators.World.Generator-2.html#SadConsole_Maps_Generators_World_Generator_2_HeightMapRenderer">Generator&lt;SurfaceMap, CellSurface&gt;.HeightMapRenderer</a>
+    </div>
+    <div>
+      <a class="xref" href="SadConsole.Maps.Generators.World.Generator-2.html#SadConsole_Maps_Generators_World_Generator_2_HeatMapRenderer">Generator&lt;SurfaceMap, CellSurface&gt;.HeatMapRenderer</a>
+    </div>
+    <div>
+      <a class="xref" href="SadConsole.Maps.Generators.World.Generator-2.html#SadConsole_Maps_Generators_World_Generator_2_MoistureMapRenderer">Generator&lt;SurfaceMap, CellSurface&gt;.MoistureMapRenderer</a>
+    </div>
+    <div>
+      <a class="xref" href="SadConsole.Maps.Generators.World.Generator-2.html#SadConsole_Maps_Generators_World_Generator_2_BiomeMapRenderer">Generator&lt;SurfaceMap, CellSurface&gt;.BiomeMapRenderer</a>
+    </div>
+    <div>
+      <a class="xref" href="SadConsole.Maps.Generators.World.Generator-2.html#SadConsole_Maps_Generators_World_Generator_2_MapConverter">Generator&lt;SurfaceMap, CellSurface&gt;.MapConverter</a>
+    </div>
+    <div>
+      <a class="xref" href="SadConsole.Maps.Generators.World.Generator-2.html#SadConsole_Maps_Generators_World_Generator_2_Reset">Generator&lt;SurfaceMap, CellSurface&gt;.Reset()</a>
+    </div>
+    <div>
+      <a class="xref" href="SadConsole.Maps.Generators.World.Generator-2.html#SadConsole_Maps_Generators_World_Generator_2_Generate">Generator&lt;SurfaceMap, CellSurface&gt;.Generate()</a>
+    </div>
+    <div>
+      <a class="xref" href="SadConsole.Maps.Generators.World.Generator-2.html#SadConsole_Maps_Generators_World_Generator_2_GetBiomeType_SadConsole_Maps_Generators_World_Tile_">Generator&lt;SurfaceMap, CellSurface&gt;.GetBiomeType(Tile)</a>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.MemberwiseClone()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ToString()</span>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="SadConsole.Maps.Generators.World.html">SadConsole.Maps.Generators.World</a></h6>
+  <h6><strong>Assembly</strong>: SadConsole.GoRogue.dll</h6>
+  <h5 id="SadConsole_Maps_Generators_World_WorldGenerator_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class WorldGenerator : WorldGeneratorGeneric&lt;SurfaceMap, CellSurface&gt;</code></pre>
+  </div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/thesadrogue/SadConsole.GoRogueHelpers/new/docs-setup/apiSpec/new?filename=SadConsole_Maps_Generators_World_WorldGenerator.md&amp;value=---%0Auid%3A%20SadConsole.Maps.Generators.World.WorldGenerator%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/thesadrogue/SadConsole.GoRogueHelpers/blob/docs-setup/src/Maps/Generators/World/WorldGenerator.cs/#L7" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

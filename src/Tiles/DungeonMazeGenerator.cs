@@ -140,8 +140,6 @@ namespace SadConsole.Tiles
         /// <param name="settings">The settings used to generate the dungeon.</param>
         /// <param name="mapWidth">The width of the map.</param>
         /// <param name="mapHeight">The height of the map.</param>
-        /// <param name="viewPortWidth">The width of the viewport used in the map.</param>
-        /// <param name="viewPortHeight">The height of the viewport used in the map.</param>
         /// <returns>The generator.</returns>
         public static DungeonMazeGenerator Create(GeneratorSettings settings, int mapWidth, int mapHeight)
         {
@@ -162,8 +160,6 @@ namespace SadConsole.Tiles
         /// </summary>
         /// <param name="mapWidth">The width of the map.</param>
         /// <param name="mapHeight">The height of the map.</param>
-        /// <param name="viewPortWidth">The width of the viewport used in the map.</param>
-        /// <param name="viewPortHeight">The height of the viewport used in the map.</param>
         /// <returns>The generator.</returns>
         public static DungeonMazeGenerator Create(int mapWidth, int mapHeight)
         {

@@ -22,7 +22,7 @@
         }
 
         /// <summary>
-        /// Calls <see cref="Create"/>.
+        /// Calls <see cref="Create()"/>.
         /// </summary>
         /// <param name="config">Unused.</param>
         /// <returns>The created object.</returns>

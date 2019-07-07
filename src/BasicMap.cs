@@ -94,7 +94,7 @@ namespace SadConsole
 
         /// <summary>
         /// Exposed only to allow you to create consoles that use this as their rendering data. DO
-        /// NOT set new cells via this array -- use <see cref="SetTerrain(IGameObject)"/> instead.
+        /// NOT set new cells via this array -- use <see cref="Map.SetTerrain(IGameObject)"/> instead.
         /// </summary>
         public Cell[] RenderingCellData { get; }
 
@@ -138,7 +138,7 @@ namespace SadConsole
         /// <summary>
         /// Configures given existing console to render the current map and its entities by changing the surface it renders
         /// to the maps surface, and attaching entity sync components appropriately. A console retrieved via
-        /// <see cref="GetRenderer(XnaRectangle, Font)"/> is already configured and does not need to have this function called on it.
+        /// <see cref="CreateRenderer(XnaRectangle, Font)"/> is already configured and does not need to have this function called on it.
         /// </summary>
         /// <param name="renderer">Console to configure.</param>
         public void ConfigureAsRenderer(Console renderer)

@@ -1,0 +1,29 @@
+# Change working directory to GoRogue project dir
+pushd $PSScriptRoot\..\src
+
+# Compile release build
+msbuild /t:pack /p:Configuration=Release
+
+
+# Backup and load csproj file
+$fullCsProjPath = Join-Path $(Get-Location) "SadConsole.GoRogue.csproj"
+$fullCsprojBackupPath = Join-Path $(Get-Location) "SadConsole.GoRogue.csproj.bak"
+Copy-Item "$fullCsProjPath" -Destination "$fullCsprojBackupPath"
+
+[xml]$xml = Get-Content "$fullCsProjPath"
+$node = $(Select-Xml -Xml $xml -XPath '//Project/PropertyGroup/Version').Node
+
+# Add "-debug" to end of version tag
+$oldVersion = $node.'#text'
+$node.'#text' = $oldVersion + "-debug"
+$xml.Save($fullCsProjPath)
+
+# Compile debug build
+msbuild /t:pack /p:Configuration=Debug
+
+# Revert to backup of csproj
+Remove-Item "$fullCsProjPath"
+Move-Item -Path "$fullCsprojBackupPath" -Destination "$fullCsProjPath"
+
+# Revert working directory to previous
+popd

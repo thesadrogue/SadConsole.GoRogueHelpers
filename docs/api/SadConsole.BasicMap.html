@@ -1,0 +1,780 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class BasicMap
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class BasicMap
+   ">
+    <meta name="generator" content="docfx 2.41.0.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="SadConsole.BasicMap">
+  
+  
+  <h1 id="SadConsole_BasicMap" data-uid="SadConsole.BasicMap" class="text-break">Class BasicMap
+  </h1>
+  <div class="markdown level0 summary"><p>A basic map that has all the functionality of GoRogue.GameFramework.Map, and that can be rendered by SadConsole Consoles.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">GoRogue.GameFramework.Map</span></div>
+    <div class="level2"><span class="xref">BasicMap</span></div>
+      <div class="level3"><a class="xref" href="SadConsole.Tiles.TileMap.html">TileMap</a></div>
+  </div>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><span class="xref">GoRogue.MapViews.IMapView</span>&lt;<span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<span class="xref">GoRogue.GameFramework.IGameObject</span>&gt;&gt;</div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <span class="xref">GoRogue.GameFramework.Map.Explored</span>
+    </div>
+    <div>
+      <span class="xref">GoRogue.GameFramework.Map.GetTerrain(GoRogue.Coord)</span>
+    </div>
+    <div>
+      <span class="xref">GoRogue.GameFramework.Map.GetTerrain&lt;TerrainType&gt;(GoRogue.Coord)</span>
+    </div>
+    <div>
+      <span class="xref">GoRogue.GameFramework.Map.GetTerrain(System.Int32, System.Int32)</span>
+    </div>
+    <div>
+      <span class="xref">GoRogue.GameFramework.Map.GetTerrain&lt;TerrainType&gt;(System.Int32, System.Int32)</span>
+    </div>
+    <div>
+      <span class="xref">GoRogue.GameFramework.Map.SetTerrain(GoRogue.GameFramework.IGameObject)</span>
+    </div>
+    <div>
+      <span class="xref">GoRogue.GameFramework.Map.ApplyTerrainOverlay(GoRogue.MapViews.IMapView&lt;GoRogue.GameFramework.IGameObject&gt;)</span>
+    </div>
+    <div>
+      <span class="xref">GoRogue.GameFramework.Map.AddEntity(GoRogue.GameFramework.IGameObject)</span>
+    </div>
+    <div>
+      <span class="xref">GoRogue.GameFramework.Map.GetEntity&lt;EntityType&gt;(GoRogue.Coord, System.UInt32)</span>
+    </div>
+    <div>
+      <span class="xref">GoRogue.GameFramework.Map.GetEntity&lt;EntityType&gt;(System.Int32, System.Int32, System.UInt32)</span>
+    </div>
+    <div>
+      <span class="xref">GoRogue.GameFramework.Map.GetEntities&lt;EntityType&gt;(GoRogue.Coord, System.UInt32)</span>
+    </div>
+    <div>
+      <span class="xref">GoRogue.GameFramework.Map.GetEntities&lt;EntityType&gt;(System.Int32, System.Int32, System.UInt32)</span>
+    </div>
+    <div>
+      <span class="xref">GoRogue.GameFramework.Map.RemoveEntity(GoRogue.GameFramework.IGameObject)</span>
+    </div>
+    <div>
+      <span class="xref">GoRogue.GameFramework.Map.GetObject(GoRogue.Coord, System.UInt32)</span>
+    </div>
+    <div>
+      <span class="xref">GoRogue.GameFramework.Map.GetObject&lt;ObjectType&gt;(GoRogue.Coord, System.UInt32)</span>
+    </div>
+    <div>
+      <span class="xref">GoRogue.GameFramework.Map.GetObject(System.Int32, System.Int32, System.UInt32)</span>
+    </div>
+    <div>
+      <span class="xref">GoRogue.GameFramework.Map.GetObject&lt;ObjectType&gt;(System.Int32, System.Int32, System.UInt32)</span>
+    </div>
+    <div>
+      <span class="xref">GoRogue.GameFramework.Map.GetObjects(GoRogue.Coord, System.UInt32)</span>
+    </div>
+    <div>
+      <span class="xref">GoRogue.GameFramework.Map.GetObjects&lt;ObjectType&gt;(GoRogue.Coord, System.UInt32)</span>
+    </div>
+    <div>
+      <span class="xref">GoRogue.GameFramework.Map.GetObjects(System.Int32, System.Int32, System.UInt32)</span>
+    </div>
+    <div>
+      <span class="xref">GoRogue.GameFramework.Map.GetObjects&lt;ObjectType&gt;(System.Int32, System.Int32, System.UInt32)</span>
+    </div>
+    <div>
+      <span class="xref">GoRogue.GameFramework.Map.CalculateFOV(GoRogue.Coord, System.Double)</span>
+    </div>
+    <div>
+      <span class="xref">GoRogue.GameFramework.Map.CalculateFOV(System.Int32, System.Int32, System.Double)</span>
+    </div>
+    <div>
+      <span class="xref">GoRogue.GameFramework.Map.CalculateFOV(GoRogue.Coord, System.Double, GoRogue.Distance)</span>
+    </div>
+    <div>
+      <span class="xref">GoRogue.GameFramework.Map.CalculateFOV(GoRogue.Coord, System.Double, GoRogue.Distance, System.Double, System.Double)</span>
+    </div>
+    <div>
+      <span class="xref">GoRogue.GameFramework.Map.CreateMap&lt;T&gt;(GoRogue.MapViews.ISettableMapView&lt;T&gt;, System.Int32, GoRogue.Distance, System.UInt32, System.UInt32, System.UInt32)</span>
+    </div>
+    <div>
+      <span class="xref">GoRogue.GameFramework.Map.Terrain</span>
+    </div>
+    <div>
+      <span class="xref">GoRogue.GameFramework.Map.Entities</span>
+    </div>
+    <div>
+      <span class="xref">GoRogue.GameFramework.Map.LayerMasker</span>
+    </div>
+    <div>
+      <span class="xref">GoRogue.GameFramework.Map.LayersBlockingWalkability</span>
+    </div>
+    <div>
+      <span class="xref">GoRogue.GameFramework.Map.LayersBlockingTransparency</span>
+    </div>
+    <div>
+      <span class="xref">GoRogue.GameFramework.Map.TransparencyView</span>
+    </div>
+    <div>
+      <span class="xref">GoRogue.GameFramework.Map.WalkabilityView</span>
+    </div>
+    <div>
+      <span class="xref">GoRogue.GameFramework.Map.FOV</span>
+    </div>
+    <div>
+      <span class="xref">GoRogue.GameFramework.Map.AStar</span>
+    </div>
+    <div>
+      <span class="xref">GoRogue.GameFramework.Map.DistanceMeasurement</span>
+    </div>
+    <div>
+      <span class="xref">GoRogue.GameFramework.Map.Height</span>
+    </div>
+    <div>
+      <span class="xref">GoRogue.GameFramework.Map.Width</span>
+    </div>
+    <div>
+      <span class="xref">GoRogue.GameFramework.Map.Item[System.Int32]</span>
+    </div>
+    <div>
+      <span class="xref">GoRogue.GameFramework.Map.Item[GoRogue.Coord]</span>
+    </div>
+    <div>
+      <span class="xref">GoRogue.GameFramework.Map.Item[System.Int32, System.Int32]</span>
+    </div>
+    <div>
+      <span class="xref">GoRogue.GameFramework.Map.ObjectAdded</span>
+    </div>
+    <div>
+      <span class="xref">GoRogue.GameFramework.Map.ObjectRemoved</span>
+    </div>
+    <div>
+      <span class="xref">GoRogue.GameFramework.Map.ObjectMoved</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.MemberwiseClone()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ToString()</span>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="SadConsole.html">SadConsole</a></h6>
+  <h6><strong>Assembly</strong>: SadConsole.GoRogue.dll</h6>
+  <h5 id="SadConsole_BasicMap_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class BasicMap : Map, IMapView&lt;IEnumerable&lt;IGameObject&gt;&gt;</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/thesadrogue/SadConsole.GoRogueHelpers/new/docs-setup/apiSpec/new?filename=SadConsole_BasicMap__ctor_System_Int32_System_Int32_System_Int32_GoRogue_Distance_System_UInt32_System_UInt32_System_UInt32_.md&amp;value=---%0Auid%3A%20SadConsole.BasicMap.%23ctor(System.Int32%2CSystem.Int32%2CSystem.Int32%2CGoRogue.Distance%2CSystem.UInt32%2CSystem.UInt32%2CSystem.UInt32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/thesadrogue/SadConsole.GoRogueHelpers/blob/docs-setup/src/BasicMap.cs/#L69">View Source</a>
+  </span>
+  <a id="SadConsole_BasicMap__ctor_" data-uid="SadConsole.BasicMap.#ctor*"></a>
+  <h4 id="SadConsole_BasicMap__ctor_System_Int32_System_Int32_System_Int32_GoRogue_Distance_System_UInt32_System_UInt32_System_UInt32_" data-uid="SadConsole.BasicMap.#ctor(System.Int32,System.Int32,System.Int32,GoRogue.Distance,System.UInt32,System.UInt32,System.UInt32)">BasicMap(Int32, Int32, Int32, Distance, UInt32, UInt32, UInt32)</h4>
+  <div class="markdown level1 summary"><p>Creates a BasicMap.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public BasicMap(int width, int height, int numberOfEntityLayers, Distance distanceMeasurement, uint layersBlockingWalkability = 4294967295U, uint layersBlockingTransparency = 4294967295U, uint entityLayersSupportingMultipleItems = 4294967295U)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">width</span></td>
+        <td><p>Width of the map.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">height</span></td>
+        <td><p>Height of the map.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">numberOfEntityLayers</span></td>
+        <td><p>Number of non-terrain layers for the map.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">GoRogue.Distance</span></td>
+        <td><span class="parametername">distanceMeasurement</span></td>
+        <td><p><span class="xref">GoRogue.Distance</span> measurement to use for pathing/measuring distance on the map.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.UInt32</span></td>
+        <td><span class="parametername">layersBlockingWalkability</span></td>
+        <td><p>Layer mask containing those layers that should be allowed to have items that block walkability.
+Defaults to all layers.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.UInt32</span></td>
+        <td><span class="parametername">layersBlockingTransparency</span></td>
+        <td><p>Layer mask containing those layers that should be allowed to have items that block FOV.
+Defaults to all layers.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.UInt32</span></td>
+        <td><span class="parametername">entityLayersSupportingMultipleItems</span></td>
+        <td><p>Layer mask containing those layers that should be allowed to have multiple objects at the same
+location on the same layer.  Defaults to all layers.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/thesadrogue/SadConsole.GoRogueHelpers/new/docs-setup/apiSpec/new?filename=SadConsole_BasicMap_ControlledGameObject.md&amp;value=---%0Auid%3A%20SadConsole.BasicMap.ControlledGameObject%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/thesadrogue/SadConsole.GoRogueHelpers/blob/docs-setup/src/BasicMap.cs/#L54">View Source</a>
+  </span>
+  <a id="SadConsole_BasicMap_ControlledGameObject_" data-uid="SadConsole.BasicMap.ControlledGameObject*"></a>
+  <h4 id="SadConsole_BasicMap_ControlledGameObject" data-uid="SadConsole.BasicMap.ControlledGameObject">ControlledGameObject</h4>
+  <div class="markdown level1 summary"><p>The game object that will be controlled by the player.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public BasicEntity ControlledGameObject { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SadConsole.BasicEntity.html">BasicEntity</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/thesadrogue/SadConsole.GoRogueHelpers/new/docs-setup/apiSpec/new?filename=SadConsole_BasicMap_DrawingComponentsHandleVisibility.md&amp;value=---%0Auid%3A%20SadConsole.BasicMap.DrawingComponentsHandleVisibility%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/thesadrogue/SadConsole.GoRogueHelpers/blob/docs-setup/src/BasicMap.cs/#L30">View Source</a>
+  </span>
+  <a id="SadConsole_BasicMap_DrawingComponentsHandleVisibility_" data-uid="SadConsole.BasicMap.DrawingComponentsHandleVisibility*"></a>
+  <h4 id="SadConsole_BasicMap_DrawingComponentsHandleVisibility" data-uid="SadConsole.BasicMap.DrawingComponentsHandleVisibility">DrawingComponentsHandleVisibility</h4>
+  <div class="markdown level1 summary"><p>Whether or not the MultipleConsoleEntityDrawingComponents added to all consoles configured to render this map should handle setting the visibility
+of each entity as appropriate.  For cases where you want visibility to be controlled by some other means (for example, FOV), you may want to set this to false.
+<a class="xref" href="SadConsole.FOVVisibilityHandler.html">FOVVisibilityHandler</a> sets this to false for you.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool DrawingComponentsHandleVisibility { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/thesadrogue/SadConsole.GoRogueHelpers/new/docs-setup/apiSpec/new?filename=SadConsole_BasicMap_Renderers.md&amp;value=---%0Auid%3A%20SadConsole.BasicMap.Renderers%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/thesadrogue/SadConsole.GoRogueHelpers/blob/docs-setup/src/BasicMap.cs/#L93">View Source</a>
+  </span>
+  <a id="SadConsole_BasicMap_Renderers_" data-uid="SadConsole.BasicMap.Renderers*"></a>
+  <h4 id="SadConsole_BasicMap_Renderers" data-uid="SadConsole.BasicMap.Renderers">Renderers</h4>
+  <div class="markdown level1 summary"><p>Read-only list of consoles that are rendering this map.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyList&lt;Console&gt; Renderers { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.IReadOnlyList</span>&lt;<span class="xref">SadConsole.Console</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/thesadrogue/SadConsole.GoRogueHelpers/new/docs-setup/apiSpec/new?filename=SadConsole_BasicMap_RenderingCellData.md&amp;value=---%0Auid%3A%20SadConsole.BasicMap.RenderingCellData%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/thesadrogue/SadConsole.GoRogueHelpers/blob/docs-setup/src/BasicMap.cs/#L99">View Source</a>
+  </span>
+  <a id="SadConsole_BasicMap_RenderingCellData_" data-uid="SadConsole.BasicMap.RenderingCellData*"></a>
+  <h4 id="SadConsole_BasicMap_RenderingCellData" data-uid="SadConsole.BasicMap.RenderingCellData">RenderingCellData</h4>
+  <div class="markdown level1 summary"><p>Exposed only to allow you to create consoles that use this as their rendering data. DO
+NOT set new cells via this array -- use <span class="xref">GoRogue.GameFramework.Map.SetTerrain(GoRogue.GameFramework.IGameObject)</span> instead.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Cell[] RenderingCellData { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">SadConsole.Cell</span>[]</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/thesadrogue/SadConsole.GoRogueHelpers/new/docs-setup/apiSpec/new?filename=SadConsole_BasicMap_CalculateFOV_System_Int32_System_Int32_System_Double_GoRogue_Distance_.md&amp;value=---%0Auid%3A%20SadConsole.BasicMap.CalculateFOV(System.Int32%2CSystem.Int32%2CSystem.Double%2CGoRogue.Distance)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/thesadrogue/SadConsole.GoRogueHelpers/blob/docs-setup/src/BasicMap.cs/#L161">View Source</a>
+  </span>
+  <a id="SadConsole_BasicMap_CalculateFOV_" data-uid="SadConsole.BasicMap.CalculateFOV*"></a>
+  <h4 id="SadConsole_BasicMap_CalculateFOV_System_Int32_System_Int32_System_Double_GoRogue_Distance_" data-uid="SadConsole.BasicMap.CalculateFOV(System.Int32,System.Int32,System.Double,GoRogue.Distance)">CalculateFOV(Int32, Int32, Double, Distance)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void CalculateFOV(int x, int y, double radius, Distance radiusShape)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">x</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">y</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><span class="parametername">radius</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">GoRogue.Distance</span></td>
+        <td><span class="parametername">radiusShape</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">GoRogue.GameFramework.Map.CalculateFOV(System.Int32, System.Int32, System.Double, GoRogue.Distance)</span></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/thesadrogue/SadConsole.GoRogueHelpers/new/docs-setup/apiSpec/new?filename=SadConsole_BasicMap_CalculateFOV_System_Int32_System_Int32_System_Double_GoRogue_Distance_System_Double_System_Double_.md&amp;value=---%0Auid%3A%20SadConsole.BasicMap.CalculateFOV(System.Int32%2CSystem.Int32%2CSystem.Double%2CGoRogue.Distance%2CSystem.Double%2CSystem.Double)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/thesadrogue/SadConsole.GoRogueHelpers/blob/docs-setup/src/BasicMap.cs/#L169">View Source</a>
+  </span>
+  <a id="SadConsole_BasicMap_CalculateFOV_" data-uid="SadConsole.BasicMap.CalculateFOV*"></a>
+  <h4 id="SadConsole_BasicMap_CalculateFOV_System_Int32_System_Int32_System_Double_GoRogue_Distance_System_Double_System_Double_" data-uid="SadConsole.BasicMap.CalculateFOV(System.Int32,System.Int32,System.Double,GoRogue.Distance,System.Double,System.Double)">CalculateFOV(Int32, Int32, Double, Distance, Double, Double)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void CalculateFOV(int x, int y, double radius, Distance radiusShape, double angle, double span)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">x</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">y</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><span class="parametername">radius</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">GoRogue.Distance</span></td>
+        <td><span class="parametername">radiusShape</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><span class="parametername">angle</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><span class="parametername">span</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">GoRogue.GameFramework.Map.CalculateFOV(System.Int32, System.Int32, System.Double, GoRogue.Distance, System.Double, System.Double)</span></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/thesadrogue/SadConsole.GoRogueHelpers/new/docs-setup/apiSpec/new?filename=SadConsole_BasicMap_ConfigureAsRenderer_SadConsole_Console_.md&amp;value=---%0Auid%3A%20SadConsole.BasicMap.ConfigureAsRenderer(SadConsole.Console)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/thesadrogue/SadConsole.GoRogueHelpers/blob/docs-setup/src/BasicMap.cs/#L144">View Source</a>
+  </span>
+  <a id="SadConsole_BasicMap_ConfigureAsRenderer_" data-uid="SadConsole.BasicMap.ConfigureAsRenderer*"></a>
+  <h4 id="SadConsole_BasicMap_ConfigureAsRenderer_SadConsole_Console_" data-uid="SadConsole.BasicMap.ConfigureAsRenderer(SadConsole.Console)">ConfigureAsRenderer(Console)</h4>
+  <div class="markdown level1 summary"><p>Configures given existing console to render the current map and its entities by changing the surface it renders
+to the maps surface, and attaching entity sync components appropriately. A console retrieved via
+<a class="xref" href="SadConsole.BasicMap.html#SadConsole_BasicMap_CreateRenderer_Microsoft_Xna_Framework_Rectangle_SadConsole_Font_">CreateRenderer(Rectangle, Font)</a> is already configured and does not need to have this function called on it.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void ConfigureAsRenderer(Console renderer)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">SadConsole.Console</span></td>
+        <td><span class="parametername">renderer</span></td>
+        <td><p>Console to configure.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/thesadrogue/SadConsole.GoRogueHelpers/new/docs-setup/apiSpec/new?filename=SadConsole_BasicMap_CreateRenderer_Microsoft_Xna_Framework_Rectangle_SadConsole_Font_.md&amp;value=---%0Auid%3A%20SadConsole.BasicMap.CreateRenderer(Microsoft.Xna.Framework.Rectangle%2CSadConsole.Font)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/thesadrogue/SadConsole.GoRogueHelpers/blob/docs-setup/src/BasicMap.cs/#L110">View Source</a>
+  </span>
+  <a id="SadConsole_BasicMap_CreateRenderer_" data-uid="SadConsole.BasicMap.CreateRenderer*"></a>
+  <h4 id="SadConsole_BasicMap_CreateRenderer_Microsoft_Xna_Framework_Rectangle_SadConsole_Font_" data-uid="SadConsole.BasicMap.CreateRenderer(Microsoft.Xna.Framework.Rectangle,SadConsole.Font)">CreateRenderer(Rectangle, Font)</h4>
+  <div class="markdown level1 summary"><p>Creates a ScrollingConsole that is configured to render this map.  The console will use the map's cell
+data, and all the console's entities will be properly synced.  If you have an existing Console
+that wasn't created via this function that you would like to configure to render the map, use
+<a class="xref" href="SadConsole.BasicMap.html#SadConsole_BasicMap_ConfigureAsRenderer_SadConsole_Console_">ConfigureAsRenderer(Console)</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ScrollingConsole CreateRenderer(Rectangle viewport, Font font)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Microsoft.Xna.Framework.Rectangle</span></td>
+        <td><span class="parametername">viewport</span></td>
+        <td><p>Portion of map that should be displayed.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">SadConsole.Font</span></td>
+        <td><span class="parametername">font</span></td>
+        <td><p>Font to use for the console.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">SadConsole.ScrollingConsole</span></td>
+        <td><p>A pre-configured ScrollingConsole that renders this map.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/thesadrogue/SadConsole.GoRogueHelpers/new/docs-setup/apiSpec/new?filename=SadConsole_BasicMap_RemoveRenderer_SadConsole_Console_System_Boolean_.md&amp;value=---%0Auid%3A%20SadConsole.BasicMap.RemoveRenderer(SadConsole.Console%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/thesadrogue/SadConsole.GoRogueHelpers/blob/docs-setup/src/BasicMap.cs/#L124">View Source</a>
+  </span>
+  <a id="SadConsole_BasicMap_RemoveRenderer_" data-uid="SadConsole.BasicMap.RemoveRenderer*"></a>
+  <h4 id="SadConsole_BasicMap_RemoveRenderer_SadConsole_Console_System_Boolean_" data-uid="SadConsole.BasicMap.RemoveRenderer(SadConsole.Console,System.Boolean)">RemoveRenderer(Console, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Removes a console as a renderer of this map.  This should be done any time a console is no longer rendering
+the map, or if the console is being discarded and the map is not.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RemoveRenderer(Console renderer, bool clearCellSurface = true)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">SadConsole.Console</span></td>
+        <td><span class="parametername">renderer</span></td>
+        <td><p>The renderer to remove.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">clearCellSurface</span></td>
+        <td><p>If set to true, the cell surface will be set to a new cell surface of the same width/height
+as the console.  You may want to disable this if you are immediately replacing the cell array to avoid duplicate allocations.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="events">Events
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/thesadrogue/SadConsole.GoRogueHelpers/new/docs-setup/apiSpec/new?filename=SadConsole_BasicMap_FOVRecalculated.md&amp;value=---%0Auid%3A%20SadConsole.BasicMap.FOVRecalculated%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/thesadrogue/SadConsole.GoRogueHelpers/blob/docs-setup/src/BasicMap.cs/#L49">View Source</a>
+  </span>
+  <h4 id="SadConsole_BasicMap_FOVRecalculated" data-uid="SadConsole.BasicMap.FOVRecalculated">FOVRecalculated</h4>
+  <div class="markdown level1 summary"><p>Fires whenever FOV is recalculated.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event EventHandler FOVRecalculated</code></pre>
+  </div>
+  <h5 class="eventType">Event Type</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.EventHandler</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <span class="xref">GoRogue.MapViews.IMapView&lt;T&gt;</span>
+  </div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/thesadrogue/SadConsole.GoRogueHelpers/new/docs-setup/apiSpec/new?filename=SadConsole_BasicMap.md&amp;value=---%0Auid%3A%20SadConsole.BasicMap%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/thesadrogue/SadConsole.GoRogueHelpers/blob/docs-setup/src/BasicMap.cs/#L14" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

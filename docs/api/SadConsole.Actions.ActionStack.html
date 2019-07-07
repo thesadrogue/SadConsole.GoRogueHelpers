@@ -1,0 +1,704 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class ActionStack
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class ActionStack
+   ">
+    <meta name="generator" content="docfx 2.41.0.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="SadConsole.Actions.ActionStack">
+  
+  
+  <h1 id="SadConsole_Actions_ActionStack" data-uid="SadConsole.Actions.ActionStack" class="text-break">Class ActionStack
+  </h1>
+  <div class="markdown level0 summary"><p>A stack of <a class="xref" href="SadConsole.Actions.ActionBase.html">ActionBase</a> objects. As each <a class="xref" href="SadConsole.Actions.ActionBase.html#SadConsole_Actions_ActionBase_IsFinished">IsFinished</a> boolean is set, the action will be automatically removed from the stack.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">System.Collections.Generic.Stack</span>&lt;<a class="xref" href="SadConsole.Actions.ActionBase.html">ActionBase</a>&gt;</div>
+    <div class="level2"><span class="xref">ActionStack</span></div>
+  </div>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><span class="xref">System.Collections.Generic.IReadOnlyCollection</span>&lt;<a class="xref" href="SadConsole.Actions.ActionBase.html">ActionBase</a>&gt;</div>
+    <div><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<a class="xref" href="SadConsole.Actions.ActionBase.html">ActionBase</a>&gt;</div>
+    <div><span class="xref">System.Collections.ICollection</span></div>
+    <div><span class="xref">System.Collections.IEnumerable</span></div>
+    <div><span class="xref">SadConsole.Components.IConsoleComponent</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <span class="xref">System.Collections.Generic.Stack&lt;SadConsole.Actions.ActionBase&gt;.Clear()</span>
+    </div>
+    <div>
+      <span class="xref">System.Collections.Generic.Stack&lt;SadConsole.Actions.ActionBase&gt;.Contains(SadConsole.Actions.ActionBase)</span>
+    </div>
+    <div>
+      <span class="xref">System.Collections.Generic.Stack&lt;SadConsole.Actions.ActionBase&gt;.CopyTo(SadConsole.Actions.ActionBase[], System.Int32)</span>
+    </div>
+    <div>
+      <span class="xref">System.Collections.Generic.Stack&lt;SadConsole.Actions.ActionBase&gt;.GetEnumerator()</span>
+    </div>
+    <div>
+      <span class="xref">System.Collections.Generic.Stack&lt;SadConsole.Actions.ActionBase&gt;.Peek()</span>
+    </div>
+    <div>
+      <span class="xref">System.Collections.Generic.Stack&lt;SadConsole.Actions.ActionBase&gt;.Pop()</span>
+    </div>
+    <div>
+      <span class="xref">System.Collections.Generic.Stack&lt;SadConsole.Actions.ActionBase&gt;.Push(SadConsole.Actions.ActionBase)</span>
+    </div>
+    <div>
+      <span class="xref">System.Collections.Generic.Stack&lt;SadConsole.Actions.ActionBase&gt;.System.Collections.Generic.IEnumerable&lt;SadConsole.Actions.ActionBase&gt;.GetEnumerator()</span>
+    </div>
+    <div>
+      <span class="xref">System.Collections.Generic.Stack&lt;SadConsole.Actions.ActionBase&gt;.System.Collections.ICollection.CopyTo(System.Array, System.Int32)</span>
+    </div>
+    <div>
+      <span class="xref">System.Collections.Generic.Stack&lt;SadConsole.Actions.ActionBase&gt;.System.Collections.IEnumerable.GetEnumerator()</span>
+    </div>
+    <div>
+      <span class="xref">System.Collections.Generic.Stack&lt;SadConsole.Actions.ActionBase&gt;.ToArray()</span>
+    </div>
+    <div>
+      <span class="xref">System.Collections.Generic.Stack&lt;SadConsole.Actions.ActionBase&gt;.TrimExcess()</span>
+    </div>
+    <div>
+      <span class="xref">System.Collections.Generic.Stack&lt;SadConsole.Actions.ActionBase&gt;.Count</span>
+    </div>
+    <div>
+      <span class="xref">System.Collections.Generic.Stack&lt;SadConsole.Actions.ActionBase&gt;.System.Collections.ICollection.IsSynchronized</span>
+    </div>
+    <div>
+      <span class="xref">System.Collections.Generic.Stack&lt;SadConsole.Actions.ActionBase&gt;.System.Collections.ICollection.SyncRoot</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.MemberwiseClone()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ToString()</span>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="SadConsole.Actions.html">SadConsole.Actions</a></h6>
+  <h6><strong>Assembly</strong>: SadConsole.GoRogue.dll</h6>
+  <h5 id="SadConsole_Actions_ActionStack_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class ActionStack : Stack&lt;ActionBase&gt;, IReadOnlyCollection&lt;ActionBase&gt;, IEnumerable&lt;ActionBase&gt;, ICollection, IEnumerable, IConsoleComponent</code></pre>
+  </div>
+  <h3 id="properties">Properties
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/thesadrogue/SadConsole.GoRogueHelpers/new/docs-setup/apiSpec/new?filename=SadConsole_Actions_ActionStack_ComponentSortOrder.md&amp;value=---%0Auid%3A%20SadConsole.Actions.ActionStack.ComponentSortOrder%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/thesadrogue/SadConsole.GoRogueHelpers/blob/docs-setup/src/Actions/ActionStack.cs/#L23">View Source</a>
+  </span>
+  <a id="SadConsole_Actions_ActionStack_ComponentSortOrder_" data-uid="SadConsole.Actions.ActionStack.ComponentSortOrder*"></a>
+  <h4 id="SadConsole_Actions_ActionStack_ComponentSortOrder" data-uid="SadConsole.Actions.ActionStack.ComponentSortOrder">ComponentSortOrder</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int ComponentSortOrder { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/thesadrogue/SadConsole.GoRogueHelpers/new/docs-setup/apiSpec/new?filename=SadConsole_Actions_ActionStack_PushAndRun_SadConsole_Actions_ActionBase_System_TimeSpan_.md&amp;value=---%0Auid%3A%20SadConsole.Actions.ActionStack.PushAndRun(SadConsole.Actions.ActionBase%2CSystem.TimeSpan)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/thesadrogue/SadConsole.GoRogueHelpers/blob/docs-setup/src/Actions/ActionStack.cs/#L30">View Source</a>
+  </span>
+  <a id="SadConsole_Actions_ActionStack_PushAndRun_" data-uid="SadConsole.Actions.ActionStack.PushAndRun*"></a>
+  <h4 id="SadConsole_Actions_ActionStack_PushAndRun_SadConsole_Actions_ActionBase_System_TimeSpan_" data-uid="SadConsole.Actions.ActionStack.PushAndRun(SadConsole.Actions.ActionBase,System.TimeSpan)">PushAndRun(ActionBase, TimeSpan)</h4>
+  <div class="markdown level1 summary"><p>Pushes the action to the stack and immediently calls <a class="xref" href="SadConsole.Actions.ActionBase.html#SadConsole_Actions_ActionBase_Run_System_TimeSpan_">Run(TimeSpan)</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void PushAndRun(ActionBase action, TimeSpan timeElapsed = default(TimeSpan))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SadConsole.Actions.ActionBase.html">ActionBase</a></td>
+        <td><span class="parametername">action</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.TimeSpan</span></td>
+        <td><span class="parametername">timeElapsed</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/thesadrogue/SadConsole.GoRogueHelpers/new/docs-setup/apiSpec/new?filename=SadConsole_Actions_ActionStack_Run_System_TimeSpan_.md&amp;value=---%0Auid%3A%20SadConsole.Actions.ActionStack.Run(System.TimeSpan)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/thesadrogue/SadConsole.GoRogueHelpers/blob/docs-setup/src/Actions/ActionStack.cs/#L45">View Source</a>
+  </span>
+  <a id="SadConsole_Actions_ActionStack_Run_" data-uid="SadConsole.Actions.ActionStack.Run*"></a>
+  <h4 id="SadConsole_Actions_ActionStack_Run_System_TimeSpan_" data-uid="SadConsole.Actions.ActionStack.Run(System.TimeSpan)">Run(TimeSpan)</h4>
+  <div class="markdown level1 summary"><p>Removes all finished actions from the top of the stack and runs the action on the top of the stack.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Run(TimeSpan timeElapsed)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.TimeSpan</span></td>
+        <td><span class="parametername">timeElapsed</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="eii">Explicit Interface Implementations
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/thesadrogue/SadConsole.GoRogueHelpers/new/docs-setup/apiSpec/new?filename=SadConsole_Actions_ActionStack_SadConsole_Components_IConsoleComponent_Draw_SadConsole_Console_System_TimeSpan_.md&amp;value=---%0Auid%3A%20SadConsole.Actions.ActionStack.SadConsole%23Components%23IConsoleComponent%23Draw(SadConsole.Console%2CSystem.TimeSpan)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/thesadrogue/SadConsole.GoRogueHelpers/blob/docs-setup/src/Actions/ActionStack.cs/#L63">View Source</a>
+  </span>
+  <a id="SadConsole_Actions_ActionStack_SadConsole_Components_IConsoleComponent_Draw_" data-uid="SadConsole.Actions.ActionStack.SadConsole#Components#IConsoleComponent#Draw*"></a>
+  <h4 id="SadConsole_Actions_ActionStack_SadConsole_Components_IConsoleComponent_Draw_SadConsole_Console_System_TimeSpan_" data-uid="SadConsole.Actions.ActionStack.SadConsole#Components#IConsoleComponent#Draw(SadConsole.Console,System.TimeSpan)">IConsoleComponent.Draw(Console, TimeSpan)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void IConsoleComponent.Draw(Console console, TimeSpan delta)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">SadConsole.Console</span></td>
+        <td><span class="parametername">console</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.TimeSpan</span></td>
+        <td><span class="parametername">delta</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/thesadrogue/SadConsole.GoRogueHelpers/new/docs-setup/apiSpec/new?filename=SadConsole_Actions_ActionStack_SadConsole_Components_IConsoleComponent_IsDraw.md&amp;value=---%0Auid%3A%20SadConsole.Actions.ActionStack.SadConsole%23Components%23IConsoleComponent%23IsDraw%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/thesadrogue/SadConsole.GoRogueHelpers/blob/docs-setup/src/Actions/ActionStack.cs/#L17">View Source</a>
+  </span>
+  <a id="SadConsole_Actions_ActionStack_SadConsole_Components_IConsoleComponent_IsDraw_" data-uid="SadConsole.Actions.ActionStack.SadConsole#Components#IConsoleComponent#IsDraw*"></a>
+  <h4 id="SadConsole_Actions_ActionStack_SadConsole_Components_IConsoleComponent_IsDraw" data-uid="SadConsole.Actions.ActionStack.SadConsole#Components#IConsoleComponent#IsDraw">IConsoleComponent.IsDraw</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">bool IConsoleComponent.IsDraw { get; }</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/thesadrogue/SadConsole.GoRogueHelpers/new/docs-setup/apiSpec/new?filename=SadConsole_Actions_ActionStack_SadConsole_Components_IConsoleComponent_IsKeyboard.md&amp;value=---%0Auid%3A%20SadConsole.Actions.ActionStack.SadConsole%23Components%23IConsoleComponent%23IsKeyboard%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/thesadrogue/SadConsole.GoRogueHelpers/blob/docs-setup/src/Actions/ActionStack.cs/#L21">View Source</a>
+  </span>
+  <a id="SadConsole_Actions_ActionStack_SadConsole_Components_IConsoleComponent_IsKeyboard_" data-uid="SadConsole.Actions.ActionStack.SadConsole#Components#IConsoleComponent#IsKeyboard*"></a>
+  <h4 id="SadConsole_Actions_ActionStack_SadConsole_Components_IConsoleComponent_IsKeyboard" data-uid="SadConsole.Actions.ActionStack.SadConsole#Components#IConsoleComponent#IsKeyboard">IConsoleComponent.IsKeyboard</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">bool IConsoleComponent.IsKeyboard { get; }</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/thesadrogue/SadConsole.GoRogueHelpers/new/docs-setup/apiSpec/new?filename=SadConsole_Actions_ActionStack_SadConsole_Components_IConsoleComponent_IsMouse.md&amp;value=---%0Auid%3A%20SadConsole.Actions.ActionStack.SadConsole%23Components%23IConsoleComponent%23IsMouse%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/thesadrogue/SadConsole.GoRogueHelpers/blob/docs-setup/src/Actions/ActionStack.cs/#L19">View Source</a>
+  </span>
+  <a id="SadConsole_Actions_ActionStack_SadConsole_Components_IConsoleComponent_IsMouse_" data-uid="SadConsole.Actions.ActionStack.SadConsole#Components#IConsoleComponent#IsMouse*"></a>
+  <h4 id="SadConsole_Actions_ActionStack_SadConsole_Components_IConsoleComponent_IsMouse" data-uid="SadConsole.Actions.ActionStack.SadConsole#Components#IConsoleComponent#IsMouse">IConsoleComponent.IsMouse</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">bool IConsoleComponent.IsMouse { get; }</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/thesadrogue/SadConsole.GoRogueHelpers/new/docs-setup/apiSpec/new?filename=SadConsole_Actions_ActionStack_SadConsole_Components_IConsoleComponent_IsUpdate.md&amp;value=---%0Auid%3A%20SadConsole.Actions.ActionStack.SadConsole%23Components%23IConsoleComponent%23IsUpdate%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/thesadrogue/SadConsole.GoRogueHelpers/blob/docs-setup/src/Actions/ActionStack.cs/#L15">View Source</a>
+  </span>
+  <a id="SadConsole_Actions_ActionStack_SadConsole_Components_IConsoleComponent_IsUpdate_" data-uid="SadConsole.Actions.ActionStack.SadConsole#Components#IConsoleComponent#IsUpdate*"></a>
+  <h4 id="SadConsole_Actions_ActionStack_SadConsole_Components_IConsoleComponent_IsUpdate" data-uid="SadConsole.Actions.ActionStack.SadConsole#Components#IConsoleComponent#IsUpdate">IConsoleComponent.IsUpdate</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">bool IConsoleComponent.IsUpdate { get; }</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/thesadrogue/SadConsole.GoRogueHelpers/new/docs-setup/apiSpec/new?filename=SadConsole_Actions_ActionStack_SadConsole_Components_IConsoleComponent_OnAdded_SadConsole_Console_.md&amp;value=---%0Auid%3A%20SadConsole.Actions.ActionStack.SadConsole%23Components%23IConsoleComponent%23OnAdded(SadConsole.Console)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/thesadrogue/SadConsole.GoRogueHelpers/blob/docs-setup/src/Actions/ActionStack.cs/#L68">View Source</a>
+  </span>
+  <a id="SadConsole_Actions_ActionStack_SadConsole_Components_IConsoleComponent_OnAdded_" data-uid="SadConsole.Actions.ActionStack.SadConsole#Components#IConsoleComponent#OnAdded*"></a>
+  <h4 id="SadConsole_Actions_ActionStack_SadConsole_Components_IConsoleComponent_OnAdded_SadConsole_Console_" data-uid="SadConsole.Actions.ActionStack.SadConsole#Components#IConsoleComponent#OnAdded(SadConsole.Console)">IConsoleComponent.OnAdded(Console)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void IConsoleComponent.OnAdded(Console console)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">SadConsole.Console</span></td>
+        <td><span class="parametername">console</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/thesadrogue/SadConsole.GoRogueHelpers/new/docs-setup/apiSpec/new?filename=SadConsole_Actions_ActionStack_SadConsole_Components_IConsoleComponent_OnRemoved_SadConsole_Console_.md&amp;value=---%0Auid%3A%20SadConsole.Actions.ActionStack.SadConsole%23Components%23IConsoleComponent%23OnRemoved(SadConsole.Console)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/thesadrogue/SadConsole.GoRogueHelpers/blob/docs-setup/src/Actions/ActionStack.cs/#L70">View Source</a>
+  </span>
+  <a id="SadConsole_Actions_ActionStack_SadConsole_Components_IConsoleComponent_OnRemoved_" data-uid="SadConsole.Actions.ActionStack.SadConsole#Components#IConsoleComponent#OnRemoved*"></a>
+  <h4 id="SadConsole_Actions_ActionStack_SadConsole_Components_IConsoleComponent_OnRemoved_SadConsole_Console_" data-uid="SadConsole.Actions.ActionStack.SadConsole#Components#IConsoleComponent#OnRemoved(SadConsole.Console)">IConsoleComponent.OnRemoved(Console)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void IConsoleComponent.OnRemoved(Console console)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">SadConsole.Console</span></td>
+        <td><span class="parametername">console</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/thesadrogue/SadConsole.GoRogueHelpers/new/docs-setup/apiSpec/new?filename=SadConsole_Actions_ActionStack_SadConsole_Components_IConsoleComponent_ProcessKeyboard_SadConsole_Console_SadConsole_Input_Keyboard_System_Boolean__.md&amp;value=---%0Auid%3A%20SadConsole.Actions.ActionStack.SadConsole%23Components%23IConsoleComponent%23ProcessKeyboard(SadConsole.Console%2CSadConsole.Input.Keyboard%2CSystem.Boolean%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/thesadrogue/SadConsole.GoRogueHelpers/blob/docs-setup/src/Actions/ActionStack.cs/#L72">View Source</a>
+  </span>
+  <a id="SadConsole_Actions_ActionStack_SadConsole_Components_IConsoleComponent_ProcessKeyboard_" data-uid="SadConsole.Actions.ActionStack.SadConsole#Components#IConsoleComponent#ProcessKeyboard*"></a>
+  <h4 id="SadConsole_Actions_ActionStack_SadConsole_Components_IConsoleComponent_ProcessKeyboard_SadConsole_Console_SadConsole_Input_Keyboard_System_Boolean__" data-uid="SadConsole.Actions.ActionStack.SadConsole#Components#IConsoleComponent#ProcessKeyboard(SadConsole.Console,SadConsole.Input.Keyboard,System.Boolean@)">IConsoleComponent.ProcessKeyboard(Console, Keyboard, out Boolean)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void IConsoleComponent.ProcessKeyboard(Console console, Keyboard info, out bool handled)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">SadConsole.Console</span></td>
+        <td><span class="parametername">console</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">SadConsole.Input.Keyboard</span></td>
+        <td><span class="parametername">info</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">handled</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/thesadrogue/SadConsole.GoRogueHelpers/new/docs-setup/apiSpec/new?filename=SadConsole_Actions_ActionStack_SadConsole_Components_IConsoleComponent_ProcessMouse_SadConsole_Console_SadConsole_Input_MouseConsoleState_System_Boolean__.md&amp;value=---%0Auid%3A%20SadConsole.Actions.ActionStack.SadConsole%23Components%23IConsoleComponent%23ProcessMouse(SadConsole.Console%2CSadConsole.Input.MouseConsoleState%2CSystem.Boolean%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/thesadrogue/SadConsole.GoRogueHelpers/blob/docs-setup/src/Actions/ActionStack.cs/#L77">View Source</a>
+  </span>
+  <a id="SadConsole_Actions_ActionStack_SadConsole_Components_IConsoleComponent_ProcessMouse_" data-uid="SadConsole.Actions.ActionStack.SadConsole#Components#IConsoleComponent#ProcessMouse*"></a>
+  <h4 id="SadConsole_Actions_ActionStack_SadConsole_Components_IConsoleComponent_ProcessMouse_SadConsole_Console_SadConsole_Input_MouseConsoleState_System_Boolean__" data-uid="SadConsole.Actions.ActionStack.SadConsole#Components#IConsoleComponent#ProcessMouse(SadConsole.Console,SadConsole.Input.MouseConsoleState,System.Boolean@)">IConsoleComponent.ProcessMouse(Console, MouseConsoleState, out Boolean)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void IConsoleComponent.ProcessMouse(Console console, MouseConsoleState state, out bool handled)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">SadConsole.Console</span></td>
+        <td><span class="parametername">console</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">SadConsole.Input.MouseConsoleState</span></td>
+        <td><span class="parametername">state</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">handled</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/thesadrogue/SadConsole.GoRogueHelpers/new/docs-setup/apiSpec/new?filename=SadConsole_Actions_ActionStack_SadConsole_Components_IConsoleComponent_SortOrder.md&amp;value=---%0Auid%3A%20SadConsole.Actions.ActionStack.SadConsole%23Components%23IConsoleComponent%23SortOrder%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/thesadrogue/SadConsole.GoRogueHelpers/blob/docs-setup/src/Actions/ActionStack.cs/#L13">View Source</a>
+  </span>
+  <a id="SadConsole_Actions_ActionStack_SadConsole_Components_IConsoleComponent_SortOrder_" data-uid="SadConsole.Actions.ActionStack.SadConsole#Components#IConsoleComponent#SortOrder*"></a>
+  <h4 id="SadConsole_Actions_ActionStack_SadConsole_Components_IConsoleComponent_SortOrder" data-uid="SadConsole.Actions.ActionStack.SadConsole#Components#IConsoleComponent#SortOrder">IConsoleComponent.SortOrder</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">int IConsoleComponent.SortOrder { get; }</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/thesadrogue/SadConsole.GoRogueHelpers/new/docs-setup/apiSpec/new?filename=SadConsole_Actions_ActionStack_SadConsole_Components_IConsoleComponent_Update_SadConsole_Console_System_TimeSpan_.md&amp;value=---%0Auid%3A%20SadConsole.Actions.ActionStack.SadConsole%23Components%23IConsoleComponent%23Update(SadConsole.Console%2CSystem.TimeSpan)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/thesadrogue/SadConsole.GoRogueHelpers/blob/docs-setup/src/Actions/ActionStack.cs/#L82">View Source</a>
+  </span>
+  <a id="SadConsole_Actions_ActionStack_SadConsole_Components_IConsoleComponent_Update_" data-uid="SadConsole.Actions.ActionStack.SadConsole#Components#IConsoleComponent#Update*"></a>
+  <h4 id="SadConsole_Actions_ActionStack_SadConsole_Components_IConsoleComponent_Update_SadConsole_Console_System_TimeSpan_" data-uid="SadConsole.Actions.ActionStack.SadConsole#Components#IConsoleComponent#Update(SadConsole.Console,System.TimeSpan)">IConsoleComponent.Update(Console, TimeSpan)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void IConsoleComponent.Update(Console console, TimeSpan delta)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">SadConsole.Console</span></td>
+        <td><span class="parametername">console</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.TimeSpan</span></td>
+        <td><span class="parametername">delta</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <span class="xref">System.Collections.Generic.IReadOnlyCollection&lt;T&gt;</span>
+  </div>
+  <div>
+      <span class="xref">System.Collections.Generic.IEnumerable&lt;T&gt;</span>
+  </div>
+  <div>
+      <span class="xref">System.Collections.ICollection</span>
+  </div>
+  <div>
+      <span class="xref">System.Collections.IEnumerable</span>
+  </div>
+  <div>
+      <span class="xref">SadConsole.Components.IConsoleComponent</span>
+  </div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/thesadrogue/SadConsole.GoRogueHelpers/new/docs-setup/apiSpec/new?filename=SadConsole_Actions_ActionStack.md&amp;value=---%0Auid%3A%20SadConsole.Actions.ActionStack%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/thesadrogue/SadConsole.GoRogueHelpers/blob/docs-setup/src/Actions/ActionStack.cs/#L11" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>
