@@ -55,12 +55,12 @@ namespace StartingExample
             Player = new Player(posToSpawn);
             Map.AddEntity(Player);
 
-            // Get console that renders map and display it
+            // Get a console that's set up to render the map, and display it
             MapRenderer = Map.CreateRenderer(new XnaRect(0, 0, Width, Height), SadConsole.Global.FontDefault);
             SadConsole.Global.CurrentScreen = MapRenderer;
             Player.IsFocused = true; // Set player to receive input, since in this example the player handles movement
 
-            // Set up to sync FOV and camera on player move
+            // Set up to recalculate FOV and set camera position appropriately when the player moves
             Player.Moved += Player_Moved;
 
             // Calculate initial FOV and center camera
@@ -76,7 +76,8 @@ namespace StartingExample
 
         private static IGameObject SpawnTerrain(Coord position, bool mapGenValue)
         {
-            // Floor or wall.  This could use the Factory system, or instantiate Floor and wall classes, this simplistic if-else is just used for example
+            // Floor or wall.  This could use the Factory system, or instantiate Floor and Wall classes, or something else if you prefer;
+            // this simplistic if-else is just used for example
             if (mapGenValue) // Floor
                 return new BasicTerrain(Color.White, Color.Black, '.', position, isWalkable: true, isTransparent: true);
             else             // Wall

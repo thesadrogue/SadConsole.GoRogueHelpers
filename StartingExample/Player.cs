@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 namespace StartingExample
 {
-    // Custom class for the player just so we can handle input.  This could be done via a component, or in a main screen, but for simplicity we do it here.
+    // Custom class for the player is used in this example just so we can handle input.  This could be done via a component, or in a main screen, but for simplicity we do it here.
     class Player : BasicEntity
     {
         private static readonly Dictionary<Keys, Direction> _movementDirectionMapping = new Dictionary<Keys, Direction>
