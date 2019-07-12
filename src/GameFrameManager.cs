@@ -4,14 +4,13 @@ using System.Linq;
 namespace SadConsole
 {
     /// <summary>
-    /// Implements Update logic for implementing "game frames".  The <see cref="Update"/> method should be called
-    /// from a SadConosle Update method to process its update logic.
+    /// Implements Update logic for implementing "game frames".
     /// </summary>
     /// <remarks>
     /// Each time Update is called, if <see cref="RunLogicFrame"/> is true, all entities that are _not_ the <see cref="BasicMap.ControlledGameObject"/>
     /// will, if they have any <see cref="Components.GoRogue.GameFrameProcessor"/> components, have those component's ProcessGameFrame function called.
-    /// Then, the controlled game object will have its components ProcessGameFrame functions called.  Finally, the <see cref="RunLogicFrame"/> value
-    /// is set to false, <see cref="LogicFrameCompleted"/> event is fired.
+    /// Then, the controlled game object will have its components ProcessGameFrame functions called (if it has a GameFrameProcessor component).
+    /// Finally, the <see cref="RunLogicFrame"/> value is set to false, and the <see cref="LogicFrameCompleted"/> event is fired.
     /// </remarks>
     public class GameFrameManager : SadConsole.Components.UpdateConsoleComponent
     {
