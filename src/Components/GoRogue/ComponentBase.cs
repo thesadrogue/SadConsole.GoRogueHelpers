@@ -6,8 +6,8 @@ namespace SadConsole.Components.GoRogue
 {
     public class ComponentBase : IGameObjectComponent
     {
-        public event EventHandler OnAdded;
-        public event EventHandler OnRemoved;
+        public event EventHandler Added;
+        public event EventHandler Removed;
 
         private IGameObject _parent;
         public virtual IGameObject Parent
@@ -18,13 +18,13 @@ namespace SadConsole.Components.GoRogue
                 if (value == null)
                 {
                     _parent = value;
-                    OnRemoved?.Invoke(this, EventArgs.Empty);
+                    Removed?.Invoke(this, EventArgs.Empty);
                 }
                 else if (_parent != null)
                     throw new Exception($"{nameof(ComponentBase)} components inherit from {nameof(IGameObjectComponent)}, so they can't be attached to multiple objects simultaneously.");
 
                 _parent = value;
-                OnAdded?.Invoke(this, EventArgs.Empty);
+                Added?.Invoke(this, EventArgs.Empty);
             }
         }
 
