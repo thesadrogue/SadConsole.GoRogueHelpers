@@ -48,10 +48,28 @@ namespace SadConsole
         /// </summary>
         public event EventHandler FOVRecalculated;
 
+        private BasicEntity _controlledGameObject;
         /// <summary>
         /// The game object that will be controlled by the player.
         /// </summary>
-        public BasicEntity ControlledGameObject { get; set; }
+        public BasicEntity ControlledGameObject
+        {
+            get => _controlledGameObject;
+            set
+            {
+                if (_controlledGameObject != value)
+                {
+                    var oldObject = _controlledGameObject;
+                    _controlledGameObject = value;
+                    ControlledGameObjectChanged?.Invoke(this, new ControlledGameObjectChangedArgs(oldObject));
+                }
+            }
+        }
+
+        /// <summary>
+        /// Fires whenever the value of <see cref="ControlledGameObject"/> is changed.
+        /// </summary>
+        public event EventHandler<ControlledGameObjectChangedArgs> ControlledGameObjectChanged;
 
         /// <summary>
         /// Creates a BasicMap.
@@ -198,6 +216,26 @@ namespace SadConsole
         {
             if (e.Item is BasicEntity entity)
                 _entitySyncersByLayer[entity.Layer - 1].Entities.Remove(entity);
+        }
+    }
+
+    /// <summary>
+    /// Arguments to ControlledGameObjectChanged event.
+    /// </summary>
+    public class ControlledGameObjectChangedArgs : EventArgs
+    {
+        /// <summary>
+        /// The old object that was previously assigned to the field.
+        /// </summary>
+        public BasicEntity OldObject { get; }
+
+        /// <summary>
+        /// Constructor.
+        /// </summary>
+        /// <param name="oldObject"/>
+        public ControlledGameObjectChangedArgs(BasicEntity oldObject)
+        {
+            OldObject = oldObject;
         }
     }
 }
