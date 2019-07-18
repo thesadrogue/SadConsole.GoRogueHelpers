@@ -31,7 +31,7 @@ namespace SadConsole.Actions
         {
             if (!action.IsFinished)
             {
-                if (Peek() != action)
+                if (Count == 0 || Peek() != action)
                     Push(action);
 
                 action.Run(timeElapsed);
