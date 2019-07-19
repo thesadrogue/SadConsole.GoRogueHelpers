@@ -52,7 +52,7 @@ namespace SadConsole
         /// <summary>
         /// The game object that will be controlled by the player.
         /// </summary>
-        public BasicEntity ControlledGameObject
+        public virtual BasicEntity ControlledGameObject
         {
             get => _controlledGameObject;
             set
@@ -189,6 +189,26 @@ namespace SadConsole
             base.CalculateFOV(x, y, radius, radiusShape, angle, span);
 
             FOVRecalculated?.Invoke(this, EventArgs.Empty);
+        }
+
+        /// <summary>
+        /// Add as a handler to <see cref="ControlledGameObjectChanged"/> to enforce that anything assigned to that field must implement
+        /// <typeparamref name="TControlledObject"/>.
+        /// </summary>
+        /// <remarks>
+        /// This is useful if you intend to always be casting the <see cref="ControlledGameObject"/> field to a specific derived type,
+        /// as this check will ensure that the cast must succeed.
+        /// </remarks>
+        /// <typeparam name="TControlledObject">Type of object that <see cref="ControlledGameObject"/> must implement/inherit from.</typeparam>
+        /// <param name="s"/>
+        /// <param name="e"/>
+        public void ControlledGameObjectTypeCheck<TControlledObject>(object s, ControlledGameObjectChangedArgs e)
+        {
+            var map = (BasicMap)s;
+            if (map.ControlledGameObject is TControlledObject)
+                return;
+
+            throw new Exception($"{map.GetType().Name} restricts the type of object that can be assigned to its {nameof(ControlledGameObject)} property to types that inherit from/implement {typeof(TControlledObject).Name}.");
         }
 
         // Create new map, and return as something GoRogue understands

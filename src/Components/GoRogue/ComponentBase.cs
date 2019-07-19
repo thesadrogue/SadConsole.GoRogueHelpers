@@ -42,7 +42,7 @@ namespace SadConsole.Components.GoRogue
             if (componentBase.Parent is TParent)
                 return;
 
-            throw new Exception($"{componentBase.GetType().Name} components are marked with a TypeCheck, so can only be attached to something that inherits from/implements {typeof(TParent).Name}.");
+            throw new Exception($"{componentBase.GetType().Name} components are marked with a {nameof(ParentTypeCheck)}, so can only be attached to something that inherits from/implements {typeof(TParent).Name}.");
         }
 
         /// <summary>
