@@ -37,7 +37,7 @@ namespace StartingExample
             if (e.OldObject != null)
                 e.OldObject.Moved -= Player_Moved;
 
-            ((BasicEntity)s).Moved += Player_Moved;
+            ((BasicMap)s).ControlledGameObject.Moved += Player_Moved;
         }
         private static ExampleMap GenerateDungeon(int width, int height)
         {
