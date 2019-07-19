@@ -18,8 +18,9 @@ namespace SadConsole
         /// </summary>
         /// <param name="map">The map this handler will manage visibility for.</param>
         /// <param name="unexploredColor">Foreground color to set to all terrain tiles that are outside of FOV but have been explored.</param>
-        public DefaultFOVVisibilityHandler(BasicMap map, Color unexploredColor)
-            : base(map)
+        /// <param name="startingState">The starting state to put the handler in.</param>
+        public DefaultFOVVisibilityHandler(BasicMap map, Color unexploredColor, State startingState = State.Enabled)
+            : base(map, startingState)
         {
             ExploredColor = unexploredColor;
         }

@@ -12,6 +12,31 @@ namespace SadConsole
     public abstract class FOVVisibilityHandler
     {
         /// <summary>
+        /// Possible states for the FOVVisibilityHandler to be in.
+        /// </summary>
+        public enum State
+        {
+            /// <summary>
+            /// Enabled state -- FOVVisibilityHandler will actively set things as seen/unseen when appropriate.
+            /// </summary>
+            Enabled,
+            /// <summary>
+            /// Disabled state.  All items in the map will be set as seen, but the FOVVisibilityHandler
+            /// will not set visibility of any items as FOV changes or as items are added/removed.
+            /// </summary>
+            DisabledResetVisibility,
+            /// <summary>
+            /// Disabled state.  No changes to the current visibility of terrain/entities will be made, and the FOVVisibilityHandler
+            /// will not set visibility of any items as FOV changes or as items are added/removed.
+            /// </summary>
+            DisabledNoResetVisibility
+        }
+
+        /// <summary>
+        /// Whether or not the FOVVisibilityHandler is actively setting things to seen/unseen as appropriate.
+        /// </summary>
+        public bool Enabled { get; private set; }
+        /// <summary>
         /// The map that this handler manages visibility of objects for.
         /// </summary>
         public BasicMap Map { get; }
@@ -20,7 +45,8 @@ namespace SadConsole
         /// Creates a FOVVisibilityHandler that will manage visibility of objects for the given map.
         /// </summary>
         /// <param name="map">The map this handler will manage visibility for.</param>
-        public FOVVisibilityHandler(BasicMap map)
+        /// <param name="startingState">The starting state to put the handler in.</param>
+        public FOVVisibilityHandler(BasicMap map, State startingState = State.Enabled)
         {
             Map = map;
 
@@ -30,23 +56,77 @@ namespace SadConsole
             map.ObjectMoved += Map_ObjectMoved;
             map.FOVRecalculated += Map_FOVRecalculated;
 
-            foreach (var pos in map.Positions())
-            {
-                var terrain = map.GetTerrain<BasicTerrain>(pos);
-                if (terrain != null && map.FOV.BooleanFOV[pos])
-                    UpdateTerrainSeen(terrain);
-                else
-                    UpdateTerrainUnseen(terrain);
-            }
+            SetState(startingState);
+        }
 
-            foreach (var entity in map.Entities.Items.Cast<BasicEntity>())
+        /// <summary>
+        /// Sets the state of the FOVVisibilityHandler, affecting its behavior appropriately.
+        /// </summary>
+        /// <param name="state">The new state for the FOVVisibilityHandler.  See <see cref="State"/> documentation for details.</param>
+        public void SetState(State state)
+        {
+            switch(state)
             {
-                if (map.FOV.BooleanFOV[entity.Position])
-                    UpdateEntitySeen(entity);
-                else
-                    UpdateEntityUnseen(entity);
+                case State.Enabled:
+                    Enabled = true;
+
+                    foreach (var pos in Map.Positions())
+                    {
+                        var terrain = Map.GetTerrain<BasicTerrain>(pos);
+                        if (terrain != null && Map.FOV.BooleanFOV[pos])
+                            UpdateTerrainSeen(terrain);
+                        else if (terrain != null)
+                            UpdateTerrainUnseen(terrain);
+                    }
+
+                    foreach (var renderer in Map.Renderers)
+                        renderer.IsDirty = true;
+
+                    foreach (var entity in Map.Entities.Items.Cast<BasicEntity>())
+                    {
+                        if (Map.FOV.BooleanFOV[entity.Position])
+                            UpdateEntitySeen(entity);
+                        else
+                            UpdateEntityUnseen(entity);
+                    }
+
+                    break;
+
+                case State.DisabledNoResetVisibility:
+                    Enabled = false;
+                    break;
+
+                case State.DisabledResetVisibility:
+                    foreach (var pos in Map.Positions())
+                    {
+                        var terrain = Map.GetTerrain<BasicTerrain>(pos);
+                        if (terrain != null)
+                            UpdateTerrainSeen(terrain);
+                    }
+
+                    foreach (var renderer in Map.Renderers)
+                        renderer.IsDirty = true;
+
+                    foreach (var entity in Map.Entities.Items.Cast<BasicEntity>())
+                        UpdateEntitySeen(entity);
+
+                    Enabled = false;
+                    break;
             }
         }
+
+        /// <summary>
+        /// Sets the state to enabled.
+        /// </summary>
+        public void Enable() => SetState(State.Enabled);
+
+        /// <summary>
+        /// Sets the state to disabled.  If <paramref name="resetVisibilityToSeen"/> is true, all items will be set to seen before
+        /// the FOVVisibilityHandler is disabled.
+        /// </summary>
+        /// <param name="resetVisibilityToSeen">Whether or not to set all items in the map to seen before disabling the FOVVisibilityHandler.</param>
+        public void Disable(bool resetVisibilityToSeen = true)
+            => SetState(resetVisibilityToSeen ? State.DisabledResetVisibility : State.DisabledNoResetVisibility);
 
         /// <summary>
         /// Implement to make appropriate changes to a terrain tile that is now inside FOV.
@@ -74,13 +154,16 @@ namespace SadConsole
 
         private void Map_ObjectAdded(object sender, ItemEventArgs<IGameObject> e)
         {
+            if (!Enabled)
+                return;
+
             if (e.Item.Layer == 0) // Terrain
             {
                 if (Map.FOV.BooleanFOV[e.Position])
                     UpdateTerrainSeen((BasicTerrain)(e.Item));
                 else
                     UpdateTerrainUnseen((BasicTerrain)(e.Item));
-            }
+            } // No need to set IsDirty on renderers, SetTerrain would have done that for us.
             else // Entities
             {
                 if (Map.FOV.BooleanFOV[e.Position])
@@ -93,6 +176,9 @@ namespace SadConsole
         // Only entities (not terrain) can move so this is ok to just assume entities.
         private void Map_ObjectMoved(object sender, ItemMovedEventArgs<IGameObject> e)
         {
+            if (!Enabled)
+                return;
+
             if (Map.FOV.BooleanFOV[e.NewPosition])
                 UpdateEntitySeen((BasicEntity)(e.Item));
             else
@@ -101,17 +187,26 @@ namespace SadConsole
 
         private void Map_FOVRecalculated(object sender, EventArgs e)
         {
+            if (!Enabled)
+                return;
 
             foreach (var position in Map.FOV.NewlySeen)
             {
-                UpdateTerrainSeen(Map.GetTerrain<BasicTerrain>(position));
+                var terrain = Map.GetTerrain<BasicTerrain>(position);
+                if (terrain != null)
+                    UpdateTerrainSeen(terrain);
                 foreach (var entity in Map.GetEntities<BasicEntity>(position))
                     UpdateEntitySeen(entity);
             }
 
+            foreach (var renderer in Map.Renderers)
+                renderer.IsDirty = true;
+
             foreach (var position in Map.FOV.NewlyUnseen)
             {
-                UpdateTerrainUnseen(Map.GetTerrain<BasicTerrain>(position));
+                var terrain = Map.GetTerrain<BasicTerrain>(position);
+                if (terrain != null)
+                    UpdateTerrainUnseen(terrain);
                 foreach (var entity in Map.GetEntities<BasicEntity>(position))
                     UpdateEntityUnseen(entity);
             }

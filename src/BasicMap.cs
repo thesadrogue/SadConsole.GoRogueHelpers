@@ -48,10 +48,28 @@ namespace SadConsole
         /// </summary>
         public event EventHandler FOVRecalculated;
 
+        private BasicEntity _controlledGameObject;
         /// <summary>
         /// The game object that will be controlled by the player.
         /// </summary>
-        public BasicEntity ControlledGameObject { get; set; }
+        public virtual BasicEntity ControlledGameObject
+        {
+            get => _controlledGameObject;
+            set
+            {
+                if (_controlledGameObject != value)
+                {
+                    var oldObject = _controlledGameObject;
+                    _controlledGameObject = value;
+                    ControlledGameObjectChanged?.Invoke(this, new ControlledGameObjectChangedArgs(oldObject));
+                }
+            }
+        }
+
+        /// <summary>
+        /// Fires whenever the value of <see cref="ControlledGameObject"/> is changed.
+        /// </summary>
+        public event EventHandler<ControlledGameObjectChangedArgs> ControlledGameObjectChanged;
 
         /// <summary>
         /// Creates a BasicMap.
@@ -173,6 +191,26 @@ namespace SadConsole
             FOVRecalculated?.Invoke(this, EventArgs.Empty);
         }
 
+        /// <summary>
+        /// Add as a handler to <see cref="ControlledGameObjectChanged"/> to enforce that anything assigned to that field must implement
+        /// <typeparamref name="TControlledObject"/>.
+        /// </summary>
+        /// <remarks>
+        /// This is useful if you intend to always be casting the <see cref="ControlledGameObject"/> field to a specific derived type,
+        /// as this check will ensure that the cast must succeed.
+        /// </remarks>
+        /// <typeparam name="TControlledObject">Type of object that <see cref="ControlledGameObject"/> must implement/inherit from.</typeparam>
+        /// <param name="s"/>
+        /// <param name="e"/>
+        public void ControlledGameObjectTypeCheck<TControlledObject>(object s, ControlledGameObjectChangedArgs e)
+        {
+            var map = (BasicMap)s;
+            if (map.ControlledGameObject is TControlledObject)
+                return;
+
+            throw new Exception($"{map.GetType().Name} restricts the type of object that can be assigned to its {nameof(ControlledGameObject)} property to types that inherit from/implement {typeof(TControlledObject).Name}.");
+        }
+
         // Create new map, and return as something GoRogue understands
         private static ISettableMapView<IGameObject> CreateTerrain(int width, int height)
         {
@@ -198,6 +236,26 @@ namespace SadConsole
         {
             if (e.Item is BasicEntity entity)
                 _entitySyncersByLayer[entity.Layer - 1].Entities.Remove(entity);
+        }
+    }
+
+    /// <summary>
+    /// Arguments to ControlledGameObjectChanged event.
+    /// </summary>
+    public class ControlledGameObjectChangedArgs : EventArgs
+    {
+        /// <summary>
+        /// The old object that was previously assigned to the field.
+        /// </summary>
+        public BasicEntity OldObject { get; }
+
+        /// <summary>
+        /// Constructor.
+        /// </summary>
+        /// <param name="oldObject"/>
+        public ControlledGameObjectChangedArgs(BasicEntity oldObject)
+        {
+            OldObject = oldObject;
         }
     }
 }

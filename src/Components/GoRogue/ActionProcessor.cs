@@ -7,13 +7,8 @@ namespace SadConsole.Components.GoRogue
     /// <summary>
     /// Component that can be attached to any IGameObject that needs to process one or more actions.
     /// </summary>
-    public abstract class ActionProcessor : IGameObjectComponent
+    public abstract class ActionProcessor : ComponentBase
     {
-        /// <summary>
-        /// IGameObject this ActionProcessor is attached to.
-        /// </summary>
-        public IGameObject Parent { get; set; }
-
         /// <summary>
         /// Implements action processing logic.
         /// </summary>
