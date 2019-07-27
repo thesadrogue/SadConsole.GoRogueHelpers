@@ -6,14 +6,25 @@
     <LangVersion>latest</LangVersion>
     <RootNamespace>SadConsole</RootNamespace>
     <Version>1.0.0-alpha1</Version>
-    <Authors>Thraka</Authors>
-    <Company>SadLogic</Company>
-    <Copyright>Copyright © 2019 Steve De George JR (Thraka) and Christopher Ridley (Chris3606)</Copyright>
+    <Authors>Chris3606;Thraka</Authors>
+    <Company>TheSadRogue</Company>
+    <Copyright>Copyright © 2019 TheSadRogue [Steve De George JR (Thraka) and Christopher Ridley (Chris3606)]</Copyright>
     <Description>A game helpers library for SadConsole games built with GoRogue.</Description>
-	
-	<!-- Add symbols package -->
+    
+    <!-- More nuget package settings-->
+    <PackageId>SadConsole.GoRogueHelpers</PackageId>
+    <PackageReleaseNotes>Initial alpha release.</PackageReleaseNotes>
+    <PackageIconUrl>https://raw.githubusercontent.com/SadConsole/SadConsole/d110fc4a0dfdaa25496c973518ea6a14a563e191/images/oD8yyro5.png</PackageIconUrl>
+    <RepositoryUrl>https://github.com/thesadrogue/SadConsole.GoRogueHelpers</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <PackageProjectUrl></PackageProjectUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <IncludeSymbols>true</IncludeSymbols>
+    <IncludeSource>true</IncludeSource>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <PackageTags>sadconsole;gorogue;monogame;roguelike;cli;xna;game;development;console;ansi;ascii;standard</PackageTags>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -43,6 +54,6 @@
   <!-- Run InheritDoc on the final builds. -->
   <Target Name="PostBuild" AfterTargets="PostBuildEvent" Condition="'$(OS)' == 'Windows_NT'">
     <Exec Command="dotnet tool restore" />
-    <Exec Command="dotnet inheritdoc -- -o -b &quot;$(OutDir)\&quot;" />
+    <Exec Command="dotnet inheritdoc -o -b ..\" />
   </Target>
 </Project>
