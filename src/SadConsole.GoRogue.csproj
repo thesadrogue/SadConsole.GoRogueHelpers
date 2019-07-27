@@ -8,7 +8,7 @@
     <Version>1.0.0-alpha1</Version>
     <Authors>Thraka</Authors>
     <Company>SadLogic</Company>
-    <Copyright>Copyright © 2019 Steve De George JR (Thraka)</Copyright>
+    <Copyright>Copyright © 2019 Steve De George JR (Thraka) and Christopher Ridley (Chris3606)</Copyright>
     <Description>A game helpers library for SadConsole games built with GoRogue.</Description>
 	
 	<!-- Add symbols package -->
@@ -28,13 +28,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="InheritDoc" Version="2.2.1" PrivateAssets="All">
-      <NoWarn>NU1701</NoWarn>
-    </PackageReference>
-	<PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0-beta2-19367-01" PrivateAssets="All" />
+	  <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0-beta2-19367-01" PrivateAssets="All" />
     <PackageReference Include="GoRogue" Version="2.4.3" />
     <PackageReference Include="MonoGame.Framework.DesktopGL.Core" Version="3.7.0.7" PrivateAssets="All" />
-    <PackageReference Include="SadConsole" Version="8.7.1" />
+    <PackageReference Include="SadConsole" Version="8.8.0" />
   </ItemGroup>
   
   <!-- When packing, copy the nuget files to the nuget output directory -->
@@ -44,7 +41,8 @@
   </Target>
   
   <!-- Run InheritDoc on the final builds. -->
-  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="&quot;%userprofile%\.nuget\packages\inheritdoc\2.0.2\tools\InheritDoc.exe&quot; -o -b &quot;$(OutDir)\&quot;" />
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent" Condition="'$(OS)' == 'Windows_NT'">
+    <Exec Command="dotnet tool restore" />
+    <Exec Command="dotnet inheritdoc -- -o -b &quot;$(OutDir)\&quot;" />
   </Target>
 </Project>
