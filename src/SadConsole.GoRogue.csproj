@@ -5,7 +5,7 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <LangVersion>latest</LangVersion>
     <RootNamespace>SadConsole</RootNamespace>
-    <Version>1.0.0-alpha1</Version>
+    <Version>1.0.0-alpha2</Version>
     <Authors>Chris3606;Thraka</Authors>
     <Company>TheSadRogue</Company>
     <Copyright>Copyright © 2019 TheSadRogue [Steve De George JR (Thraka) and Christopher Ridley (Chris3606)]</Copyright>
@@ -42,7 +42,7 @@
 	  <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0-beta2-19367-01" PrivateAssets="All" />
     <PackageReference Include="GoRogue" Version="2.4.3" GeneratePathProperty="true" />
     <PackageReference Include="MonoGame.Framework.DesktopGL.Core" Version="3.7.0.7" PrivateAssets="All" />
-    <PackageReference Include="SadConsole" Version="8.8.0" GeneratePathProperty="true" />
+    <PackageReference Include="SadConsole" Version="8.8.1" GeneratePathProperty="true" />
   </ItemGroup>
   
   <!-- When packing, copy the nuget files to the nuget output directory -->
@@ -61,6 +61,6 @@
     <Copy SourceFiles="@(GoRogueFiles)" DestinationFolder="$(OutDir)" />
     <Copy SourceFiles="@(SadConsoleFiles)" DestinationFolder="$(OutDir)" />
     <Exec Command="dotnet tool restore" />
-    <Exec Command="dotnet inheritdoc -o -b ..\" />
+    <Exec Command="dotnet inheritdoc -o -b $(OutDir)" />
   </Target>
 </Project>
