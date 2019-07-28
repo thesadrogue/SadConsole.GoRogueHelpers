@@ -40,9 +40,9 @@
 
   <ItemGroup>
 	  <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0-beta2-19367-01" PrivateAssets="All" />
-    <PackageReference Include="GoRogue" Version="2.4.3" />
+    <PackageReference Include="GoRogue" Version="2.4.3" GeneratePathProperty="true" />
     <PackageReference Include="MonoGame.Framework.DesktopGL.Core" Version="3.7.0.7" PrivateAssets="All" />
-    <PackageReference Include="SadConsole" Version="8.8.0" />
+    <PackageReference Include="SadConsole" Version="8.8.0" GeneratePathProperty="true" />
   </ItemGroup>
   
   <!-- When packing, copy the nuget files to the nuget output directory -->
@@ -52,7 +52,14 @@
   </Target>
   
   <!-- Run InheritDoc on the final builds. -->
+  <ItemGroup>
+    <GoRogueFiles Include="$(PkgGoRogue)\lib\**\*.dll;$(PkgGoRogue)\lib\**\*.xml" />
+    <SadConsoleFiles Include="$(PkgSadConsole)\lib\**\*.dll;$(PkgSadConsole)\lib\**\*.xml" />
+  </ItemGroup>
+
   <Target Name="PostBuild" AfterTargets="PostBuildEvent" Condition="'$(OS)' == 'Windows_NT'">
+    <Copy SourceFiles="@(GoRogueFiles)" DestinationFolder="$(OutDir)" />
+    <Copy SourceFiles="@(SadConsoleFiles)" DestinationFolder="$(OutDir)" />
     <Exec Command="dotnet tool restore" />
     <Exec Command="dotnet inheritdoc -o -b ..\" />
   </Target>
