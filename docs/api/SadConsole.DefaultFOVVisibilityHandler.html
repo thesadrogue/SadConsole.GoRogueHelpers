@@ -86,28 +86,19 @@ terrain outside of FOV invisible if unexplored, and set its foreground to <a cla
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
     <div>
+      <a class="xref" href="SadConsole.FOVVisibilityHandler.html#SadConsole_FOVVisibilityHandler_SetState_SadConsole_FOVVisibilityHandler_State_">FOVVisibilityHandler.SetState(FOVVisibilityHandler.State)</a>
+    </div>
+    <div>
+      <a class="xref" href="SadConsole.FOVVisibilityHandler.html#SadConsole_FOVVisibilityHandler_Enable">FOVVisibilityHandler.Enable()</a>
+    </div>
+    <div>
+      <a class="xref" href="SadConsole.FOVVisibilityHandler.html#SadConsole_FOVVisibilityHandler_Disable_System_Boolean_">FOVVisibilityHandler.Disable(Boolean)</a>
+    </div>
+    <div>
+      <a class="xref" href="SadConsole.FOVVisibilityHandler.html#SadConsole_FOVVisibilityHandler_Enabled">FOVVisibilityHandler.Enabled</a>
+    </div>
+    <div>
       <a class="xref" href="SadConsole.FOVVisibilityHandler.html#SadConsole_FOVVisibilityHandler_Map">FOVVisibilityHandler.Map</a>
-    </div>
-    <div>
-      <span class="xref">System.Object.Equals(System.Object)</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.GetHashCode()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.GetType()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.MemberwiseClone()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.ToString()</span>
     </div>
   </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="SadConsole.html">SadConsole</a></h6>
@@ -118,21 +109,16 @@ terrain outside of FOV invisible if unexplored, and set its foreground to <a cla
   </div>
   <h3 id="constructors">Constructors
   </h3>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/thesadrogue/SadConsole.GoRogueHelpers/new/docs-setup/apiSpec/new?filename=SadConsole_DefaultFOVVisibilityHandler__ctor_SadConsole_BasicMap_Microsoft_Xna_Framework_Color_.md&amp;value=---%0Auid%3A%20SadConsole.DefaultFOVVisibilityHandler.%23ctor(SadConsole.BasicMap%2CMicrosoft.Xna.Framework.Color)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/thesadrogue/SadConsole.GoRogueHelpers/blob/docs-setup/src/DefaultFOVVisibilityHandler.cs/#L21">View Source</a>
-  </span>
+  
+  
   <a id="SadConsole_DefaultFOVVisibilityHandler__ctor_" data-uid="SadConsole.DefaultFOVVisibilityHandler.#ctor*"></a>
-  <h4 id="SadConsole_DefaultFOVVisibilityHandler__ctor_SadConsole_BasicMap_Microsoft_Xna_Framework_Color_" data-uid="SadConsole.DefaultFOVVisibilityHandler.#ctor(SadConsole.BasicMap,Microsoft.Xna.Framework.Color)">DefaultFOVVisibilityHandler(BasicMap, Color)</h4>
+  <h4 id="SadConsole_DefaultFOVVisibilityHandler__ctor_SadConsole_BasicMap_Microsoft_Xna_Framework_Color_SadConsole_FOVVisibilityHandler_State_" data-uid="SadConsole.DefaultFOVVisibilityHandler.#ctor(SadConsole.BasicMap,Microsoft.Xna.Framework.Color,SadConsole.FOVVisibilityHandler.State)">DefaultFOVVisibilityHandler(BasicMap, Color, FOVVisibilityHandler.State)</h4>
   <div class="markdown level1 summary"><p>Creates a DefaultFOVVisibilityHandler that will manage visibility of objects for the given map as noted in the class description.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public DefaultFOVVisibilityHandler(BasicMap map, Color unexploredColor)</code></pre>
+    <pre><code class="lang-csharp hljs">public DefaultFOVVisibilityHandler(BasicMap map, Color unexploredColor, FOVVisibilityHandler.State startingState)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -156,17 +142,18 @@ terrain outside of FOV invisible if unexplored, and set its foreground to <a cla
         <td><p>Foreground color to set to all terrain tiles that are outside of FOV but have been explored.</p>
 </td>
       </tr>
+      <tr>
+        <td><a class="xref" href="SadConsole.FOVVisibilityHandler.State.html">FOVVisibilityHandler.State</a></td>
+        <td><span class="parametername">startingState</span></td>
+        <td><p>The starting state to put the handler in.</p>
+</td>
+      </tr>
     </tbody>
   </table>
   <h3 id="properties">Properties
   </h3>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/thesadrogue/SadConsole.GoRogueHelpers/new/docs-setup/apiSpec/new?filename=SadConsole_DefaultFOVVisibilityHandler_ExploredColor.md&amp;value=---%0Auid%3A%20SadConsole.DefaultFOVVisibilityHandler.ExploredColor%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/thesadrogue/SadConsole.GoRogueHelpers/blob/docs-setup/src/DefaultFOVVisibilityHandler.cs/#L14">View Source</a>
-  </span>
+  
+  
   <a id="SadConsole_DefaultFOVVisibilityHandler_ExploredColor_" data-uid="SadConsole.DefaultFOVVisibilityHandler.ExploredColor*"></a>
   <h4 id="SadConsole_DefaultFOVVisibilityHandler_ExploredColor" data-uid="SadConsole.DefaultFOVVisibilityHandler.ExploredColor">ExploredColor</h4>
   <div class="markdown level1 summary"><p>Foreground color to set to all terrain that is outside of FOV but has been explored.</p>
@@ -193,13 +180,8 @@ terrain outside of FOV invisible if unexplored, and set its foreground to <a cla
   </table>
   <h3 id="methods">Methods
   </h3>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/thesadrogue/SadConsole.GoRogueHelpers/new/docs-setup/apiSpec/new?filename=SadConsole_DefaultFOVVisibilityHandler_UpdateEntitySeen_SadConsole_BasicEntity_.md&amp;value=---%0Auid%3A%20SadConsole.DefaultFOVVisibilityHandler.UpdateEntitySeen(SadConsole.BasicEntity)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/thesadrogue/SadConsole.GoRogueHelpers/blob/docs-setup/src/DefaultFOVVisibilityHandler.cs/#L31">View Source</a>
-  </span>
+  
+  
   <a id="SadConsole_DefaultFOVVisibilityHandler_UpdateEntitySeen_" data-uid="SadConsole.DefaultFOVVisibilityHandler.UpdateEntitySeen*"></a>
   <h4 id="SadConsole_DefaultFOVVisibilityHandler_UpdateEntitySeen_SadConsole_BasicEntity_" data-uid="SadConsole.DefaultFOVVisibilityHandler.UpdateEntitySeen(SadConsole.BasicEntity)">UpdateEntitySeen(BasicEntity)</h4>
   <div class="markdown level1 summary"><p>Makes entity visible.</p>
@@ -229,13 +211,8 @@ terrain outside of FOV invisible if unexplored, and set its foreground to <a cla
   </table>
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="SadConsole.FOVVisibilityHandler.html#SadConsole_FOVVisibilityHandler_UpdateEntitySeen_SadConsole_BasicEntity_">FOVVisibilityHandler.UpdateEntitySeen(BasicEntity)</a></div>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/thesadrogue/SadConsole.GoRogueHelpers/new/docs-setup/apiSpec/new?filename=SadConsole_DefaultFOVVisibilityHandler_UpdateEntityUnseen_SadConsole_BasicEntity_.md&amp;value=---%0Auid%3A%20SadConsole.DefaultFOVVisibilityHandler.UpdateEntityUnseen(SadConsole.BasicEntity)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/thesadrogue/SadConsole.GoRogueHelpers/blob/docs-setup/src/DefaultFOVVisibilityHandler.cs/#L40">View Source</a>
-  </span>
+  
+  
   <a id="SadConsole_DefaultFOVVisibilityHandler_UpdateEntityUnseen_" data-uid="SadConsole.DefaultFOVVisibilityHandler.UpdateEntityUnseen*"></a>
   <h4 id="SadConsole_DefaultFOVVisibilityHandler_UpdateEntityUnseen_SadConsole_BasicEntity_" data-uid="SadConsole.DefaultFOVVisibilityHandler.UpdateEntityUnseen(SadConsole.BasicEntity)">UpdateEntityUnseen(BasicEntity)</h4>
   <div class="markdown level1 summary"><p>Makes entity invisible.</p>
@@ -265,13 +242,8 @@ terrain outside of FOV invisible if unexplored, and set its foreground to <a cla
   </table>
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="SadConsole.FOVVisibilityHandler.html#SadConsole_FOVVisibilityHandler_UpdateEntityUnseen_SadConsole_BasicEntity_">FOVVisibilityHandler.UpdateEntityUnseen(BasicEntity)</a></div>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/thesadrogue/SadConsole.GoRogueHelpers/new/docs-setup/apiSpec/new?filename=SadConsole_DefaultFOVVisibilityHandler_UpdateTerrainSeen_SadConsole_BasicTerrain_.md&amp;value=---%0Auid%3A%20SadConsole.DefaultFOVVisibilityHandler.UpdateTerrainSeen(SadConsole.BasicTerrain)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/thesadrogue/SadConsole.GoRogueHelpers/blob/docs-setup/src/DefaultFOVVisibilityHandler.cs/#L49">View Source</a>
-  </span>
+  
+  
   <a id="SadConsole_DefaultFOVVisibilityHandler_UpdateTerrainSeen_" data-uid="SadConsole.DefaultFOVVisibilityHandler.UpdateTerrainSeen*"></a>
   <h4 id="SadConsole_DefaultFOVVisibilityHandler_UpdateTerrainSeen_SadConsole_BasicTerrain_" data-uid="SadConsole.DefaultFOVVisibilityHandler.UpdateTerrainSeen(SadConsole.BasicTerrain)">UpdateTerrainSeen(BasicTerrain)</h4>
   <div class="markdown level1 summary"><p>Makes terrain visible and sets its foreground color to its regular value.</p>
@@ -301,13 +273,8 @@ terrain outside of FOV invisible if unexplored, and set its foreground to <a cla
   </table>
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="SadConsole.FOVVisibilityHandler.html#SadConsole_FOVVisibilityHandler_UpdateTerrainSeen_SadConsole_BasicTerrain_">FOVVisibilityHandler.UpdateTerrainSeen(BasicTerrain)</a></div>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/thesadrogue/SadConsole.GoRogueHelpers/new/docs-setup/apiSpec/new?filename=SadConsole_DefaultFOVVisibilityHandler_UpdateTerrainUnseen_SadConsole_BasicTerrain_.md&amp;value=---%0Auid%3A%20SadConsole.DefaultFOVVisibilityHandler.UpdateTerrainUnseen(SadConsole.BasicTerrain)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/thesadrogue/SadConsole.GoRogueHelpers/blob/docs-setup/src/DefaultFOVVisibilityHandler.cs/#L60">View Source</a>
-  </span>
+  
+  
   <a id="SadConsole_DefaultFOVVisibilityHandler_UpdateTerrainUnseen_" data-uid="SadConsole.DefaultFOVVisibilityHandler.UpdateTerrainUnseen*"></a>
   <h4 id="SadConsole_DefaultFOVVisibilityHandler_UpdateTerrainUnseen_SadConsole_BasicTerrain_" data-uid="SadConsole.DefaultFOVVisibilityHandler.UpdateTerrainUnseen(SadConsole.BasicTerrain)">UpdateTerrainUnseen(BasicTerrain)</h4>
   <div class="markdown level1 summary"><p>Makes terrain invisible if it is not explored.  Makes terrain visible but sets its foreground to
@@ -345,12 +312,6 @@ terrain outside of FOV invisible if unexplored, and set its foreground to <a cla
             <div class="sideaffix">
               <div class="contribution">
                 <ul class="nav">
-                  <li>
-                    <a href="https://github.com/thesadrogue/SadConsole.GoRogueHelpers/new/docs-setup/apiSpec/new?filename=SadConsole_DefaultFOVVisibilityHandler.md&amp;value=---%0Auid%3A%20SadConsole.DefaultFOVVisibilityHandler%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
-                  </li>
-                  <li>
-                    <a href="https://github.com/thesadrogue/SadConsole.GoRogueHelpers/blob/docs-setup/src/DefaultFOVVisibilityHandler.cs/#L9" class="contribution-link">View Source</a>
-                  </li>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">

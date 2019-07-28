@@ -79,7 +79,8 @@
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><span class="xref">System.Object</span></div>
-    <div class="level1"><span class="xref">GameFrameProcessor</span></div>
+    <div class="level1"><a class="xref" href="SadConsole.Components.GoRogue.ComponentBase.html">ComponentBase</a></div>
+    <div class="level2"><span class="xref">GameFrameProcessor</span></div>
   </div>
   <div classs="implements">
     <h5>Implements</h5>
@@ -88,42 +89,40 @@
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
     <div>
-      <span class="xref">System.Object.Equals(System.Object)</span>
+      <a class="xref" href="SadConsole.Components.GoRogue.ComponentBase.html#SadConsole_Components_GoRogue_ComponentBase_ParentTypeCheck__1_System_Object_System_EventArgs_">ComponentBase.ParentTypeCheck&lt;TParent&gt;(Object, EventArgs)</a>
     </div>
     <div>
-      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+      <a class="xref" href="SadConsole.Components.GoRogue.ComponentBase.html#SadConsole_Components_GoRogue_ComponentBase_IncompatibleWith__1_System_Object_System_EventArgs_">ComponentBase.IncompatibleWith&lt;TComponent&gt;(Object, EventArgs)</a>
     </div>
     <div>
-      <span class="xref">System.Object.GetHashCode()</span>
+      <a class="xref" href="SadConsole.Components.GoRogue.ComponentBase.html#SadConsole_Components_GoRogue_ComponentBase_Added">ComponentBase.Added</a>
     </div>
     <div>
-      <span class="xref">System.Object.GetType()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.MemberwiseClone()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.ToString()</span>
+      <a class="xref" href="SadConsole.Components.GoRogue.ComponentBase.html#SadConsole_Components_GoRogue_ComponentBase_Removed">ComponentBase.Removed</a>
     </div>
   </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="SadConsole.Components.GoRogue.html">SadConsole.Components.GoRogue</a></h6>
   <h6><strong>Assembly</strong>: SadConsole.GoRogue.dll</h6>
   <h5 id="SadConsole_Components_GoRogue_GameFrameProcessor_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public abstract class GameFrameProcessor : IGameObjectComponent</code></pre>
+    <pre><code class="lang-csharp hljs">public abstract class GameFrameProcessor : ComponentBase, IGameObjectComponent</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+  </h3>
+  
+  
+  <a id="SadConsole_Components_GoRogue_GameFrameProcessor__ctor_" data-uid="SadConsole.Components.GoRogue.GameFrameProcessor.#ctor*"></a>
+  <h4 id="SadConsole_Components_GoRogue_GameFrameProcessor__ctor" data-uid="SadConsole.Components.GoRogue.GameFrameProcessor.#ctor">GameFrameProcessor()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected GameFrameProcessor()</code></pre>
   </div>
   <h3 id="properties">Properties
   </h3>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/thesadrogue/SadConsole.GoRogueHelpers/new/docs-setup/apiSpec/new?filename=SadConsole_Components_GoRogue_GameFrameProcessor_Parent.md&amp;value=---%0Auid%3A%20SadConsole.Components.GoRogue.GameFrameProcessor.Parent%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/thesadrogue/SadConsole.GoRogueHelpers/blob/docs-setup/src/Components/GoRogue/GameFrameProcessor.cs/#L15">View Source</a>
-  </span>
+  
+  
   <a id="SadConsole_Components_GoRogue_GameFrameProcessor_Parent_" data-uid="SadConsole.Components.GoRogue.GameFrameProcessor.Parent*"></a>
   <h4 id="SadConsole_Components_GoRogue_GameFrameProcessor_Parent" data-uid="SadConsole.Components.GoRogue.GameFrameProcessor.Parent">Parent</h4>
   <div class="markdown level1 summary"><p>The IGameObject that this GameFrameProcessor is attached to.</p>
@@ -131,7 +130,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public IGameObject Parent { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public override IGameObject Parent { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -148,15 +147,12 @@
       </tr>
     </tbody>
   </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="SadConsole.Components.GoRogue.ComponentBase.html#SadConsole_Components_GoRogue_ComponentBase_Parent">ComponentBase.Parent</a></div>
   <h3 id="methods">Methods
   </h3>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/thesadrogue/SadConsole.GoRogueHelpers/new/docs-setup/apiSpec/new?filename=SadConsole_Components_GoRogue_GameFrameProcessor_ProcessGameFrame.md&amp;value=---%0Auid%3A%20SadConsole.Components.GoRogue.GameFrameProcessor.ProcessGameFrame%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/thesadrogue/SadConsole.GoRogueHelpers/blob/docs-setup/src/Components/GoRogue/GameFrameProcessor.cs/#L30">View Source</a>
-  </span>
+  
+  
   <a id="SadConsole_Components_GoRogue_GameFrameProcessor_ProcessGameFrame_" data-uid="SadConsole.Components.GoRogue.GameFrameProcessor.ProcessGameFrame*"></a>
   <h4 id="SadConsole_Components_GoRogue_GameFrameProcessor_ProcessGameFrame" data-uid="SadConsole.Components.GoRogue.GameFrameProcessor.ProcessGameFrame">ProcessGameFrame()</h4>
   <div class="markdown level1 summary"><p>Implements logic for processing a logic frame.</p>
@@ -177,12 +173,6 @@
             <div class="sideaffix">
               <div class="contribution">
                 <ul class="nav">
-                  <li>
-                    <a href="https://github.com/thesadrogue/SadConsole.GoRogueHelpers/new/docs-setup/apiSpec/new?filename=SadConsole_Components_GoRogue_GameFrameProcessor.md&amp;value=---%0Auid%3A%20SadConsole.Components.GoRogue.GameFrameProcessor%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
-                  </li>
-                  <li>
-                    <a href="https://github.com/thesadrogue/SadConsole.GoRogueHelpers/blob/docs-setup/src/Components/GoRogue/GameFrameProcessor.cs/#L9" class="contribution-link">View Source</a>
-                  </li>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
