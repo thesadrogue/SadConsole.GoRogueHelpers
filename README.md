@@ -9,5 +9,5 @@ Please feel free to report any issues you encounter or feature suggestions you h
 # Miscellaneous
 This library is currently in the alpha stage.  Although the core APIs will likely remain relatively stable, things may still be subject to change before the official 1.0 release.
 
-No NuGet package has been released yet, but an alpha version should be up soon!
+An alpha NuGet package for this library has been released!
 
