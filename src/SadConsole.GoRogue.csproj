@@ -5,15 +5,26 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <LangVersion>latest</LangVersion>
     <RootNamespace>SadConsole</RootNamespace>
-    <Version>1.0.0-alpha1</Version>
-    <Authors>Thraka</Authors>
-    <Company>SadLogic</Company>
-    <Copyright>Copyright © 2019 Steve De George JR (Thraka)</Copyright>
+    <Version>1.0.0-alpha2</Version>
+    <Authors>Chris3606;Thraka</Authors>
+    <Company>TheSadRogue</Company>
+    <Copyright>Copyright © 2019 TheSadRogue [Steve De George JR (Thraka) and Christopher Ridley (Chris3606)]</Copyright>
     <Description>A game helpers library for SadConsole games built with GoRogue.</Description>
-	
-	<!-- Add symbols package -->
+    
+    <!-- More nuget package settings-->
+    <PackageId>SadConsole.GoRogueHelpers</PackageId>
+    <PackageReleaseNotes>Initial alpha release.</PackageReleaseNotes>
+    <PackageIconUrl>https://raw.githubusercontent.com/SadConsole/SadConsole/d110fc4a0dfdaa25496c973518ea6a14a563e191/images/oD8yyro5.png</PackageIconUrl>
+    <RepositoryUrl>https://github.com/thesadrogue/SadConsole.GoRogueHelpers</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <PackageProjectUrl></PackageProjectUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <IncludeSymbols>true</IncludeSymbols>
+    <IncludeSource>true</IncludeSource>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <PackageTags>sadconsole;gorogue;monogame;roguelike;cli;xna;game;development;console;ansi;ascii;standard</PackageTags>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -28,13 +39,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="InheritDoc" Version="2.2.1" PrivateAssets="All">
-      <NoWarn>NU1701</NoWarn>
-    </PackageReference>
-	<PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0-beta2-19367-01" PrivateAssets="All" />
-    <PackageReference Include="GoRogue" Version="2.4.3" />
+	  <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0-beta2-19367-01" PrivateAssets="All" />
+    <PackageReference Include="GoRogue" Version="2.4.3" GeneratePathProperty="true" />
     <PackageReference Include="MonoGame.Framework.DesktopGL.Core" Version="3.7.0.7" PrivateAssets="All" />
-    <PackageReference Include="SadConsole" Version="8.7.1" />
+    <PackageReference Include="SadConsole" Version="8.8.1" GeneratePathProperty="true" />
   </ItemGroup>
   
   <!-- When packing, copy the nuget files to the nuget output directory -->
@@ -44,7 +52,15 @@
   </Target>
   
   <!-- Run InheritDoc on the final builds. -->
-  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="&quot;%userprofile%\.nuget\packages\inheritdoc\2.0.2\tools\InheritDoc.exe&quot; -o -b &quot;$(OutDir)\&quot;" />
+  <ItemGroup>
+    <GoRogueFiles Include="$(PkgGoRogue)\lib\**\*.dll;$(PkgGoRogue)\lib\**\*.xml" />
+    <SadConsoleFiles Include="$(PkgSadConsole)\lib\**\*.dll;$(PkgSadConsole)\lib\**\*.xml" />
+  </ItemGroup>
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent" Condition="'$(OS)' == 'Windows_NT'">
+    <Copy SourceFiles="@(GoRogueFiles)" DestinationFolder="$(OutDir)" />
+    <Copy SourceFiles="@(SadConsoleFiles)" DestinationFolder="$(OutDir)" />
+    <Exec Command="dotnet tool restore" />
+    <Exec Command="dotnet inheritdoc -o -b $(OutDir)" />
   </Target>
 </Project>
