@@ -87,35 +87,11 @@
     <div><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<a class="xref" href="SadConsole.Factory.IBlueprint-2.html">IBlueprint</a>&lt;TBlueprintConfig, TProduced&gt;&gt;</div>
     <div><span class="xref">System.Collections.IEnumerable</span></div>
   </div>
-  <div class="inheritedMembers">
-    <h5>Inherited Members</h5>
-    <div>
-      <span class="xref">System.Object.Equals(System.Object)</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.GetHashCode()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.GetType()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.MemberwiseClone()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.ToString()</span>
-    </div>
-  </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="SadConsole.Factory.html">SadConsole.Factory</a></h6>
   <h6><strong>Assembly</strong>: SadConsole.GoRogue.dll</h6>
   <h5 id="SadConsole_Factory_Factory_2_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class Factory&lt;TBlueprintConfig, TProduced&gt; : IEnumerable&lt;IBlueprint&lt;TBlueprintConfig, TProduced&gt;&gt;, IEnumerable where TBlueprintConfig : BlueprintConfig</code></pre>
+    <pre><code class="lang-csharp hljs">public class Factory&lt;TBlueprintConfig, TProduced&gt; : Object, IEnumerable&lt;IBlueprint&lt;TBlueprintConfig, TProduced&gt;&gt;, IEnumerable where TBlueprintConfig : BlueprintConfig</code></pre>
   </div>
   <h5 class="typeParameters">Type Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -138,15 +114,22 @@
       </tr>
     </tbody>
   </table>
+  <h3 id="constructors">Constructors
+  </h3>
+  
+  
+  <a id="SadConsole_Factory_Factory_2__ctor_" data-uid="SadConsole.Factory.Factory`2.#ctor*"></a>
+  <h4 id="SadConsole_Factory_Factory_2__ctor" data-uid="SadConsole.Factory.Factory`2.#ctor">Factory()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Factory()</code></pre>
+  </div>
   <h3 id="methods">Methods
   </h3>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/thesadrogue/SadConsole.GoRogueHelpers/new/docs-setup/apiSpec/new?filename=SadConsole_Factory_Factory_2_Add_SadConsole_Factory_IBlueprint__0__1__.md&amp;value=---%0Auid%3A%20SadConsole.Factory.Factory%602.Add(SadConsole.Factory.IBlueprint%7B%600%2C%601%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/thesadrogue/SadConsole.GoRogueHelpers/blob/docs-setup/src/Factory/Factory.cs/#L21">View Source</a>
-  </span>
+  
+  
   <a id="SadConsole_Factory_Factory_2_Add_" data-uid="SadConsole.Factory.Factory`2.Add*"></a>
   <h4 id="SadConsole_Factory_Factory_2_Add_SadConsole_Factory_IBlueprint__0__1__" data-uid="SadConsole.Factory.Factory`2.Add(SadConsole.Factory.IBlueprint{`0,`1})">Add(IBlueprint&lt;TBlueprintConfig, TProduced&gt;)</h4>
   <div class="markdown level1 summary"><p>Adds a blueprint to the factory.</p>
@@ -174,13 +157,8 @@
       </tr>
     </tbody>
   </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/thesadrogue/SadConsole.GoRogueHelpers/new/docs-setup/apiSpec/new?filename=SadConsole_Factory_Factory_2_BlueprintExists_System_String_.md&amp;value=---%0Auid%3A%20SadConsole.Factory.Factory%602.BlueprintExists(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/thesadrogue/SadConsole.GoRogueHelpers/blob/docs-setup/src/Factory/Factory.cs/#L49">View Source</a>
-  </span>
+  
+  
   <a id="SadConsole_Factory_Factory_2_BlueprintExists_" data-uid="SadConsole.Factory.Factory`2.BlueprintExists*"></a>
   <h4 id="SadConsole_Factory_Factory_2_BlueprintExists_System_String_" data-uid="SadConsole.Factory.Factory`2.BlueprintExists(System.String)">BlueprintExists(String)</h4>
   <div class="markdown level1 summary"><p>Checks if a blueprint exists.</p>
@@ -224,13 +202,8 @@
       </tr>
     </tbody>
   </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/thesadrogue/SadConsole.GoRogueHelpers/new/docs-setup/apiSpec/new?filename=SadConsole_Factory_Factory_2_Create_System_String__0_.md&amp;value=---%0Auid%3A%20SadConsole.Factory.Factory%602.Create(System.String%2C%600)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/thesadrogue/SadConsole.GoRogueHelpers/blob/docs-setup/src/Factory/Factory.cs/#L32">View Source</a>
-  </span>
+  
+  
   <a id="SadConsole_Factory_Factory_2_Create_" data-uid="SadConsole.Factory.Factory`2.Create*"></a>
   <h4 id="SadConsole_Factory_Factory_2_Create_System_String__0_" data-uid="SadConsole.Factory.Factory`2.Create(System.String,`0)">Create(String, TBlueprintConfig)</h4>
   <div class="markdown level1 summary"><p>Creates a <code data-dev-comment-type="typeparamref" class="typeparamref">TProduced</code> object using the blueprint with the given factory id, and the given settings object.</p>
@@ -280,13 +253,8 @@
       </tr>
     </tbody>
   </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/thesadrogue/SadConsole.GoRogueHelpers/new/docs-setup/apiSpec/new?filename=SadConsole_Factory_Factory_2_GetBlueprint_System_String_.md&amp;value=---%0Auid%3A%20SadConsole.Factory.Factory%602.GetBlueprint(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/thesadrogue/SadConsole.GoRogueHelpers/blob/docs-setup/src/Factory/Factory.cs/#L57">View Source</a>
-  </span>
+  
+  
   <a id="SadConsole_Factory_Factory_2_GetBlueprint_" data-uid="SadConsole.Factory.Factory`2.GetBlueprint*"></a>
   <h4 id="SadConsole_Factory_Factory_2_GetBlueprint_System_String_" data-uid="SadConsole.Factory.Factory`2.GetBlueprint(System.String)">GetBlueprint(String)</h4>
   <div class="markdown level1 summary"><p>Gets a blueprint by identifier.</p>
@@ -346,13 +314,8 @@
       </tr>
     </tbody>
   </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/thesadrogue/SadConsole.GoRogueHelpers/new/docs-setup/apiSpec/new?filename=SadConsole_Factory_Factory_2_GetEnumerator.md&amp;value=---%0Auid%3A%20SadConsole.Factory.Factory%602.GetEnumerator%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/thesadrogue/SadConsole.GoRogueHelpers/blob/docs-setup/src/Factory/Factory.cs/#L69">View Source</a>
-  </span>
+  
+  
   <a id="SadConsole_Factory_Factory_2_GetEnumerator_" data-uid="SadConsole.Factory.Factory`2.GetEnumerator*"></a>
   <h4 id="SadConsole_Factory_Factory_2_GetEnumerator" data-uid="SadConsole.Factory.Factory`2.GetEnumerator">GetEnumerator()</h4>
   <div class="markdown level1 summary"><p>Gets an enumerator of all of the blueprints in the factory.</p>
@@ -378,43 +341,9 @@
       </tr>
     </tbody>
   </table>
-  <h3 id="eii">Explicit Interface Implementations
-  </h3>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/thesadrogue/SadConsole.GoRogueHelpers/new/docs-setup/apiSpec/new?filename=SadConsole_Factory_Factory_2_System_Collections_IEnumerable_GetEnumerator.md&amp;value=---%0Auid%3A%20SadConsole.Factory.Factory%602.System%23Collections%23IEnumerable%23GetEnumerator%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/thesadrogue/SadConsole.GoRogueHelpers/blob/docs-setup/src/Factory/Factory.cs/#L75">View Source</a>
-  </span>
-  <a id="SadConsole_Factory_Factory_2_System_Collections_IEnumerable_GetEnumerator_" data-uid="SadConsole.Factory.Factory`2.System#Collections#IEnumerable#GetEnumerator*"></a>
-  <h4 id="SadConsole_Factory_Factory_2_System_Collections_IEnumerable_GetEnumerator" data-uid="SadConsole.Factory.Factory`2.System#Collections#IEnumerable#GetEnumerator">IEnumerable.GetEnumerator()</h4>
-  <div class="markdown level1 summary"><p>Gets an enumerator of all of the blueprints in the factory.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">IEnumerator IEnumerable.GetEnumerator()</code></pre>
-  </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Collections.IEnumerator</span></td>
-        <td><p>An enumeration of the blueprints.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
   <h3 id="implements">Implements</h3>
   <div>
-      <span class="xref">System.Collections.Generic.IEnumerable&lt;T&gt;</span>
+      <span class="xref">System.Collections.Generic.IEnumerable&lt;&gt;</span>
   </div>
   <div>
       <span class="xref">System.Collections.IEnumerable</span>
@@ -426,12 +355,6 @@
             <div class="sideaffix">
               <div class="contribution">
                 <ul class="nav">
-                  <li>
-                    <a href="https://github.com/thesadrogue/SadConsole.GoRogueHelpers/new/docs-setup/apiSpec/new?filename=SadConsole_Factory_Factory_2.md&amp;value=---%0Auid%3A%20SadConsole.Factory.Factory%602%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
-                  </li>
-                  <li>
-                    <a href="https://github.com/thesadrogue/SadConsole.GoRogueHelpers/blob/docs-setup/src/Factory/Factory.cs/#L12" class="contribution-link">View Source</a>
-                  </li>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">

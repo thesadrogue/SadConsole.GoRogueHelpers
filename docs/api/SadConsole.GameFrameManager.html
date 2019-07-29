@@ -73,101 +73,30 @@
   
   <h1 id="SadConsole_GameFrameManager" data-uid="SadConsole.GameFrameManager" class="text-break">Class GameFrameManager
   </h1>
-  <div class="markdown level0 summary"><p>Implements Update logic for implementing &quot;game frames&quot;.  The <a class="xref" href="SadConsole.GameFrameManager.html#SadConsole_GameFrameManager_Update_SadConsole_Console_System_TimeSpan_">Update(Console, TimeSpan)</a> method should be called
-from a SadConosle Update method to process its update logic.</p>
+  <div class="markdown level0 summary"><p>Implements Update logic for implementing &quot;game frames&quot;.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><span class="xref">System.Object</span></div>
-    <div class="level1"><span class="xref">SadConsole.Components.UpdateConsoleComponent</span></div>
-    <div class="level2"><span class="xref">GameFrameManager</span></div>
-  </div>
-  <div classs="implements">
-    <h5>Implements</h5>
-    <div><span class="xref">SadConsole.Components.IConsoleComponent</span></div>
-  </div>
-  <div class="inheritedMembers">
-    <h5>Inherited Members</h5>
-    <div>
-      <span class="xref">SadConsole.Components.UpdateConsoleComponent.OnAdded(SadConsole.Console)</span>
-    </div>
-    <div>
-      <span class="xref">SadConsole.Components.UpdateConsoleComponent.OnRemoved(SadConsole.Console)</span>
-    </div>
-    <div>
-      <span class="xref">SadConsole.Components.UpdateConsoleComponent.SadConsole.Components.IConsoleComponent.Draw(SadConsole.Console, System.TimeSpan)</span>
-    </div>
-    <div>
-      <span class="xref">SadConsole.Components.UpdateConsoleComponent.SadConsole.Components.IConsoleComponent.ProcessKeyboard(SadConsole.Console, SadConsole.Input.Keyboard, System.Boolean)</span>
-    </div>
-    <div>
-      <span class="xref">SadConsole.Components.UpdateConsoleComponent.SadConsole.Components.IConsoleComponent.ProcessMouse(SadConsole.Console, SadConsole.Input.MouseConsoleState, System.Boolean)</span>
-    </div>
-    <div>
-      <span class="xref">SadConsole.Components.UpdateConsoleComponent.SadConsole.Components.IConsoleComponent.Update(SadConsole.Console, System.TimeSpan)</span>
-    </div>
-    <div>
-      <span class="xref">SadConsole.Components.UpdateConsoleComponent.SortOrder</span>
-    </div>
-    <div>
-      <span class="xref">SadConsole.Components.UpdateConsoleComponent.SadConsole.Components.IConsoleComponent.SortOrder</span>
-    </div>
-    <div>
-      <span class="xref">SadConsole.Components.UpdateConsoleComponent.SadConsole.Components.IConsoleComponent.IsUpdate</span>
-    </div>
-    <div>
-      <span class="xref">SadConsole.Components.UpdateConsoleComponent.SadConsole.Components.IConsoleComponent.IsDraw</span>
-    </div>
-    <div>
-      <span class="xref">SadConsole.Components.UpdateConsoleComponent.SadConsole.Components.IConsoleComponent.IsMouse</span>
-    </div>
-    <div>
-      <span class="xref">SadConsole.Components.UpdateConsoleComponent.SadConsole.Components.IConsoleComponent.IsKeyboard</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.Equals(System.Object)</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.GetHashCode()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.GetType()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.MemberwiseClone()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.ToString()</span>
-    </div>
+    <div class="level1"><span class="xref">GameFrameManager</span></div>
   </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="SadConsole.html">SadConsole</a></h6>
   <h6><strong>Assembly</strong>: SadConsole.GoRogue.dll</h6>
   <h5 id="SadConsole_GameFrameManager_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class GameFrameManager : UpdateConsoleComponent, IConsoleComponent</code></pre>
+    <pre><code class="lang-csharp hljs">public class GameFrameManager : UpdateConsoleComponent</code></pre>
   </div>
   <h5 id="SadConsole_GameFrameManager_remarks"><strong>Remarks</strong></h5>
   <div class="markdown level0 remarks"><p>Each time Update is called, if <a class="xref" href="SadConsole.GameFrameManager.html#SadConsole_GameFrameManager_RunLogicFrame">RunLogicFrame</a> is true, all entities that are <em>not</em> the <a class="xref" href="SadConsole.BasicMap.html#SadConsole_BasicMap_ControlledGameObject">ControlledGameObject</a>
 will, if they have any <a class="xref" href="SadConsole.Components.GoRogue.GameFrameProcessor.html">GameFrameProcessor</a> components, have those component's ProcessGameFrame function called.
-Then, the controlled game object will have its components ProcessGameFrame functions called.  Finally, the <a class="xref" href="SadConsole.GameFrameManager.html#SadConsole_GameFrameManager_RunLogicFrame">RunLogicFrame</a> value
-is set to false, <a class="xref" href="SadConsole.GameFrameManager.html#SadConsole_GameFrameManager_LogicFrameCompleted">LogicFrameCompleted</a> event is fired.</p>
+Then, the controlled game object will have its components ProcessGameFrame functions called (if it has a GameFrameProcessor component).
+Finally, the <a class="xref" href="SadConsole.GameFrameManager.html#SadConsole_GameFrameManager_RunLogicFrame">RunLogicFrame</a> value is set to false, and the <a class="xref" href="SadConsole.GameFrameManager.html#SadConsole_GameFrameManager_LogicFrameCompleted">LogicFrameCompleted</a> event is fired.</p>
 </div>
   <h3 id="constructors">Constructors
   </h3>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/thesadrogue/SadConsole.GoRogueHelpers/new/docs-setup/apiSpec/new?filename=SadConsole_GameFrameManager__ctor_SadConsole_BasicMap_.md&amp;value=---%0Auid%3A%20SadConsole.GameFrameManager.%23ctor(SadConsole.BasicMap)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/thesadrogue/SadConsole.GoRogueHelpers/blob/docs-setup/src/GameFrameManager.cs/#L37">View Source</a>
-  </span>
+  
+  
   <a id="SadConsole_GameFrameManager__ctor_" data-uid="SadConsole.GameFrameManager.#ctor*"></a>
   <h4 id="SadConsole_GameFrameManager__ctor_SadConsole_BasicMap_" data-uid="SadConsole.GameFrameManager.#ctor(SadConsole.BasicMap)">GameFrameManager(BasicMap)</h4>
   <div class="markdown level1 summary"><p>Creates a GameFrameManager that runs logic frames for the given map.</p>
@@ -197,15 +126,10 @@ is set to false, <a class="xref" href="SadConsole.GameFrameManager.html#SadConso
   </table>
   <h3 id="fields">Fields
   </h3>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/thesadrogue/SadConsole.GoRogueHelpers/new/docs-setup/apiSpec/new?filename=SadConsole_GameFrameManager_RunLogicFrame.md&amp;value=---%0Auid%3A%20SadConsole.GameFrameManager.RunLogicFrame%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/thesadrogue/SadConsole.GoRogueHelpers/blob/docs-setup/src/GameFrameManager.cs/#L21">View Source</a>
-  </span>
+  
+  
   <h4 id="SadConsole_GameFrameManager_RunLogicFrame" data-uid="SadConsole.GameFrameManager.RunLogicFrame">RunLogicFrame</h4>
-  <div class="markdown level1 summary"><p>Set to true to run a logic frame during the next Update call.</p>
+  <div class="markdown level1 summary"><p>Set to true to run a logic frame during the next Update call.  Can set to false in the middle of a logic frame to terminate after the current processor exits.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -229,13 +153,8 @@ is set to false, <a class="xref" href="SadConsole.GameFrameManager.html#SadConso
   </table>
   <h3 id="properties">Properties
   </h3>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/thesadrogue/SadConsole.GoRogueHelpers/new/docs-setup/apiSpec/new?filename=SadConsole_GameFrameManager_Map.md&amp;value=---%0Auid%3A%20SadConsole.GameFrameManager.Map%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/thesadrogue/SadConsole.GoRogueHelpers/blob/docs-setup/src/GameFrameManager.cs/#L31">View Source</a>
-  </span>
+  
+  
   <a id="SadConsole_GameFrameManager_Map_" data-uid="SadConsole.GameFrameManager.Map*"></a>
   <h4 id="SadConsole_GameFrameManager_Map" data-uid="SadConsole.GameFrameManager.Map">Map</h4>
   <div class="markdown level1 summary"><p>Map that this manager runs game frames for.</p>
@@ -262,13 +181,8 @@ is set to false, <a class="xref" href="SadConsole.GameFrameManager.html#SadConso
   </table>
   <h3 id="methods">Methods
   </h3>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/thesadrogue/SadConsole.GoRogueHelpers/new/docs-setup/apiSpec/new?filename=SadConsole_GameFrameManager_Update_SadConsole_Console_System_TimeSpan_.md&amp;value=---%0Auid%3A%20SadConsole.GameFrameManager.Update(SadConsole.Console%2CSystem.TimeSpan)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/thesadrogue/SadConsole.GoRogueHelpers/blob/docs-setup/src/GameFrameManager.cs/#L47">View Source</a>
-  </span>
+  
+  
   <a id="SadConsole_GameFrameManager_Update_" data-uid="SadConsole.GameFrameManager.Update*"></a>
   <h4 id="SadConsole_GameFrameManager_Update_SadConsole_Console_System_TimeSpan_" data-uid="SadConsole.GameFrameManager.Update(SadConsole.Console,System.TimeSpan)">Update(Console, TimeSpan)</h4>
   <div class="markdown level1 summary"><p>Runs a single logic frame if <a class="xref" href="SadConsole.GameFrameManager.html#SadConsole_GameFrameManager_RunLogicFrame">RunLogicFrame</a> is set to true.</p>
@@ -300,17 +214,10 @@ is set to false, <a class="xref" href="SadConsole.GameFrameManager.html#SadConso
       </tr>
     </tbody>
   </table>
-  <h5 class="overrides">Overrides</h5>
-  <div><span class="xref">SadConsole.Components.UpdateConsoleComponent.Update(SadConsole.Console, System.TimeSpan)</span></div>
   <h3 id="events">Events
   </h3>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/thesadrogue/SadConsole.GoRogueHelpers/new/docs-setup/apiSpec/new?filename=SadConsole_GameFrameManager_LogicFrameCompleted.md&amp;value=---%0Auid%3A%20SadConsole.GameFrameManager.LogicFrameCompleted%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/thesadrogue/SadConsole.GoRogueHelpers/blob/docs-setup/src/GameFrameManager.cs/#L26">View Source</a>
-  </span>
+  
+  
   <h4 id="SadConsole_GameFrameManager_LogicFrameCompleted" data-uid="SadConsole.GameFrameManager.LogicFrameCompleted">LogicFrameCompleted</h4>
   <div class="markdown level1 summary"><p>Fires whenever a logic frame completes.</p>
 </div>
@@ -334,10 +241,6 @@ is set to false, <a class="xref" href="SadConsole.GameFrameManager.html#SadConso
       </tr>
     </tbody>
   </table>
-  <h3 id="implements">Implements</h3>
-  <div>
-      <span class="xref">SadConsole.Components.IConsoleComponent</span>
-  </div>
 </article>
           </div>
           
@@ -345,12 +248,6 @@ is set to false, <a class="xref" href="SadConsole.GameFrameManager.html#SadConso
             <div class="sideaffix">
               <div class="contribution">
                 <ul class="nav">
-                  <li>
-                    <a href="https://github.com/thesadrogue/SadConsole.GoRogueHelpers/new/docs-setup/apiSpec/new?filename=SadConsole_GameFrameManager.md&amp;value=---%0Auid%3A%20SadConsole.GameFrameManager%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
-                  </li>
-                  <li>
-                    <a href="https://github.com/thesadrogue/SadConsole.GoRogueHelpers/blob/docs-setup/src/GameFrameManager.cs/#L16" class="contribution-link">View Source</a>
-                  </li>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">

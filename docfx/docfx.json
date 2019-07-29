@@ -3,13 +3,9 @@
     {
       "src": [
         {
-		  "src": "../",
+		  "src": "../src/bin/Debug",
           "files": [
-            "src/**.csproj"
-          ],
-		  "exclude": [
-            "**/bin/**",
-            "**/obj/**"
+            "netstandard2.0/SadConsole.GoRogue.dll"
           ]
         }
       ],
