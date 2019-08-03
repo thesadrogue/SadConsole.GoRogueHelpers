@@ -11,6 +11,10 @@
     "identity": "TheSadRogue.GoRogueSadConsoleTemplate.CSharp",
     "name": "TheSadRogue GoRogue-SadConsole Game",
     "shortName": "goroguesadconsolegame",
+    "tags": {
+        "language": "C#",
+        "type": "project"
+    },
     "symbols": {
         "name": {
             "type": "parameter",
