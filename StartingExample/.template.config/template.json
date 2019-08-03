@@ -1,0 +1,24 @@
+{
+    "$schema": "http://json.schemastore.org/template",
+    "author": "Chris3606;Thraka",
+    "classifications": [
+        "Console",
+        "Roguelike",
+        "SadConsole",
+        "GoRogue",
+        "SadConsole.GoRogueHelpers"
+    ],
+    "identity": "TheSadRogue.GoRogueSadConsoleTemplate.CSharp",
+    "name": "TheSadRogue GoRogue-SadConsole Game",
+    "shortName": "goroguesadconsolegame",
+    "symbols": {
+        "name": {
+            "type": "parameter",
+            "datatype": "string",
+            "description": "Sets the project name and default namespace.",
+            "defaultValue": "StartingExample",
+            "replaces": "StartingExample",
+            "FileRename": "StartingExample"
+        }
+    }
+}
