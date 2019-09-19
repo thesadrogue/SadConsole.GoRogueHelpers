@@ -13,13 +13,14 @@ namespace StartingExample
         {
             { Keys.NumPad7, Direction.UP_LEFT }, { Keys.NumPad8, Direction.UP }, { Keys.NumPad9, Direction.UP_RIGHT },
             { Keys.NumPad4, Direction.LEFT }, { Keys.NumPad6, Direction.RIGHT },
-            { Keys.NumPad1, Direction.DOWN_LEFT }, { Keys.NumPad2, Direction.DOWN }, { Keys.NumPad3, Direction.DOWN_RIGHT }
+            { Keys.NumPad1, Direction.DOWN_LEFT }, { Keys.NumPad2, Direction.DOWN }, { Keys.NumPad3, Direction.DOWN_RIGHT },
+            { Keys.Up, Direction.UP }, { Keys.Down, Direction.DOWN }, { Keys.Left, Direction.LEFT }, { Keys.Right, Direction.RIGHT }
         };
 
         public int FOVRadius;
 
         public Player(Coord position)
-            : base(Color.White, Color.Transparent, '@', position, (int)MapLayer.PLAYER, isWalkable: false, isTransparent: true)
+            : base(Color.White, Color.Black, '@', position, (int)MapLayer.PLAYER, isWalkable: false, isTransparent: true)
         {
             FOVRadius = 10;
         }
