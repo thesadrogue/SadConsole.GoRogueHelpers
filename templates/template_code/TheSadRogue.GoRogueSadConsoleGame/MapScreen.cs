@@ -10,7 +10,7 @@ namespace StartingExample
 {
     class MapScreen : ContainerConsole
     {
-        public ExampleMap Map { get; }
+        public StartingExampleMap Map { get; }
         public ScrollingConsole MapRenderer { get; }
         //Generate a map and display it.  Could just as easily pass it into
         public MapScreen(int mapWidth, int mapHeight, int viewportWidth, int viewportHeight)
@@ -39,10 +39,10 @@ namespace StartingExample
 
             ((BasicMap)s).ControlledGameObject.Moved += Player_Moved;
         }
-        private static ExampleMap GenerateDungeon(int width, int height)
+        private static StartingExampleMap GenerateDungeon(int width, int height)
         {
             // Same size as screen, but we set up to center the camera on the player so expanding beyond this should work fine with no other changes.
-            var map = new ExampleMap(width, height);
+            var map = new StartingExampleMap(width, height);
 
             // Generate map via GoRogue, and update the real map with appropriate terrain.
             var tempMap = new ArrayMap<bool>(map.Width, map.Height);
