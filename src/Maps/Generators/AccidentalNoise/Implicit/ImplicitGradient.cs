@@ -1,125 +1,111 @@
-﻿using System;
-
-namespace TinkerWorX.AccidentalNoiseLibrary
+﻿namespace TinkerWorX.AccidentalNoiseLibrary
 {
     public sealed class ImplicitGradient : ImplicitModuleBase
     {
-        private Double gradientX0;
+        private double gradientX0;
 
-        private Double gradientY0;
+        private double gradientY0;
 
-        private Double gradientZ0;
+        private double gradientZ0;
 
-        private Double gradientW0;
+        private double gradientW0;
 
-        private Double gradientU0;
+        private double gradientU0;
 
-        private Double gradientV0;
+        private double gradientV0;
 
-        private Double gradientX1;
+        private double gradientX1;
 
-        private Double gradientY1;
+        private double gradientY1;
 
-        private Double gradientZ1;
+        private double gradientZ1;
 
-        private Double gradientW1;
+        private double gradientW1;
 
-        private Double gradientU1;
+        private double gradientU1;
 
-        private Double gradientV1;
+        private double gradientV1;
 
-        private Double length2;
+        private double length2;
 
-        private Double length3;
+        private double length3;
 
-        private Double length4;
+        private double length4;
 
-        private Double length6;
+        private double length6;
 
         public ImplicitGradient(
-            Double x0 = 0.00, Double x1 = 1.00, Double y0 = 0.00, Double y1 = 1.00, Double z0 = 0.00, Double z1 = 1.00,
-            Double w0 = 0.00, Double w1 = 1.00, Double u0 = 0.00, Double u1 = 1.00, Double v0 = 0.00, Double v1 = 1.00)
+            double x0 = 0.00, double x1 = 1.00, double y0 = 0.00, double y1 = 1.00, double z0 = 0.00, double z1 = 1.00,
+            double w0 = 0.00, double w1 = 1.00, double u0 = 0.00, double u1 = 1.00, double v0 = 0.00, double v1 = 1.00) => SetGradient(x0, x1, y0, y1, z0, z1, w0, w1, u0, u1, v0, v1);
+
+        public void SetGradient(double x0, double x1, double y0, double y1) => SetGradient(x0, x1, y0, y1, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00);
+
+        public void SetGradient(double x0, double x1, double y0, double y1, double z0, double z1) => SetGradient(x0, x1, y0, y1, z0, z1, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00);
+
+        public void SetGradient(double x0, double x1, double y0, double y1, double z0, double z1, double w0, double w1) => SetGradient(x0, x1, y0, y1, z0, z1, w0, w1, 0.00, 0.00, 0.00, 0.00);
+
+        public void SetGradient(double x0, double x1, double y0, double y1, double z0, double z1, double w0, double w1, double u0, double u1, double v0, double v1)
         {
-            this.SetGradient(x0, x1, y0, y1, z0, z1, w0, w1, u0, u1, v0, v1);
+            gradientX0 = x0;
+            gradientY0 = y0;
+            gradientZ0 = z0;
+            gradientW0 = w0;
+            gradientU0 = u0;
+            gradientV0 = v0;
+
+            gradientX1 = x1 - x0;
+            gradientY1 = y1 - y0;
+            gradientZ1 = z1 - z0;
+            gradientW1 = w1 - w0;
+            gradientU1 = u1 - u0;
+            gradientV1 = v1 - v0;
+
+            length2 = (gradientX1 * gradientX1 + gradientY1 * gradientY1);
+            length3 = (gradientX1 * gradientX1 + gradientY1 * gradientY1 + gradientZ1 * gradientZ1);
+            length4 = (gradientX1 * gradientX1 + gradientY1 * gradientY1 + gradientZ1 * gradientZ1 + gradientW1 * gradientW1);
+            length6 = (gradientX1 * gradientX1 + gradientY1 * gradientY1 + gradientZ1 * gradientZ1 + gradientW1 * gradientW1 + gradientU1 * gradientU1 + gradientV1 * gradientV1);
         }
 
-        public void SetGradient(Double x0, Double x1, Double y0, Double y1)
+        public override double Get(double x, double y)
         {
-            this.SetGradient(x0, x1, y0, y1, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00);
-        }
-
-        public void SetGradient(Double x0, Double x1, Double y0, Double y1, Double z0, Double z1)
-        {
-            this.SetGradient(x0, x1, y0, y1, z0, z1, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00);
-        }
-
-        public void SetGradient(Double x0, Double x1, Double y0, Double y1, Double z0, Double z1, Double w0, Double w1)
-        {
-            this.SetGradient(x0, x1, y0, y1, z0, z1, w0, w1, 0.00, 0.00, 0.00, 0.00);
-        }
-
-        public void SetGradient(Double x0, Double x1, Double y0, Double y1, Double z0, Double z1, Double w0, Double w1, Double u0, Double u1, Double v0, Double v1)
-        {
-            this.gradientX0 = x0;
-            this.gradientY0 = y0;
-            this.gradientZ0 = z0;
-            this.gradientW0 = w0;
-            this.gradientU0 = u0;
-            this.gradientV0 = v0;
-
-            this.gradientX1 = x1 - x0;
-            this.gradientY1 = y1 - y0;
-            this.gradientZ1 = z1 - z0;
-            this.gradientW1 = w1 - w0;
-            this.gradientU1 = u1 - u0;
-            this.gradientV1 = v1 - v0;
-
-            this.length2 = (this.gradientX1 * this.gradientX1 + this.gradientY1 * this.gradientY1);
-            this.length3 = (this.gradientX1 * this.gradientX1 + this.gradientY1 * this.gradientY1 + this.gradientZ1 * this.gradientZ1);
-            this.length4 = (this.gradientX1 * this.gradientX1 + this.gradientY1 * this.gradientY1 + this.gradientZ1 * this.gradientZ1 + this.gradientW1 * this.gradientW1);
-            this.length6 = (this.gradientX1 * this.gradientX1 + this.gradientY1 * this.gradientY1 + this.gradientZ1 * this.gradientZ1 + this.gradientW1 * this.gradientW1 + this.gradientU1 * this.gradientU1 + this.gradientV1 * this.gradientV1);
-        }
-
-        public override Double Get(Double x, Double y)
-        {
-            var dx = x - this.gradientX0;
-            var dy = y - this.gradientY0;
-            var dp = dx * this.gradientX1 + dy * this.gradientY1;
-            dp /= this.length2;
+            double dx = x - gradientX0;
+            double dy = y - gradientY0;
+            double dp = dx * gradientX1 + dy * gradientY1;
+            dp /= length2;
             return dp;
         }
 
-        public override Double Get(Double x, Double y, Double z)
+        public override double Get(double x, double y, double z)
         {
-            var dx = x - this.gradientX0;
-            var dy = y - this.gradientY0;
-            var dz = z - this.gradientZ0;
-            var dp = dx * this.gradientX1 + dy * this.gradientY1 + dz * this.gradientZ1;
-            dp /= this.length3;
+            double dx = x - gradientX0;
+            double dy = y - gradientY0;
+            double dz = z - gradientZ0;
+            double dp = dx * gradientX1 + dy * gradientY1 + dz * gradientZ1;
+            dp /= length3;
             return dp;
         }
 
-        public override Double Get(Double x, Double y, Double z, Double w)
+        public override double Get(double x, double y, double z, double w)
         {
-            var dx = x - this.gradientX0;
-            var dy = y - this.gradientY0;
-            var dz = z - this.gradientZ0;
-            var dw = w - this.gradientW0;
-            var dp = dx * this.gradientX1 + dy * this.gradientY1 + dz * this.gradientZ1 + dw * this.gradientW1;
-            dp /= this.length4;
+            double dx = x - gradientX0;
+            double dy = y - gradientY0;
+            double dz = z - gradientZ0;
+            double dw = w - gradientW0;
+            double dp = dx * gradientX1 + dy * gradientY1 + dz * gradientZ1 + dw * gradientW1;
+            dp /= length4;
             return dp;
         }
 
-        public override Double Get(Double x, Double y, Double z, Double w, Double u, Double v)
+        public override double Get(double x, double y, double z, double w, double u, double v)
         {
-            var dx = x - this.gradientX0;
-            var dy = y - this.gradientY0;
-            var dz = z - this.gradientZ0;
-            var dw = w - this.gradientW0;
-            var du = u - this.gradientU0;
-            var dv = v - this.gradientV0;
-            var dp = dx * this.gradientX1 + dy * this.gradientY1 + dz * this.gradientZ1 + dw * this.gradientW1 + du * this.gradientU1 + dv * this.gradientV1;
-            dp /= this.length6;
+            double dx = x - gradientX0;
+            double dy = y - gradientY0;
+            double dz = z - gradientZ0;
+            double dw = w - gradientW0;
+            double du = u - gradientU0;
+            double dv = v - gradientV0;
+            double dp = dx * gradientX1 + dy * gradientY1 + dz * gradientZ1 + dw * gradientW1 + du * gradientU1 + dv * gradientV1;
+            dp /= length6;
             return dp;
         }
     }

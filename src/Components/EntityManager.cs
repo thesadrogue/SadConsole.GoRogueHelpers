@@ -1,13 +1,6 @@
 ﻿#if XNA
-using Microsoft.Xna.Framework;
 #endif
 
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Collections.Specialized;
-using SadConsole.Input;
-using SadConsole.Entities;
 // using SadConsole.GameObjects;
 
 namespace SadConsole.Components

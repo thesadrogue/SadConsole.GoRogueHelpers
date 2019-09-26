@@ -1,13 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using SadConsole.Entities;
 
 namespace SadConsole.Actions
 {
-    class BumpTile : ActionBase<BasicEntity, Tiles.Tile>
+    internal class BumpTile : ActionBase<BasicEntity, Tiles.Tile>
     {
         public BumpTile(BasicEntity source, Tiles.Tile target) : base(source, target) { }
 
@@ -21,7 +16,7 @@ namespace SadConsole.Actions
         }
     }
 
-    class BumpGameObject : ActionBase<BasicEntity, BasicEntity>
+    internal class BumpGameObject : ActionBase<BasicEntity, BasicEntity>
     {
         public BumpGameObject(BasicEntity source, BasicEntity target) : base(source, target) { }
 
@@ -31,8 +26,10 @@ namespace SadConsole.Actions
             Finish(ActionResult.Failure);
 
             // Tell the entity to process this bump. The entity may set Finish to success or failure.
-            foreach (var processor in Target.GetComponents<Components.GoRogue.ActionProcessor>())
+            foreach (Components.GoRogue.ActionProcessor processor in Target.GetComponents<Components.GoRogue.ActionProcessor>())
+            {
                 processor.ProcessAction(this);
+            }
         }
     }
 }

@@ -1,6 +1,4 @@
-﻿using GoRogue.GameFramework;
-using GoRogue.GameFramework.Components;
-using SadConsole.Actions;
+﻿using SadConsole.Actions;
 
 namespace SadConsole.Components.GoRogue
 {

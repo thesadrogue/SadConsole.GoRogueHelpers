@@ -1,5 +1,5 @@
-﻿using GoRogue;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using GoRogue;
 
 namespace SadConsole.Maps
 {

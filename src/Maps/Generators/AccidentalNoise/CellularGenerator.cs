@@ -1,10 +1,8 @@
-﻿using System;
-
-namespace TinkerWorX.AccidentalNoiseLibrary
+﻿namespace TinkerWorX.AccidentalNoiseLibrary
 {
     public class CellularGenerator
     {
-        private Int32 seed;
+        private int seed;
 
         private readonly CellularCache cache2D = new CellularCache();
 
@@ -14,27 +12,27 @@ namespace TinkerWorX.AccidentalNoiseLibrary
 
         private readonly CellularCache cache6D = new CellularCache();
 
-        public CellularGenerator()
-        {
-            this.seed = 10000;
-        }
+        public CellularGenerator() => seed = 10000;
 
-        public Int32 Seed
+        public int Seed
         {
-            get => this.seed;
+            get => seed;
             set
             {
-                if (value == this.seed)
+                if (value == seed)
+                {
                     return;
-                this.seed = value;
-                this.cache2D.IsValid = false;
-                this.cache3D.IsValid = false;
-                this.cache4D.IsValid = false;
-                this.cache6D.IsValid = false;
+                }
+
+                seed = value;
+                cache2D.IsValid = false;
+                cache3D.IsValid = false;
+                cache4D.IsValid = false;
+                cache6D.IsValid = false;
             }
         }
 
-        internal CellularCache Get(Double x, Double y)
+        internal CellularCache Get(double x, double y)
         {
             if (!cache2D.IsValid || x != cache2D.X || y != cache2D.Y)
             {
@@ -46,7 +44,7 @@ namespace TinkerWorX.AccidentalNoiseLibrary
             return cache2D;
         }
 
-        internal CellularCache Get(Double x, Double y, Double z)
+        internal CellularCache Get(double x, double y, double z)
         {
             if (!cache3D.IsValid || x != cache3D.X || y != cache3D.Y || z != cache3D.Z)
             {
@@ -59,7 +57,7 @@ namespace TinkerWorX.AccidentalNoiseLibrary
             return cache3D;
         }
 
-        internal CellularCache Get(Double x, Double y, Double z, Double w)
+        internal CellularCache Get(double x, double y, double z, double w)
         {
             if (!cache4D.IsValid || x != cache4D.X || y != cache4D.Y || z != cache4D.Z || w != cache4D.W)
             {
@@ -73,7 +71,7 @@ namespace TinkerWorX.AccidentalNoiseLibrary
             return cache4D;
         }
 
-        internal CellularCache Get(Double x, Double y, Double z, Double w, Double u, Double v)
+        internal CellularCache Get(double x, double y, double z, double w, double u, double v)
         {
             if (!cache6D.IsValid || x != cache6D.X || y != cache6D.Y || z != cache6D.Z || w != cache6D.W || u != cache6D.U || v != cache6D.V)
             {

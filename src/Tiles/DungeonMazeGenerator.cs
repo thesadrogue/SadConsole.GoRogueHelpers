@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using SadConsole.Maps;
-using GoRogue.MapViews;
 using GoRogue;
+using GoRogue.MapViews;
+using SadConsole.Maps;
 
 namespace SadConsole.Tiles
 {
@@ -161,10 +161,7 @@ namespace SadConsole.Tiles
         /// <param name="mapWidth">The width of the map.</param>
         /// <param name="mapHeight">The height of the map.</param>
         /// <returns>The generator.</returns>
-        public static DungeonMazeGenerator Create(int mapWidth, int mapHeight)
-        {
-            return Create(new GeneratorSettings(), mapWidth, mapHeight);
-        }
+        public static DungeonMazeGenerator Create(int mapWidth, int mapHeight) => Create(new GeneratorSettings(), mapWidth, mapHeight);
 
         /// <summary>
         /// Generates the map.
@@ -177,7 +174,7 @@ namespace SadConsole.Tiles
 
             // TODO: Replace with GoRogue.MapGeneration.QuickGenerators equivalent
             // Generate rooms
-            var mapRooms = GoRogue.MapGeneration.Generators.RoomsGenerator.Generate(GoRogueMap, Settings.RoomsCountMin, Settings.RoomsCountMax,
+            IEnumerable<Rectangle> mapRooms = GoRogue.MapGeneration.Generators.RoomsGenerator.Generate(GoRogueMap, Settings.RoomsCountMin, Settings.RoomsCountMax,
                                                                                                 Settings.RoomsSizeMin, Settings.RoomsSizeMax,
                                                                                                 Settings.RoomsSizeFontRatioX, Settings.RoomsSizeFontRatioY);
 
@@ -185,7 +182,7 @@ namespace SadConsole.Tiles
             GoRogue.MapGeneration.Generators.MazeGenerator.Generate(GoRogueMap, Settings.MazeChangeDirectionImprovement);
 
             // Conenct rooms to maze
-            var connections = GoRogue.MapGeneration.Connectors.RoomDoorConnector.ConnectRooms(GoRogueMap, mapRooms,
+            IEnumerable<(Rectangle Room, Coord[][] Connections)> connections = GoRogue.MapGeneration.Connectors.RoomDoorConnector.ConnectRooms(GoRogueMap, mapRooms,
                                                                          Settings.RoomsConnectionsMinSides, Settings.RoomsConnectionsMaxSides,
                                                                          Settings.RoomsConnectionsCancelSideSelectChance,
                                                                          Settings.RoomsConnectionsCancelPlacementChance, Settings.RoomsConnectionsCancelPlacementChanceIncrease);
@@ -207,21 +204,25 @@ namespace SadConsole.Tiles
             SadConsoleMap.Regions = new List<Region>(Rooms);
 
             // Create tiles in the SadConsole map
-            foreach (var position in GoRogueMap.Positions())
+            foreach (Coord position in GoRogueMap.Positions())
             {
                 Tile terrain;
                 if (GoRogueMap[position])
+                {
                     terrain = Tile.Factory.Create(Settings.TileBlueprintFloor, position);
+                }
                 else
+                {
                     terrain = Tile.Factory.Create(Settings.TileBlueprintWall, position);
+                }
 
                 terrain.Position = position;
                 SadConsoleMap.SetTerrain(terrain);
             }
 
-            foreach (var region in Rooms)
+            foreach (Region region in Rooms)
             {
-                foreach (var point in region.InnerPoints)
+                foreach (Coord point in region.InnerPoints)
                 {
                     SadConsoleMap.GetTerrain<Tile>(point).SetFlag(TileFlags.RegionLighted);
                 }

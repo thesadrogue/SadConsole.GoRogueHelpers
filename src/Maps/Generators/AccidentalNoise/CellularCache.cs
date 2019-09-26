@@ -1,25 +1,23 @@
-using System;
-
 namespace TinkerWorX.AccidentalNoiseLibrary
 {
     internal class CellularCache
     {
-        public Double X = 0.00;
+        public double X = 0.00;
 
-        public Double Y = 0.00;
+        public double Y = 0.00;
 
-        public Double Z = 0.00;
+        public double Z = 0.00;
 
-        public Double W = 0.00;
+        public double W = 0.00;
 
-        public Double U = 0.00;
+        public double U = 0.00;
 
-        public Double V = 0.00;
+        public double V = 0.00;
 
-        public Boolean IsValid = false;
+        public bool IsValid = false;
 
-        public Double[] F = new Double[4];
+        public double[] F = new double[4];
 
-        public Double[] D = new Double[4];
+        public double[] D = new double[4];
     }
 }

@@ -1,8 +1,8 @@
-﻿using GoRogue;
+﻿using System;
+using GoRogue;
 using GoRogue.GameFramework;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using System;
 
 namespace SadConsole.Tiles
 {
@@ -45,9 +45,12 @@ namespace SadConsole.Tiles
             get => flags;
             set
             {
-                if (flags == value) return;
+                if (flags == value)
+                {
+                    return;
+                }
 
-                var oldFlags = flags;
+                int oldFlags = flags;
                 flags = value;
                 OnTileFlagsChanged?.Invoke(this, oldFlags);
                 UpdateAppearance();
@@ -63,9 +66,12 @@ namespace SadConsole.Tiles
             get => tileState;
             set
             {
-                if (tileState == value) return;
+                if (tileState == value)
+                {
+                    return;
+                }
 
-                var oldState = tileState;
+                int oldState = tileState;
                 tileState = value;
                 OnTileStateChanged?.Invoke(this, oldState);
                 UpdateAppearance();
@@ -84,9 +90,13 @@ namespace SadConsole.Tiles
                 if (base.IsWalkable != (!Helpers.HasFlag(Flags, (int)TileFlags.BlockMove))) // Sync flag to gorogue setting
                 {
                     if (base.IsWalkable)
+                    {
                         UnsetFlag(TileFlags.BlockMove);
+                    }
                     else
+                    {
                         SetFlag(TileFlags.BlockMove);
+                    }
                 }
             }
         }
@@ -100,51 +110,44 @@ namespace SadConsole.Tiles
                 if (base.IsTransparent != (!Helpers.HasFlag(Flags, (int)TileFlags.BlockLOS))) // Sync flag to gorogue setting
                 {
                     if (base.IsTransparent)
+                    {
                         UnsetFlag(TileFlags.BlockLOS);
+                    }
                     else
+                    {
                         SetFlag(TileFlags.BlockLOS);
+                    }
                 }
             }
         }
 
         #region Constructors
         public Tile(Coord position, bool isWalkable, bool isTransparent)
-            : base(position, isWalkable, isTransparent)
-        {
-            Initialize(isWalkable, isTransparent);
-        }
+            : base(position, isWalkable, isTransparent) => Initialize(isWalkable, isTransparent);
 
         public Tile(Color foreground, Coord position, bool isWalkable, bool isTransparent)
-            : base(foreground, position, isWalkable, isTransparent)
-        {
-            Initialize(isWalkable, isTransparent);
-        }
+            : base(foreground, position, isWalkable, isTransparent) => Initialize(isWalkable, isTransparent);
 
         public Tile(Color foreground, Color background, Coord position, bool isWalkable, bool isTransparent)
-            : base(foreground, background, position, isWalkable, isTransparent)
-        {
-            Initialize(isWalkable, isTransparent);
-        }
+            : base(foreground, background, position, isWalkable, isTransparent) => Initialize(isWalkable, isTransparent);
 
         public Tile(Color foreground, Color background, int glyph, Coord position, bool isWalkable, bool isTransparent)
-            : base(foreground, background, glyph, position, isWalkable, isTransparent)
-        {
-            Initialize(isWalkable, isTransparent);
-        }
+            : base(foreground, background, glyph, position, isWalkable, isTransparent) => Initialize(isWalkable, isTransparent);
 
         public Tile(Color foreground, Color background, int glyph, SpriteEffects mirror, Coord position, bool isWalkable, bool isTransparent)
-            : base(foreground, background, glyph, mirror, position, isWalkable, isTransparent)
-        {
-            Initialize(isWalkable, isTransparent);
-        }
+            : base(foreground, background, glyph, mirror, position, isWalkable, isTransparent) => Initialize(isWalkable, isTransparent);
 
         private void Initialize(bool isWalkable, bool isTransparent)
         {
             if (!isWalkable)
+            {
                 SetFlag(TileFlags.BlockMove);
+            }
 
             if (!isTransparent)
+            {
                 SetFlag(TileFlags.BlockLOS);
+            }
 
             Color dimFore = Foreground * DimAmount;
             Color dimBack = Background * DimAmount;
@@ -194,10 +197,12 @@ namespace SadConsole.Tiles
         /// <param name="flags">The flags to set.</param>
         public void SetFlag(params TileFlags[] flags)
         {
-            var total = 0;
+            int total = 0;
 
-            foreach (var flag in flags)
+            foreach (TileFlags flag in flags)
+            {
                 total = total | (int)flag;
+            }
 
             Flags = Helpers.SetFlag(this.flags, total);
         }
@@ -207,10 +212,12 @@ namespace SadConsole.Tiles
         /// <param name="flags">The flags to remove.</param>
         public void UnsetFlag(params TileFlags[] flags)
         {
-            var total = 0;
+            int total = 0;
 
-            foreach (var flag in flags)
+            foreach (TileFlags flag in flags)
+            {
                 total = total | (int)flag;
+            }
 
             Flags = Helpers.UnsetFlag(this.flags, total);
         }

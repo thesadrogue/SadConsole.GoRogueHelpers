@@ -1,9 +1,9 @@
-﻿using GoRogue;
+﻿using System;
+using System.Collections.Generic;
+using GoRogue;
 using GoRogue.GameFramework;
 using GoRogue.MapViews;
 using SadConsole.Components;
-using System;
-using System.Collections.Generic;
 using XnaRectangle = Microsoft.Xna.Framework.Rectangle;
 
 namespace SadConsole
@@ -16,9 +16,9 @@ namespace SadConsole
         // One of these per layer, so we force the rendering order to be what we want (high layers
         // appearing on top of low layers). They're added to consoles in order of this array, first
         // to last, which controls the render order.
-        private MultipleConsoleEntityDrawingComponent[] _entitySyncersByLayer;
+        private readonly MultipleConsoleEntityDrawingComponent[] _entitySyncersByLayer;
 
-        private List<Console> _renderers;
+        private readonly List<Console> _renderers;
 
         private bool _drawingComponentsHandleVisibility;
 
@@ -37,8 +37,10 @@ namespace SadConsole
                 {
                     _drawingComponentsHandleVisibility = value;
 
-                    foreach (var syncComponent in _entitySyncersByLayer)
+                    foreach (MultipleConsoleEntityDrawingComponent syncComponent in _entitySyncersByLayer)
+                    {
                         syncComponent.HandleIsVisible = value;
+                    }
                 }
             }
         }
@@ -59,7 +61,7 @@ namespace SadConsole
             {
                 if (_controlledGameObject != value)
                 {
-                    var oldObject = _controlledGameObject;
+                    BasicEntity oldObject = _controlledGameObject;
                     _controlledGameObject = value;
                     ControlledGameObjectChanged?.Invoke(this, new ControlledGameObjectChangedArgs(oldObject));
                 }
@@ -96,7 +98,9 @@ namespace SadConsole
             _renderers = new List<Console>();
             _entitySyncersByLayer = new MultipleConsoleEntityDrawingComponent[numberOfEntityLayers];
             for (int i = 0; i < _entitySyncersByLayer.Length; i++)
+            {
                 _entitySyncersByLayer[i] = new MultipleConsoleEntityDrawingComponent();
+            }
 
             DrawingComponentsHandleVisibility = true;
 
@@ -143,12 +147,16 @@ namespace SadConsole
         {
             // Clear the cell surface to a new one if needed
             if (clearCellSurface)
+            {
                 renderer.SetSurface(null, renderer.Width, renderer.Height);
+            }
 
             // Remove syncing components, and flag the console as needing re-rendered.
             _renderers.Remove(renderer);
-            foreach (var syncer in _entitySyncersByLayer)
+            foreach (MultipleConsoleEntityDrawingComponent syncer in _entitySyncersByLayer)
+            {
                 renderer.Components.Remove(syncer);
+            }
 
             renderer.IsDirty = true;
         }
@@ -163,15 +171,22 @@ namespace SadConsole
         {
             // Ensure we don't add components twice
             if (_renderers.Contains(renderer))
+            {
                 return;
+            }
 
             // Set new cell array if needed
             if (renderer.Cells != RenderingCellData)
+            {
                 renderer.SetSurface(RenderingCellData, Width, Height);
+            }
 
             _renderers.Add(renderer);
-            foreach (var syncer in _entitySyncersByLayer)
+            foreach (MultipleConsoleEntityDrawingComponent syncer in _entitySyncersByLayer)
+            {
                 renderer.Components.Add(syncer);
+            }
+
             renderer.IsDirty = true; // Make sure we re-render
         }
 
@@ -206,7 +221,9 @@ namespace SadConsole
         {
             var map = (BasicMap)s;
             if (map.ControlledGameObject is TControlledObject)
+            {
                 return;
+            }
 
             throw new Exception($"{map.GetType().Name} restricts the type of object that can be assigned to its {nameof(ControlledGameObject)} property to types that inherit from/implement {typeof(TControlledObject).Name}.");
         }
@@ -223,11 +240,15 @@ namespace SadConsole
         private void GRMap_ObjectAdded(object sender, ItemEventArgs<IGameObject> e)
         {
             if (e.Item is BasicEntity entity)
+            {
                 _entitySyncersByLayer[entity.Layer - 1].Entities.Add(entity);
+            }
             else if (e.Item.Layer == 0)
             {
-                foreach (var renderer in _renderers)
+                foreach (Console renderer in _renderers)
+                {
                     renderer.IsDirty = true;
+                }
             }
         }
 
@@ -235,7 +256,9 @@ namespace SadConsole
         private void GRMap_ObjectRemoved(object sender, ItemEventArgs<IGameObject> e)
         {
             if (e.Item is BasicEntity entity)
+            {
                 _entitySyncersByLayer[entity.Layer - 1].Entities.Remove(entity);
+            }
         }
     }
 
@@ -253,9 +276,6 @@ namespace SadConsole
         /// Constructor.
         /// </summary>
         /// <param name="oldObject"/>
-        public ControlledGameObjectChangedArgs(BasicEntity oldObject)
-        {
-            OldObject = oldObject;
-        }
+        public ControlledGameObjectChangedArgs(BasicEntity oldObject) => OldObject = oldObject;
     }
 }

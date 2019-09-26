@@ -4,29 +4,29 @@ namespace TinkerWorX.AccidentalNoiseLibrary
 {
     public static class Mapping
     {
-        private const Double PI2 = Math.PI * 2.0;
+        private const double PI2 = Math.PI * 2.0;
 
-        public static void Map2D(MappingMode mappingMode, Double[,] array, ImplicitModuleBase module, MappingRanges ranges, Double z)
+        public static void Map2D(MappingMode mappingMode, double[,] array, ImplicitModuleBase module, MappingRanges ranges, double z)
         {
-            var width = array.GetLength(0);
-            var height = array.GetLength(1);
+            int width = array.GetLength(0);
+            int height = array.GetLength(1);
 
-            for (var x = 0; x < width; ++x)
+            for (int x = 0; x < width; ++x)
             {
-                for (var y = 0; y < height; ++y)
+                for (int y = 0; y < height; ++y)
                 {
-                    var p = x / (Double)width;
-                    var q = y / (Double)height;
-                    Double r;
-                    Double nx;
-                    Double ny;
-                    Double nz;
-                    Double nw;
-                    Double nu;
-                    Double dx;
-                    Double dy;
-                    Double dz;
-                    var val = 0.00;
+                    double p = x / (double)width;
+                    double q = y / (double)height;
+                    double r;
+                    double nx;
+                    double ny;
+                    double nz;
+                    double nw;
+                    double nu;
+                    double dx;
+                    double dy;
+                    double dz;
+                    double val = 0.00;
                     switch (mappingMode)
                     {
                         case MappingMode.SeamlessNone:
@@ -62,7 +62,7 @@ namespace TinkerWorX.AccidentalNoiseLibrary
                             nx = ranges.MapX0 + p * dx;
                             ny = ranges.MapY0 + p * dy;
                             r = (z - ranges.MapZ0) / (ranges.MapZ1 - ranges.MapZ0);
-                            var zval = r * (ranges.MapZ1 - ranges.MapZ0) / (ranges.LoopZ1 - ranges.LoopZ0);
+                            double zval = r * (ranges.MapZ1 - ranges.MapZ0) / (ranges.LoopZ1 - ranges.LoopZ0);
                             nz = ranges.LoopZ0 + Math.Cos(zval * PI2) * dz / PI2;
                             nw = ranges.LoopZ0 + Math.Sin(zval * PI2) * dz / PI2;
                             val = module.Get(nx, ny, nz, nw);
@@ -84,7 +84,7 @@ namespace TinkerWorX.AccidentalNoiseLibrary
                             dy = ranges.MapY1 - ranges.MapY0;
                             dz = ranges.LoopZ1 - ranges.LoopZ0;
                             r = (z - ranges.MapZ0) / (ranges.MapZ1 - ranges.MapZ0);
-                            var xzval = r * (ranges.MapX1 - ranges.MapZ0) / (ranges.LoopZ1 - ranges.LoopZ0);
+                            double xzval = r * (ranges.MapX1 - ranges.MapZ0) / (ranges.LoopZ1 - ranges.LoopZ0);
                             p = p * (ranges.MapX1 - ranges.MapX0) / (ranges.LoopX1 - ranges.LoopX0);
                             nx = ranges.LoopX0 + Math.Cos(p * PI2) * dx / PI2;
                             ny = ranges.LoopX0 + Math.Sin(p * PI2) * dx / PI2;
@@ -98,7 +98,7 @@ namespace TinkerWorX.AccidentalNoiseLibrary
                             dy = ranges.LoopY1 - ranges.LoopY0;
                             dz = ranges.LoopZ1 - ranges.LoopZ0;
                             r = (z - ranges.MapZ0) / (ranges.MapZ1 - ranges.MapZ0);
-                            var yzval = r * (ranges.MapZ1 - ranges.MapZ0) / (ranges.LoopZ1 - ranges.LoopZ0);
+                            double yzval = r * (ranges.MapZ1 - ranges.MapZ0) / (ranges.LoopZ1 - ranges.LoopZ0);
                             q = q * (ranges.MapY1 - ranges.MapY0) / (ranges.LoopY1 - ranges.LoopY0);
                             nx = ranges.MapX0 + p * dx;
                             ny = ranges.LoopY0 + Math.Cos(q * PI2) * dy / PI2;
@@ -114,7 +114,7 @@ namespace TinkerWorX.AccidentalNoiseLibrary
                             p = p * (ranges.MapX1 - ranges.MapX0) / (ranges.LoopX1 - ranges.LoopX0);
                             q = q * (ranges.MapY1 - ranges.MapY0) / (ranges.LoopY1 - ranges.LoopY0);
                             r = (z - ranges.MapZ0) / (ranges.MapZ1 - ranges.MapZ0);
-                            var xyzval = r * (ranges.MapZ1 - ranges.MapZ0) / (ranges.LoopZ1 - ranges.LoopZ0);
+                            double xyzval = r * (ranges.MapZ1 - ranges.MapZ0) / (ranges.LoopZ1 - ranges.LoopZ0);
                             nx = ranges.LoopX0 + Math.Cos(p * PI2) * dx / PI2;
                             ny = ranges.LoopX0 + Math.Sin(p * PI2) * dx / PI2;
                             nz = ranges.LoopY0 + Math.Cos(q * PI2) * dy / PI2;
@@ -129,23 +129,23 @@ namespace TinkerWorX.AccidentalNoiseLibrary
             }
         }
 
-        public static void Map2DNoZ(MappingMode mappingMode, Double[,] array, ImplicitModuleBase module, MappingRanges ranges)
+        public static void Map2DNoZ(MappingMode mappingMode, double[,] array, ImplicitModuleBase module, MappingRanges ranges)
         {
-            var width = array.GetLength(0);
-            var height = array.GetLength(1);
+            int width = array.GetLength(0);
+            int height = array.GetLength(1);
 
-            for (var x = 0; x < width; ++x)
+            for (int x = 0; x < width; ++x)
             {
-                for (var y = 0; y < height; ++y)
+                for (int y = 0; y < height; ++y)
                 {
-                    var p = x / (Double)width;
-                    var q = y / (Double)height;
-                    Double nx;
-                    Double ny;
-                    Double nz;
-                    Double dx;
-                    Double dy;
-                    var val = 0.00;
+                    double p = x / (double)width;
+                    double q = y / (double)height;
+                    double nx;
+                    double ny;
+                    double nz;
+                    double dx;
+                    double dy;
+                    double val = 0.00;
                     switch (mappingMode)
                     {
                         case MappingMode.SeamlessNone:
@@ -180,7 +180,7 @@ namespace TinkerWorX.AccidentalNoiseLibrary
                             nx = ranges.LoopX0 + Math.Cos(p * PI2) * dx / PI2;
                             ny = ranges.LoopX0 + Math.Sin(p * PI2) * dx / PI2;
                             nz = ranges.LoopY0 + Math.Cos(q * PI2) * dy / PI2;
-                            Double nw = ranges.LoopY0 + Math.Sin(q * PI2) * dy / PI2;
+                            double nw = ranges.LoopY0 + Math.Sin(q * PI2) * dy / PI2;
                             val = module.Get(nx, ny, nz, nw);
                             break;
                     }
@@ -189,30 +189,30 @@ namespace TinkerWorX.AccidentalNoiseLibrary
             }
         }
 
-        public static void Map3D(MappingMode mappingMode, Double[,,] array, ImplicitModuleBase module, MappingRanges ranges)
+        public static void Map3D(MappingMode mappingMode, double[,,] array, ImplicitModuleBase module, MappingRanges ranges)
         {
-            var width = array.GetLength(0);
-            var height = array.GetLength(1);
-            var depth = array.GetLength(2);
+            int width = array.GetLength(0);
+            int height = array.GetLength(1);
+            int depth = array.GetLength(2);
 
-            for (var x = 0; x < width; ++x)
+            for (int x = 0; x < width; ++x)
             {
-                for (var y = 0; y < height; ++y)
+                for (int y = 0; y < height; ++y)
                 {
-                    for (var z = 0; z < depth; ++z)
+                    for (int z = 0; z < depth; ++z)
                     {
-                        var p = x / (Double)width;
-                        var q = y / (Double)height;
-                        var r = z / (Double)depth;
-                        Double nx;
-                        Double ny;
-                        Double nz;
-                        Double nw;
-                        Double nu;
-                        Double dx;
-                        Double dy;
-                        Double dz;
-                        var val = 0.0;
+                        double p = x / (double)width;
+                        double q = y / (double)height;
+                        double r = z / (double)depth;
+                        double nx;
+                        double ny;
+                        double nz;
+                        double nw;
+                        double nu;
+                        double dx;
+                        double dy;
+                        double dz;
+                        double val = 0.0;
 
                         switch (mappingMode)
                         {
@@ -309,7 +309,7 @@ namespace TinkerWorX.AccidentalNoiseLibrary
                                 nz = ranges.LoopY0 + Math.Cos(q * PI2) * dy / PI2;
                                 nw = ranges.LoopY0 + Math.Sin(q * PI2) * dy / PI2;
                                 nu = ranges.LoopZ0 + Math.Cos(r * PI2) * dz / PI2;
-                                Double nv = ranges.LoopZ0 + Math.Sin(r * PI2) * dz / PI2;
+                                double nv = ranges.LoopZ0 + Math.Sin(r * PI2) * dz / PI2;
                                 val = module.Get(nx, ny, nz, nw, nu, nv);
                                 break;
                         }

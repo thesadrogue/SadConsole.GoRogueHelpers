@@ -1,25 +1,19 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using GoRogue;
-using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 using SadConsole;
 using SadConsole.Actions;
 using Rectangle = Microsoft.Xna.Framework.Rectangle;
-using Console = SadConsole.Console;
 
 namespace BasicTutorial
 {
-    class DungeonScreen : ContainerConsole
+    internal class DungeonScreen : ContainerConsole
     {
         public static readonly Rectangle ScreenRegionMap = new Rectangle(0, 0, Program.ScreenWidth - 10, Program.ScreenHeight - 5);
         public static readonly Rectangle ScreenRegionMessages = new Rectangle(0, ScreenRegionMap.Bottom + 1, Program.ScreenWidth - 10, Program.ScreenHeight - ScreenRegionMap.Height - 1);
         public SadConsole.Actions.ActionStack ActionProcessor;
 
-        private GameFrameManager _frameManager;
+        private readonly GameFrameManager _frameManager;
 
         public bool RedrawMap;
 
@@ -47,8 +41,10 @@ namespace BasicTutorial
             _frameManager.LogicFrameCompleted += (s, e) => RedrawMap = true;
 
             // Setup messages
-            Messages = new MessageConsole(ScreenRegionMessages.Width, ScreenRegionMessages.Height);
-            Messages.Position = ScreenRegionMessages.Location;
+            Messages = new MessageConsole(ScreenRegionMessages.Width, ScreenRegionMessages.Height)
+            {
+                Position = ScreenRegionMessages.Location
+            };
             Children.Add(Messages);
             Children.Add(MapConsole);
         }
@@ -57,7 +53,9 @@ namespace BasicTutorial
         {
             // If there is a console that is focused, this one doesn't need to do anything.
             if (Global.FocusedConsoles.Console != null)
+            {
                 return;
+            }
 
             // Run the latest action(s).
             ActionProcessor.Run(timeElapsed);

@@ -7,22 +7,13 @@ namespace GoRogue.Random
     /// </summary>
     public sealed class SadConsoleRandomGenerator : Troschuetz.Random.Generators.AbstractGenerator
     {
-        private byte[] _uintBuffer;
+        private readonly byte[] _uintBuffer;
 
-        public SadConsoleRandomGenerator() : base(0)
-        {
-            _uintBuffer = new byte[4];
-        }
+        public SadConsoleRandomGenerator() : base(0) => _uintBuffer = new byte[4];
 
-        public override int NextInclusiveMaxValue()
-        {
-            return SadConsole.Global.Random.Next();
-        }
+        public override int NextInclusiveMaxValue() => SadConsole.Global.Random.Next();
 
-        public override double NextDouble()
-        {
-            return SadConsole.Global.Random.NextDouble();
-        }
+        public override double NextDouble() => SadConsole.Global.Random.NextDouble();
 
         public override uint NextUIntInclusiveMaxValue()
         {

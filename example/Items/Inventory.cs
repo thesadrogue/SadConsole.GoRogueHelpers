@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace BasicTutorial.Items
 {
-    class Inventory
+    internal class Inventory
     {
         public enum ActionResult
         {
@@ -14,7 +10,7 @@ namespace BasicTutorial.Items
             Success
         }
 
-        private List<Item> carriedItems = new List<Item>();
+        private readonly List<Item> carriedItems = new List<Item>();
         private Item head;
         private Item leftHand;
         private Item rightHand;
@@ -36,7 +32,9 @@ namespace BasicTutorial.Items
             if (carried || item.Spot == InventorySpot.None)
             {
                 if (carriedItems.Count == MaxCarriedItems)
+                {
                     return ActionResult.Failure;
+                }
 
                 carriedItems.Add(item);
                 return ActionResult.Success;
@@ -78,23 +76,38 @@ namespace BasicTutorial.Items
                 {
                     case InventorySpot.Head:
                         if (head == item)
+                        {
                             head = null;
+                        }
+
                         break;
                     case InventorySpot.LHand:
                         if (leftHand == item)
+                        {
                             leftHand = null;
+                        }
+
                         break;
                     case InventorySpot.RHand:
                         if (rightHand == item)
+                        {
                             rightHand = null;
+                        }
+
                         break;
                     case InventorySpot.Body:
                         if (body == item)
+                        {
                             body = null;
+                        }
+
                         break;
                     case InventorySpot.Feet:
                         if (feet == item)
+                        {
                             feet = null;
+                        }
+
                         break;
                     default:
                         break;
@@ -123,10 +136,7 @@ namespace BasicTutorial.Items
             }
         }
 
-        public bool IsInventoryFull()
-        {
-            return carriedItems.Count == MaxCarriedItems;
-        }
+        public bool IsInventoryFull() => carriedItems.Count == MaxCarriedItems;
         public Item GetItem(InventorySpot spot)
         {
             switch (spot)
@@ -151,15 +161,29 @@ namespace BasicTutorial.Items
             List<Item> items = new List<Item>(5);
 
             if (head != null)
+            {
                 items.Add(head);
+            }
+
             if (leftHand != null)
+            {
                 items.Add(leftHand);
+            }
+
             if (rightHand != null)
+            {
                 items.Add(rightHand);
+            }
+
             if (body != null)
+            {
                 items.Add(body);
+            }
+
             if (feet != null)
+            {
                 items.Add(feet);
+            }
 
             return items;
         }

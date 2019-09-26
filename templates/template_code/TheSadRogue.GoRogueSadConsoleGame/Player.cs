@@ -1,13 +1,13 @@
-﻿using GoRogue;
+﻿using System.Collections.Generic;
+using GoRogue;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 using SadConsole;
-using System.Collections.Generic;
 
 namespace StartingExample
 {
     // Custom class for the player is used in this example just so we can handle input.  This could be done via a component, or in a main screen, but for simplicity we do it here.
-    class Player : BasicEntity
+    internal class Player : BasicEntity
     {
         private static readonly Dictionary<Keys, Direction> _movementDirectionMapping = new Dictionary<Keys, Direction>
         {
@@ -20,10 +20,7 @@ namespace StartingExample
         public int FOVRadius;
 
         public Player(Coord position)
-            : base(Color.White, Color.Black, '@', position, (int)MapLayer.PLAYER, isWalkable: false, isTransparent: true)
-        {
-            FOVRadius = 10;
-        }
+            : base(Color.White, Color.Black, '@', position, (int)MapLayer.PLAYER, isWalkable: false, isTransparent: true) => FOVRadius = 10;
 
 
         public override bool ProcessKeyboard(SadConsole.Input.Keyboard info)
@@ -31,19 +28,25 @@ namespace StartingExample
             Direction moveDirection = Direction.NONE;
 
             // Simplified way to check if any key we care about is pressed and set movement direction.
-            foreach (var key in _movementDirectionMapping.Keys)
+            foreach (Keys key in _movementDirectionMapping.Keys)
+            {
                 if (info.IsKeyPressed(key))
                 {
                     moveDirection = _movementDirectionMapping[key];
                     break;
                 }
+            }
 
             Position += moveDirection;
 
             if (moveDirection != Direction.NONE)
+            {
                 return true;
+            }
             else
+            {
                 return base.ProcessKeyboard(info);
+            }
         }
 
     }

@@ -8,7 +8,7 @@ using XnaRect = Microsoft.Xna.Framework.Rectangle;
 
 namespace StartingExample
 {
-    class MapScreen : ContainerConsole
+    internal class MapScreen : ContainerConsole
     {
         public StartingExampleMap Map { get; }
         public ScrollingConsole MapRenderer { get; }
@@ -35,9 +35,9 @@ namespace StartingExample
         private void ControlledGameObjectChanged(object s, ControlledGameObjectChangedArgs e)
         {
             if (e.OldObject != null)
+            {
                 e.OldObject.Moved -= Player_Moved;
-
-            ((BasicMap)s).ControlledGameObject.Moved += Player_Moved;
+            } ((BasicMap)s).ControlledGameObject.Moved += Player_Moved;
         }
         private static StartingExampleMap GenerateDungeon(int width, int height)
         {
@@ -77,9 +77,13 @@ namespace StartingExample
             // Floor or wall.  This could use the Factory system, or instantiate Floor and Wall classes, or something else if you prefer;
             // this simplistic if-else is just used for example
             if (mapGenValue) // Floor
+            {
                 return new BasicTerrain(Color.White, Color.Black, '.', position, isWalkable: true, isTransparent: true);
+            }
             else             // Wall
+            {
                 return new BasicTerrain(Color.White, Color.Black, '#', position, isWalkable: false, isTransparent: false);
+            }
         }
     }
 }

@@ -20,28 +20,19 @@ namespace SadConsole
         /// <param name="unexploredColor">Foreground color to set to all terrain tiles that are outside of FOV but have been explored.</param>
         /// <param name="startingState">The starting state to put the handler in.</param>
         public DefaultFOVVisibilityHandler(BasicMap map, Color unexploredColor, State startingState = State.Enabled)
-            : base(map, startingState)
-        {
-            ExploredColor = unexploredColor;
-        }
+            : base(map, startingState) => ExploredColor = unexploredColor;
 
         /// <summary>
         /// Makes entity visible.
         /// </summary>
         /// <param name="entity">Entity to modify.</param>
-        protected override void UpdateEntitySeen(BasicEntity entity)
-        {
-            entity.IsVisible = true;
-        }
+        protected override void UpdateEntitySeen(BasicEntity entity) => entity.IsVisible = true;
 
         /// <summary>
         /// Makes entity invisible.
         /// </summary>
         /// <param name="entity">Entity to modify.</param>
-        protected override void UpdateEntityUnseen(BasicEntity entity)
-        {
-            entity.IsVisible = false;
-        }
+        protected override void UpdateEntityUnseen(BasicEntity entity) => entity.IsVisible = false;
 
         /// <summary>
         /// Makes terrain visible and sets its foreground color to its regular value.
@@ -66,7 +57,9 @@ namespace SadConsole
                 terrain.Foreground = ExploredColor;
             }
             else
+            {
                 terrain.IsVisible = false;
+            }
         }
     }
 }

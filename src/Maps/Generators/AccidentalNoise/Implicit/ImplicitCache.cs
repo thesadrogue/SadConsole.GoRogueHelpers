@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace TinkerWorX.AccidentalNoiseLibrary
+﻿namespace TinkerWorX.AccidentalNoiseLibrary
 {
     public sealed class ImplicitCache : ImplicitModuleBase
     {
@@ -12,66 +10,63 @@ namespace TinkerWorX.AccidentalNoiseLibrary
 
         private readonly Cache cache6D = new Cache();
 
-        public ImplicitCache(ImplicitModuleBase source)
-        {
-            this.Source = source;
-        }
+        public ImplicitCache(ImplicitModuleBase source) => Source = source;
 
         public ImplicitModuleBase Source { get; set; }
 
-        public override Double Get(Double x, Double y)
+        public override double Get(double x, double y)
         {
-            if (!this.cache2D.IsValid || this.cache2D.X != x || this.cache2D.Y != y)
+            if (!cache2D.IsValid || cache2D.X != x || cache2D.Y != y)
             {
-                this.cache2D.X = x;
-                this.cache2D.Y = y;
-                this.cache2D.IsValid = true;
-                this.cache2D.Value = this.Source.Get(x, y);
+                cache2D.X = x;
+                cache2D.Y = y;
+                cache2D.IsValid = true;
+                cache2D.Value = Source.Get(x, y);
             }
-            return this.cache2D.Value;
+            return cache2D.Value;
         }
 
-        public override Double Get(Double x, Double y, Double z)
+        public override double Get(double x, double y, double z)
         {
-            if (!this.cache3D.IsValid || this.cache3D.X != x || this.cache3D.Y != y || this.cache3D.Z != z)
+            if (!cache3D.IsValid || cache3D.X != x || cache3D.Y != y || cache3D.Z != z)
             {
-                this.cache3D.X = x;
-                this.cache3D.Y = y;
-                this.cache3D.Z = z;
-                this.cache3D.IsValid = true;
-                this.cache3D.Value = this.Source.Get(x, y, z);
+                cache3D.X = x;
+                cache3D.Y = y;
+                cache3D.Z = z;
+                cache3D.IsValid = true;
+                cache3D.Value = Source.Get(x, y, z);
             }
-            return this.cache3D.Value;
+            return cache3D.Value;
         }
 
-        public override Double Get(Double x, Double y, Double z, Double w)
+        public override double Get(double x, double y, double z, double w)
         {
-            if (!this.cache4D.IsValid || this.cache4D.X != x || this.cache4D.Y != y || this.cache4D.Z != z || this.cache4D.W != w)
+            if (!cache4D.IsValid || cache4D.X != x || cache4D.Y != y || cache4D.Z != z || cache4D.W != w)
             {
-                this.cache4D.X = x;
-                this.cache4D.Y = y;
-                this.cache4D.Z = z;
-                this.cache4D.W = w;
-                this.cache4D.IsValid = true;
-                this.cache4D.Value = this.Source.Get(x, y, z, w);
+                cache4D.X = x;
+                cache4D.Y = y;
+                cache4D.Z = z;
+                cache4D.W = w;
+                cache4D.IsValid = true;
+                cache4D.Value = Source.Get(x, y, z, w);
             }
-            return this.cache4D.Value;
+            return cache4D.Value;
         }
 
-        public override Double Get(Double x, Double y, Double z, Double w, Double u, Double v)
+        public override double Get(double x, double y, double z, double w, double u, double v)
         {
-            if (!this.cache6D.IsValid || this.cache6D.X != x || this.cache6D.Y != y || this.cache6D.Z != z || this.cache6D.W != w || this.cache6D.U != u || this.cache6D.V != v)
+            if (!cache6D.IsValid || cache6D.X != x || cache6D.Y != y || cache6D.Z != z || cache6D.W != w || cache6D.U != u || cache6D.V != v)
             {
-                this.cache6D.X = x;
-                this.cache6D.Y = y;
-                this.cache6D.Z = z;
-                this.cache6D.W = w;
-                this.cache6D.U = u;
-                this.cache6D.V = v;
-                this.cache6D.IsValid = true;
-                this.cache6D.Value = this.Source.Get(x, y, z, w, u, v);
+                cache6D.X = x;
+                cache6D.Y = y;
+                cache6D.Z = z;
+                cache6D.W = w;
+                cache6D.U = u;
+                cache6D.V = v;
+                cache6D.IsValid = true;
+                cache6D.Value = Source.Get(x, y, z, w, u, v);
             }
-            return this.cache6D.Value;
+            return cache6D.Value;
         }
     }
 }

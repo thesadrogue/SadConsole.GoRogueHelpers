@@ -1,13 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.Xna.Framework.Input;
 
 namespace SadConsole.Actions
 {
-    class ProcessorAdventureScreen : ActionBase
+    internal class ProcessorAdventureScreen : ActionBase
     {
 
         public override void Run(TimeSpan timeElapsed)
