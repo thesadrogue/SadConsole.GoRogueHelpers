@@ -1,9 +1,4 @@
-﻿using Microsoft.Xna.Framework;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
 
 namespace SadConsole.Actions
 {
@@ -37,12 +32,16 @@ namespace SadConsole.Actions
             if (Result.IsSuccess)
             {
                 if (OnSuccessMethod?.Invoke(this) ?? true)
+                {
                     OnSuccessResult();
+                }
             }
             else
             {
                 if (OnFailureMethod?.Invoke(this) ?? true)
+                {
                     OnFailureResult();
+                }
             }
         }
 

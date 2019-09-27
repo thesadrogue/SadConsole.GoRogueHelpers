@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace SadConsole.Actions
+﻿namespace SadConsole.Actions
 {
     /// <summary>
     /// Represents a result from something an action being run.

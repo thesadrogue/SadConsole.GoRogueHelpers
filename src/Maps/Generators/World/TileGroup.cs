@@ -14,9 +14,6 @@ namespace SadConsole.Maps.Generators.World
         public TileGroupType Type;
         public List<Tile> Tiles;
 
-        public TileGroup()
-        {
-            Tiles = new List<Tile>();
-        }
+        public TileGroup() => Tiles = new List<Tile>();
     }
 }

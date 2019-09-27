@@ -1,6 +1,6 @@
 ﻿namespace StartingExample
 {
-    class Program
+    internal class Program
     {
 
         private const int StartingWidth = 80;
@@ -8,7 +8,7 @@
 
         public static MapScreen MapScreen { get; set; }
 
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
             // Setup the engine and create the main window.
             SadConsole.Game.Create(StartingWidth, StartingHeight);

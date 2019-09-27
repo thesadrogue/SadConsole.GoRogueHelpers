@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 
 namespace TinkerWorX.AccidentalNoiseLibrary
@@ -8,207 +7,135 @@ namespace TinkerWorX.AccidentalNoiseLibrary
     {
         private readonly HashSet<ImplicitModuleBase> sources = new HashSet<ImplicitModuleBase>();
 
-        public ImplicitCombiner(CombinerType type)
-        {
-            this.CombinerType = type;
-        }
+        public ImplicitCombiner(CombinerType type) => CombinerType = type;
 
         public CombinerType CombinerType { get; set; }
 
-        public void AddSource(ImplicitModuleBase module)
-        {
-            this.sources.Add(module);
-        }
+        public void AddSource(ImplicitModuleBase module) => sources.Add(module);
 
-        public void RemoveSource(ImplicitModuleBase module)
-        {
-            this.sources.Remove(module);
-        }
+        public void RemoveSource(ImplicitModuleBase module) => sources.Remove(module);
 
-        public void ClearSources()
-        {
-            this.sources.Clear();
-        }
+        public void ClearSources() => sources.Clear();
 
-        public override Double Get(Double x, Double y)
+        public override double Get(double x, double y)
         {
-            switch (this.CombinerType)
+            switch (CombinerType)
             {
                 case CombinerType.Add:
-                    return this.AddGet(x, y);
+                    return AddGet(x, y);
                 case CombinerType.Multiply:
-                    return this.MultiplyGet(x, y);
+                    return MultiplyGet(x, y);
                 case CombinerType.Max:
-                    return this.MaxGet(x, y);
+                    return MaxGet(x, y);
                 case CombinerType.Min:
-                    return this.MinGet(x, y);
+                    return MinGet(x, y);
                 case CombinerType.Average:
-                    return this.AverageGet(x, y);
+                    return AverageGet(x, y);
                 default:
                     return 0.0;
             }
         }
 
-        public override Double Get(Double x, Double y, Double z)
+        public override double Get(double x, double y, double z)
         {
-            switch (this.CombinerType)
+            switch (CombinerType)
             {
                 case CombinerType.Add:
-                    return this.AddGet(x, y, z);
+                    return AddGet(x, y, z);
                 case CombinerType.Multiply:
-                    return this.MultiplyGet(x, y, z);
+                    return MultiplyGet(x, y, z);
                 case CombinerType.Max:
-                    return this.MaxGet(x, y, z);
+                    return MaxGet(x, y, z);
                 case CombinerType.Min:
-                    return this.MinGet(x, y, z);
+                    return MinGet(x, y, z);
                 case CombinerType.Average:
-                    return this.AverageGet(x, y, z);
+                    return AverageGet(x, y, z);
                 default:
                     return 0.0;
             }
         }
 
-        public override Double Get(Double x, Double y, Double z, Double w)
+        public override double Get(double x, double y, double z, double w)
         {
-            switch (this.CombinerType)
+            switch (CombinerType)
             {
                 case CombinerType.Add:
-                    return this.AddGet(x, y, z, w);
+                    return AddGet(x, y, z, w);
                 case CombinerType.Multiply:
-                    return this.MultiplyGet(x, y, z, w);
+                    return MultiplyGet(x, y, z, w);
                 case CombinerType.Max:
-                    return this.MaxGet(x, y, z, w);
+                    return MaxGet(x, y, z, w);
                 case CombinerType.Min:
-                    return this.MinGet(x, y, z, w);
+                    return MinGet(x, y, z, w);
                 case CombinerType.Average:
-                    return this.AverageGet(x, y, z, w);
+                    return AverageGet(x, y, z, w);
                 default:
                     return 0.0;
             }
         }
 
-        public override Double Get(Double x, Double y, Double z, Double w, Double u, Double v)
+        public override double Get(double x, double y, double z, double w, double u, double v)
         {
-            switch (this.CombinerType)
+            switch (CombinerType)
             {
                 case CombinerType.Add:
-                    return this.AddGet(x, y, z, w, u, v);
+                    return AddGet(x, y, z, w, u, v);
                 case CombinerType.Multiply:
-                    return this.MultiplyGet(x, y, z, w, u, v);
+                    return MultiplyGet(x, y, z, w, u, v);
                 case CombinerType.Max:
-                    return this.MaxGet(x, y, z, w, u, v);
+                    return MaxGet(x, y, z, w, u, v);
                 case CombinerType.Min:
-                    return this.MinGet(x, y, z, w, u, v);
+                    return MinGet(x, y, z, w, u, v);
                 case CombinerType.Average:
-                    return this.AverageGet(x, y, z, w, u, v);
+                    return AverageGet(x, y, z, w, u, v);
                 default:
                     return 0.0;
             }
         }
 
 
-        private Double AddGet(Double x, Double y)
-        {
-            return this.sources.Sum(source => source.Get(x, y));
-        }
+        private double AddGet(double x, double y) => sources.Sum(source => source.Get(x, y));
 
-        private Double AddGet(Double x, Double y, Double z)
-        {
-            return this.sources.Sum(source => source.Get(x, y, z));
-        }
+        private double AddGet(double x, double y, double z) => sources.Sum(source => source.Get(x, y, z));
 
-        private Double AddGet(Double x, Double y, Double z, Double w)
-        {
-            return this.sources.Sum(source => source.Get(x, y, z, w));
-        }
+        private double AddGet(double x, double y, double z, double w) => sources.Sum(source => source.Get(x, y, z, w));
 
-        private Double AddGet(Double x, Double y, Double z, Double w, Double u, Double v)
-        {
-            return this.sources.Sum(source => source.Get(x, y, z, w, u, v));
-        }
+        private double AddGet(double x, double y, double z, double w, double u, double v) => sources.Sum(source => source.Get(x, y, z, w, u, v));
 
 
-        private Double MultiplyGet(Double x, Double y)
-        {
-            return this.sources.Aggregate(1.00, (current, source) => current * source.Get(x, y));
-        }
+        private double MultiplyGet(double x, double y) => sources.Aggregate(1.00, (current, source) => current * source.Get(x, y));
 
-        private Double MultiplyGet(Double x, Double y, Double z)
-        {
-            return this.sources.Aggregate(1.00, (current, source) => current * source.Get(x, y, z));
-        }
+        private double MultiplyGet(double x, double y, double z) => sources.Aggregate(1.00, (current, source) => current * source.Get(x, y, z));
 
-        private Double MultiplyGet(Double x, Double y, Double z, Double w)
-        {
-            return this.sources.Aggregate(1.00, (current, source) => current * source.Get(x, y, z, w));
-        }
+        private double MultiplyGet(double x, double y, double z, double w) => sources.Aggregate(1.00, (current, source) => current * source.Get(x, y, z, w));
 
-        private Double MultiplyGet(Double x, Double y, Double z, Double w, Double u, Double v)
-        {
-            return this.sources.Aggregate(1.00, (current, source) => current * source.Get(x, y, z, w, u, v));
-        }
+        private double MultiplyGet(double x, double y, double z, double w, double u, double v) => sources.Aggregate(1.00, (current, source) => current * source.Get(x, y, z, w, u, v));
 
 
-        private Double MinGet(Double x, Double y)
-        {
-            return this.sources.Min(source => source.Get(x, y));
-        }
+        private double MinGet(double x, double y) => sources.Min(source => source.Get(x, y));
 
-        private Double MinGet(Double x, Double y, Double z)
-        {
-            return this.sources.Min(source => source.Get(x, y, z));
-        }
+        private double MinGet(double x, double y, double z) => sources.Min(source => source.Get(x, y, z));
 
-        private Double MinGet(Double x, Double y, Double z, Double w)
-        {
-            return this.sources.Min(source => source.Get(x, y, z, w));
-        }
+        private double MinGet(double x, double y, double z, double w) => sources.Min(source => source.Get(x, y, z, w));
 
-        private Double MinGet(Double x, Double y, Double z, Double w, Double u, Double v)
-        {
-            return this.sources.Min(source => source.Get(x, y, z, w, u, v));
-        }
+        private double MinGet(double x, double y, double z, double w, double u, double v) => sources.Min(source => source.Get(x, y, z, w, u, v));
 
 
-        private Double MaxGet(Double x, Double y)
-        {
-            return this.sources.Max(source => source.Get(x, y));
-        }
+        private double MaxGet(double x, double y) => sources.Max(source => source.Get(x, y));
 
-        private Double MaxGet(Double x, Double y, Double z)
-        {
-            return this.sources.Max(source => source.Get(x, y, z));
-        }
+        private double MaxGet(double x, double y, double z) => sources.Max(source => source.Get(x, y, z));
 
-        private Double MaxGet(Double x, Double y, Double z, Double w)
-        {
-            return this.sources.Max(source => source.Get(x, y, z, w));
-        }
+        private double MaxGet(double x, double y, double z, double w) => sources.Max(source => source.Get(x, y, z, w));
 
-        private Double MaxGet(Double x, Double y, Double z, Double w, Double u, Double v)
-        {
-            return this.sources.Max(source => source.Get(x, y, z, w, u, v));
-        }
+        private double MaxGet(double x, double y, double z, double w, double u, double v) => sources.Max(source => source.Get(x, y, z, w, u, v));
 
 
-        private Double AverageGet(Double x, Double y)
-        {
-            return this.sources.Average(source => source.Get(x, y));
-        }
+        private double AverageGet(double x, double y) => sources.Average(source => source.Get(x, y));
 
-        private Double AverageGet(Double x, Double y, Double z)
-        {
-            return this.sources.Average(source => source.Get(x, y, z));
-        }
+        private double AverageGet(double x, double y, double z) => sources.Average(source => source.Get(x, y, z));
 
-        private Double AverageGet(Double x, Double y, Double z, Double w)
-        {
-            return this.sources.Average(source => source.Get(x, y, z, w));
-        }
+        private double AverageGet(double x, double y, double z, double w) => sources.Average(source => source.Get(x, y, z, w));
 
-        private Double AverageGet(Double x, Double y, Double z, Double w, Double u, Double v)
-        {
-            return this.sources.Average(source => source.Get(x, y, z, w, u, v));
-        }
+        private double AverageGet(double x, double y, double z, double w, double u, double v) => sources.Average(source => source.Get(x, y, z, w, u, v));
     }
 }

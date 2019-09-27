@@ -1,10 +1,8 @@
-﻿using System;
-
-namespace TinkerWorX.AccidentalNoiseLibrary
+﻿namespace TinkerWorX.AccidentalNoiseLibrary
 {
     public static class NoiseLookupTable
     {
-        public static Double[,] Gradient2D =
+        public static double[,] Gradient2D =
             {
                 {0, 1}, {0, -1}, {1, 0}, {-1, 0}, {0, 1}, {0, -1}, {1, 0}, {-1, 0},
                 {0, 1}, {0, -1}, {1, 0}, {-1, 0}, {0, 1}, {0, -1}, {1, 0}, {-1, 0},
@@ -47,7 +45,7 @@ namespace TinkerWorX.AccidentalNoiseLibrary
                 {0, 1}, {0, -1}, {1, 0}, {-1, 0}, {0, 1}, {0, -1}, {1, 0}, {-1, 0},
             };
 
-        public static Double[,] Gradient3D =
+        public static double[,] Gradient3D =
             {
                 {0, 0, 1}, {0, 0, -1}, {0, 1, 0}, {0, -1, 0}, {1, 0, 0}, {-1, 0, 0}, {0, 0, 1}, {0, 0, -1},
                 {0, 1, 0}, {0, -1, 0}, {1, 0, 0}, {-1, 0, 0}, {0, 0, 1}, {0, 0, -1}, {0, 1, 0}, {0, -1, 0},
@@ -90,7 +88,7 @@ namespace TinkerWorX.AccidentalNoiseLibrary
                 {0, 1, 0}, {0, -1, 0}, {1, 0, 0}, {-1, 0, 0}, {0, 0, 1}, {0, 0, -1}, {0, 1, 0}, {0, -1, 0}
             };
 
-        public static Double[,] Gradient4D =
+        public static double[,] Gradient4D =
             {
                 {0.22552454980774, 0.66749286953929, 0.53967936463105, -0.46080161668515},
                 {0.52981737633302, 0.80705123608169, 0.25001068952995, 0.073868160904199},
@@ -413,7 +411,7 @@ namespace TinkerWorX.AccidentalNoiseLibrary
                 {0.28392054221674, -0.049695747604861, -0.95198891214713, 0.10313374581711}
             };
 
-        public static Double[,] Gradient6D =
+        public static double[,] Gradient6D =
             {
                 {
                     0.31733186658157, 0.043599150809166, -0.63578104939541,
@@ -1441,7 +1439,7 @@ namespace TinkerWorX.AccidentalNoiseLibrary
                 }
             };
 
-        public static Double[] WhiteNoise =
+        public static double[] WhiteNoise =
             {
                 -0.714286,
                 0.301587,

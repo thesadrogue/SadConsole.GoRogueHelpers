@@ -33,10 +33,7 @@ namespace SadConsole
         /// Creates a GameFrameManager that runs logic frames for the given map.
         /// </summary>
         /// <param name="map">The map to run logic frames for.</param>
-        public GameFrameManager(BasicMap map)
-        {
-            Map = map;
-        }
+        public GameFrameManager(BasicMap map) => Map = map;
 
         /// <summary>
         /// Runs a single logic frame if <see cref="RunLogicFrame"/> is set to true.
@@ -48,10 +45,11 @@ namespace SadConsole
             // Run GameFrame logic
             if (RunLogicFrame)
             {
-                foreach (var ent in Map.Entities.Items.Where(e => e.HasComponent<Components.GoRogue.GameFrameProcessor>()))
+                foreach (GoRogue.GameFramework.IGameObject ent in Map.Entities.Items.Where(e => e.HasComponent<Components.GoRogue.GameFrameProcessor>()))
                 {
                     if (ent != Map.ControlledGameObject)
-                        foreach (var processor in ent.GetComponents<Components.GoRogue.GameFrameProcessor>())
+                    {
+                        foreach (Components.GoRogue.GameFrameProcessor processor in ent.GetComponents<Components.GoRogue.GameFrameProcessor>())
                         {
                             processor.ProcessGameFrame();
                             if (!RunLogicFrame)
@@ -60,10 +58,11 @@ namespace SadConsole
                                 return;
                             }
                         }
+                    }
                 }
 
                 // Process player to make sure they are last to be processed
-                foreach (var processor in Map.ControlledGameObject.GetComponents<Components.GoRogue.GameFrameProcessor>())
+                foreach (Components.GoRogue.GameFrameProcessor processor in Map.ControlledGameObject.GetComponents<Components.GoRogue.GameFrameProcessor>())
                 {
                     processor.ProcessGameFrame();
                     if (!RunLogicFrame)

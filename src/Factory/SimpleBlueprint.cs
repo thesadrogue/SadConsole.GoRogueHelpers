@@ -5,7 +5,7 @@
     /// Implements <see cref="IBlueprint{BlueprintConfig, TProduced}"/>.
     /// </summary>
     /// <typeparam name="TProduced">The type of object to create.</typeparam>
-    abstract public class SimpleBlueprint<TProduced> : IBlueprint<BlueprintConfig, TProduced>
+    public abstract class SimpleBlueprint<TProduced> : IBlueprint<BlueprintConfig, TProduced>
     {
         /// <summary>
         /// A unique identifier of this factory definition.
@@ -16,10 +16,7 @@
         /// Creates a SimpleBlueprint with the given blueprint id.
         /// </summary>
         /// <param name="id">ID for the blueprint.</param>
-        public SimpleBlueprint(string id)
-        {
-            Id = id;
-        }
+        public SimpleBlueprint(string id) => Id = id;
 
         /// <summary>
         /// Calls <see cref="Create()"/>.
@@ -32,6 +29,6 @@
         /// Creates a <typeparamref name="TProduced"/> object.
         /// </summary>
         /// <returns>The created object.</returns>
-        abstract public TProduced Create();
+        public abstract TProduced Create();
     }
 }

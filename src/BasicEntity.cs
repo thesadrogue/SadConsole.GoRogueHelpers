@@ -1,8 +1,8 @@
-﻿using GoRogue;
+﻿using System;
+using System.Collections.Generic;
+using GoRogue;
 using GoRogue.GameFramework;
 using Microsoft.Xna.Framework;
-using System;
-using System.Collections.Generic;
 
 namespace SadConsole
 {
@@ -27,10 +27,7 @@ namespace SadConsole
         /// <param name="isWalkable">Whether or not this object collides with other non-walkable objects in the same <see cref="BasicMap"/>.</param>
         /// <param name="isTransparent">Whether or not this object is considered blocking line of sight for the sake of FOV.</param>
         public BasicEntity(Color foreground, Color background, int glyph, Coord position, int layer, bool isWalkable, bool isTransparent)
-            : base(foreground, background, glyph)
-        {
-            Initialize(position, layer, isWalkable, isTransparent);
-        }
+            : base(foreground, background, glyph) => Initialize(position, layer, isWalkable, isTransparent);
 
         /// <summary>
         /// Creates a new, invisible entity using the given parameters and the default font.
@@ -40,10 +37,7 @@ namespace SadConsole
         /// <param name="isWalkable">Whether or not this object collides with other non-walkable objects in the same <see cref="BasicMap"/>.</param>
         /// <param name="isTransparent">Whether or not this object is considered blocking line of sight for the sake of FOV.</param>
         public BasicEntity(Coord position, int layer, bool isWalkable, bool isTransparent)
-            : base(1, 1)
-        {
-            Initialize(position, layer, isWalkable, isTransparent);
-        }
+            : base(1, 1) => Initialize(position, layer, isWalkable, isTransparent);
 
         /// <summary>
         /// Creates a new, invisible entity using the given parameters and the specified font.
@@ -54,10 +48,7 @@ namespace SadConsole
         /// <param name="isWalkable">Whether or not this object collides with other non-walkable objects in the same <see cref="BasicMap"/>.</param>
         /// <param name="isTransparent">Whether or not this object is considered blocking line of sight for the sake of FOV.</param>
         public BasicEntity(Font font, Coord position, int layer, bool isWalkable, bool isTransparent)
-            : base(1, 1, font)
-        {
-            Initialize(position, layer, isWalkable, isTransparent);
-        }
+            : base(1, 1, font) => Initialize(position, layer, isWalkable, isTransparent);
 
         /// <summary>
         /// Creates a new entity with the given parameters that displays the specified animation.
@@ -68,10 +59,7 @@ namespace SadConsole
         /// <param name="isWalkable">Whether or not this object collides with other non-walkable objects in the same <see cref="BasicMap"/>.</param>
         /// <param name="isTransparent">Whether or not this object is considered blocking line of sight for the sake of FOV.</param>
         public BasicEntity(AnimatedConsole animation, Coord position, int layer, bool isWalkable, bool isTransparent)
-            : base(animation)
-        {
-            Initialize(position, layer, isWalkable, isTransparent);
-        }
+            : base(animation) => Initialize(position, layer, isWalkable, isTransparent);
 
         private void Initialize(Coord position, int layer, bool isWalkable, bool isTransparent)
         {
@@ -88,7 +76,9 @@ namespace SadConsole
         private void GoRogue_Moved(object sender, ItemMovedEventArgs<IGameObject> e)
         {
             if (Position != base.Position) // We need to sync entity
+            {
                 base.Position = Position;
+            }
 
             // SadConsole's Entity position set can't fail so no need to check for success here
         }
@@ -103,7 +93,9 @@ namespace SadConsole
                 // In this case, GoRogue wouldn't allow the position set, so set SadConsole's position back to the way it was
                 // to keep them in sync.  Since GoRogue's position never changed, this won't infinite loop.
                 if (Position != base.Position)
+                {
                     base.Position = Position;
+                }
             }
         }
 

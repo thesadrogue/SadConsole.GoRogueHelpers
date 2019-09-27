@@ -1,23 +1,21 @@
-using System;
-
 namespace TinkerWorX.AccidentalNoiseLibrary
 {
     public class MappingRanges
     {
         public static readonly MappingRanges Default = new MappingRanges();
 
-        public Double MapX0 = -1;
-        public Double MapY0 = -1;
-        public Double MapZ0 = -1;
-        public Double MapX1 = 1;
-        public Double MapY1 = 1;
-        public Double MapZ1 = 1;
+        public double MapX0 = -1;
+        public double MapY0 = -1;
+        public double MapZ0 = -1;
+        public double MapX1 = 1;
+        public double MapY1 = 1;
+        public double MapZ1 = 1;
 
-        public Double LoopX0 = -1;
-        public Double LoopY0 = -1;
-        public Double LoopZ0 = -1;
-        public Double LoopX1 = 1;
-        public Double LoopY1 = 1;
-        public Double LoopZ1 = 1;
+        public double LoopX0 = -1;
+        public double LoopY0 = -1;
+        public double LoopZ0 = -1;
+        public double LoopX1 = 1;
+        public double LoopY1 = 1;
+        public double LoopZ1 = 1;
     }
 }

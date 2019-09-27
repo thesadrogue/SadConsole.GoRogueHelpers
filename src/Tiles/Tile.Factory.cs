@@ -1,6 +1,6 @@
-﻿using SadConsole.Factory;
-using System;
+﻿using System;
 using Microsoft.Xna.Framework;
+using SadConsole.Factory;
 
 namespace SadConsole.Tiles
 {
@@ -17,9 +17,7 @@ namespace SadConsole.Tiles
         /// </summary>
         public static Factory<TileBlueprintConfig, Tile> Factory;
 
-        static Tile()
-        {
-            Factory = new Factory<TileBlueprintConfig, Tile>
+        static Tile() => Factory = new Factory<TileBlueprintConfig, Tile>
             {
                 new TileBlueprint("wall")
                 {
@@ -38,8 +36,6 @@ namespace SadConsole.Tiles
                     Description = "Ancient rock and dirt."
                 }
             };
-
-        }
 
         /// <summary>
         /// A simple blueprint representing a tile.

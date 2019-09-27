@@ -1,5 +1,4 @@
 ﻿using System;
-using SadConsole;
 using TinkerWorX.AccidentalNoiseLibrary;
 
 namespace SadConsole.Maps.Generators.World
@@ -56,9 +55,9 @@ namespace SadConsole.Maps.Generators.World
             MoistureData = new MapData(Width, Height);
 
             // loop through each x,y point - get height value
-            for (var x = 0; x < Width; x++)
+            for (int x = 0; x < Width; x++)
             {
-                for (var y = 0; y < Height; y++)
+                for (int y = 0; y < Height; y++)
                 {
 
                     // WRAP ON BOTH AXIS
@@ -83,14 +82,35 @@ namespace SadConsole.Maps.Generators.World
                     float moistureValue = (float)MoistureMap.Get(nx, ny, nz, nw);
 
                     // keep track of the max and min values found
-                    if (heightValue > HeightData.Max) HeightData.Max = heightValue;
-                    if (heightValue < HeightData.Min) HeightData.Min = heightValue;
+                    if (heightValue > HeightData.Max)
+                    {
+                        HeightData.Max = heightValue;
+                    }
 
-                    if (heatValue > HeatData.Max) HeatData.Max = heatValue;
-                    if (heatValue < HeatData.Min) HeatData.Min = heatValue;
+                    if (heightValue < HeightData.Min)
+                    {
+                        HeightData.Min = heightValue;
+                    }
 
-                    if (moistureValue > MoistureData.Max) MoistureData.Max = moistureValue;
-                    if (moistureValue < MoistureData.Min) MoistureData.Min = moistureValue;
+                    if (heatValue > HeatData.Max)
+                    {
+                        HeatData.Max = heatValue;
+                    }
+
+                    if (heatValue < HeatData.Min)
+                    {
+                        HeatData.Min = heatValue;
+                    }
+
+                    if (moistureValue > MoistureData.Max)
+                    {
+                        MoistureData.Max = moistureValue;
+                    }
+
+                    if (moistureValue < MoistureData.Min)
+                    {
+                        MoistureData.Min = moistureValue;
+                    }
 
                     HeightData.Data[x, y] = heightValue;
                     HeatData.Data[x, y] = heatValue;
@@ -99,21 +119,9 @@ namespace SadConsole.Maps.Generators.World
             }
         }
 
-        public override Tile GetTop(Tile t)
-        {
-            return Tiles[t.X, MathHelper.Mod(t.Y - 1, Height)];
-        }
-        public override Tile GetBottom(Tile t)
-        {
-            return Tiles[t.X, MathHelper.Mod(t.Y + 1, Height)];
-        }
-        public override Tile GetLeft(Tile t)
-        {
-            return Tiles[MathHelper.Mod(t.X - 1, Width), t.Y];
-        }
-        public override Tile GetRight(Tile t)
-        {
-            return Tiles[MathHelper.Mod(t.X + 1, Width), t.Y];
-        }
+        public override Tile GetTop(Tile t) => Tiles[t.X, MathHelper.Mod(t.Y - 1, Height)];
+        public override Tile GetBottom(Tile t) => Tiles[t.X, MathHelper.Mod(t.Y + 1, Height)];
+        public override Tile GetLeft(Tile t) => Tiles[MathHelper.Mod(t.X - 1, Width), t.Y];
+        public override Tile GetRight(Tile t) => Tiles[MathHelper.Mod(t.X + 1, Width), t.Y];
     }
 }

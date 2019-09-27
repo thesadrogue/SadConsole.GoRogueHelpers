@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using GoRogue;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using SadConsole;
 using SadConsole.Tiles;
 
@@ -53,12 +47,16 @@ namespace BasicTutorial.Maps.TileBlueprints
 
         public override Tile Create(TileBlueprintConfig config)
         {
-            var tile = base.Create(config);
+            Tile tile = base.Create(config);
 
             if (StartClosed)
+            {
                 tile.TileState = (int)TileStates.Door.Closed;
+            }
             else
+            {
                 tile.TileState = (int)TileStates.Door.Opened;
+            }
 
             return tile;
         }

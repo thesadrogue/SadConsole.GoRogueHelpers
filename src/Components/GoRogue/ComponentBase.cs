@@ -1,7 +1,7 @@
-﻿using GoRogue.GameFramework;
-using GoRogue.GameFramework.Components;
-using System;
+﻿using System;
 using System.Linq;
+using GoRogue.GameFramework;
+using GoRogue.GameFramework.Components;
 
 namespace SadConsole.Components.GoRogue
 {
@@ -22,7 +22,9 @@ namespace SadConsole.Components.GoRogue
                     Removed?.Invoke(this, EventArgs.Empty);
                 }
                 else if (_parent != null)
+                {
                     throw new Exception($"{nameof(ComponentBase)} components inherit from {nameof(IGameObjectComponent)}, so they can't be attached to multiple objects simultaneously.");
+                }
 
                 _parent = value;
                 Added?.Invoke(this, EventArgs.Empty);
@@ -40,7 +42,9 @@ namespace SadConsole.Components.GoRogue
             var componentBase = (ComponentBase)s;
 
             if (componentBase.Parent is TParent)
+            {
                 return;
+            }
 
             throw new Exception($"{componentBase.GetType().Name} components are marked with a {nameof(ParentTypeCheck)}, so can only be attached to something that inherits from/implements {typeof(TParent).Name}.");
         }
@@ -55,7 +59,9 @@ namespace SadConsole.Components.GoRogue
         public void IncompatibleWith<TComponent>(object s, EventArgs e)
         {
             if (Parent.GetComponents<TComponent>().Any(i => !ReferenceEquals(this, i)))
+            {
                 throw new Exception($"{s.GetType().Name} components are marked as incompatible with {typeof(TComponent).Name} components, so the component couldn't be added.");
+            }
         }
     }
 }

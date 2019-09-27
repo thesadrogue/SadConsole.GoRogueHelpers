@@ -1,7 +1,6 @@
-using Microsoft.Xna.Framework;
-
-using System.Collections.Generic;
 using System;
+using System.Collections.Generic;
+using Microsoft.Xna.Framework;
 
 namespace SadConsole.Maps.Generators.World
 {
@@ -75,15 +74,9 @@ namespace SadConsole.Maps.Generators.World
 		{ BiomeType.Ice, BiomeType.Tundra, BiomeType.BorealForest, BiomeType.TemperateRainforest, BiomeType.TropicalRainforest,  BiomeType.TropicalRainforest }   //WETTEST
 	    };
 
-        public Generator()
-        {
-            Seed = new Random().Next(0, int.MaxValue);
-        }
+        public Generator() => Seed = new Random().Next(0, int.MaxValue);
 
-        public Generator(int seed)
-        {
-            Seed = seed;
-        }
+        public Generator(int seed) => Seed = seed;
 
         public void Start(int width, int height)
         {
@@ -142,28 +135,28 @@ namespace SadConsole.Maps.Generators.World
 
         private void UpdateBiomeBitmask()
         {
-            for (var x = 0; x < Width; x++)
+            for (int x = 0; x < Width; x++)
             {
-                for (var y = 0; y < Height; y++)
+                for (int y = 0; y < Height; y++)
                 {
                     Tiles[x, y].UpdateBiomeBitmask();
                 }
             }
         }
 
-        public BiomeType GetBiomeType(Tile tile)
-        {
-            return BiomeTable[(int)tile.MoistureType, (int)tile.HeatType];
-        }
+        public BiomeType GetBiomeType(Tile tile) => BiomeTable[(int)tile.MoistureType, (int)tile.HeatType];
 
         private void GenerateBiomeMap()
         {
-            for (var x = 0; x < Width; x++)
+            for (int x = 0; x < Width; x++)
             {
-                for (var y = 0; y < Height; y++)
+                for (int y = 0; y < Height; y++)
                 {
 
-                    if (!Tiles[x, y].Collidable) continue;
+                    if (!Tiles[x, y].Collidable)
+                    {
+                        continue;
+                    }
 
                     Tile t = Tiles[x, y];
                     t.BiomeType = GetBiomeType(t);
@@ -204,28 +197,48 @@ namespace SadConsole.Maps.Generators.World
             MoistureData.Data[t.X, t.Y] += amount;
             t.MoistureValue += amount;
             if (t.MoistureValue > 1)
+            {
                 t.MoistureValue = 1;
+            }
 
             //set moisture type
-            if (t.MoistureValue < DryerValue) t.MoistureType = MoistureType.Dryest;
-            else if (t.MoistureValue < DryValue) t.MoistureType = MoistureType.Dryer;
-            else if (t.MoistureValue < WetValue) t.MoistureType = MoistureType.Dry;
-            else if (t.MoistureValue < WetterValue) t.MoistureType = MoistureType.Wet;
-            else if (t.MoistureValue < WettestValue) t.MoistureType = MoistureType.Wetter;
-            else t.MoistureType = MoistureType.Wettest;
+            if (t.MoistureValue < DryerValue)
+            {
+                t.MoistureType = MoistureType.Dryest;
+            }
+            else if (t.MoistureValue < DryValue)
+            {
+                t.MoistureType = MoistureType.Dryer;
+            }
+            else if (t.MoistureValue < WetValue)
+            {
+                t.MoistureType = MoistureType.Dry;
+            }
+            else if (t.MoistureValue < WetterValue)
+            {
+                t.MoistureType = MoistureType.Wet;
+            }
+            else if (t.MoistureValue < WettestValue)
+            {
+                t.MoistureType = MoistureType.Wetter;
+            }
+            else
+            {
+                t.MoistureType = MoistureType.Wettest;
+            }
         }
 
         private void AdjustMoistureMap()
         {
-            for (var x = 0; x < Width; x++)
+            for (int x = 0; x < Width; x++)
             {
-                for (var y = 0; y < Height; y++)
+                for (int y = 0; y < Height; y++)
                 {
 
                     Tile t = Tiles[x, y];
                     if (t.HeightType == HeightType.River)
                     {
-                        AddMoisture(t, (int)60);
+                        AddMoisture(t, 60);
                     }
                 }
             }
@@ -244,9 +257,13 @@ namespace SadConsole.Maps.Generators.World
                 {
                     River river = group.Rivers[j];
                     if (longest == null)
+                    {
                         longest = river;
+                    }
                     else if (longest.Tiles.Count < river.Tiles.Count)
+                    {
                         longest = river;
+                    }
                 }
 
                 if (longest != null)
@@ -269,9 +286,9 @@ namespace SadConsole.Maps.Generators.World
         private void BuildRiverGroups()
         {
             //loop each tile, checking if it belongs to multiple rivers
-            for (var x = 0; x < Width; x++)
+            for (int x = 0; x < Width; x++)
             {
-                for (var y = 0; y < Height; y++)
+                for (int y = 0; y < Height; y++)
                 {
                     Tile t = Tiles[x, y];
 
@@ -293,11 +310,20 @@ namespace SadConsole.Maps.Generators.World
                                     {
                                         group = RiverGroups[i];
                                     }
-                                    if (group != null) break;
+                                    if (group != null)
+                                    {
+                                        break;
+                                    }
                                 }
-                                if (group != null) break;
+                                if (group != null)
+                                {
+                                    break;
+                                }
                             }
-                            if (group != null) break;
+                            if (group != null)
+                            {
+                                break;
+                            }
                         }
 
                         // existing group found -- add to it
@@ -306,7 +332,9 @@ namespace SadConsole.Maps.Generators.World
                             for (int n = 0; n < t.Rivers.Count; n++)
                             {
                                 if (!group.Rivers.Contains(t.Rivers[n]))
+                                {
                                     group.Rivers.Add(t.Rivers[n]);
+                                }
                             }
                         }
                         else   //No existing group found - create a new one
@@ -339,16 +367,25 @@ namespace SadConsole.Maps.Generators.World
                 Tile tile = Tiles[x, y];
 
                 // validate the tile
-                if (!tile.Collidable) continue;
-                if (tile.Rivers.Count > 0) continue;
+                if (!tile.Collidable)
+                {
+                    continue;
+                }
+
+                if (tile.Rivers.Count > 0)
+                {
+                    continue;
+                }
 
                 if (tile.HeightValue > MinRiverHeight)
                 {
                     // Tile is good to start river from
-                    River river = new River(rivercount);
+                    River river = new River(rivercount)
+                    {
 
-                    // Figure out the direction this river will try to flow
-                    river.CurrentDirection = tile.GetLowestNeighbor();
+                        // Figure out the direction this river will try to flow
+                        CurrentDirection = tile.GetLowestNeighbor()
+                    };
 
                     // Recursively find a path to water
                     FindPathToWater(tile, river.CurrentDirection, ref river);
@@ -593,11 +630,15 @@ namespace SadConsole.Maps.Generators.World
         private void FindPathToWater(Tile tile, Direction direction, ref River river)
         {
             if (tile.Rivers.Contains(river))
+            {
                 return;
+            }
 
             // check if there is already a river on this tile
             if (tile.Rivers.Count > 0)
+            {
                 river.Intersections++;
+            }
 
             river.AddTile(tile);
 
@@ -614,44 +655,87 @@ namespace SadConsole.Maps.Generators.World
 
             // query height values of neighbors
             if (left != null && left.GetRiverNeighborCount(river) < 2 && !river.Tiles.Contains(left))
+            {
                 leftValue = left.HeightValue;
+            }
+
             if (right != null && right.GetRiverNeighborCount(river) < 2 && !river.Tiles.Contains(right))
+            {
                 rightValue = right.HeightValue;
+            }
+
             if (top != null && top.GetRiverNeighborCount(river) < 2 && !river.Tiles.Contains(top))
+            {
                 topValue = top.HeightValue;
+            }
+
             if (bottom != null && bottom.GetRiverNeighborCount(river) < 2 && !river.Tiles.Contains(bottom))
+            {
                 bottomValue = bottom.HeightValue;
+            }
 
             // if neighbor is existing river that is not this one, flow into it
             if (bottom != null && bottom.Rivers.Count == 0 && !bottom.Collidable)
+            {
                 bottomValue = 0;
+            }
+
             if (top != null && top.Rivers.Count == 0 && !top.Collidable)
+            {
                 topValue = 0;
+            }
+
             if (left != null && left.Rivers.Count == 0 && !left.Collidable)
+            {
                 leftValue = 0;
+            }
+
             if (right != null && right.Rivers.Count == 0 && !right.Collidable)
+            {
                 rightValue = 0;
+            }
 
             // override flow direction if a tile is significantly lower
             if (direction == Direction.Left)
+            {
                 if (Math.Abs(rightValue - leftValue) < 0.1f)
+                {
                     rightValue = int.MaxValue;
+                }
+            }
+
             if (direction == Direction.Right)
+            {
                 if (Math.Abs(rightValue - leftValue) < 0.1f)
+                {
                     leftValue = int.MaxValue;
+                }
+            }
+
             if (direction == Direction.Top)
+            {
                 if (Math.Abs(topValue - bottomValue) < 0.1f)
+                {
                     bottomValue = int.MaxValue;
+                }
+            }
+
             if (direction == Direction.Bottom)
+            {
                 if (Math.Abs(topValue - bottomValue) < 0.1f)
+                {
                     topValue = int.MaxValue;
+                }
+            }
 
             // find mininum
             float min = Math.Min(Math.Min(Math.Min(leftValue, rightValue), topValue), bottomValue);
 
             // if no minimum found - exit
             if (min == int.MaxValue)
+            {
                 return;
+            }
 
             //Move to next neighbor
             if (min == leftValue)
@@ -709,13 +793,15 @@ namespace SadConsole.Maps.Generators.World
         {
             Tiles = new Tile[Width, Height];
 
-            for (var x = 0; x < Width; x++)
+            for (int x = 0; x < Width; x++)
             {
-                for (var y = 0; y < Height; y++)
+                for (int y = 0; y < Height; y++)
                 {
-                    Tile t = new Tile();
-                    t.X = x;
-                    t.Y = y;
+                    Tile t = new Tile
+                    {
+                        X = x,
+                        Y = y
+                    };
 
                     //set heightmap value
                     float heightValue = HeightData.Data[x, y];
@@ -784,12 +870,30 @@ namespace SadConsole.Maps.Generators.World
                     t.MoistureValue = moistureValue;
 
                     //set moisture type
-                    if (moistureValue < DryerValue) t.MoistureType = MoistureType.Dryest;
-                    else if (moistureValue < DryValue) t.MoistureType = MoistureType.Dryer;
-                    else if (moistureValue < WetValue) t.MoistureType = MoistureType.Dry;
-                    else if (moistureValue < WetterValue) t.MoistureType = MoistureType.Wet;
-                    else if (moistureValue < WettestValue) t.MoistureType = MoistureType.Wetter;
-                    else t.MoistureType = MoistureType.Wettest;
+                    if (moistureValue < DryerValue)
+                    {
+                        t.MoistureType = MoistureType.Dryest;
+                    }
+                    else if (moistureValue < DryValue)
+                    {
+                        t.MoistureType = MoistureType.Dryer;
+                    }
+                    else if (moistureValue < WetValue)
+                    {
+                        t.MoistureType = MoistureType.Dry;
+                    }
+                    else if (moistureValue < WetterValue)
+                    {
+                        t.MoistureType = MoistureType.Wet;
+                    }
+                    else if (moistureValue < WettestValue)
+                    {
+                        t.MoistureType = MoistureType.Wetter;
+                    }
+                    else
+                    {
+                        t.MoistureType = MoistureType.Wettest;
+                    }
 
 
                     // Adjust Heat Map based on Height - Higher == colder
@@ -816,12 +920,30 @@ namespace SadConsole.Maps.Generators.World
                     t.HeatValue = heatValue;
 
                     // set heat type
-                    if (heatValue < ColdestValue) t.HeatType = HeatType.Coldest;
-                    else if (heatValue < ColderValue) t.HeatType = HeatType.Colder;
-                    else if (heatValue < ColdValue) t.HeatType = HeatType.Cold;
-                    else if (heatValue < WarmValue) t.HeatType = HeatType.Warm;
-                    else if (heatValue < WarmerValue) t.HeatType = HeatType.Warmer;
-                    else t.HeatType = HeatType.Warmest;
+                    if (heatValue < ColdestValue)
+                    {
+                        t.HeatType = HeatType.Coldest;
+                    }
+                    else if (heatValue < ColderValue)
+                    {
+                        t.HeatType = HeatType.Colder;
+                    }
+                    else if (heatValue < ColdValue)
+                    {
+                        t.HeatType = HeatType.Cold;
+                    }
+                    else if (heatValue < WarmValue)
+                    {
+                        t.HeatType = HeatType.Warm;
+                    }
+                    else if (heatValue < WarmerValue)
+                    {
+                        t.HeatType = HeatType.Warmer;
+                    }
+                    else
+                    {
+                        t.HeatType = HeatType.Warmest;
+                    }
 
                     //if (Clouds1 != null)
                     //{
@@ -842,9 +964,9 @@ namespace SadConsole.Maps.Generators.World
 
         private void UpdateNeighbors()
         {
-            for (var x = 0; x < Width; x++)
+            for (int x = 0; x < Width; x++)
             {
-                for (var y = 0; y < Height; y++)
+                for (int y = 0; y < Height; y++)
                 {
                     Tile t = Tiles[x, y];
 
@@ -858,9 +980,9 @@ namespace SadConsole.Maps.Generators.World
 
         private void UpdateBitmasks()
         {
-            for (var x = 0; x < Width; x++)
+            for (int x = 0; x < Width; x++)
             {
-                for (var y = 0; y < Height; y++)
+                for (int y = 0; y < Height; y++)
                 {
                     Tiles[x, y].UpdateBitmask();
                 }
@@ -880,13 +1002,18 @@ namespace SadConsole.Maps.Generators.World
                     Tile t = Tiles[x, y];
 
                     //Tile already flood filled, skip
-                    if (t.FloodFilled) continue;
+                    if (t.FloodFilled)
+                    {
+                        continue;
+                    }
 
                     // Land
                     if (t.Collidable)
                     {
-                        TileGroup group = new TileGroup();
-                        group.Type = TileGroupType.Land;
+                        TileGroup group = new TileGroup
+                        {
+                            Type = TileGroupType.Land
+                        };
                         stack.Push(t);
 
                         while (stack.Count > 0)
@@ -895,13 +1022,17 @@ namespace SadConsole.Maps.Generators.World
                         }
 
                         if (group.Tiles.Count > 0)
+                        {
                             Lands.Add(group);
+                        }
                     }
                     // Water
                     else
                     {
-                        TileGroup group = new TileGroup();
-                        group.Type = TileGroupType.Water;
+                        TileGroup group = new TileGroup
+                        {
+                            Type = TileGroupType.Water
+                        };
                         stack.Push(t);
 
                         while (stack.Count > 0)
@@ -910,7 +1041,9 @@ namespace SadConsole.Maps.Generators.World
                         }
 
                         if (group.Tiles.Count > 0)
+                        {
                             Waters.Add(group);
+                        }
                     }
                 }
             }
@@ -920,13 +1053,24 @@ namespace SadConsole.Maps.Generators.World
         {
             // Validate
             if (tile == null)
+            {
                 return;
+            }
+
             if (tile.FloodFilled)
+            {
                 return;
+            }
+
             if (tiles.Type == TileGroupType.Land && !tile.Collidable)
+            {
                 return;
+            }
+
             if (tiles.Type == TileGroupType.Water && tile.Collidable)
+            {
                 return;
+            }
 
             // Add to TileGroup
             tiles.Tiles.Add(tile);
@@ -935,16 +1079,27 @@ namespace SadConsole.Maps.Generators.World
             // floodfill into neighbors
             Tile t = GetTop(tile);
             if (t != null && !t.FloodFilled && tile.Collidable == t.Collidable)
+            {
                 stack.Push(t);
+            }
+
             t = GetBottom(tile);
             if (t != null && !t.FloodFilled && tile.Collidable == t.Collidable)
+            {
                 stack.Push(t);
+            }
+
             t = GetLeft(tile);
             if (t != null && !t.FloodFilled && tile.Collidable == t.Collidable)
+            {
                 stack.Push(t);
+            }
+
             t = GetRight(tile);
             if (t != null && !t.FloodFilled && tile.Collidable == t.Collidable)
+            {
                 stack.Push(t);
+            }
         }
 
     }

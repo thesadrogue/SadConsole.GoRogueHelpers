@@ -1,11 +1,11 @@
-﻿using GoRogue;
+﻿using System;
+using GoRogue;
 using Microsoft.Xna.Framework;
 using SadConsole;
-using System;
 
 namespace StartingExample
 {
-    enum MapLayer
+    internal enum MapLayer
     {
         TERRAIN,
         ITEMS,
@@ -13,7 +13,7 @@ namespace StartingExample
         PLAYER
     }
 
-    class StartingExampleMap : BasicMap
+    internal class StartingExampleMap : BasicMap
     {
         // Handles the changing of tile/entity visiblity as appropriate based on Map.FOV.
         public FOVVisibilityHandler FovVisibilityHandler { get; }

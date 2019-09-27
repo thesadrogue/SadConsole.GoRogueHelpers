@@ -1,9 +1,9 @@
-﻿using GoRogue;
+﻿using System;
+using System.Collections.Generic;
+using GoRogue;
 using GoRogue.GameFramework;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using System;
-using System.Collections.Generic;
 
 namespace SadConsole
 {
@@ -23,10 +23,7 @@ namespace SadConsole
         /// <param name="isWalkable">Whether or not the terrain object should be considered passable for the sake of collision detection.</param>
         /// <param name="isTransparent">Whether or not the terrain object should be considered transparent for the sake of FOV.</param>
         public BasicTerrain(Coord position, bool isWalkable, bool isTransparent)
-            : base()
-        {
-            InitializeBackingField(position, isWalkable, isTransparent);
-        }
+            : base() => InitializeBackingField(position, isWalkable, isTransparent);
 
         /// <summary>
         /// Creates a terrain object with the specified foreground, black background, glyph 0, and no mirror effect.
@@ -36,10 +33,7 @@ namespace SadConsole
         /// <param name="isWalkable">Whether or not the terrain object should be considered passable for the sake of collision detection.</param>
         /// <param name="isTransparent">Whether or not the terrain object should be considered transparent for the sake of FOV.</param>
         public BasicTerrain(Color foreground, Coord position, bool isWalkable, bool isTransparent)
-            : base(foreground)
-        {
-            InitializeBackingField(position, isWalkable, isTransparent);
-        }
+            : base(foreground) => InitializeBackingField(position, isWalkable, isTransparent);
 
         /// <summary>
         /// Creates a terrain object with the specified foreground, specified background, glyph 0, and no mirror effect.
@@ -50,10 +44,7 @@ namespace SadConsole
         /// <param name="isWalkable">Whether or not the terrain object should be considered passable for the sake of collision detection.</param>
         /// <param name="isTransparent">Whether or not the terrain object should be considered transparent for the sake of FOV.</param>
         public BasicTerrain(Color foreground, Color background, Coord position, bool isWalkable, bool isTransparent)
-            : base(foreground, background)
-        {
-            InitializeBackingField(position, isWalkable, isTransparent);
-        }
+            : base(foreground, background) => InitializeBackingField(position, isWalkable, isTransparent);
 
         /// <summary>
         /// Creates a terrain object with the specified foreground, background, and glyph, with no mirror effect.
@@ -65,10 +56,7 @@ namespace SadConsole
         /// <param name="isWalkable">Whether or not the terrain object should be considered passable for the sake of collision detection.</param>
         /// <param name="isTransparent">Whether or not the terrain object should be considered transparent for the sake of FOV.</param>
         public BasicTerrain(Color foreground, Color background, int glyph, Coord position, bool isWalkable, bool isTransparent)
-            : base(foreground, background, glyph)
-        {
-            InitializeBackingField(position, isWalkable, isTransparent);
-        }
+            : base(foreground, background, glyph) => InitializeBackingField(position, isWalkable, isTransparent);
 
         /// <summary>
         /// Creates a terrain object with the specified foreground, background, glyph, and mirror effect.
@@ -81,15 +69,9 @@ namespace SadConsole
         /// <param name="isWalkable">Whether or not the terrain object should be considered passable for the sake of collision detection.</param>
         /// <param name="isTransparent">Whether or not the terrain object should be considered transparent for the sake of FOV.</param>
         public BasicTerrain(Color foreground, Color background, int glyph, SpriteEffects mirror, Coord position, bool isWalkable, bool isTransparent)
-            : base(foreground, background, glyph, mirror)
-        {
-            InitializeBackingField(position, isWalkable, isTransparent);
-        }
+            : base(foreground, background, glyph, mirror) => InitializeBackingField(position, isWalkable, isTransparent);
 
-        private void InitializeBackingField(Coord position, bool isWalkable, bool isTransparent)
-        {
-            _backingField = new GameObject(position, 0, this, true, isWalkable, isTransparent);
-        }
+        private void InitializeBackingField(Coord position, bool isWalkable, bool isTransparent) => _backingField = new GameObject(position, 0, this, true, isWalkable, isTransparent);
         #endregion Constructors
 
         #region IGameObject Implementation

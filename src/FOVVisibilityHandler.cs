@@ -1,8 +1,8 @@
-﻿using GoRogue;
+﻿using System;
+using System.Linq;
+using GoRogue;
 using GoRogue.GameFramework;
 using GoRogue.MapViews;
-using System;
-using System.Linq;
 
 namespace SadConsole
 {
@@ -65,29 +65,39 @@ namespace SadConsole
         /// <param name="state">The new state for the FOVVisibilityHandler.  See <see cref="State"/> documentation for details.</param>
         public void SetState(State state)
         {
-            switch(state)
+            switch (state)
             {
                 case State.Enabled:
                     Enabled = true;
 
-                    foreach (var pos in Map.Positions())
+                    foreach (Coord pos in Map.Positions())
                     {
-                        var terrain = Map.GetTerrain<BasicTerrain>(pos);
+                        BasicTerrain terrain = Map.GetTerrain<BasicTerrain>(pos);
                         if (terrain != null && Map.FOV.BooleanFOV[pos])
+                        {
                             UpdateTerrainSeen(terrain);
+                        }
                         else if (terrain != null)
+                        {
                             UpdateTerrainUnseen(terrain);
+                        }
                     }
 
-                    foreach (var renderer in Map.Renderers)
+                    foreach (Console renderer in Map.Renderers)
+                    {
                         renderer.IsDirty = true;
+                    }
 
-                    foreach (var entity in Map.Entities.Items.Cast<BasicEntity>())
+                    foreach (BasicEntity entity in Map.Entities.Items.Cast<BasicEntity>())
                     {
                         if (Map.FOV.BooleanFOV[entity.Position])
+                        {
                             UpdateEntitySeen(entity);
+                        }
                         else
+                        {
                             UpdateEntityUnseen(entity);
+                        }
                     }
 
                     break;
@@ -97,18 +107,24 @@ namespace SadConsole
                     break;
 
                 case State.DisabledResetVisibility:
-                    foreach (var pos in Map.Positions())
+                    foreach (Coord pos in Map.Positions())
                     {
-                        var terrain = Map.GetTerrain<BasicTerrain>(pos);
+                        BasicTerrain terrain = Map.GetTerrain<BasicTerrain>(pos);
                         if (terrain != null)
+                        {
                             UpdateTerrainSeen(terrain);
+                        }
                     }
 
-                    foreach (var renderer in Map.Renderers)
+                    foreach (Console renderer in Map.Renderers)
+                    {
                         renderer.IsDirty = true;
+                    }
 
-                    foreach (var entity in Map.Entities.Items.Cast<BasicEntity>())
+                    foreach (BasicEntity entity in Map.Entities.Items.Cast<BasicEntity>())
+                    {
                         UpdateEntitySeen(entity);
+                    }
 
                     Enabled = false;
                     break;
@@ -155,21 +171,31 @@ namespace SadConsole
         private void Map_ObjectAdded(object sender, ItemEventArgs<IGameObject> e)
         {
             if (!Enabled)
+            {
                 return;
+            }
 
             if (e.Item.Layer == 0) // Terrain
             {
                 if (Map.FOV.BooleanFOV[e.Position])
+                {
                     UpdateTerrainSeen((BasicTerrain)(e.Item));
+                }
                 else
+                {
                     UpdateTerrainUnseen((BasicTerrain)(e.Item));
+                }
             } // No need to set IsDirty on renderers, SetTerrain would have done that for us.
             else // Entities
             {
                 if (Map.FOV.BooleanFOV[e.Position])
+                {
                     UpdateEntitySeen((BasicEntity)(e.Item));
+                }
                 else
+                {
                     UpdateEntityUnseen((BasicEntity)(e.Item));
+                }
             }
         }
 
@@ -177,38 +203,58 @@ namespace SadConsole
         private void Map_ObjectMoved(object sender, ItemMovedEventArgs<IGameObject> e)
         {
             if (!Enabled)
+            {
                 return;
+            }
 
             if (Map.FOV.BooleanFOV[e.NewPosition])
+            {
                 UpdateEntitySeen((BasicEntity)(e.Item));
+            }
             else
+            {
                 UpdateEntityUnseen((BasicEntity)(e.Item));
+            }
         }
 
         private void Map_FOVRecalculated(object sender, EventArgs e)
         {
             if (!Enabled)
-                return;
-
-            foreach (var position in Map.FOV.NewlySeen)
             {
-                var terrain = Map.GetTerrain<BasicTerrain>(position);
-                if (terrain != null)
-                    UpdateTerrainSeen(terrain);
-                foreach (var entity in Map.GetEntities<BasicEntity>(position))
-                    UpdateEntitySeen(entity);
+                return;
             }
 
-            foreach (var renderer in Map.Renderers)
-                renderer.IsDirty = true;
-
-            foreach (var position in Map.FOV.NewlyUnseen)
+            foreach (Coord position in Map.FOV.NewlySeen)
             {
-                var terrain = Map.GetTerrain<BasicTerrain>(position);
+                BasicTerrain terrain = Map.GetTerrain<BasicTerrain>(position);
                 if (terrain != null)
+                {
+                    UpdateTerrainSeen(terrain);
+                }
+
+                foreach (BasicEntity entity in Map.GetEntities<BasicEntity>(position))
+                {
+                    UpdateEntitySeen(entity);
+                }
+            }
+
+            foreach (Console renderer in Map.Renderers)
+            {
+                renderer.IsDirty = true;
+            }
+
+            foreach (Coord position in Map.FOV.NewlyUnseen)
+            {
+                BasicTerrain terrain = Map.GetTerrain<BasicTerrain>(position);
+                if (terrain != null)
+                {
                     UpdateTerrainUnseen(terrain);
-                foreach (var entity in Map.GetEntities<BasicEntity>(position))
+                }
+
+                foreach (BasicEntity entity in Map.GetEntities<BasicEntity>(position))
+                {
                     UpdateEntityUnseen(entity);
+                }
             }
         }
     }

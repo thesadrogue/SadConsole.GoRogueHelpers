@@ -1,15 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SadConsole.Actions
 {
-    class DungeonSight : ActionBase
+    internal class DungeonSight : ActionBase
     {
-        public override void Run(TimeSpan timeElapsed)
-        {
+        public override void Run(TimeSpan timeElapsed) =>
             //Program.AdventureScreen.MessageScreen.Print("You gain Dungeon Sight!", Screens.Messages.MessageTypes.Warning);
 
             //foreach (var tile in Program.AdventureScreen.Map.Tiles)
@@ -18,6 +13,5 @@ namespace SadConsole.Actions
             //}
 
             Finish(ActionResult.Success);
-        }
     }
 }

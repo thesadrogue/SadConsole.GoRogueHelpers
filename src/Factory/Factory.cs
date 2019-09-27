@@ -12,16 +12,13 @@ namespace SadConsole.Factory
     public class Factory<TBlueprintConfig, TProduced> : IEnumerable<IBlueprint<TBlueprintConfig, TProduced>>
         where TBlueprintConfig : BlueprintConfig
     {
-        private Dictionary<string, IBlueprint<TBlueprintConfig, TProduced>> _blueprints = new Dictionary<string, IBlueprint<TBlueprintConfig, TProduced>>();
+        private readonly Dictionary<string, IBlueprint<TBlueprintConfig, TProduced>> _blueprints = new Dictionary<string, IBlueprint<TBlueprintConfig, TProduced>>();
 
         /// <summary>
         /// Adds a blueprint to the factory.
         /// </summary>
         /// <param name="blueprint">The blueprint to add.</param>
-        public void Add(IBlueprint<TBlueprintConfig, TProduced> blueprint)
-        {
-            _blueprints[blueprint.Id] = blueprint;
-        }
+        public void Add(IBlueprint<TBlueprintConfig, TProduced> blueprint) => _blueprints[blueprint.Id] = blueprint;
 
         /// <summary>
         /// Creates a <typeparamref name="TProduced"/> object using the blueprint with the given factory id, and the given settings object.
@@ -32,11 +29,15 @@ namespace SadConsole.Factory
         public TProduced Create(string factoryId, TBlueprintConfig blueprintConfig)
         {
             if (!_blueprints.ContainsKey(factoryId))
+            {
                 throw new ItemNotDefinedException(factoryId);
+            }
 
-            var obj = _blueprints[factoryId].Create(blueprintConfig);
+            TProduced obj = _blueprints[factoryId].Create(blueprintConfig);
             if (obj is IFactoryObject factoryObj)
+            {
                 factoryObj.DefinitionId = factoryId;
+            }
 
             return obj;
         }
@@ -57,7 +58,9 @@ namespace SadConsole.Factory
         public IBlueprint<TBlueprintConfig, TProduced> GetBlueprint(string factoryId)
         {
             if (!_blueprints.ContainsKey(factoryId))
+            {
                 throw new ItemNotDefinedException(factoryId);
+            }
 
             return _blueprints[factoryId];
         }

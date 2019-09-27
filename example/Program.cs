@@ -1,19 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using SadConsole;
-using SadConsole.Effects;
-using SadConsole.Entities;
-using SadConsole.Input;
-using Console = SadConsole.Console;
+﻿using SadConsole;
 
 namespace BasicTutorial
 {
-    class Program
+    internal class Program
     {
         public const int ScreenWidth = 100;
         public const int ScreenHeight = 30;
@@ -21,7 +10,7 @@ namespace BasicTutorial
 
         //public static readonly Rectangle 
 
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
             // Setup the engine and creat the main window.
             SadConsole.Game.Create(ScreenWidth, ScreenHeight);

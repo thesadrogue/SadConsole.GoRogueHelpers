@@ -16,7 +16,9 @@ namespace SadConsole.Components.GoRogue
             set
             {
                 if (value.Layer == 0)
+                {
                     throw new System.Exception($"Cannot add {nameof(GameFrameProcessor)} component to terrain objects.");
+                }
 
                 base.Parent = value;
             }

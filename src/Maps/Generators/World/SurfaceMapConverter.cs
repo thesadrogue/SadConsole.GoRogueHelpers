@@ -1,5 +1,4 @@
 ﻿using Microsoft.Xna.Framework;
-using SadConsole;
 
 namespace SadConsole.Maps.Generators.World
 {
@@ -13,10 +12,10 @@ namespace SadConsole.Maps.Generators.World
 
     internal struct ColorF
     {
-        byte R;
-        byte G;
-        byte B;
-        byte A;
+        private readonly byte R;
+        private readonly byte G;
+        private readonly byte B;
+        private readonly byte A;
         public ColorF(float r, float g, float b, float a)
         {
             R = (byte)(r * 255);
@@ -26,10 +25,7 @@ namespace SadConsole.Maps.Generators.World
         }
 
         // User-defined conversion from Digit to double
-        public static implicit operator Color(ColorF f)
-        {
-            return new Color(f.R, f.G, f.B, f.A);
-        }
+        public static implicit operator Color(ColorF f) => new Color(f.R, f.G, f.B, f.A);
     }
 
     public class SurfaceMap : IMapConverter<CellSurface>
@@ -128,9 +124,9 @@ namespace SadConsole.Maps.Generators.World
             var surface = new CellSurface(width, height);
             var pixels = new Color[width * height];
 
-            for (var x = 0; x < width; x++)
+            for (int x = 0; x < width; x++)
             {
-                for (var y = 0; y < height; y++)
+                for (int y = 0; y < height; y++)
                 {
                     switch (tiles[x, y].HeightType)
                     {
@@ -184,9 +180,9 @@ namespace SadConsole.Maps.Generators.World
             var surface = new CellSurface(width, height);
             var pixels = new Color[width * height];
 
-            for (var x = 0; x < width; x++)
+            for (int x = 0; x < width; x++)
             {
-                for (var y = 0; y < height; y++)
+                for (int y = 0; y < height; y++)
                 {
                     switch (tiles[x, y].HeatType)
                     {
@@ -212,7 +208,9 @@ namespace SadConsole.Maps.Generators.World
 
                     //darken the color if a edge tile
                     if ((int)tiles[x, y].HeightType > 2 && tiles[x, y].Bitmask != 15)
+                    {
                         pixels[x + y * width] = Color.Lerp(pixels[x + y * width], Color.Black, 0.4f);
+                    }
                 }
             }
 
@@ -226,24 +224,36 @@ namespace SadConsole.Maps.Generators.World
             var surface = new CellSurface(width, height);
             var pixels = new Color[width * height];
 
-            for (var x = 0; x < width; x++)
+            for (int x = 0; x < width; x++)
             {
-                for (var y = 0; y < height; y++)
+                for (int y = 0; y < height; y++)
                 {
                     Tile t = tiles[x, y];
 
                     if (t.MoistureType == MoistureType.Dryest)
+                    {
                         pixels[x + y * width] = Dryest;
+                    }
                     else if (t.MoistureType == MoistureType.Dryer)
+                    {
                         pixels[x + y * width] = Dryer;
+                    }
                     else if (t.MoistureType == MoistureType.Dry)
+                    {
                         pixels[x + y * width] = Dry;
+                    }
                     else if (t.MoistureType == MoistureType.Wet)
+                    {
                         pixels[x + y * width] = Wet;
+                    }
                     else if (t.MoistureType == MoistureType.Wetter)
+                    {
                         pixels[x + y * width] = Wetter;
+                    }
                     else
+                    {
                         pixels[x + y * width] = Wettest;
+                    }
                 }
             }
 
@@ -256,9 +266,9 @@ namespace SadConsole.Maps.Generators.World
             var surface = new CellSurface(width, height);
             var pixels = new Color[width * height];
 
-            for (var x = 0; x < width; x++)
+            for (int x = 0; x < width; x++)
             {
-                for (var y = 0; y < height; y++)
+                for (int y = 0; y < height; y++)
                 {
                     BiomeType value = tiles[x, y].BiomeType;
 
@@ -312,13 +322,21 @@ namespace SadConsole.Maps.Generators.World
                         float heatValue = tiles[x, y].HeatValue;
 
                         if (tiles[x, y].HeatType == HeatType.Coldest)
+                        {
                             pixels[x + y * width] = Color.Lerp(IceWater, ColdWater, (heatValue) / (coldest));
+                        }
                         else if (tiles[x, y].HeatType == HeatType.Colder)
+                        {
                             pixels[x + y * width] = Color.Lerp(ColdWater, RiverWater, (heatValue - coldest) / (colder - coldest));
+                        }
                         else if (tiles[x, y].HeatType == HeatType.Cold)
+                        {
                             pixels[x + y * width] = Color.Lerp(RiverWater, ShallowColor, (heatValue - colder) / (cold - colder));
+                        }
                         else
+                        {
                             pixels[x + y * width] = ShallowColor;
+                        }
                     }
 
 
@@ -326,7 +344,9 @@ namespace SadConsole.Maps.Generators.World
                     if (tiles[x, y].HeightType >= HeightType.Shore && tiles[x, y].HeightType != HeightType.River)
                     {
                         if (tiles[x, y].BiomeBitmask != 15)
+                        {
                             pixels[x + y * width] = Color.Lerp(pixels[x + y * width], Color.Black, 0.35f);
+                        }
                     }
                 }
             }

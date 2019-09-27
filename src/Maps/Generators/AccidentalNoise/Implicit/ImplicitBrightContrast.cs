@@ -1,15 +1,13 @@
-﻿using System;
-
-namespace TinkerWorX.AccidentalNoiseLibrary
+﻿namespace TinkerWorX.AccidentalNoiseLibrary
 {
     public sealed class ImplicitBrightContrast : ImplicitModuleBase
     {
-        public ImplicitBrightContrast(ImplicitModuleBase source, Double brightness = 0.00, Double contrastThreshold = 0.00, Double contrastFactor = 1.00)
+        public ImplicitBrightContrast(ImplicitModuleBase source, double brightness = 0.00, double contrastThreshold = 0.00, double contrastFactor = 1.00)
         {
-            this.Source = source;
-            this.Brightness = new ImplicitConstant(brightness);
-            this.ContrastThreshold = new ImplicitConstant(contrastThreshold);
-            this.ContrastFactor = new ImplicitConstant(contrastFactor);
+            Source = source;
+            Brightness = new ImplicitConstant(brightness);
+            ContrastThreshold = new ImplicitConstant(contrastThreshold);
+            ContrastFactor = new ImplicitConstant(contrastFactor);
         }
 
         private ImplicitModuleBase Source { get; set; }
@@ -20,58 +18,58 @@ namespace TinkerWorX.AccidentalNoiseLibrary
 
         private ImplicitModuleBase ContrastFactor { get; set; }
 
-        public override Double Get(Double x, Double y)
+        public override double Get(double x, double y)
         {
-            var value = this.Source.Get(x, y);
+            double value = Source.Get(x, y);
             // Apply brightness
-            value += this.Brightness.Get(x, y);
+            value += Brightness.Get(x, y);
 
             // Subtract contrastThreshold, scale by contrastFactor, add contrastThreshold
-            var threshold = this.ContrastThreshold.Get(x, y);
+            double threshold = ContrastThreshold.Get(x, y);
             value -= threshold;
-            value *= this.ContrastFactor.Get(x, y);
+            value *= ContrastFactor.Get(x, y);
             value += threshold;
             return value;
         }
 
-        public override Double Get(Double x, Double y, Double z)
+        public override double Get(double x, double y, double z)
         {
-            var value = this.Source.Get(x, y, z);
+            double value = Source.Get(x, y, z);
             // Apply brightness
-            value += this.Brightness.Get(x, y, z);
+            value += Brightness.Get(x, y, z);
 
             // Subtract contrastThreshold, scale by contrastFactor, add contrastThreshold
-            var threshold = this.ContrastThreshold.Get(x, y, z);
+            double threshold = ContrastThreshold.Get(x, y, z);
             value -= threshold;
-            value *= this.ContrastFactor.Get(x, y, z);
+            value *= ContrastFactor.Get(x, y, z);
             value += threshold;
             return value;
         }
 
-        public override Double Get(Double x, Double y, Double z, Double w)
+        public override double Get(double x, double y, double z, double w)
         {
-            var value = this.Source.Get(x, y, z, w);
+            double value = Source.Get(x, y, z, w);
             // Apply brightness
-            value += this.Brightness.Get(x, y, z, w);
+            value += Brightness.Get(x, y, z, w);
 
             // Subtract contrastThreshold, scale by contrastFactor, add contrastThreshold
-            var threshold = this.ContrastThreshold.Get(x, y, z, w);
+            double threshold = ContrastThreshold.Get(x, y, z, w);
             value -= threshold;
-            value *= this.ContrastFactor.Get(x, y, z, w);
+            value *= ContrastFactor.Get(x, y, z, w);
             value += threshold;
             return value;
         }
 
-        public override Double Get(Double x, Double y, Double z, Double w, Double u, Double v)
+        public override double Get(double x, double y, double z, double w, double u, double v)
         {
-            var value = this.Source.Get(x, y, z, w, u, v);
+            double value = Source.Get(x, y, z, w, u, v);
             // Apply brightness
-            value += this.Brightness.Get(x, y, z, w, u, v);
+            value += Brightness.Get(x, y, z, w, u, v);
 
             // Subtract contrastThreshold, scale by contrastFactor, add contrastThreshold
-            var threshold = this.ContrastThreshold.Get(x, y, z, w, u, v);
+            double threshold = ContrastThreshold.Get(x, y, z, w, u, v);
             value -= threshold;
-            value *= this.ContrastFactor.Get(x, y, z, w, u, v);
+            value *= ContrastFactor.Get(x, y, z, w, u, v);
             value += threshold;
             return value;
         }

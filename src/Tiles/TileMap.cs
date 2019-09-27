@@ -1,7 +1,7 @@
-﻿using GoRogue;
-using GoRogue.MapViews;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using GoRogue;
+using GoRogue.MapViews;
 
 namespace SadConsole.Tiles
 {
@@ -28,15 +28,17 @@ namespace SadConsole.Tiles
             Regions = new List<Maps.Region>();
 
             // Be efficient by not using factory.Create each tile below. Instead, get the blueprint and use that to create each tile.
-            var defaultTile = Tile.Factory.GetBlueprint(defaultTileBlueprint);
+            Factory.IBlueprint<TileBlueprintConfig, Tile> defaultTile = Tile.Factory.GetBlueprint(defaultTileBlueprint);
 
             // Configure to set up event forwarding properly on tile add/remove
             ObjectAdded += TileMap_ObjectAdded;
             ObjectRemoved += TileMap_ObjectRemoved;
 
             // Fill the map with walls
-            foreach (var pos in this.Positions())
+            foreach (Coord pos in this.Positions())
+            {
                 SetTerrain(defaultTile.Create(pos));
+            }
         }
 
         public Tile FindEmptyTile() => GetTerrain<Tile>(WalkabilityView.RandomPosition(true));
@@ -58,7 +60,9 @@ namespace SadConsole.Tiles
             // TODO: This depends on added object to make sure the event fires on replacement, however this breaks
             // if a tile is set to null (for whatever reason)...
             if (e.Item is Tile tile)
+            {
                 tile.TileChanged -= Tile_TileChanged;
+            }
         }
 
         // Fire map-based event for either tile being set, or its state changing.

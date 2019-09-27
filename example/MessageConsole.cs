@@ -1,17 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using SadConsole;
 using Console = SadConsole.Console;
 
 namespace BasicTutorial
 {
-    class MessageConsole : Console
+    internal class MessageConsole : Console
     {
-        Color _semiTransparentBlack;
+        private Color _semiTransparentBlack;
 
         public enum MessageTypes
         {
