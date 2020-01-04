@@ -62,7 +62,7 @@ namespace SadConsole
                 }
 
                 // Process player to make sure they are last to be processed
-                foreach (Components.GoRogue.GameFrameProcessor processor in Map.ControlledGameObject.GetComponents<Components.GoRogue.GameFrameProcessor>())
+                foreach (Components.GoRogue.GameFrameProcessor processor in Map.ControlledGameObject.GetGoRogueComponents<Components.GoRogue.GameFrameProcessor>())
                 {
                     processor.ProcessGameFrame();
                     if (!RunLogicFrame)

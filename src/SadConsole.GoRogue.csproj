@@ -5,25 +5,25 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <LangVersion>latest</LangVersion>
     <RootNamespace>SadConsole</RootNamespace>
-    <Version>1.0.0-alpha2</Version>
+    <Version>1.0.0</Version>
+	<Version Condition="'$(Configuration)'=='Debug'">$(Version)-debug</Version>
     <Authors>Chris3606;Thraka</Authors>
     <Company>TheSadRogue</Company>
     <Copyright>Copyright © 2019 TheSadRogue [Steve De George JR (Thraka) and Christopher Ridley (Chris3606)]</Copyright>
-    <Description>A game helpers library for SadConsole games built with GoRogue.</Description>
+    <Description>A helper library for SadConsole games built with GoRogue.</Description>
     
     <!-- More nuget package settings-->
     <PackageId>SadConsole.GoRogueHelpers</PackageId>
-    <PackageReleaseNotes>Initial alpha release.</PackageReleaseNotes>
+    <PackageReleaseNotes>Modified component system to avoid the need to explicitly cast parents frequently.  Initial full release.</PackageReleaseNotes>
     <PackageIconUrl>https://raw.githubusercontent.com/SadConsole/SadConsole/d110fc4a0dfdaa25496c973518ea6a14a563e191/images/oD8yyro5.png</PackageIconUrl>
     <RepositoryUrl>https://github.com/thesadrogue/SadConsole.GoRogueHelpers</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
-    <PackageProjectUrl></PackageProjectUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <IncludeSymbols>true</IncludeSymbols>
     <IncludeSource>true</IncludeSource>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
-    <PackageTags>sadconsole;gorogue;monogame;roguelike;cli;xna;game;development;console;ansi;ascii;standard</PackageTags>
+    <PackageTags>sadconsole;gorogue;monogame;roguelike;rogue;cli;xna;game;development;console;ansi;ascii;standard;thesadrogue;sadrogue</PackageTags>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
 
@@ -39,10 +39,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-	  <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0-beta2-19367-01" PrivateAssets="All" />
-    <PackageReference Include="GoRogue" Version="2.4.3" GeneratePathProperty="true" />
-    <PackageReference Include="MonoGame.Framework.DesktopGL.Core" Version="3.7.0.7" PrivateAssets="All" />
-    <PackageReference Include="SadConsole" Version="8.8.1" GeneratePathProperty="true" />
+	  <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All" />
+    <PackageReference Include="GoRogue" Version="2.5.1" GeneratePathProperty="true" />
+    <PackageReference Include="MonoGame.Framework.DesktopGL.Core" Version="3.8.0.1" PrivateAssets="All" />
+    <PackageReference Include="SadConsole" Version="8.9.1" GeneratePathProperty="true" />
   </ItemGroup>
   
   <!-- When packing, copy the nuget files to the nuget output directory -->
