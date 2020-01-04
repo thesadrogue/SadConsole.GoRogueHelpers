@@ -101,8 +101,19 @@ namespace SadConsole
         }
 
         #region Component Forwarder Functions
-        public IConsoleComponent GetConsoleComponent<T>() where T : IConsoleComponent => GetComponent<T>();
-        public IEnumerable<IConsoleComponent> GetConsoleComponents<T>() where T : IConsoleComponent => GetComponents<T>();
+        /// <summary>
+        /// Gets the first SadConsole Console component of the specified type.
+        /// </summary>
+        /// <typeparam name="TComponent">THe component to find</typeparam>
+        /// <returns>The component if found, otherwise null.</returns>
+        public IConsoleComponent GetConsoleComponent<TComponent>() where TComponent : IConsoleComponent => GetComponent<TComponent>();
+
+        /// <summary>
+        /// Gets SadConosle Console components of the specified types.
+        /// </summary>
+        /// <typeparam name="TComponent">The component to find</typeparam>
+        /// <returns>The components found.</returns>
+        public IEnumerable<IConsoleComponent> GetConsoleComponents<TComponent>() where TComponent : IConsoleComponent => GetComponents<TComponent>();
 
         /// <summary>
 		/// Adds the given object as a GoRogue component.  Throws ArgumentException if the specific instance has already been added.

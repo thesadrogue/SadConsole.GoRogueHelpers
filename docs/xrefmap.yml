@@ -439,18 +439,18 @@ references:
   commentId: Overload:SadConsole.BasicEntity.#ctor
   fullName: SadConsole.BasicEntity.BasicEntity
   nameWithType: BasicEntity.BasicEntity
-- uid: SadConsole.BasicEntity.AddComponent(System.Object)
-  name: AddComponent(Object)
-  href: api/SadConsole.BasicEntity.html#SadConsole_BasicEntity_AddComponent_System_Object_
-  commentId: M:SadConsole.BasicEntity.AddComponent(System.Object)
-  fullName: SadConsole.BasicEntity.AddComponent(System.Object)
-  nameWithType: BasicEntity.AddComponent(Object)
-- uid: SadConsole.BasicEntity.AddComponent*
-  name: AddComponent
-  href: api/SadConsole.BasicEntity.html#SadConsole_BasicEntity_AddComponent_
-  commentId: Overload:SadConsole.BasicEntity.AddComponent
-  fullName: SadConsole.BasicEntity.AddComponent
-  nameWithType: BasicEntity.AddComponent
+- uid: SadConsole.BasicEntity.AddGoRogueComponent(System.Object)
+  name: AddGoRogueComponent(Object)
+  href: api/SadConsole.BasicEntity.html#SadConsole_BasicEntity_AddGoRogueComponent_System_Object_
+  commentId: M:SadConsole.BasicEntity.AddGoRogueComponent(System.Object)
+  fullName: SadConsole.BasicEntity.AddGoRogueComponent(System.Object)
+  nameWithType: BasicEntity.AddGoRogueComponent(Object)
+- uid: SadConsole.BasicEntity.AddGoRogueComponent*
+  name: AddGoRogueComponent
+  href: api/SadConsole.BasicEntity.html#SadConsole_BasicEntity_AddGoRogueComponent_
+  commentId: Overload:SadConsole.BasicEntity.AddGoRogueComponent
+  fullName: SadConsole.BasicEntity.AddGoRogueComponent
+  nameWithType: BasicEntity.AddGoRogueComponent
 - uid: SadConsole.BasicEntity.CurrentMap
   name: CurrentMap
   href: api/SadConsole.BasicEntity.html#SadConsole_BasicEntity_CurrentMap
@@ -463,72 +463,102 @@ references:
   commentId: Overload:SadConsole.BasicEntity.CurrentMap
   fullName: SadConsole.BasicEntity.CurrentMap
   nameWithType: BasicEntity.CurrentMap
-- uid: SadConsole.BasicEntity.GetComponent*
-  name: GetComponent
-  href: api/SadConsole.BasicEntity.html#SadConsole_BasicEntity_GetComponent_
-  commentId: Overload:SadConsole.BasicEntity.GetComponent
-  fullName: SadConsole.BasicEntity.GetComponent
-  nameWithType: BasicEntity.GetComponent
-- uid: SadConsole.BasicEntity.GetComponent``1
-  name: GetComponent<T>()
-  href: api/SadConsole.BasicEntity.html#SadConsole_BasicEntity_GetComponent__1
-  commentId: M:SadConsole.BasicEntity.GetComponent``1
-  name.vb: GetComponent(Of T)()
-  fullName: SadConsole.BasicEntity.GetComponent<T>()
-  fullName.vb: SadConsole.BasicEntity.GetComponent(Of T)()
-  nameWithType: BasicEntity.GetComponent<T>()
-  nameWithType.vb: BasicEntity.GetComponent(Of T)()
-- uid: SadConsole.BasicEntity.GetComponents*
-  name: GetComponents
-  href: api/SadConsole.BasicEntity.html#SadConsole_BasicEntity_GetComponents_
-  commentId: Overload:SadConsole.BasicEntity.GetComponents
-  fullName: SadConsole.BasicEntity.GetComponents
-  nameWithType: BasicEntity.GetComponents
-- uid: SadConsole.BasicEntity.GetComponents``1
-  name: GetComponents<T>()
-  href: api/SadConsole.BasicEntity.html#SadConsole_BasicEntity_GetComponents__1
-  commentId: M:SadConsole.BasicEntity.GetComponents``1
-  name.vb: GetComponents(Of T)()
-  fullName: SadConsole.BasicEntity.GetComponents<T>()
-  fullName.vb: SadConsole.BasicEntity.GetComponents(Of T)()
-  nameWithType: BasicEntity.GetComponents<T>()
-  nameWithType.vb: BasicEntity.GetComponents(Of T)()
-- uid: SadConsole.BasicEntity.HasComponent(System.Type)
-  name: HasComponent(Type)
-  href: api/SadConsole.BasicEntity.html#SadConsole_BasicEntity_HasComponent_System_Type_
-  commentId: M:SadConsole.BasicEntity.HasComponent(System.Type)
-  fullName: SadConsole.BasicEntity.HasComponent(System.Type)
-  nameWithType: BasicEntity.HasComponent(Type)
-- uid: SadConsole.BasicEntity.HasComponent*
-  name: HasComponent
-  href: api/SadConsole.BasicEntity.html#SadConsole_BasicEntity_HasComponent_
-  commentId: Overload:SadConsole.BasicEntity.HasComponent
-  fullName: SadConsole.BasicEntity.HasComponent
-  nameWithType: BasicEntity.HasComponent
-- uid: SadConsole.BasicEntity.HasComponent``1
-  name: HasComponent<T>()
-  href: api/SadConsole.BasicEntity.html#SadConsole_BasicEntity_HasComponent__1
-  commentId: M:SadConsole.BasicEntity.HasComponent``1
-  name.vb: HasComponent(Of T)()
-  fullName: SadConsole.BasicEntity.HasComponent<T>()
-  fullName.vb: SadConsole.BasicEntity.HasComponent(Of T)()
-  nameWithType: BasicEntity.HasComponent<T>()
-  nameWithType.vb: BasicEntity.HasComponent(Of T)()
-- uid: SadConsole.BasicEntity.HasComponents(System.Type[])
-  name: HasComponents(Type[])
-  href: api/SadConsole.BasicEntity.html#SadConsole_BasicEntity_HasComponents_System_Type___
-  commentId: M:SadConsole.BasicEntity.HasComponents(System.Type[])
-  name.vb: HasComponents(Type())
-  fullName: SadConsole.BasicEntity.HasComponents(System.Type[])
-  fullName.vb: SadConsole.BasicEntity.HasComponents(System.Type())
-  nameWithType: BasicEntity.HasComponents(Type[])
-  nameWithType.vb: BasicEntity.HasComponents(Type())
-- uid: SadConsole.BasicEntity.HasComponents*
-  name: HasComponents
-  href: api/SadConsole.BasicEntity.html#SadConsole_BasicEntity_HasComponents_
-  commentId: Overload:SadConsole.BasicEntity.HasComponents
-  fullName: SadConsole.BasicEntity.HasComponents
-  nameWithType: BasicEntity.HasComponents
+- uid: SadConsole.BasicEntity.GetConsoleComponent*
+  name: GetConsoleComponent
+  href: api/SadConsole.BasicEntity.html#SadConsole_BasicEntity_GetConsoleComponent_
+  commentId: Overload:SadConsole.BasicEntity.GetConsoleComponent
+  fullName: SadConsole.BasicEntity.GetConsoleComponent
+  nameWithType: BasicEntity.GetConsoleComponent
+- uid: SadConsole.BasicEntity.GetConsoleComponent``1
+  name: GetConsoleComponent<T>()
+  href: api/SadConsole.BasicEntity.html#SadConsole_BasicEntity_GetConsoleComponent__1
+  commentId: M:SadConsole.BasicEntity.GetConsoleComponent``1
+  name.vb: GetConsoleComponent(Of T)()
+  fullName: SadConsole.BasicEntity.GetConsoleComponent<T>()
+  fullName.vb: SadConsole.BasicEntity.GetConsoleComponent(Of T)()
+  nameWithType: BasicEntity.GetConsoleComponent<T>()
+  nameWithType.vb: BasicEntity.GetConsoleComponent(Of T)()
+- uid: SadConsole.BasicEntity.GetConsoleComponents*
+  name: GetConsoleComponents
+  href: api/SadConsole.BasicEntity.html#SadConsole_BasicEntity_GetConsoleComponents_
+  commentId: Overload:SadConsole.BasicEntity.GetConsoleComponents
+  fullName: SadConsole.BasicEntity.GetConsoleComponents
+  nameWithType: BasicEntity.GetConsoleComponents
+- uid: SadConsole.BasicEntity.GetConsoleComponents``1
+  name: GetConsoleComponents<T>()
+  href: api/SadConsole.BasicEntity.html#SadConsole_BasicEntity_GetConsoleComponents__1
+  commentId: M:SadConsole.BasicEntity.GetConsoleComponents``1
+  name.vb: GetConsoleComponents(Of T)()
+  fullName: SadConsole.BasicEntity.GetConsoleComponents<T>()
+  fullName.vb: SadConsole.BasicEntity.GetConsoleComponents(Of T)()
+  nameWithType: BasicEntity.GetConsoleComponents<T>()
+  nameWithType.vb: BasicEntity.GetConsoleComponents(Of T)()
+- uid: SadConsole.BasicEntity.GetGoRogueComponent*
+  name: GetGoRogueComponent
+  href: api/SadConsole.BasicEntity.html#SadConsole_BasicEntity_GetGoRogueComponent_
+  commentId: Overload:SadConsole.BasicEntity.GetGoRogueComponent
+  fullName: SadConsole.BasicEntity.GetGoRogueComponent
+  nameWithType: BasicEntity.GetGoRogueComponent
+- uid: SadConsole.BasicEntity.GetGoRogueComponent``1
+  name: GetGoRogueComponent<T>()
+  href: api/SadConsole.BasicEntity.html#SadConsole_BasicEntity_GetGoRogueComponent__1
+  commentId: M:SadConsole.BasicEntity.GetGoRogueComponent``1
+  name.vb: GetGoRogueComponent(Of T)()
+  fullName: SadConsole.BasicEntity.GetGoRogueComponent<T>()
+  fullName.vb: SadConsole.BasicEntity.GetGoRogueComponent(Of T)()
+  nameWithType: BasicEntity.GetGoRogueComponent<T>()
+  nameWithType.vb: BasicEntity.GetGoRogueComponent(Of T)()
+- uid: SadConsole.BasicEntity.GetGoRogueComponents*
+  name: GetGoRogueComponents
+  href: api/SadConsole.BasicEntity.html#SadConsole_BasicEntity_GetGoRogueComponents_
+  commentId: Overload:SadConsole.BasicEntity.GetGoRogueComponents
+  fullName: SadConsole.BasicEntity.GetGoRogueComponents
+  nameWithType: BasicEntity.GetGoRogueComponents
+- uid: SadConsole.BasicEntity.GetGoRogueComponents``1
+  name: GetGoRogueComponents<T>()
+  href: api/SadConsole.BasicEntity.html#SadConsole_BasicEntity_GetGoRogueComponents__1
+  commentId: M:SadConsole.BasicEntity.GetGoRogueComponents``1
+  name.vb: GetGoRogueComponents(Of T)()
+  fullName: SadConsole.BasicEntity.GetGoRogueComponents<T>()
+  fullName.vb: SadConsole.BasicEntity.GetGoRogueComponents(Of T)()
+  nameWithType: BasicEntity.GetGoRogueComponents<T>()
+  nameWithType.vb: BasicEntity.GetGoRogueComponents(Of T)()
+- uid: SadConsole.BasicEntity.HasGoRogueComponent(System.Type)
+  name: HasGoRogueComponent(Type)
+  href: api/SadConsole.BasicEntity.html#SadConsole_BasicEntity_HasGoRogueComponent_System_Type_
+  commentId: M:SadConsole.BasicEntity.HasGoRogueComponent(System.Type)
+  fullName: SadConsole.BasicEntity.HasGoRogueComponent(System.Type)
+  nameWithType: BasicEntity.HasGoRogueComponent(Type)
+- uid: SadConsole.BasicEntity.HasGoRogueComponent*
+  name: HasGoRogueComponent
+  href: api/SadConsole.BasicEntity.html#SadConsole_BasicEntity_HasGoRogueComponent_
+  commentId: Overload:SadConsole.BasicEntity.HasGoRogueComponent
+  fullName: SadConsole.BasicEntity.HasGoRogueComponent
+  nameWithType: BasicEntity.HasGoRogueComponent
+- uid: SadConsole.BasicEntity.HasGoRogueComponent``1
+  name: HasGoRogueComponent<T>()
+  href: api/SadConsole.BasicEntity.html#SadConsole_BasicEntity_HasGoRogueComponent__1
+  commentId: M:SadConsole.BasicEntity.HasGoRogueComponent``1
+  name.vb: HasGoRogueComponent(Of T)()
+  fullName: SadConsole.BasicEntity.HasGoRogueComponent<T>()
+  fullName.vb: SadConsole.BasicEntity.HasGoRogueComponent(Of T)()
+  nameWithType: BasicEntity.HasGoRogueComponent<T>()
+  nameWithType.vb: BasicEntity.HasGoRogueComponent(Of T)()
+- uid: SadConsole.BasicEntity.HasGoRogueComponents(System.Type[])
+  name: HasGoRogueComponents(Type[])
+  href: api/SadConsole.BasicEntity.html#SadConsole_BasicEntity_HasGoRogueComponents_System_Type___
+  commentId: M:SadConsole.BasicEntity.HasGoRogueComponents(System.Type[])
+  name.vb: HasGoRogueComponents(Type())
+  fullName: SadConsole.BasicEntity.HasGoRogueComponents(System.Type[])
+  fullName.vb: SadConsole.BasicEntity.HasGoRogueComponents(System.Type())
+  nameWithType: BasicEntity.HasGoRogueComponents(Type[])
+  nameWithType.vb: BasicEntity.HasGoRogueComponents(Type())
+- uid: SadConsole.BasicEntity.HasGoRogueComponents*
+  name: HasGoRogueComponents
+  href: api/SadConsole.BasicEntity.html#SadConsole_BasicEntity_HasGoRogueComponents_
+  commentId: Overload:SadConsole.BasicEntity.HasGoRogueComponents
+  fullName: SadConsole.BasicEntity.HasGoRogueComponents
+  nameWithType: BasicEntity.HasGoRogueComponents
 - uid: SadConsole.BasicEntity.ID
   name: ID
   href: api/SadConsole.BasicEntity.html#SadConsole_BasicEntity_ID
@@ -631,33 +661,33 @@ references:
   commentId: Overload:SadConsole.BasicEntity.Position
   fullName: SadConsole.BasicEntity.Position
   nameWithType: BasicEntity.Position
-- uid: SadConsole.BasicEntity.RemoveComponent(System.Object)
-  name: RemoveComponent(Object)
-  href: api/SadConsole.BasicEntity.html#SadConsole_BasicEntity_RemoveComponent_System_Object_
-  commentId: M:SadConsole.BasicEntity.RemoveComponent(System.Object)
-  fullName: SadConsole.BasicEntity.RemoveComponent(System.Object)
-  nameWithType: BasicEntity.RemoveComponent(Object)
-- uid: SadConsole.BasicEntity.RemoveComponent*
-  name: RemoveComponent
-  href: api/SadConsole.BasicEntity.html#SadConsole_BasicEntity_RemoveComponent_
-  commentId: Overload:SadConsole.BasicEntity.RemoveComponent
-  fullName: SadConsole.BasicEntity.RemoveComponent
-  nameWithType: BasicEntity.RemoveComponent
-- uid: SadConsole.BasicEntity.RemoveComponents(System.Object[])
-  name: RemoveComponents(Object[])
-  href: api/SadConsole.BasicEntity.html#SadConsole_BasicEntity_RemoveComponents_System_Object___
-  commentId: M:SadConsole.BasicEntity.RemoveComponents(System.Object[])
-  name.vb: RemoveComponents(Object())
-  fullName: SadConsole.BasicEntity.RemoveComponents(System.Object[])
-  fullName.vb: SadConsole.BasicEntity.RemoveComponents(System.Object())
-  nameWithType: BasicEntity.RemoveComponents(Object[])
-  nameWithType.vb: BasicEntity.RemoveComponents(Object())
-- uid: SadConsole.BasicEntity.RemoveComponents*
-  name: RemoveComponents
-  href: api/SadConsole.BasicEntity.html#SadConsole_BasicEntity_RemoveComponents_
-  commentId: Overload:SadConsole.BasicEntity.RemoveComponents
-  fullName: SadConsole.BasicEntity.RemoveComponents
-  nameWithType: BasicEntity.RemoveComponents
+- uid: SadConsole.BasicEntity.RemoveGoRogueComponent(System.Object)
+  name: RemoveGoRogueComponent(Object)
+  href: api/SadConsole.BasicEntity.html#SadConsole_BasicEntity_RemoveGoRogueComponent_System_Object_
+  commentId: M:SadConsole.BasicEntity.RemoveGoRogueComponent(System.Object)
+  fullName: SadConsole.BasicEntity.RemoveGoRogueComponent(System.Object)
+  nameWithType: BasicEntity.RemoveGoRogueComponent(Object)
+- uid: SadConsole.BasicEntity.RemoveGoRogueComponent*
+  name: RemoveGoRogueComponent
+  href: api/SadConsole.BasicEntity.html#SadConsole_BasicEntity_RemoveGoRogueComponent_
+  commentId: Overload:SadConsole.BasicEntity.RemoveGoRogueComponent
+  fullName: SadConsole.BasicEntity.RemoveGoRogueComponent
+  nameWithType: BasicEntity.RemoveGoRogueComponent
+- uid: SadConsole.BasicEntity.RemoveGoRogueComponents(System.Object[])
+  name: RemoveGoRogueComponents(Object[])
+  href: api/SadConsole.BasicEntity.html#SadConsole_BasicEntity_RemoveGoRogueComponents_System_Object___
+  commentId: M:SadConsole.BasicEntity.RemoveGoRogueComponents(System.Object[])
+  name.vb: RemoveGoRogueComponents(Object())
+  fullName: SadConsole.BasicEntity.RemoveGoRogueComponents(System.Object[])
+  fullName.vb: SadConsole.BasicEntity.RemoveGoRogueComponents(System.Object())
+  nameWithType: BasicEntity.RemoveGoRogueComponents(Object[])
+  nameWithType.vb: BasicEntity.RemoveGoRogueComponents(Object())
+- uid: SadConsole.BasicEntity.RemoveGoRogueComponents*
+  name: RemoveGoRogueComponents
+  href: api/SadConsole.BasicEntity.html#SadConsole_BasicEntity_RemoveGoRogueComponents_
+  commentId: Overload:SadConsole.BasicEntity.RemoveGoRogueComponents
+  fullName: SadConsole.BasicEntity.RemoveGoRogueComponents
+  nameWithType: BasicEntity.RemoveGoRogueComponents
 - uid: SadConsole.BasicMap
   name: BasicMap
   href: api/SadConsole.BasicMap.html

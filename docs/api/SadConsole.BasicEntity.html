@@ -517,14 +517,14 @@ that you call the base set in the overridden setter, as it performs collision de
   </h3>
   
   
-  <a id="SadConsole_BasicEntity_AddComponent_" data-uid="SadConsole.BasicEntity.AddComponent*"></a>
-  <h4 id="SadConsole_BasicEntity_AddComponent_System_Object_" data-uid="SadConsole.BasicEntity.AddComponent(System.Object)">AddComponent(Object)</h4>
-  <div class="markdown level1 summary"><p>Adds the given object as a component.  Throws ArgumentException if the specific instance has already been added.</p>
+  <a id="SadConsole_BasicEntity_AddGoRogueComponent_" data-uid="SadConsole.BasicEntity.AddGoRogueComponent*"></a>
+  <h4 id="SadConsole_BasicEntity_AddGoRogueComponent_System_Object_" data-uid="SadConsole.BasicEntity.AddGoRogueComponent(System.Object)">AddGoRogueComponent(Object)</h4>
+  <div class="markdown level1 summary"><p>Adds the given object as a GoRogue component.  Throws ArgumentException if the specific instance has already been added.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void AddComponent(object component)</code></pre>
+    <pre><code class="lang-csharp hljs">public void AddGoRogueComponent(object component)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -546,15 +546,97 @@ that you call the base set in the overridden setter, as it performs collision de
   </table>
   
   
-  <a id="SadConsole_BasicEntity_GetComponent_" data-uid="SadConsole.BasicEntity.GetComponent*"></a>
-  <h4 id="SadConsole_BasicEntity_GetComponent__1" data-uid="SadConsole.BasicEntity.GetComponent``1">GetComponent&lt;T&gt;()</h4>
-  <div class="markdown level1 summary"><p>Gets the first component of type T that was added, or default(T) if no component of that type has
+  <a id="SadConsole_BasicEntity_GetConsoleComponent_" data-uid="SadConsole.BasicEntity.GetConsoleComponent*"></a>
+  <h4 id="SadConsole_BasicEntity_GetConsoleComponent__1" data-uid="SadConsole.BasicEntity.GetConsoleComponent``1">GetConsoleComponent&lt;T&gt;()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IConsoleComponent GetConsoleComponent&lt;T&gt;()
+    where T : IConsoleComponent</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">SadConsole.Components.IConsoleComponent</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="SadConsole_BasicEntity_GetConsoleComponents_" data-uid="SadConsole.BasicEntity.GetConsoleComponents*"></a>
+  <h4 id="SadConsole_BasicEntity_GetConsoleComponents__1" data-uid="SadConsole.BasicEntity.GetConsoleComponents``1">GetConsoleComponents&lt;T&gt;()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEnumerable&lt;IConsoleComponent&gt; GetConsoleComponents&lt;T&gt;()
+    where T : IConsoleComponent</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<span class="xref">SadConsole.Components.IConsoleComponent</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="SadConsole_BasicEntity_GetGoRogueComponent_" data-uid="SadConsole.BasicEntity.GetGoRogueComponent*"></a>
+  <h4 id="SadConsole_BasicEntity_GetGoRogueComponent__1" data-uid="SadConsole.BasicEntity.GetGoRogueComponent``1">GetGoRogueComponent&lt;T&gt;()</h4>
+  <div class="markdown level1 summary"><p>Gets the first GoRogue component of type T that was added, or default(T) if no component of that type has
 been added.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public T GetComponent&lt;T&gt;()</code></pre>
+    <pre><code class="lang-csharp hljs">public T GetGoRogueComponent&lt;T&gt;()</code></pre>
   </div>
   <h5 class="returns">Returns</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -567,7 +649,7 @@ been added.</p>
     <tbody>
       <tr>
         <td><span class="xref">T</span></td>
-        <td><p>The first component of Type T that was attached, or default(T) if no components of the given type
+        <td><p>The first GoRogue component of Type T that was attached, or default(T) if no components of the given type
 have been attached.</p>
 </td>
       </tr>
@@ -591,14 +673,14 @@ have been attached.</p>
   </table>
   
   
-  <a id="SadConsole_BasicEntity_GetComponents_" data-uid="SadConsole.BasicEntity.GetComponents*"></a>
-  <h4 id="SadConsole_BasicEntity_GetComponents__1" data-uid="SadConsole.BasicEntity.GetComponents``1">GetComponents&lt;T&gt;()</h4>
-  <div class="markdown level1 summary"><p>Gets all components of type T that are added.</p>
+  <a id="SadConsole_BasicEntity_GetGoRogueComponents_" data-uid="SadConsole.BasicEntity.GetGoRogueComponents*"></a>
+  <h4 id="SadConsole_BasicEntity_GetGoRogueComponents__1" data-uid="SadConsole.BasicEntity.GetGoRogueComponents``1">GetGoRogueComponents&lt;T&gt;()</h4>
+  <div class="markdown level1 summary"><p>Gets all GoRogue components of type T that are added.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public IEnumerable&lt;T&gt; GetComponents&lt;T&gt;()</code></pre>
+    <pre><code class="lang-csharp hljs">public IEnumerable&lt;T&gt; GetGoRogueComponents&lt;T&gt;()</code></pre>
   </div>
   <h5 class="returns">Returns</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -611,7 +693,7 @@ have been attached.</p>
     <tbody>
       <tr>
         <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;T&gt;</td>
-        <td><p>All components of Type T that are attacked.</p>
+        <td><p>All GoRogue components of Type T that are attached.</p>
 </td>
       </tr>
     </tbody>
@@ -634,15 +716,15 @@ have been attached.</p>
   </table>
   
   
-  <a id="SadConsole_BasicEntity_HasComponent_" data-uid="SadConsole.BasicEntity.HasComponent*"></a>
-  <h4 id="SadConsole_BasicEntity_HasComponent_System_Type_" data-uid="SadConsole.BasicEntity.HasComponent(System.Type)">HasComponent(Type)</h4>
-  <div class="markdown level1 summary"><p>Returns whether or not there is at least one component of the specified type attached.  Type may be specified
+  <a id="SadConsole_BasicEntity_HasGoRogueComponent_" data-uid="SadConsole.BasicEntity.HasGoRogueComponent*"></a>
+  <h4 id="SadConsole_BasicEntity_HasGoRogueComponent_System_Type_" data-uid="SadConsole.BasicEntity.HasGoRogueComponent(System.Type)">HasGoRogueComponent(Type)</h4>
+  <div class="markdown level1 summary"><p>Returns whether or not there is at least one GoRogue component of the specified type attached.  Type may be specified
 by using typeof(MyComponentType).</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool HasComponent(Type componentType)</code></pre>
+    <pre><code class="lang-csharp hljs">public bool HasGoRogueComponent(Type componentType)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -673,21 +755,21 @@ by using typeof(MyComponentType).</p>
     <tbody>
       <tr>
         <td><span class="xref">System.Boolean</span></td>
-        <td><p>True if the implementer has at least one component of the specified type, false otherwise.</p>
+        <td><p>True if the implementer has at least one GoRogue component of the specified type, false otherwise.</p>
 </td>
       </tr>
     </tbody>
   </table>
   
   
-  <a id="SadConsole_BasicEntity_HasComponent_" data-uid="SadConsole.BasicEntity.HasComponent*"></a>
-  <h4 id="SadConsole_BasicEntity_HasComponent__1" data-uid="SadConsole.BasicEntity.HasComponent``1">HasComponent&lt;T&gt;()</h4>
-  <div class="markdown level1 summary"><p>Returns whether or not there is at least one component of type T attached.</p>
+  <a id="SadConsole_BasicEntity_HasGoRogueComponent_" data-uid="SadConsole.BasicEntity.HasGoRogueComponent*"></a>
+  <h4 id="SadConsole_BasicEntity_HasGoRogueComponent__1" data-uid="SadConsole.BasicEntity.HasGoRogueComponent``1">HasGoRogueComponent&lt;T&gt;()</h4>
+  <div class="markdown level1 summary"><p>Returns whether or not there is at least one GoRogue component of type T attached.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool HasComponent&lt;T&gt;()</code></pre>
+    <pre><code class="lang-csharp hljs">public bool HasGoRogueComponent&lt;T&gt;()</code></pre>
   </div>
   <h5 class="returns">Returns</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -700,7 +782,7 @@ by using typeof(MyComponentType).</p>
     <tbody>
       <tr>
         <td><span class="xref">System.Boolean</span></td>
-        <td><p>True if the implemented has at least one component of the specified type attached, false otherwise.</p>
+        <td><p>True if the implemented has at least one GoRogue component of the specified type attached, false otherwise.</p>
 </td>
       </tr>
     </tbody>
@@ -723,15 +805,15 @@ by using typeof(MyComponentType).</p>
   </table>
   
   
-  <a id="SadConsole_BasicEntity_HasComponents_" data-uid="SadConsole.BasicEntity.HasComponents*"></a>
-  <h4 id="SadConsole_BasicEntity_HasComponents_System_Type___" data-uid="SadConsole.BasicEntity.HasComponents(System.Type[])">HasComponents(Type[])</h4>
-  <div class="markdown level1 summary"><p>Returns whether or not the implementer has at least one of all of the given types of components attached.  Types may be specified by
+  <a id="SadConsole_BasicEntity_HasGoRogueComponents_" data-uid="SadConsole.BasicEntity.HasGoRogueComponents*"></a>
+  <h4 id="SadConsole_BasicEntity_HasGoRogueComponents_System_Type___" data-uid="SadConsole.BasicEntity.HasGoRogueComponents(System.Type[])">HasGoRogueComponents(Type[])</h4>
+  <div class="markdown level1 summary"><p>Returns whether or not the implementer has at least one of all of the given types of GoRogue components attached.  Types may be specified by
 using typeof(MyComponentType)</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool HasComponents(params Type[] componentTypes)</code></pre>
+    <pre><code class="lang-csharp hljs">public bool HasGoRogueComponents(params Type[] componentTypes)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -762,7 +844,7 @@ using typeof(MyComponentType)</p>
     <tbody>
       <tr>
         <td><span class="xref">System.Boolean</span></td>
-        <td><p>True if the implementer has at least one component of each specified type, false otherwise.</p>
+        <td><p>True if the implementer has at least one GoRogue component of each specified type, false otherwise.</p>
 </td>
       </tr>
     </tbody>
@@ -845,14 +927,14 @@ IGameObject to reflect the change.</p>
   </table>
   
   
-  <a id="SadConsole_BasicEntity_RemoveComponent_" data-uid="SadConsole.BasicEntity.RemoveComponent*"></a>
-  <h4 id="SadConsole_BasicEntity_RemoveComponent_System_Object_" data-uid="SadConsole.BasicEntity.RemoveComponent(System.Object)">RemoveComponent(Object)</h4>
-  <div class="markdown level1 summary"><p>Removes the given component.  Throws an exception if the component isn't attached.</p>
+  <a id="SadConsole_BasicEntity_RemoveGoRogueComponent_" data-uid="SadConsole.BasicEntity.RemoveGoRogueComponent*"></a>
+  <h4 id="SadConsole_BasicEntity_RemoveGoRogueComponent_System_Object_" data-uid="SadConsole.BasicEntity.RemoveGoRogueComponent(System.Object)">RemoveGoRogueComponent(Object)</h4>
+  <div class="markdown level1 summary"><p>Removes the given GoRogue component.  Throws an exception if the component isn't attached to the GoRogue GameObject component system.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void RemoveComponent(object component)</code></pre>
+    <pre><code class="lang-csharp hljs">public void RemoveGoRogueComponent(object component)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -867,21 +949,21 @@ IGameObject to reflect the change.</p>
       <tr>
         <td><span class="xref">System.Object</span></td>
         <td><span class="parametername">component</span></td>
-        <td><p>Component to remove.</p>
+        <td><p>GoRogue component to remove.</p>
 </td>
       </tr>
     </tbody>
   </table>
   
   
-  <a id="SadConsole_BasicEntity_RemoveComponents_" data-uid="SadConsole.BasicEntity.RemoveComponents*"></a>
-  <h4 id="SadConsole_BasicEntity_RemoveComponents_System_Object___" data-uid="SadConsole.BasicEntity.RemoveComponents(System.Object[])">RemoveComponents(Object[])</h4>
-  <div class="markdown level1 summary"><p>Removes the given component(s).  Throws an exception if a component given isn't attached.</p>
+  <a id="SadConsole_BasicEntity_RemoveGoRogueComponents_" data-uid="SadConsole.BasicEntity.RemoveGoRogueComponents*"></a>
+  <h4 id="SadConsole_BasicEntity_RemoveGoRogueComponents_System_Object___" data-uid="SadConsole.BasicEntity.RemoveGoRogueComponents(System.Object[])">RemoveGoRogueComponents(Object[])</h4>
+  <div class="markdown level1 summary"><p>Removes the given GoRogue component(s).  Throws an exception if a component given isn't attached to the GoRogue GameObject component system.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void RemoveComponents(params object[] components)</code></pre>
+    <pre><code class="lang-csharp hljs">public void RemoveGoRogueComponents(params object[] components)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -896,7 +978,7 @@ IGameObject to reflect the change.</p>
       <tr>
         <td><span class="xref">System.Object</span>[]</td>
         <td><span class="parametername">components</span></td>
-        <td><p>One or more component instances to remove.</p>
+        <td><p>One or more GoRogue component instances to remove.</p>
 </td>
       </tr>
     </tbody>
