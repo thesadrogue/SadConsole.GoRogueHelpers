@@ -5,12 +5,25 @@ using GoRogue.GameFramework.Components;
 
 namespace SadConsole.Components.GoRogue
 {
+    /// <summary>
+    /// Simplest (and optional) base class for components attached to GameObject.  Adds useful events and potential type-checks.
+    /// </summary>
     public class ComponentBase : IGameObjectComponent
     {
+        /// <summary>
+        /// Fires when the component is attached to an object.
+        /// </summary>
         public event EventHandler Added;
+
+        /// <summary>
+        /// Fires when the component is unattached from an object
+        /// </summary>
         public event EventHandler Removed;
 
         private IGameObject _parent;
+        /// <summary>
+        /// The object the component is attached to.
+        /// </summary>
         public virtual IGameObject Parent
         {
             get => _parent;
@@ -62,6 +75,31 @@ namespace SadConsole.Components.GoRogue
             {
                 throw new Exception($"{s.GetType().Name} components are marked as incompatible with {typeof(TComponent).Name} components, so the component couldn't be added.");
             }
+        }
+    }
+
+    /// <summary>
+    /// Component type that must be attached to a parent of the given type, and exposes its <see cref="Parent"/> as that type.
+    /// </summary>
+    /// <typeparam name="TParent">Type of the component's parent.</typeparam>
+    public class ComponentBase<TParent> : ComponentBase where TParent : IGameObject
+    {
+        /// <summary>
+        /// The object the component is attached to.
+        /// </summary>
+        public new virtual TParent Parent
+        {
+            // Safe because of type check
+            get => (TParent)(base.Parent);
+            set => base.Parent = value;
+        }
+
+        /// <summary>
+        /// Constructor.
+        /// </summary>
+        public ComponentBase()
+        {
+            Added += ParentTypeCheck<TParent>;
         }
     }
 }

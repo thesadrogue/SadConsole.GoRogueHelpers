@@ -8,9 +8,8 @@ using SadConsole.Tiles;
 
 namespace BasicTutorial.GameObjects
 {
-    internal class GameFrameTileVisibilityRefresher : SadConsole.Components.GoRogue.GameFrameProcessor
+    internal class GameFrameTileVisibilityRefresher : SadConsole.Components.GoRogue.GameFrameProcessor<LivingCharacter>
     {
-        public new LivingCharacter Parent => (LivingCharacter)base.Parent;
         public override void ProcessGameFrame() => Parent.RefreshVisibilityTiles();
     }
 

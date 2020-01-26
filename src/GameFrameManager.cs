@@ -8,7 +8,7 @@ namespace SadConsole
     /// </summary>
     /// <remarks>
     /// Each time Update is called, if <see cref="RunLogicFrame"/> is true, all entities that are _not_ the <see cref="BasicMap.ControlledGameObject"/>
-    /// will, if they have any <see cref="Components.GoRogue.GameFrameProcessor"/> components, have those component's ProcessGameFrame function called.
+    /// will, if they have any <see cref="Components.GoRogue.IGameFrameProcessor"/> components, have those component's ProcessGameFrame function called.
     /// Then, the controlled game object will have its components ProcessGameFrame functions called (if it has a GameFrameProcessor component).
     /// Finally, the <see cref="RunLogicFrame"/> value is set to false, and the <see cref="LogicFrameCompleted"/> event is fired.
     /// </remarks>
@@ -45,11 +45,11 @@ namespace SadConsole
             // Run GameFrame logic
             if (RunLogicFrame)
             {
-                foreach (GoRogue.GameFramework.IGameObject ent in Map.Entities.Items.Where(e => e.HasComponent<Components.GoRogue.GameFrameProcessor>()))
+                foreach (GoRogue.GameFramework.IGameObject ent in Map.Entities.Items.Where(e => e.HasComponent<Components.GoRogue.IGameFrameProcessor>()))
                 {
                     if (ent != Map.ControlledGameObject)
                     {
-                        foreach (Components.GoRogue.GameFrameProcessor processor in ent.GetComponents<Components.GoRogue.GameFrameProcessor>())
+                        foreach (Components.GoRogue.IGameFrameProcessor processor in ent.GetComponents<Components.GoRogue.IGameFrameProcessor>())
                         {
                             processor.ProcessGameFrame();
                             if (!RunLogicFrame)
@@ -62,7 +62,7 @@ namespace SadConsole
                 }
 
                 // Process player to make sure they are last to be processed
-                foreach (Components.GoRogue.GameFrameProcessor processor in Map.ControlledGameObject.GetComponents<Components.GoRogue.GameFrameProcessor>())
+                foreach (Components.GoRogue.IGameFrameProcessor processor in Map.ControlledGameObject.GetComponents<Components.GoRogue.IGameFrameProcessor>())
                 {
                     processor.ProcessGameFrame();
                     if (!RunLogicFrame)
