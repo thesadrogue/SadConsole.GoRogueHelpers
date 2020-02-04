@@ -95,7 +95,7 @@ namespace BasicTutorial.GameObjects
 
             map.AddEntity(this);
 
-            AddComponent(new GameFrameTileVisibilityRefresher());
+            AddGoRogueComponent(new GameFrameTileVisibilityRefresher());
         }
 
         public void RefreshVisibilityTiles()
