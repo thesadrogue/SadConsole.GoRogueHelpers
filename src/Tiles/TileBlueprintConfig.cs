@@ -1,5 +1,5 @@
 ﻿using GoRogue;
-using SadConsole.Factory;
+using GoRogue.Factory;
 
 namespace SadConsole.Tiles
 {
