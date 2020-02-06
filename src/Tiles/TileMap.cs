@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using GoRogue;
+using GoRogue.Factory;
 using GoRogue.MapViews;
 
 namespace SadConsole.Tiles
@@ -28,7 +29,7 @@ namespace SadConsole.Tiles
             Regions = new List<Maps.Region>();
 
             // Be efficient by not using factory.Create each tile below. Instead, get the blueprint and use that to create each tile.
-            Factory.IBlueprint<TileBlueprintConfig, Tile> defaultTile = Tile.Factory.GetBlueprint(defaultTileBlueprint);
+            IBlueprint<TileBlueprintConfig, Tile> defaultTile = Tile.Factory.GetBlueprint(defaultTileBlueprint);
 
             // Configure to set up event forwarding properly on tile add/remove
             ObjectAdded += TileMap_ObjectAdded;
