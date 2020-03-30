@@ -22,40 +22,24 @@ namespace BasicTutorial.Items
             StringBuilder modifierString = new StringBuilder(20);
 
             if (AttackModifier > 0)
-            {
                 modifierString.Append($" [c:r f:InvGreen]A+{AttackModifier}");
-            }
             else if (AttackModifier < 0)
-            {
                 modifierString.Append($" [c:r f:InvRed]A{AttackModifier}");
-            }
 
             if (DefenseModifier > 0)
-            {
                 modifierString.Append($" [c:r f:InvGreen]D+{DefenseModifier}");
-            }
             else if (DefenseModifier < 0)
-            {
                 modifierString.Append($" [c:r f:InvRed]D{DefenseModifier}");
-            }
 
             if (HealthModifier > 0)
-            {
                 modifierString.Append($" [c:r f:InvGreen]H+{HealthModifier}");
-            }
             else if (HealthModifier < 0)
-            {
                 modifierString.Append($" [c:r f:InvRed]H{HealthModifier}");
-            }
 
             if (LightingModifier > 0)
-            {
                 modifierString.Append($" [c:r f:InvGreen]L+{LightingModifier}");
-            }
             else if (LightingModifier < 0)
-            {
                 modifierString.Append($" [c:r f:InvRed]L{LightingModifier}");
-            }
 
             return (Title.CreateColored(), ColoredString.Parse(modifierString.ToString()));
         }

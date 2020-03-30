@@ -52,10 +52,7 @@ namespace BasicTutorial
         public override void Update(TimeSpan timeElapsed)
         {
             // If there is a console that is focused, this one doesn't need to do anything.
-            if (Global.FocusedConsoles.Console != null)
-            {
-                return;
-            }
+            if (Global.FocusedConsoles.Console != null) return;
 
             // Run the latest action(s).
             ActionProcessor.Run(timeElapsed);

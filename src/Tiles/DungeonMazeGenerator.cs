@@ -208,12 +208,8 @@ namespace SadConsole.Tiles
 
             // Set region lighting flags
             foreach (Region region in Rooms)
-            {
                 foreach (Coord point in region.InnerPoints)
-                {
                     SadConsoleMap.GetTerrain<Tile>(point).SetFlag(TileFlags.RegionLighted);
-                }
-            }
         }
 
         private Tile SpawnTerrain(Coord position, bool mapGenValue)

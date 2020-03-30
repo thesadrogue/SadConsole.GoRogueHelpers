@@ -19,10 +19,7 @@
             get => seed;
             set
             {
-                if (value == seed)
-                {
-                    return;
-                }
+                if (value == seed) return;
 
                 seed = value;
                 cache2D.IsValid = false;

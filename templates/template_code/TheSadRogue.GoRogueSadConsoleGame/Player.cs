@@ -40,13 +40,9 @@ namespace StartingExample
             Position += moveDirection;
 
             if (moveDirection != Direction.NONE)
-            {
                 return true;
-            }
             else
-            {
                 return base.ProcessKeyboard(info);
-            }
         }
 
     }

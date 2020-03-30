@@ -69,34 +69,22 @@ namespace SadConsole.Maps.Generators.World
 
                     // keep track of the max and min values found
                     if (heightValue > HeightData.Max)
-                    {
                         HeightData.Max = heightValue;
-                    }
 
                     if (heightValue < HeightData.Min)
-                    {
                         HeightData.Min = heightValue;
-                    }
 
                     if (heatValue > HeatData.Max)
-                    {
                         HeatData.Max = heatValue;
-                    }
 
                     if (heatValue < HeatData.Min)
-                    {
                         HeatData.Min = heatValue;
-                    }
 
                     if (moistureValue > MoistureData.Max)
-                    {
                         MoistureData.Max = moistureValue;
-                    }
 
                     if (moistureValue < MoistureData.Min)
-                    {
                         MoistureData.Min = moistureValue;
-                    }
 
                     HeightData.Data[x, y] = heightValue;
                     HeatData.Data[x, y] = heatValue;

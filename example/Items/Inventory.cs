@@ -32,9 +32,7 @@ namespace BasicTutorial.Items
             if (carried || item.Spot == InventorySpot.None)
             {
                 if (carriedItems.Count == MaxCarriedItems)
-                {
                     return ActionResult.Failure;
-                }
 
                 carriedItems.Add(item);
                 return ActionResult.Success;
@@ -65,48 +63,36 @@ namespace BasicTutorial.Items
 
         public ActionResult RemoveItem(Item item)
         {
-            if (carriedItems.Contains(item))
-            {
+            if (carriedItems.Contains(item))  // Drop item
                 carriedItems.Remove(item);
-                //drop item
-            }
+               
             else
             {
                 switch (item.Spot)
                 {
                     case InventorySpot.Head:
                         if (head == item)
-                        {
                             head = null;
-                        }
 
                         break;
                     case InventorySpot.LHand:
                         if (leftHand == item)
-                        {
                             leftHand = null;
-                        }
 
                         break;
                     case InventorySpot.RHand:
                         if (rightHand == item)
-                        {
                             rightHand = null;
-                        }
 
                         break;
                     case InventorySpot.Body:
                         if (body == item)
-                        {
                             body = null;
-                        }
 
                         break;
                     case InventorySpot.Feet:
                         if (feet == item)
-                        {
                             feet = null;
-                        }
 
                         break;
                     default:
@@ -161,29 +147,19 @@ namespace BasicTutorial.Items
             List<Item> items = new List<Item>(5);
 
             if (head != null)
-            {
                 items.Add(head);
-            }
 
             if (leftHand != null)
-            {
                 items.Add(leftHand);
-            }
 
             if (rightHand != null)
-            {
                 items.Add(rightHand);
-            }
 
             if (body != null)
-            {
                 items.Add(body);
-            }
 
             if (feet != null)
-            {
                 items.Add(feet);
-            }
 
             return items;
         }

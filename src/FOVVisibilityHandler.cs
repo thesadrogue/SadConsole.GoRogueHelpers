@@ -75,30 +75,20 @@ namespace SadConsole
                     {
                         BasicTerrain terrain = Map.GetTerrain<BasicTerrain>(pos);
                         if (terrain != null && Map.FOV.BooleanFOV[pos])
-                        {
                             UpdateTerrainSeen(terrain);
-                        }
                         else if (terrain != null)
-                        {
                             UpdateTerrainUnseen(terrain);
-                        }
                     }
 
                     foreach (Console renderer in Map.Renderers)
-                    {
                         renderer.IsDirty = true;
-                    }
 
                     foreach (BasicEntity entity in Map.Entities.Items.Cast<BasicEntity>())
                     {
                         if (Map.FOV.BooleanFOV[entity.Position])
-                        {
                             UpdateEntitySeen(entity);
-                        }
                         else
-                        {
                             UpdateEntityUnseen(entity);
-                        }
                     }
 
                     break;
@@ -112,20 +102,14 @@ namespace SadConsole
                     {
                         BasicTerrain terrain = Map.GetTerrain<BasicTerrain>(pos);
                         if (terrain != null)
-                        {
                             UpdateTerrainSeen(terrain);
-                        }
                     }
 
                     foreach (Console renderer in Map.Renderers)
-                    {
                         renderer.IsDirty = true;
-                    }
 
                     foreach (BasicEntity entity in Map.Entities.Items.Cast<BasicEntity>())
-                    {
                         UpdateEntitySeen(entity);
-                    }
 
                     Enabled = false;
                     break;
@@ -171,91 +155,60 @@ namespace SadConsole
 
         private void Map_ObjectAdded(object sender, ItemEventArgs<IGameObject> e)
         {
-            if (!Enabled)
-            {
-                return;
-            }
+            if (!Enabled) return;
 
             if (e.Item.Layer == 0) // Terrain
             {
                 if (Map.FOV.BooleanFOV[e.Position])
-                {
                     UpdateTerrainSeen((BasicTerrain)(e.Item));
-                }
                 else
-                {
                     UpdateTerrainUnseen((BasicTerrain)(e.Item));
-                }
             } // No need to set IsDirty on renderers, SetTerrain would have done that for us.
             else // Entities
             {
                 if (Map.FOV.BooleanFOV[e.Position])
-                {
                     UpdateEntitySeen((BasicEntity)(e.Item));
-                }
                 else
-                {
                     UpdateEntityUnseen((BasicEntity)(e.Item));
-                }
             }
         }
 
         // Only entities (not terrain) can move so this is ok to just assume entities.
         private void Map_ObjectMoved(object sender, ItemMovedEventArgs<IGameObject> e)
         {
-            if (!Enabled)
-            {
-                return;
-            }
+            if (!Enabled) return;
 
             if (Map.FOV.BooleanFOV[e.NewPosition])
-            {
                 UpdateEntitySeen((BasicEntity)(e.Item));
-            }
             else
-            {
                 UpdateEntityUnseen((BasicEntity)(e.Item));
-            }
         }
 
         private void Map_FOVRecalculated(object sender, EventArgs e)
         {
-            if (!Enabled)
-            {
-                return;
-            }
+            if (!Enabled) return;
 
             foreach (Coord position in Map.FOV.NewlySeen)
             {
                 BasicTerrain terrain = Map.GetTerrain<BasicTerrain>(position);
                 if (terrain != null)
-                {
                     UpdateTerrainSeen(terrain);
-                }
 
                 foreach (BasicEntity entity in Map.GetEntities<BasicEntity>(position))
-                {
                     UpdateEntitySeen(entity);
-                }
             }
 
             foreach (Console renderer in Map.Renderers)
-            {
                 renderer.IsDirty = true;
-            }
 
             foreach (Coord position in Map.FOV.NewlyUnseen)
             {
                 BasicTerrain terrain = Map.GetTerrain<BasicTerrain>(position);
                 if (terrain != null)
-                {
                     UpdateTerrainUnseen(terrain);
-                }
 
                 foreach (BasicEntity entity in Map.GetEntities<BasicEntity>(position))
-                {
                     UpdateEntityUnseen(entity);
-                }
             }
         }
     }

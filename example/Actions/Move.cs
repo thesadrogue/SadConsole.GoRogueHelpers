@@ -16,10 +16,7 @@ namespace SadConsole.Actions
         {
             TargetPosition = Source.Position + PositionChange;
 
-            if (TargetPosition == Source.Position)
-            {
-                return;
-            }
+            if (TargetPosition == Source.Position) return;
 
             bool moved = Source.MoveIn(PositionChange);
             if (!moved)
@@ -42,21 +39,13 @@ namespace SadConsole.Actions
             else if (Source == ((Tiles.TileMap)Source.CurrentMap).ControlledGameObject) // We are the player
             {
                 if (PositionChange == Direction.LEFT)
-                {
                     BasicTutorial.GameState.Dungeon.Messages.Print("You move west.", BasicTutorial.MessageConsole.MessageTypes.Status);
-                }
                 else if (PositionChange == Direction.RIGHT)
-                {
                     BasicTutorial.GameState.Dungeon.Messages.Print("You move east.", BasicTutorial.MessageConsole.MessageTypes.Status);
-                }
                 else if (PositionChange == Direction.UP)
-                {
                     BasicTutorial.GameState.Dungeon.Messages.Print("You move north.", BasicTutorial.MessageConsole.MessageTypes.Status);
-                }
                 else if (PositionChange == Direction.DOWN)
-                {
                     BasicTutorial.GameState.Dungeon.Messages.Print("You move south.", BasicTutorial.MessageConsole.MessageTypes.Status);
-                }
             }
 
             Finish(ActionResult.Success);

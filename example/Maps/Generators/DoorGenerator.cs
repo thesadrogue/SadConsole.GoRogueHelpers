@@ -10,15 +10,9 @@ namespace BasicTutorial.Maps.Generators
             bool PercentageCheck(int outOfHundred) => outOfHundred != 0 && GoRogue.Random.SingletonRandom.DefaultRNG.Next(101) < outOfHundred;
 
             foreach (Region room in rooms)
-            {
                 foreach (GoRogue.Coord point in room.Connections)
-                {
                     if (!PercentageCheck(leaveFloorAloneChance))
-                    {
                         map.SetTerrain(SadConsole.Tiles.Tile.Factory.Create(doorBlueprint, point));
-                    }
-                }
-            }
         }
     }
 }

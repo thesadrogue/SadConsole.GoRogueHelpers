@@ -11,9 +11,7 @@ namespace TinkerWorX.AccidentalNoiseLibrary
         public ImplicitCellular(CellularGenerator generator)
         {
             if (generator == null)
-            {
                 throw new ArgumentNullException("generator");
-            }
 
             this.generator = generator;
         }
@@ -24,9 +22,7 @@ namespace TinkerWorX.AccidentalNoiseLibrary
             set
             {
                 if (value == null)
-                {
                     throw new ArgumentNullException("value");
-                }
 
                 generator = value;
             }

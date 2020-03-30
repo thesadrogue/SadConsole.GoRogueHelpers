@@ -29,16 +29,11 @@
 
             if (falloff > 0.0)
             {
-                if (value < (threshold - falloff))
-                {
-                    // Lies outside of falloff area below threshold, return first source
+                if (value < (threshold - falloff)) // Lies outside of falloff area below threshold, return first source
                     return Low.Get(x, y);
-                }
-                if (value > (threshold + falloff))
-                {
-                    // Lies outside of falloff area above threshold, return second source
+                if (value > (threshold + falloff)) // Lies outside of falloff area above threshold, return second source
                     return High.Get(x, y);
-                }
+
                 // Lies within falloff area.
                 double lower = threshold - falloff;
                 double upper = threshold + falloff;
@@ -57,16 +52,11 @@
 
             if (falloff > 0.0)
             {
-                if (value < (threshold - falloff))
-                {
-                    // Lies outside of falloff area below threshold, return first source
+                if (value < (threshold - falloff)) // Lies outside of falloff area below threshold, return first source
                     return Low.Get(x, y, z);
-                }
-                if (value > (threshold + falloff))
-                {
-                    // Lies outside of falloff area above threshold, return second source
+                if (value > (threshold + falloff)) // Lies outside of falloff area above threshold, return second source
                     return High.Get(x, y, z);
-                }
+
                 // Lies within falloff area.
                 double lower = threshold - falloff;
                 double upper = threshold + falloff;
@@ -85,16 +75,11 @@
 
             if (falloff > 0.0)
             {
-                if (value < (threshold - falloff))
-                {
-                    // Lies outside of falloff area below threshold, return first source
+                if (value < (threshold - falloff)) // Lies outside of falloff area below threshold, return first source
                     return Low.Get(x, y, z, w);
-                }
-                if (value > (threshold + falloff))
-                {
-                    // Lise outside of falloff area above threshold, return second source
+                if (value > (threshold + falloff)) // Lies outside of falloff area above threshold, return second source
                     return High.Get(x, y, z, w);
-                }
+
                 // Lies within falloff area.
                 double lower = threshold - falloff;
                 double upper = threshold + falloff;
@@ -113,16 +98,11 @@
 
             if (falloff > 0.0)
             {
-                if (value < (threshold - falloff))
-                {
-                    // Lies outside of falloff area below threshold, return first source
+                if (value < (threshold - falloff)) // Lies outside of falloff area below threshold, return first source
                     return Low.Get(x, y, z, w, u, v);
-                }
-                if (value > (threshold + falloff))
-                {
-                    // Lies outside of falloff area above threshold, return second source
+                if (value > (threshold + falloff)) // Lies outside of falloff area above threshold, return second source
                     return High.Get(x, y, z, w, u, v);
-                }
+
                 // Lies within falloff area.
                 double lower = threshold - falloff;
                 double upper = threshold + falloff;

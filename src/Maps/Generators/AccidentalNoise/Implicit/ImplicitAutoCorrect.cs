@@ -78,14 +78,10 @@ namespace TinkerWorX.AccidentalNoiseLibrary
 
                 double value = Source.Get(nx, ny);
                 if (value < mn)
-                {
                     mn = value;
-                }
 
                 if (value > mx)
-                {
                     mx = value;
-                }
             }
             scale2D = (high - low) / (mx - mn);
             offset2D = low - mn * scale2D;
@@ -101,14 +97,10 @@ namespace TinkerWorX.AccidentalNoiseLibrary
 
                 double value = Source.Get(nx, ny, nz);
                 if (value < mn)
-                {
                     mn = value;
-                }
 
                 if (value > mx)
-                {
                     mx = value;
-                }
             }
             scale3D = (high - low) / (mx - mn);
             offset3D = low - mn * scale3D;
@@ -125,14 +117,10 @@ namespace TinkerWorX.AccidentalNoiseLibrary
 
                 double value = Source.Get(nx, ny, nz, nw);
                 if (value < mn)
-                {
                     mn = value;
-                }
 
                 if (value > mx)
-                {
                     mx = value;
-                }
             }
             scale4D = (high - low) / (mx - mn);
             offset4D = low - mn * scale4D;
@@ -151,14 +139,10 @@ namespace TinkerWorX.AccidentalNoiseLibrary
 
                 double value = Source.Get(nx, ny, nz, nw, nu, nv);
                 if (value < mn)
-                {
                     mn = value;
-                }
 
                 if (value > mx)
-                {
                     mx = value;
-                }
             }
             scale6D = (high - low) / (mx - mn);
             offset6D = low - mn * scale6D;

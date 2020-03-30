@@ -27,9 +27,7 @@ namespace SadConsole.Actions
 
             // Tell the entity to process this bump. The entity may set Finish to success or failure.
             foreach (Components.GoRogue.IActionProcessor processor in Target.GetGoRogueComponents<Components.GoRogue.IActionProcessor>())
-            {
                 processor.ProcessAction(this);
-            }
         }
     }
 }

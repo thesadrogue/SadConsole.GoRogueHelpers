@@ -37,9 +37,7 @@ namespace SadConsole.Tiles
 
             // Fill the map with walls
             foreach (Coord pos in this.Positions())
-            {
                 SetTerrain(defaultTile.Create(pos));
-            }
         }
 
         public Tile FindEmptyTile() => GetTerrain<Tile>(WalkabilityView.RandomPosition(true));
@@ -61,9 +59,7 @@ namespace SadConsole.Tiles
             // TODO: This depends on added object to make sure the event fires on replacement, however this breaks
             // if a tile is set to null (for whatever reason)...
             if (e.Item is Tile tile)
-            {
                 tile.TileChanged -= Tile_TileChanged;
-            }
         }
 
         // Fire map-based event for either tile being set, or its state changing.

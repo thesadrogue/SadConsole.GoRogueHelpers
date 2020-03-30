@@ -21,9 +21,7 @@ namespace TinkerWorX.AccidentalNoiseLibrary
         {
             int numsteps = Tiers;
             if (Smooth)
-            {
                 --numsteps;
-            }
 
             double val = Source.Get(x, y);
             double tb = Math.Floor(val * numsteps);
@@ -39,9 +37,7 @@ namespace TinkerWorX.AccidentalNoiseLibrary
         {
             int numsteps = Tiers;
             if (Smooth)
-            {
                 --numsteps;
-            }
 
             double val = Source.Get(x, y, z);
             double tb = Math.Floor(val * numsteps);
@@ -57,9 +53,7 @@ namespace TinkerWorX.AccidentalNoiseLibrary
         {
             int numsteps = Tiers;
             if (Smooth)
-            {
                 --numsteps;
-            }
 
             double val = Source.Get(x, y, z, w);
             double tb = Math.Floor(val * numsteps);
@@ -75,9 +69,7 @@ namespace TinkerWorX.AccidentalNoiseLibrary
         {
             int numsteps = Tiers;
             if (Smooth)
-            {
                 --numsteps;
-            }
 
             double val = Source.Get(x, y, z, w, u, v);
             double tb = Math.Floor(val * numsteps);

@@ -40,14 +40,10 @@ namespace TinkerWorX.AccidentalNoiseLibrary
             double rad = Radius.Get(x, y);
             double i = (rad - len) / rad;
             if (i < 0)
-            {
                 i = 0;
-            }
 
             if (i > 1)
-            {
                 i = 1;
-            }
 
             return i;
         }
@@ -61,14 +57,10 @@ namespace TinkerWorX.AccidentalNoiseLibrary
             double rad = Radius.Get(x, y, z);
             double i = (rad - len) / rad;
             if (i < 0)
-            {
                 i = 0;
-            }
 
             if (i > 1)
-            {
                 i = 1;
-            }
 
             return i;
         }
@@ -83,14 +75,10 @@ namespace TinkerWorX.AccidentalNoiseLibrary
             double rad = Radius.Get(x, y, z, w);
             double i = (rad - len) / rad;
             if (i < 0)
-            {
                 i = 0;
-            }
 
             if (i > 1)
-            {
                 i = 1;
-            }
 
             return i;
         }
@@ -107,14 +95,10 @@ namespace TinkerWorX.AccidentalNoiseLibrary
             double rad = Radius.Get(x, y, z, w, u, v);
             double i = (rad - len) / rad;
             if (i < 0)
-            {
                 i = 0;
-            }
 
             if (i > 1)
-            {
                 i = 1;
-            }
 
             return i;
         }

@@ -12,6 +12,7 @@ namespace SadConsole.Actions
         /// returns false.
         /// </summary>
         public Func<ActionBase, bool> OnSuccessMethod;
+
         /// <summary>
         /// Runs when this action is completed with a failure result.  <see cref="OnFailureResult"/> is not called if this function
         /// returns false.
@@ -37,20 +38,10 @@ namespace SadConsole.Actions
             Result = result;
             IsFinished = true;
 
-            if (Result.IsSuccess)
-            {
-                if (OnSuccessMethod?.Invoke(this) ?? true)
-                {
-                    OnSuccessResult();
-                }
-            }
-            else
-            {
-                if (OnFailureMethod?.Invoke(this) ?? true)
-                {
-                    OnFailureResult();
-                }
-            }
+            if (Result.IsSuccess && (OnSuccessMethod?.Invoke(this) ?? true))
+                OnSuccessResult();
+            else if (OnFailureMethod?.Invoke(this) ?? true)
+                OnFailureResult();
         }
 
         public abstract void Run(TimeSpan timeElapsed);

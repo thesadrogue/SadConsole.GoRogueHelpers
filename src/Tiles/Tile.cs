@@ -80,10 +80,7 @@ namespace SadConsole.Tiles
             get => _flags;
             set
             {
-                if (_flags == value)
-                {
-                    return;
-                }
+                if (_flags == value) return;
 
                 int oldFlags = _flags;
                 _flags = value;
@@ -101,10 +98,7 @@ namespace SadConsole.Tiles
             get => _tileState;
             set
             {
-                if (_tileState == value)
-                {
-                    return;
-                }
+                if (_tileState == value) return;
 
                 int oldState = _tileState;
                 _tileState = value;
@@ -128,13 +122,9 @@ namespace SadConsole.Tiles
                 if (base.IsWalkable != (!Helpers.HasFlag(Flags, (int)TileFlags.BlockMove))) // Sync flag to gorogue setting
                 {
                     if (base.IsWalkable)
-                    {
                         UnsetFlag(TileFlags.BlockMove);
-                    }
                     else
-                    {
                         SetFlag(TileFlags.BlockMove);
-                    }
                 }
             }
         }
@@ -151,9 +141,7 @@ namespace SadConsole.Tiles
                 if (base.IsTransparent != (!Helpers.HasFlag(Flags, (int)TileFlags.BlockLOS))) // Sync flag to gorogue setting
                 {
                     if (base.IsTransparent)
-                    {
                         UnsetFlag(TileFlags.BlockLOS);
-                    }
                     else
                     {
                         SetFlag(TileFlags.BlockLOS);
@@ -253,9 +241,7 @@ namespace SadConsole.Tiles
             int total = 0;
 
             foreach (TileFlags flag in flags)
-            {
                 total |= (int)flag;
-            }
 
             Flags = Helpers.SetFlag(_flags, total);
         }
@@ -268,9 +254,7 @@ namespace SadConsole.Tiles
             int total = 0;
 
             foreach (TileFlags flag in flags)
-            {
                 total |= (int)flag;
-            }
 
             Flags = Helpers.UnsetFlag(_flags, total);
         }
@@ -287,18 +271,12 @@ namespace SadConsole.Tiles
         protected virtual void UpdateAppearance()
         {
             if (!Helpers.HasFlag(in _flags, (int)TileFlags.Seen))
-            {
                 AppearanceNeverSeen.CopyAppearanceTo(this);
-            }
             else if ((Helpers.HasFlag(in _flags, (int)TileFlags.InLOS) || Helpers.HasFlag(in _flags, (int)TileFlags.PermaInLOS))
                      && Helpers.HasFlag(in _flags, (int)TileFlags.Lighted) || Helpers.HasFlag(in _flags, (int)TileFlags.PermaLight) || Helpers.HasFlag(in _flags, (int)TileFlags.RegionLighted))
-            {
                 _appearanceNormal.CopyAppearanceTo(this);
-            }
             else // Seen but not lighted/los
-            {
                 _appearanceDim.CopyAppearanceTo(this);
-            }
 
             TileChanged?.Invoke(this, EventArgs.Empty);
         }

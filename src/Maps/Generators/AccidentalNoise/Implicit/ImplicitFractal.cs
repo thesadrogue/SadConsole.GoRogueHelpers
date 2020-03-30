@@ -48,9 +48,7 @@ namespace TinkerWorX.AccidentalNoiseLibrary
             {
                 seed = value;
                 for (int source = 0; source < Noise.MAX_SOURCES; source += 1)
-                {
                     sources[source].Seed = ((seed + source * 300));
-                }
             }
         }
 
@@ -108,9 +106,7 @@ namespace TinkerWorX.AccidentalNoiseLibrary
             set
             {
                 if (value >= Noise.MAX_SOURCES)
-                {
                     value = Noise.MAX_SOURCES - 1;
-                }
 
                 octaves = value;
             }
@@ -129,17 +125,12 @@ namespace TinkerWorX.AccidentalNoiseLibrary
         public void SetAllSourceTypes(BasisType newBasisType, InterpolationType newInterpolationType)
         {
             for (int i = 0; i < Noise.MAX_SOURCES; ++i)
-            {
                 basisFunctions[i] = new ImplicitBasisFunction(newBasisType, newInterpolationType);
-            }
         }
 
         public void SetSourceType(int which, BasisType newBasisType, InterpolationType newInterpolationType)
         {
-            if (which >= Noise.MAX_SOURCES || which < 0)
-            {
-                return;
-            }
+            if (which >= Noise.MAX_SOURCES || which < 0) return;
 
             basisFunctions[which].BasisType = newBasisType;
             basisFunctions[which].InterpolationType = newInterpolationType;
@@ -147,20 +138,15 @@ namespace TinkerWorX.AccidentalNoiseLibrary
 
         public void SetSourceOverride(int which, ImplicitModuleBase newSource)
         {
-            if (which < 0 || which >= Noise.MAX_SOURCES)
-            {
-                return;
-            }
+            if (which < 0 || which >= Noise.MAX_SOURCES) return;
 
             sources[which] = newSource;
         }
 
         public void ResetSource(int which)
         {
-            if (which < 0 || which >= Noise.MAX_SOURCES)
-            {
-                return;
-            }
+            if (which < 0 || which >= Noise.MAX_SOURCES) return;
+
 
             sources[which] = basisFunctions[which];
         }
@@ -168,17 +154,12 @@ namespace TinkerWorX.AccidentalNoiseLibrary
         public void ResetAllSources()
         {
             for (int c = 0; c < Noise.MAX_SOURCES; ++c)
-            {
                 sources[c] = basisFunctions[c];
-            }
         }
 
         public ImplicitBasisFunction GetBasis(int which)
         {
-            if (which < 0 || which >= Noise.MAX_SOURCES)
-            {
-                return null;
-            }
+            if (which < 0 || which >= Noise.MAX_SOURCES) return null;
 
             return basisFunctions[which];
         }
@@ -296,9 +277,7 @@ namespace TinkerWorX.AccidentalNoiseLibrary
         private void FractionalBrownianMotion_CalculateWeights()
         {
             for (int i = 0; i < Noise.MAX_SOURCES; ++i)
-            {
                 expArray[i] = Math.Pow(Lacunarity, -i * H);
-            }
 
             // Calculate scale/bias pairs by guessing at minimum and maximum values and remapping to [-1,1]
             double minvalue = 0.00;
@@ -320,9 +299,7 @@ namespace TinkerWorX.AccidentalNoiseLibrary
         private void RidgedMulti_CalculateWeights()
         {
             for (int i = 0; i < Noise.MAX_SOURCES; ++i)
-            {
                 expArray[i] = Math.Pow(Lacunarity, -i * H);
-            }
 
             // Calculate scale/bias pairs by guessing at minimum and maximum values and remapping to [-1,1]
             double minvalue = 0.00;
@@ -345,9 +322,7 @@ namespace TinkerWorX.AccidentalNoiseLibrary
         private void Billow_CalculateWeights()
         {
             for (int i = 0; i < Noise.MAX_SOURCES; ++i)
-            {
                 expArray[i] = Math.Pow(Lacunarity, -i * H);
-            }
 
             // Calculate scale/bias pairs by guessing at minimum and maximum values and remapping to [-1,1]
             double minvalue = 0.0;
@@ -370,9 +345,7 @@ namespace TinkerWorX.AccidentalNoiseLibrary
         private void Multi_CalculateWeights()
         {
             for (int i = 0; i < Noise.MAX_SOURCES; ++i)
-            {
                 expArray[i] = Math.Pow(Lacunarity, -i * H);
-            }
 
             // Calculate scale/bias pairs by guessing at minimum and maximum values and remapping to [-1,1]
             double minvalue = 1.0;
@@ -395,9 +368,7 @@ namespace TinkerWorX.AccidentalNoiseLibrary
         private void HybridMulti_CalculateWeights()
         {
             for (int i = 0; i < Noise.MAX_SOURCES; ++i)
-            {
                 expArray[i] = Math.Pow(Lacunarity, -i * H);
-            }
 
             // Calculate scale/bias pairs by guessing at minimum and maximum values and remapping to [-1,1]
             const double a = -1.0;
@@ -417,14 +388,10 @@ namespace TinkerWorX.AccidentalNoiseLibrary
             for (int i = 1; i < Noise.MAX_SOURCES; ++i)
             {
                 if (weightmin > 1.00)
-                {
                     weightmin = 1.00;
-                }
 
                 if (weightmax > 1.00)
-                {
                     weightmax = 1.00;
-                }
 
                 double signal = (Offset - 1.0) * expArray[i];
                 minvalue += signal * weightmin;
@@ -813,9 +780,7 @@ namespace TinkerWorX.AccidentalNoiseLibrary
             for (int i = 1; i < octaves; ++i)
             {
                 if (weight > 1.0)
-                {
                     weight = 1.0;
-                }
 
                 double signal = (sources[i].Get(x, y) + Offset) * expArray[i];
                 value += weight * signal;
@@ -843,9 +808,7 @@ namespace TinkerWorX.AccidentalNoiseLibrary
             for (int i = 1; i < octaves; ++i)
             {
                 if (weight > 1.0)
-                {
                     weight = 1.0;
-                }
 
                 double signal = (sources[i].Get(x, y, z) + Offset) * expArray[i];
                 value += weight * signal;
@@ -875,9 +838,7 @@ namespace TinkerWorX.AccidentalNoiseLibrary
             for (int i = 1; i < octaves; ++i)
             {
                 if (weight > 1.0)
-                {
                     weight = 1.0;
-                }
 
                 double signal = (sources[i].Get(x, y, z, w) + Offset) * expArray[i];
                 value += weight * signal;
@@ -912,9 +873,7 @@ namespace TinkerWorX.AccidentalNoiseLibrary
             for (int i = 1; i < octaves; ++i)
             {
                 if (weight > 1.0)
-                {
                     weight = 1.0;
-                }
 
                 double signal = (sources[i].Get(x, y, z, w, u, v) + Offset) * expArray[i];
                 value += weight * signal;
