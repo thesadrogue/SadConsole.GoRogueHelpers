@@ -21,7 +21,7 @@ namespace SadConsole
             /// </summary>
             Enabled,
             /// <summary>
-            /// Disabled state.  All items in the map will be set as seen, but the FOVVisibilityHandler
+            /// Disabled state.  All items in the map will be set as seen, and the FOVVisibilityHandler
             /// will not set visibility of any items as FOV changes or as items are added/removed.
             /// </summary>
             DisabledResetVisibility,
@@ -36,6 +36,7 @@ namespace SadConsole
         /// Whether or not the FOVVisibilityHandler is actively setting things to seen/unseen as appropriate.
         /// </summary>
         public bool Enabled { get; private set; }
+
         /// <summary>
         /// The map that this handler manages visibility of objects for.
         /// </summary>

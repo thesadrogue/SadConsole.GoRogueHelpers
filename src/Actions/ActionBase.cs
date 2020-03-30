@@ -7,8 +7,16 @@ namespace SadConsole.Actions
     /// </summary>
     public abstract class ActionBase
     {
-        protected Func<ActionBase, bool> OnSuccessMethod;
-        protected Func<ActionBase, bool> OnFailureMethod;
+        /// <summary>
+        /// Runs when this action is completed with a successful result.  <see cref="OnSuccessResult"/> is not called if this function
+        /// returns false.
+        /// </summary>
+        public Func<ActionBase, bool> OnSuccessMethod;
+        /// <summary>
+        /// Runs when this action is completed with a failure result.  <see cref="OnFailureResult"/> is not called if this function
+        /// returns false.
+        /// </summary>
+        public Func<ActionBase, bool> OnFailureMethod;
 
         /// <summary>
         /// When <see langword="true"/>, indicates that this action has been completed; otherwise <see langword="false"/>
@@ -47,21 +55,12 @@ namespace SadConsole.Actions
 
         public abstract void Run(TimeSpan timeElapsed);
 
+        /// <summary>
+        /// Called when the Action has produced a successful result.
+        /// </summary>
         protected virtual void OnSuccessResult() { }
 
         protected virtual void OnFailureResult() { }
-
-        /// <summary>
-        /// Runs <paramref name="action"/> when this action is successful. Main success code will not be run if <paramref name="action"/> returns false.
-        /// </summary>
-        /// <param name="action">The code to run on success.</param>
-        public void OnSuccess(Func<ActionBase, bool> action) => OnSuccessMethod = action;
-
-        /// <summary>
-        /// Runs <paramref name="action"/> when this action fails. Main failure code will not be run if <paramref name="action"/> returns false.
-        /// </summary>
-        /// <param name="action">The code to run on failure.</param>
-        public void OnFailure(Func<ActionBase, bool> action) => OnFailureMethod = action;
     }
 
     public abstract class ActionBase<TSource, TTarget> : ActionBase

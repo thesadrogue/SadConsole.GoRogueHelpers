@@ -60,7 +60,7 @@ namespace SadConsole.Tiles
             {
                 var tile = new Tile(Appearance.Foreground, Appearance.Background, Appearance.Glyph, config.Position, true, true)
                 {
-                    tileType = Type,
+                    Type = Type,
                     Title = Title,
                     Description = Description,
                     Flags = Flags,

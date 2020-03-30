@@ -64,7 +64,7 @@ namespace SadConsole.Components.GoRogue
 
         /// <summary>
         /// Add as a handler to <see cref="Added"/> to enforce that this component may not be added to an object that has a component of type <typeparamref name="TComponent"/>.
-        /// May also be used to enforce that the component can't have multiple instances of itself attached to the same object by using Added += IncompatibleWith&lt;MyOwnType&gt;;
+        /// May also be used to enforce that the component can't have multiple instances of itself attached to the same object by using Added += IncompatibleWith&lt;MyOwnType&gt;.
         /// </summary>
         /// <typeparam name="TComponent">Type of the component this one is incompatible with.</typeparam>
         /// <param name="s"/>

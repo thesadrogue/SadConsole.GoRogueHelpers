@@ -6,52 +6,87 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace SadConsole.Tiles
 {
+    /// <summary>
+    /// A terrain object that implements a flags-based system for recording Tile information.
+    /// </summary>
     public partial class Tile : BasicTerrain
     {
-        protected int tileState;
-        protected int tileType;
-        protected int flags;
+        private int _tileState;
+        private int _flags;
 
-        protected Cell AppearanceNormal;
-        protected Cell AppearanceDim;
+        private Cell _appearanceNormal;
+        private Cell _appearanceDim;
 
+        /// <summary>
+        /// Appearance set as the never-seen appearance for cells.  Defaults to black.
+        /// </summary>
         public static Cell AppearanceNeverSeen = new Cell(Color.Black, Color.Black, '.');
+
+        /// <summary>
+        /// The amount multiplied to the color value of the normal appearance to obtain the unseen appearance, if no unseen appearance is specified.
+        /// </summary>
         public static float DimAmount = 0.4f;
 
+        /// <summary>
+        /// Fires whenever tile flags, state, etc change.
+        /// </summary>
         public event EventHandler TileChanged;
 
+        /// <summary>
+        /// The map containining the Tile.
+        /// </summary>
         public new TileMap CurrentMap => (TileMap)(base.CurrentMap);
 
+        /// <summary>
+        /// Arbitrary title for the Tile.
+        /// </summary>
         public string Title { get; set; }
+
+        /// <summary>
+        /// Arbitrary description for the Tile.
+        /// </summary>
         public string Description { get; set; }
 
+        /// <summary>
+        /// Called automatically when the Tile's <see cref="TileState"/> changes.
+        /// </summary>
         public Action<Tile, int> OnTileStateChanged { get; set; }
+
+        /// <summary>
+        /// Called automatically when the Tile's <see cref="Flags"/> are changed.
+        /// </summary>
         public Action<Tile, int> OnTileFlagsChanged { get; set; }
+
+        /// <summary>
+        /// Called automatically when the <see cref="ProcessAction(Actions.ActionBase)"/> function is invoked.
+        /// </summary>
         public Action<Tile, Actions.ActionBase> OnProcessAction { get; set; }
 
-
+        /// <summary>
+        /// ID of the blueprint that created this Tile.
+        /// </summary>
         public string DefinitionId { get; set; }
 
         /// <summary>
         /// The type of tile represented.
         /// </summary>
-        public int Type => tileType;
+        public int Type { get; private set; }
 
         /// <summary>
         /// Flags for the tile such as blocks LOS.
         /// </summary>
         public int Flags
         {
-            get => flags;
+            get => _flags;
             set
             {
-                if (flags == value)
+                if (_flags == value)
                 {
                     return;
                 }
 
-                int oldFlags = flags;
-                flags = value;
+                int oldFlags = _flags;
+                _flags = value;
                 OnTileFlagsChanged?.Invoke(this, oldFlags);
                 UpdateAppearance();
                 TileChanged?.Invoke(this, EventArgs.Empty);
@@ -63,16 +98,16 @@ namespace SadConsole.Tiles
         /// </summary>
         public int TileState
         {
-            get => tileState;
+            get => _tileState;
             set
             {
-                if (tileState == value)
+                if (_tileState == value)
                 {
                     return;
                 }
 
-                int oldState = tileState;
-                tileState = value;
+                int oldState = _tileState;
+                _tileState = value;
                 OnTileStateChanged?.Invoke(this, oldState);
                 UpdateAppearance();
                 TileChanged?.Invoke(this, EventArgs.Empty);
@@ -81,6 +116,9 @@ namespace SadConsole.Tiles
 
         // OK to do tile flag checks in here because base class sets the backing field, not the properties directly,
         // so no undefined behavior.
+        /// <summary>
+        /// Whether or not the tile is walkable for the sake of pathing.
+        /// </summary>
         public override bool IsWalkable
         {
             get => base.IsWalkable;
@@ -101,6 +139,9 @@ namespace SadConsole.Tiles
             }
         }
 
+        /// <summary>
+        /// Whether or not the Tile is considered transparent for the sake of FOV.
+        /// </summary>
         public override bool IsTransparent
         {
             get => base.IsTransparent;
@@ -154,8 +195,8 @@ namespace SadConsole.Tiles
             dimFore.A = 255;
             dimBack.A = 255;
 
-            AppearanceDim = new Cell(dimFore, dimBack, Glyph);
-            AppearanceNormal = new Cell(Foreground, Background, Glyph);
+            _appearanceDim = new Cell(dimFore, dimBack, Glyph);
+            _appearanceNormal = new Cell(Foreground, Background, Glyph);
 
             AppearanceNeverSeen.CopyAppearanceTo(this);
 
@@ -164,7 +205,10 @@ namespace SadConsole.Tiles
 
         #endregion Constructors
 
-
+        /// <summary>
+        /// Modify the appearance of the cell as specified.  The dim version of the cell will be identical, but with the colors dimmed by a factor of <see cref="DimAmount"/>.
+        /// </summary>
+        /// <param name="normal">Appearance to set.</param>
         public void ChangeAppearance(Cell normal)
         {
             Color dimFore = normal.Foreground * DimAmount;
@@ -175,24 +219,33 @@ namespace SadConsole.Tiles
             ChangeAppearance(normal, new Cell(dimFore, dimBack, normal.Glyph));
         }
 
+        /// <summary>
+        /// Modify normal and dim appearances as specified.
+        /// </summary>
+        /// <param name="normal">Appearance to set as normal appearance.</param>
+        /// <param name="dim">Appearance to set as dim appearance.</param>
         public void ChangeAppearance(Cell normal, Cell dim)
         {
-            AppearanceNormal = normal;
-            AppearanceDim = dim;
-
-            UpdateAppearance();
-        }
-
-        public void ChangeGlyph(int glyph)
-        {
-            AppearanceNormal.Glyph = glyph;
-            AppearanceDim.Glyph = glyph;
+            _appearanceNormal = normal;
+            _appearanceDim = dim;
 
             UpdateAppearance();
         }
 
         /// <summary>
-        /// Adds the specified flags to the <see cref="flags"/> property.
+        /// Change glyph of both the normal and dim versions of the Tile to the specified one.
+        /// </summary>
+        /// <param name="glyph">Glyph to change to.</param>
+        public void ChangeGlyph(int glyph)
+        {
+            _appearanceNormal.Glyph = glyph;
+            _appearanceDim.Glyph = glyph;
+
+            UpdateAppearance();
+        }
+
+        /// <summary>
+        /// Adds the specified flags to the <see cref="Flags"/> property.
         /// </summary>
         /// <param name="flags">The flags to set.</param>
         public void SetFlag(params TileFlags[] flags)
@@ -201,13 +254,13 @@ namespace SadConsole.Tiles
 
             foreach (TileFlags flag in flags)
             {
-                total = total | (int)flag;
+                total |= (int)flag;
             }
 
-            Flags = Helpers.SetFlag(this.flags, total);
+            Flags = Helpers.SetFlag(_flags, total);
         }
         /// <summary>
-        /// Removes the specified flags to the <see cref="flags"/> property.
+        /// Removes the specified flags to the <see cref="Flags"/> property.
         /// </summary>
         /// <param name="flags">The flags to remove.</param>
         public void UnsetFlag(params TileFlags[] flags)
@@ -216,28 +269,35 @@ namespace SadConsole.Tiles
 
             foreach (TileFlags flag in flags)
             {
-                total = total | (int)flag;
+                total |= (int)flag;
             }
 
-            Flags = Helpers.UnsetFlag(this.flags, total);
+            Flags = Helpers.UnsetFlag(_flags, total);
         }
 
+        /// <summary>
+        /// Callto cause the Tile to process an action.
+        /// </summary>
+        /// <param name="action">Action to process.</param>
         public virtual void ProcessAction(Actions.ActionBase action) => OnProcessAction?.Invoke(this, action);
 
+        /// <summary>
+        /// Updates the cells appearance based on lighting/explored/seen flags.
+        /// </summary>
         protected virtual void UpdateAppearance()
         {
-            if (!Helpers.HasFlag(in flags, (int)TileFlags.Seen))
+            if (!Helpers.HasFlag(in _flags, (int)TileFlags.Seen))
             {
                 AppearanceNeverSeen.CopyAppearanceTo(this);
             }
-            else if ((Helpers.HasFlag(in flags, (int)TileFlags.InLOS) || Helpers.HasFlag(in flags, (int)TileFlags.PermaInLOS))
-                     && Helpers.HasFlag(in flags, (int)TileFlags.Lighted) || Helpers.HasFlag(in flags, (int)TileFlags.PermaLight) || Helpers.HasFlag(in flags, (int)TileFlags.RegionLighted))
+            else if ((Helpers.HasFlag(in _flags, (int)TileFlags.InLOS) || Helpers.HasFlag(in _flags, (int)TileFlags.PermaInLOS))
+                     && Helpers.HasFlag(in _flags, (int)TileFlags.Lighted) || Helpers.HasFlag(in _flags, (int)TileFlags.PermaLight) || Helpers.HasFlag(in _flags, (int)TileFlags.RegionLighted))
             {
-                AppearanceNormal.CopyAppearanceTo(this);
+                _appearanceNormal.CopyAppearanceTo(this);
             }
             else // Seen but not lighted/los
             {
-                AppearanceDim.CopyAppearanceTo(this);
+                _appearanceDim.CopyAppearanceTo(this);
             }
 
             TileChanged?.Invoke(this, EventArgs.Empty);
