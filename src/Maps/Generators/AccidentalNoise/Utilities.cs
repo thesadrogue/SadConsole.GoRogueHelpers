@@ -7,14 +7,10 @@ namespace TinkerWorX.AccidentalNoiseLibrary
         public static double Clamp(double value, double low, double high)
         {
             if (value < low)
-            {
                 return low;
-            }
 
             if (value > high)
-            {
                 return high;
-            }
 
             return value;
         }
@@ -22,14 +18,10 @@ namespace TinkerWorX.AccidentalNoiseLibrary
         public static int Clamp(int value, int low, int high)
         {
             if (value < low)
-            {
                 return low;
-            }
 
             if (value > high)
-            {
                 return high;
-            }
 
             return value;
         }
@@ -42,9 +34,7 @@ namespace TinkerWorX.AccidentalNoiseLibrary
         public static double Gain(double g, double t)
         {
             if (t < 0.50)
-            {
                 return Bias(1.00 - g, 2.00 * t) / 2.00;
-            }
 
             return 1.00 - Bias(1.00 - g, 2.00 - 2.00 * t) / 2.00;
         }

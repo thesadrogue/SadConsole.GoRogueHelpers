@@ -33,7 +33,7 @@
       "output": {
         ".html": {
           "relative_path": "api/SadConsole.Actions.ActionBase-2.html",
-          "hash": "gfraH4ONudZr+Iofa2BmxQ=="
+          "hash": "LopaYzeYi42Gxt5DUVP+Eg=="
         }
       },
       "is_incremental": true,
@@ -45,7 +45,7 @@
       "output": {
         ".html": {
           "relative_path": "api/SadConsole.Actions.ActionBase.html",
-          "hash": "aIKtcKImXudV+e9LbcQ3mw=="
+          "hash": "7DNekQ1uQ0hGmZyIwaBJfA=="
         }
       },
       "is_incremental": true,
@@ -57,7 +57,7 @@
       "output": {
         ".html": {
           "relative_path": "api/SadConsole.Actions.ActionDelegate.html",
-          "hash": "WDoi/9l6Q+Ozj317z6Xasg=="
+          "hash": "kZQvxixap975TponqEbluw=="
         }
       },
       "is_incremental": true,
@@ -105,7 +105,7 @@
       "output": {
         ".html": {
           "relative_path": "api/SadConsole.BasicEntity.html",
-          "hash": "FP0DvvPa6l0hTtc3pEINQg=="
+          "hash": "OvbbLaF1XbOnVvogq8WR0w=="
         }
       },
       "is_incremental": true,
@@ -132,6 +132,18 @@
           "hash": "uqZFJd7MTRGxtchYXHiZyg=="
         }
       },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SadConsole.Components.GoRogue.ActionProcessor-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SadConsole.Components.GoRogue.ActionProcessor-1.html",
+          "hash": "GHrniuBTFATax3ADaQJr4Q=="
+        }
+      },
       "is_incremental": true,
       "version": ""
     },
@@ -141,7 +153,19 @@
       "output": {
         ".html": {
           "relative_path": "api/SadConsole.Components.GoRogue.ActionProcessor.html",
-          "hash": "dnXBCW7HIBFe2CgL5PPXIg=="
+          "hash": "Fe6fLzUoJPeb0IOooRp7Ag=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SadConsole.Components.GoRogue.ComponentBase-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SadConsole.Components.GoRogue.ComponentBase-1.html",
+          "hash": "5koLBligwLwi11Yd/2Z7Rw=="
         }
       },
       "is_incremental": true,
@@ -153,7 +177,19 @@
       "output": {
         ".html": {
           "relative_path": "api/SadConsole.Components.GoRogue.ComponentBase.html",
-          "hash": "dXP1egUvxSqtrDzXreVpkA=="
+          "hash": "uYGececASu4Dh6fVYKAOlg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SadConsole.Components.GoRogue.GameFrameProcessor-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SadConsole.Components.GoRogue.GameFrameProcessor-1.html",
+          "hash": "MFNoxpAXUBNbL+/wm+Bw9g=="
         }
       },
       "is_incremental": true,
@@ -165,7 +201,31 @@
       "output": {
         ".html": {
           "relative_path": "api/SadConsole.Components.GoRogue.GameFrameProcessor.html",
-          "hash": "LtY/h461hnBih/ebswvfiw=="
+          "hash": "+0OiVk3NmgP757CeD1i0HQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SadConsole.Components.GoRogue.IActionProcessor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SadConsole.Components.GoRogue.IActionProcessor.html",
+          "hash": "dSBXyiQpOtClGGFvV1nJ2A=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SadConsole.Components.GoRogue.IGameFrameProcessor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SadConsole.Components.GoRogue.IGameFrameProcessor.html",
+          "hash": "CRKTFEUjMJ/WjbaXndJHeA=="
         }
       },
       "is_incremental": true,
@@ -177,7 +237,7 @@
       "output": {
         ".html": {
           "relative_path": "api/SadConsole.Components.GoRogue.html",
-          "hash": "+Svf1aBJPEQkJfrFG0FLoQ=="
+          "hash": "mbewKKxPMkfEvZz2DWpq3w=="
         }
       },
       "is_incremental": true,
@@ -233,107 +293,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/SadConsole.Factory.BlueprintConfig.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/SadConsole.Factory.BlueprintConfig.html",
-          "hash": "n9W6Q1XF6G2suhMnMB+Yfg=="
-        }
-      },
-      "is_incremental": true,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/SadConsole.Factory.Factory-1.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/SadConsole.Factory.Factory-1.html",
-          "hash": "HyNEKyTYD/HELd+quldIyg=="
-        }
-      },
-      "is_incremental": true,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/SadConsole.Factory.Factory-2.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/SadConsole.Factory.Factory-2.html",
-          "hash": "UDJZ7fYySyUo6jegukhnbw=="
-        }
-      },
-      "is_incremental": true,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/SadConsole.Factory.IBlueprint-2.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/SadConsole.Factory.IBlueprint-2.html",
-          "hash": "C36GiM+YhJ5xMqFqytpgGg=="
-        }
-      },
-      "is_incremental": true,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/SadConsole.Factory.IFactoryObject.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/SadConsole.Factory.IFactoryObject.html",
-          "hash": "git2wMja/Zy46Na5aqzBaQ=="
-        }
-      },
-      "is_incremental": true,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/SadConsole.Factory.ItemNotDefinedException.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/SadConsole.Factory.ItemNotDefinedException.html",
-          "hash": "BcERk19OVNotPyFOfD1FxQ=="
-        }
-      },
-      "is_incremental": true,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/SadConsole.Factory.SimpleBlueprint-1.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/SadConsole.Factory.SimpleBlueprint-1.html",
-          "hash": "T4WOA3KcBm5it7DrKIJgzw=="
-        }
-      },
-      "is_incremental": true,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/SadConsole.Factory.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/SadConsole.Factory.html",
-          "hash": "15rx2LvtRTZF5H/98Kqohg=="
-        }
-      },
-      "is_incremental": true,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "api/SadConsole.GameFrameManager.yml",
       "output": {
         ".html": {
           "relative_path": "api/SadConsole.GameFrameManager.html",
-          "hash": "WaPgHGLHSg1yZXbjE4Hr4Q=="
+          "hash": "517LR1qQyE+51IB8YM3gPQ=="
         }
       },
       "is_incremental": true,
@@ -609,7 +573,7 @@
       "output": {
         ".html": {
           "relative_path": "api/SadConsole.Tiles.DungeonMazeGenerator.html",
-          "hash": "2K5K9m/u/eS5Q91Xc4adIQ=="
+          "hash": "j5uJhFftmDTUzh9qcBOdPw=="
         }
       },
       "is_incremental": true,
@@ -621,10 +585,10 @@
       "output": {
         ".html": {
           "relative_path": "api/SadConsole.Tiles.Tile.TileBlueprint.html",
-          "hash": "ToQFfaUmpF6e7MULwSViiQ=="
+          "hash": "lxBhunfCm83JjJkL9/w4Cw=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -633,10 +597,10 @@
       "output": {
         ".html": {
           "relative_path": "api/SadConsole.Tiles.Tile.html",
-          "hash": "1q1rxwA4btUMXBRz3q+i/A=="
+          "hash": "kaOpHApzoiy6flGhNEZipA=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -645,7 +609,7 @@
       "output": {
         ".html": {
           "relative_path": "api/SadConsole.Tiles.TileBlueprintConfig.html",
-          "hash": "fXw+kZr5eIBid2SOnCliNQ=="
+          "hash": "JOz+SaABIGsxstIBb8SjEg=="
         }
       },
       "is_incremental": true,
@@ -672,7 +636,7 @@
           "hash": "t8N7inHxD40gpDWCMoLHog=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -684,7 +648,7 @@
           "hash": "pslHguTk5B8S01bd4wUxRQ=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -693,10 +657,10 @@
       "output": {
         ".html": {
           "relative_path": "api/SadConsole.Tiles.html",
-          "hash": "OuTgeXa32jNtWHchNAoLZQ=="
+          "hash": "x0A5/9Sy+0Hy2nTb3+1Z5g=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -708,7 +672,7 @@
           "hash": "IkYxllhHvkH/K/i2NktN+A=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -1293,7 +1257,7 @@
       "output": {
         ".html": {
           "relative_path": "api/toc.html",
-          "hash": "sIEXgDdDYiDJqJMOgvPLHg=="
+          "hash": "2Hq8iGTTQsO5LuuBViy09A=="
         }
       },
       "is_incremental": false,
@@ -1373,8 +1337,8 @@
         "ManagedReferenceDocumentProcessor": {
           "can_incremental": true,
           "incrementalPhase": "build",
-          "total_file_count": 106,
-          "skipped_file_count": 106
+          "total_file_count": 103,
+          "skipped_file_count": 102
         }
       }
     },

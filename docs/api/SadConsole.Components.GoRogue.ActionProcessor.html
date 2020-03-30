@@ -80,22 +80,28 @@
     <h5>Inheritance</h5>
     <div class="level0"><span class="xref">System.Object</span></div>
     <div class="level1"><a class="xref" href="SadConsole.Components.GoRogue.ComponentBase.html">ComponentBase</a></div>
-    <div class="level2"><span class="xref">ActionProcessor</span></div>
+    <div class="level2"><a class="xref" href="SadConsole.Components.GoRogue.ComponentBase-1.html">ComponentBase</a>&lt;<span class="xref">GoRogue.GameFramework.IGameObject</span>&gt;</div>
+    <div class="level3"><a class="xref" href="SadConsole.Components.GoRogue.ActionProcessor-1.html">ActionProcessor</a>&lt;<span class="xref">GoRogue.GameFramework.IGameObject</span>&gt;</div>
+    <div class="level4"><span class="xref">ActionProcessor</span></div>
   </div>
   <div classs="implements">
     <h5>Implements</h5>
     <div><span class="xref">GoRogue.GameFramework.Components.IGameObjectComponent</span></div>
+    <div><a class="xref" href="SadConsole.Components.GoRogue.IActionProcessor.html">IActionProcessor</a></div>
   </div>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="SadConsole.Components.GoRogue.ActionProcessor-1.html#SadConsole_Components_GoRogue_ActionProcessor_1_ProcessAction_SadConsole_Actions_ActionBase_">ActionProcessor&lt;IGameObject&gt;.ProcessAction(ActionBase)</a>
+    </div>
+    <div>
+      <a class="xref" href="SadConsole.Components.GoRogue.ComponentBase-1.html#SadConsole_Components_GoRogue_ComponentBase_1_Parent">ComponentBase&lt;IGameObject&gt;.Parent</a>
+    </div>
     <div>
       <a class="xref" href="SadConsole.Components.GoRogue.ComponentBase.html#SadConsole_Components_GoRogue_ComponentBase_ParentTypeCheck__1_System_Object_System_EventArgs_">ComponentBase.ParentTypeCheck&lt;TParent&gt;(Object, EventArgs)</a>
     </div>
     <div>
       <a class="xref" href="SadConsole.Components.GoRogue.ComponentBase.html#SadConsole_Components_GoRogue_ComponentBase_IncompatibleWith__1_System_Object_System_EventArgs_">ComponentBase.IncompatibleWith&lt;TComponent&gt;(Object, EventArgs)</a>
-    </div>
-    <div>
-      <a class="xref" href="SadConsole.Components.GoRogue.ComponentBase.html#SadConsole_Components_GoRogue_ComponentBase_Parent">ComponentBase.Parent</a>
     </div>
     <div>
       <a class="xref" href="SadConsole.Components.GoRogue.ComponentBase.html#SadConsole_Components_GoRogue_ComponentBase_Added">ComponentBase.Added</a>
@@ -108,7 +114,7 @@
   <h6><strong>Assembly</strong>: SadConsole.GoRogue.dll</h6>
   <h5 id="SadConsole_Components_GoRogue_ActionProcessor_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public abstract class ActionProcessor : ComponentBase, IGameObjectComponent</code></pre>
+    <pre><code class="lang-csharp hljs">public abstract class ActionProcessor : ActionProcessor&lt;IGameObject&gt;, IGameObjectComponent, IActionProcessor</code></pre>
   </div>
   <h3 id="constructors">Constructors
   </h3>
@@ -122,40 +128,12 @@
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected ActionProcessor()</code></pre>
   </div>
-  <h3 id="methods">Methods
-  </h3>
-  
-  
-  <a id="SadConsole_Components_GoRogue_ActionProcessor_ProcessAction_" data-uid="SadConsole.Components.GoRogue.ActionProcessor.ProcessAction*"></a>
-  <h4 id="SadConsole_Components_GoRogue_ActionProcessor_ProcessAction_SadConsole_Actions_ActionBase_" data-uid="SadConsole.Components.GoRogue.ActionProcessor.ProcessAction(SadConsole.Actions.ActionBase)">ProcessAction(ActionBase)</h4>
-  <div class="markdown level1 summary"><p>Implements action processing logic.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public abstract void ProcessAction(ActionBase action)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="SadConsole.Actions.ActionBase.html">ActionBase</a></td>
-        <td><span class="parametername">action</span></td>
-        <td><p>The action to process.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
   <h3 id="implements">Implements</h3>
   <div>
       <span class="xref">GoRogue.GameFramework.Components.IGameObjectComponent</span>
+  </div>
+  <div>
+      <a class="xref" href="SadConsole.Components.GoRogue.IActionProcessor.html">IActionProcessor</a>
   </div>
 </article>
           </div>

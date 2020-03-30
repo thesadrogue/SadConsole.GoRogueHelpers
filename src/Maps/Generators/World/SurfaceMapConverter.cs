@@ -208,9 +208,7 @@ namespace SadConsole.Maps.Generators.World
 
                     //darken the color if a edge tile
                     if ((int)tiles[x, y].HeightType > 2 && tiles[x, y].Bitmask != 15)
-                    {
                         pixels[x + y * width] = Color.Lerp(pixels[x + y * width], Color.Black, 0.4f);
-                    }
                 }
             }
 
@@ -231,29 +229,17 @@ namespace SadConsole.Maps.Generators.World
                     Tile t = tiles[x, y];
 
                     if (t.MoistureType == MoistureType.Dryest)
-                    {
                         pixels[x + y * width] = Dryest;
-                    }
                     else if (t.MoistureType == MoistureType.Dryer)
-                    {
                         pixels[x + y * width] = Dryer;
-                    }
                     else if (t.MoistureType == MoistureType.Dry)
-                    {
                         pixels[x + y * width] = Dry;
-                    }
                     else if (t.MoistureType == MoistureType.Wet)
-                    {
                         pixels[x + y * width] = Wet;
-                    }
                     else if (t.MoistureType == MoistureType.Wetter)
-                    {
                         pixels[x + y * width] = Wetter;
-                    }
                     else
-                    {
                         pixels[x + y * width] = Wettest;
-                    }
                 }
             }
 
@@ -308,13 +294,9 @@ namespace SadConsole.Maps.Generators.World
 
                     // Water tiles
                     if (tiles[x, y].HeightType == HeightType.DeepWater)
-                    {
                         pixels[x + y * width] = DeepColor;
-                    }
                     else if (tiles[x, y].HeightType == HeightType.ShallowWater)
-                    {
                         pixels[x + y * width] = ShallowColor;
-                    }
 
                     // draw rivers
                     if (tiles[x, y].HeightType == HeightType.River)
@@ -322,21 +304,13 @@ namespace SadConsole.Maps.Generators.World
                         float heatValue = tiles[x, y].HeatValue;
 
                         if (tiles[x, y].HeatType == HeatType.Coldest)
-                        {
                             pixels[x + y * width] = Color.Lerp(IceWater, ColdWater, (heatValue) / (coldest));
-                        }
                         else if (tiles[x, y].HeatType == HeatType.Colder)
-                        {
                             pixels[x + y * width] = Color.Lerp(ColdWater, RiverWater, (heatValue - coldest) / (colder - coldest));
-                        }
                         else if (tiles[x, y].HeatType == HeatType.Cold)
-                        {
                             pixels[x + y * width] = Color.Lerp(RiverWater, ShallowColor, (heatValue - colder) / (cold - colder));
-                        }
                         else
-                        {
                             pixels[x + y * width] = ShallowColor;
-                        }
                     }
 
 
@@ -344,9 +318,7 @@ namespace SadConsole.Maps.Generators.World
                     if (tiles[x, y].HeightType >= HeightType.Shore && tiles[x, y].HeightType != HeightType.River)
                     {
                         if (tiles[x, y].BiomeBitmask != 15)
-                        {
                             pixels[x + y * width] = Color.Lerp(pixels[x + y * width], Color.Black, 0.35f);
-                        }
                     }
                 }
             }

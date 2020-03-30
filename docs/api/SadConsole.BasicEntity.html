@@ -547,13 +547,14 @@ that you call the base set in the overridden setter, as it performs collision de
   
   
   <a id="SadConsole_BasicEntity_GetConsoleComponent_" data-uid="SadConsole.BasicEntity.GetConsoleComponent*"></a>
-  <h4 id="SadConsole_BasicEntity_GetConsoleComponent__1" data-uid="SadConsole.BasicEntity.GetConsoleComponent``1">GetConsoleComponent&lt;T&gt;()</h4>
-  <div class="markdown level1 summary"></div>
+  <h4 id="SadConsole_BasicEntity_GetConsoleComponent__1" data-uid="SadConsole.BasicEntity.GetConsoleComponent``1">GetConsoleComponent&lt;TComponent&gt;()</h4>
+  <div class="markdown level1 summary"><p>Gets the first SadConsole Console component of the specified type.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public IConsoleComponent GetConsoleComponent&lt;T&gt;()
-    where T : IConsoleComponent</code></pre>
+    <pre><code class="lang-csharp hljs">public IConsoleComponent GetConsoleComponent&lt;TComponent&gt;()
+    where TComponent : IConsoleComponent</code></pre>
   </div>
   <h5 class="returns">Returns</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -566,7 +567,8 @@ that you call the base set in the overridden setter, as it performs collision de
     <tbody>
       <tr>
         <td><span class="xref">SadConsole.Components.IConsoleComponent</span></td>
-        <td></td>
+        <td><p>The component if found, otherwise null.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -580,21 +582,23 @@ that you call the base set in the overridden setter, as it performs collision de
     </thead>
     <tbody>
       <tr>
-        <td><span class="parametername">T</span></td>
-        <td></td>
+        <td><span class="parametername">TComponent</span></td>
+        <td><p>THe component to find</p>
+</td>
       </tr>
     </tbody>
   </table>
   
   
   <a id="SadConsole_BasicEntity_GetConsoleComponents_" data-uid="SadConsole.BasicEntity.GetConsoleComponents*"></a>
-  <h4 id="SadConsole_BasicEntity_GetConsoleComponents__1" data-uid="SadConsole.BasicEntity.GetConsoleComponents``1">GetConsoleComponents&lt;T&gt;()</h4>
-  <div class="markdown level1 summary"></div>
+  <h4 id="SadConsole_BasicEntity_GetConsoleComponents__1" data-uid="SadConsole.BasicEntity.GetConsoleComponents``1">GetConsoleComponents&lt;TComponent&gt;()</h4>
+  <div class="markdown level1 summary"><p>Gets SadConosle Console components of the specified types.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public IEnumerable&lt;IConsoleComponent&gt; GetConsoleComponents&lt;T&gt;()
-    where T : IConsoleComponent</code></pre>
+    <pre><code class="lang-csharp hljs">public IEnumerable&lt;IConsoleComponent&gt; GetConsoleComponents&lt;TComponent&gt;()
+    where TComponent : IConsoleComponent</code></pre>
   </div>
   <h5 class="returns">Returns</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -607,7 +611,8 @@ that you call the base set in the overridden setter, as it performs collision de
     <tbody>
       <tr>
         <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<span class="xref">SadConsole.Components.IConsoleComponent</span>&gt;</td>
-        <td></td>
+        <td><p>The components found.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -621,8 +626,9 @@ that you call the base set in the overridden setter, as it performs collision de
     </thead>
     <tbody>
       <tr>
-        <td><span class="parametername">T</span></td>
-        <td></td>
+        <td><span class="parametername">TComponent</span></td>
+        <td><p>The component to find</p>
+</td>
       </tr>
     </tbody>
   </table>

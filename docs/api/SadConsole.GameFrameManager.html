@@ -89,7 +89,7 @@
   </div>
   <h5 id="SadConsole_GameFrameManager_remarks"><strong>Remarks</strong></h5>
   <div class="markdown level0 remarks"><p>Each time Update is called, if <a class="xref" href="SadConsole.GameFrameManager.html#SadConsole_GameFrameManager_RunLogicFrame">RunLogicFrame</a> is true, all entities that are <em>not</em> the <a class="xref" href="SadConsole.BasicMap.html#SadConsole_BasicMap_ControlledGameObject">ControlledGameObject</a>
-will, if they have any <a class="xref" href="SadConsole.Components.GoRogue.GameFrameProcessor.html">GameFrameProcessor</a> components, have those component's ProcessGameFrame function called.
+will, if they have any <a class="xref" href="SadConsole.Components.GoRogue.IGameFrameProcessor.html">IGameFrameProcessor</a> components, have those component's ProcessGameFrame function called.
 Then, the controlled game object will have its components ProcessGameFrame functions called (if it has a GameFrameProcessor component).
 Finally, the <a class="xref" href="SadConsole.GameFrameManager.html#SadConsole_GameFrameManager_RunLogicFrame">RunLogicFrame</a> value is set to false, and the <a class="xref" href="SadConsole.GameFrameManager.html#SadConsole_GameFrameManager_LogicFrameCompleted">LogicFrameCompleted</a> event is fired.</p>
 </div>

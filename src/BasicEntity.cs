@@ -77,9 +77,7 @@ namespace SadConsole
         private void GoRogue_Moved(object sender, ItemMovedEventArgs<IGameObject> e)
         {
             if (Position != base.Position) // We need to sync entity
-            {
                 base.Position = Position;
-            }
 
             // SadConsole's Entity position set can't fail so no need to check for success here
         }
@@ -94,9 +92,7 @@ namespace SadConsole
                 // In this case, GoRogue wouldn't allow the position set, so set SadConsole's position back to the way it was
                 // to keep them in sync.  Since GoRogue's position never changed, this won't infinite loop.
                 if (Position != base.Position)
-                {
                     base.Position = Position;
-                }
             }
         }
 

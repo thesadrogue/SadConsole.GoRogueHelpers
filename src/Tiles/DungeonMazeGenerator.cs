@@ -7,7 +7,7 @@ using SadConsole.Maps;
 namespace SadConsole.Tiles
 {
     /// <summary>
-    /// Generates a maze-room dungeon.
+    /// Generates a maze-room dungeon as a TileMap.
     /// </summary>
     public class DungeonMazeGenerator
     {
@@ -204,29 +204,15 @@ namespace SadConsole.Tiles
             SadConsoleMap.Regions = new List<Region>(Rooms);
 
             // Create tiles in the SadConsole map
-            foreach (Coord position in GoRogueMap.Positions())
-            {
-                Tile terrain;
-                if (GoRogueMap[position])
-                {
-                    terrain = Tile.Factory.Create(Settings.TileBlueprintFloor, position);
-                }
-                else
-                {
-                    terrain = Tile.Factory.Create(Settings.TileBlueprintWall, position);
-                }
+            SadConsoleMap.ApplyTerrainOverlay(GoRogueMap, SpawnTerrain);
 
-                terrain.Position = position;
-                SadConsoleMap.SetTerrain(terrain);
-            }
-
+            // Set region lighting flags
             foreach (Region region in Rooms)
-            {
                 foreach (Coord point in region.InnerPoints)
-                {
                     SadConsoleMap.GetTerrain<Tile>(point).SetFlag(TileFlags.RegionLighted);
-                }
-            }
         }
+
+        private Tile SpawnTerrain(Coord position, bool mapGenValue)
+            => mapGenValue ? Tile.Factory.Create(Settings.TileBlueprintFloor, position) : Tile.Factory.Create(Settings.TileBlueprintWall, position);
     }
 }

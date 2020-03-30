@@ -20,15 +20,9 @@ namespace TinkerWorX.AccidentalNoiseLibrary
                 XAttribute nameAttribute = xElement.Attribute("name");
                 XAttribute typeAttribute = xElement.Attribute("type");
 
-                if (nameAttribute == null)
-                {
-                    continue;
-                }
+                if (nameAttribute == null) continue;
 
-                if (typeAttribute == null)
-                {
-                    continue;
-                }
+                if (typeAttribute == null) continue;
 
                 string name = nameAttribute.Value;
                 string type = typeAttribute.Value;
@@ -83,45 +77,29 @@ namespace TinkerWorX.AccidentalNoiseLibrary
             if (!string.IsNullOrEmpty(sourceString))
             {
                 if (chain.Modules.TryGetValue(sourceString, out ImplicitModuleBase source))
-                {
                     autoCorrect = new ImplicitAutoCorrect(source);
-                }
                 else if (double.TryParse(sourceString, NumberStyles.Any, CultureInfo.InvariantCulture, out value))
-                {
                     autoCorrect = new ImplicitAutoCorrect(value);
-                }
                 else
-                {
                     throw new InvalidOperationException("Invalid source value");
-                }
             }
             else
-            {
                 throw new InvalidOperationException("Missing source");
-            }
 
             if (!string.IsNullOrEmpty(low))
             {
                 if (double.TryParse(low, NumberStyles.Any, CultureInfo.InvariantCulture, out value))
-                {
                     autoCorrect.Low = value;
-                }
                 else
-                {
                     throw new InvalidOperationException("Invalid low value");
-                }
             }
 
             if (!string.IsNullOrEmpty(high))
             {
                 if (double.TryParse(high, NumberStyles.Any, CultureInfo.InvariantCulture, out value))
-                {
                     autoCorrect.High = value;
-                }
                 else
-                {
                     throw new InvalidOperationException("Invalid high value");
-                }
             }
 
             return autoCorrect;
@@ -140,37 +118,23 @@ namespace TinkerWorX.AccidentalNoiseLibrary
             if (!string.IsNullOrEmpty(sourceString))
             {
                 if (chain.Modules.TryGetValue(sourceString, out source))
-                {
                     autoCorrect = new ImplicitBias(source, 0);
-                }
                 else if (double.TryParse(sourceString, NumberStyles.Any, CultureInfo.InvariantCulture, out value))
-                {
                     autoCorrect = new ImplicitBias(value, 0);
-                }
                 else
-                {
                     throw new InvalidOperationException("Invalid source value");
-                }
             }
             else
-            {
                 throw new InvalidOperationException("Missing source");
-            }
 
             if (!string.IsNullOrEmpty(low))
             {
                 if (chain.Modules.TryGetValue(sourceString, out source))
-                {
                     autoCorrect.Bias = source;
-                }
                 else if (double.TryParse(low, NumberStyles.Any, CultureInfo.InvariantCulture, out value))
-                {
                     autoCorrect.Bias = value;
-                }
                 else
-                {
                     throw new InvalidOperationException("Invalid bias value");
-                }
             }
 
             return autoCorrect;
@@ -181,20 +145,14 @@ namespace TinkerWorX.AccidentalNoiseLibrary
             string sourceString = (xElement.Attribute("source") != null ? xElement.Attribute("source").Value : string.Empty);
 
             if (string.IsNullOrEmpty(sourceString))
-            {
                 throw new InvalidOperationException("Missing source");
-            }
 
 
             if (chain.Modules.TryGetValue(sourceString, out ImplicitModuleBase source))
-            {
                 return new ImplicitCache(source);
-            }
 
             if (double.TryParse(sourceString, NumberStyles.Any, CultureInfo.InvariantCulture, out double value))
-            {
                 return new ImplicitCache(value);
-            }
 
             throw new InvalidOperationException("Invalid source value");
         }
@@ -213,53 +171,33 @@ namespace TinkerWorX.AccidentalNoiseLibrary
             if (!string.IsNullOrEmpty(sourceString))
             {
                 if (chain.Modules.TryGetValue(sourceString, out source))
-                {
                     clamp = new ImplicitClamp(source);
-                }
                 else if (double.TryParse(sourceString, NumberStyles.Any, CultureInfo.InvariantCulture, out value))
-                {
                     clamp = new ImplicitClamp(value);
-                }
                 else
-                {
                     throw new InvalidOperationException("Invalid source value");
-                }
             }
             else
-            {
                 throw new InvalidOperationException("Missing source");
-            }
 
             if (!string.IsNullOrEmpty(low))
             {
                 if (chain.Modules.TryGetValue(low, out source))
-                {
                     clamp.Low = source;
-                }
                 else if (double.TryParse(low, NumberStyles.Any, CultureInfo.InvariantCulture, out value))
-                {
                     clamp.Low = value;
-                }
                 else
-                {
                     throw new InvalidOperationException("Invalid low value");
-                }
             }
 
             if (!string.IsNullOrEmpty(high))
             {
                 if (chain.Modules.TryGetValue(high, out source))
-                {
                     clamp.High = source;
-                }
                 else if (double.TryParse(high, NumberStyles.Any, CultureInfo.InvariantCulture, out value))
-                {
                     clamp.High = value;
-                }
                 else
-                {
                     throw new InvalidOperationException("Invalid high value");
-                }
             }
 
             return clamp;
@@ -298,9 +236,7 @@ namespace TinkerWorX.AccidentalNoiseLibrary
             }
 
             foreach (XElement source in xElement.Elements("source"))
-            {
                 combiner.AddSource(chain.Modules[source.Value]);
-            }
 
             return combiner;
         }
@@ -309,21 +245,15 @@ namespace TinkerWorX.AccidentalNoiseLibrary
         {
             XAttribute fractalTypeAttribute = xElement.Attribute("fractal");
             if (fractalTypeAttribute == null)
-            {
                 throw new InvalidOperationException("Missing fractal.");
-            }
 
             XAttribute basisTypeAttribute = xElement.Attribute("basis");
             if (basisTypeAttribute == null)
-            {
                 throw new InvalidOperationException("Missing basis.");
-            }
 
             XAttribute interpolationTypeAttribute = xElement.Attribute("interpolation");
             if (interpolationTypeAttribute == null)
-            {
                 throw new InvalidOperationException("Missing interpolation.");
-            }
 
             FractalType fractalType;
             switch (fractalTypeAttribute.Value.ToLower())
@@ -389,39 +319,27 @@ namespace TinkerWorX.AccidentalNoiseLibrary
 
             XAttribute octavesAttribute = xElement.Attribute("octaves");
             if (octavesAttribute != null)
-            {
                 fractal.Octaves = int.Parse(octavesAttribute.Value);
-            }
 
             XAttribute frequencyAttribute = xElement.Attribute("frequency");
             if (frequencyAttribute != null)
-            {
                 fractal.Frequency = double.Parse(frequencyAttribute.Value, NumberStyles.Any, CultureInfo.InvariantCulture);
-            }
 
             XAttribute lacunarityAttribute = xElement.Attribute("lacunarity");
             if (lacunarityAttribute != null)
-            {
                 fractal.Lacunarity = double.Parse(lacunarityAttribute.Value, NumberStyles.Any, CultureInfo.InvariantCulture);
-            }
 
             XAttribute gainAttribute = xElement.Attribute("gain");
             if (gainAttribute != null)
-            {
                 fractal.Gain = double.Parse(gainAttribute.Value, NumberStyles.Any, CultureInfo.InvariantCulture);
-            }
 
             XAttribute offsetAttribute = xElement.Attribute("offset");
             if (offsetAttribute != null)
-            {
                 fractal.Offset = double.Parse(offsetAttribute.Value, NumberStyles.Any, CultureInfo.InvariantCulture);
-            }
 
             XAttribute hAttribute = xElement.Attribute("h");
             if (hAttribute != null)
-            {
                 fractal.H = double.Parse(hAttribute.Value, NumberStyles.Any, CultureInfo.InvariantCulture);
-            }
 
             return fractal;
         }
@@ -472,115 +390,73 @@ namespace TinkerWorX.AccidentalNoiseLibrary
             if (!string.IsNullOrEmpty(xc))
             {
                 if (chain.Modules.TryGetValue(xc, out source))
-                {
                     sphere.XCenter = source;
-                }
                 else if (double.TryParse(xc, NumberStyles.Any, CultureInfo.InvariantCulture, out value))
-                {
                     sphere.XCenter = value;
-                }
                 else
-                {
                     throw new InvalidOperationException("Invalid xc value");
-                }
             }
 
             if (!string.IsNullOrEmpty(yc))
             {
                 if (chain.Modules.TryGetValue(yc, out source))
-                {
                     sphere.YCenter = source;
-                }
                 else if (double.TryParse(yc, NumberStyles.Any, CultureInfo.InvariantCulture, out value))
-                {
                     sphere.YCenter = value;
-                }
                 else
-                {
                     throw new InvalidOperationException("Invalid yc value");
-                }
             }
 
             if (!string.IsNullOrEmpty(zc))
             {
 
                 if (chain.Modules.TryGetValue(zc, out source))
-                {
                     sphere.ZCenter = source;
-                }
                 else if (double.TryParse(zc, NumberStyles.Any, CultureInfo.InvariantCulture, out value))
-                {
                     sphere.ZCenter = value;
-                }
                 else
-                {
                     throw new InvalidOperationException("Invalid zc value");
-                }
             }
 
             if (!string.IsNullOrEmpty(vc))
             {
                 if (chain.Modules.TryGetValue(vc, out source))
-                {
                     sphere.VCenter = source;
-                }
                 else if (double.TryParse(vc, NumberStyles.Any, CultureInfo.InvariantCulture, out value))
-                {
                     sphere.VCenter = value;
-                }
                 else
-                {
                     throw new InvalidOperationException("Invalid vc value");
-                }
             }
 
             if (!string.IsNullOrEmpty(uc))
             {
                 if (chain.Modules.TryGetValue(uc, out source))
-                {
                     sphere.UCenter = source;
-                }
                 else if (double.TryParse(uc, NumberStyles.Any, CultureInfo.InvariantCulture, out value))
-                {
                     sphere.UCenter = value;
-                }
                 else
-                {
                     throw new InvalidOperationException("Invalid uc value");
-                }
             }
 
             if (!string.IsNullOrEmpty(wc))
             {
 
                 if (chain.Modules.TryGetValue(wc, out source))
-                {
                     sphere.WCenter = source;
-                }
                 else if (double.TryParse(wc, NumberStyles.Any, CultureInfo.InvariantCulture, out value))
-                {
                     sphere.WCenter = value;
-                }
                 else
-                {
                     throw new InvalidOperationException("Invalid wc value");
-                }
             }
 
             if (!string.IsNullOrEmpty(radius))
             {
                 if (chain.Modules.TryGetValue(radius, out source))
-                {
                     sphere.Radius = source;
-                }
                 else if (double.TryParse(radius, NumberStyles.Any, CultureInfo.InvariantCulture, out value))
-                {
                     sphere.Radius = value;
-                }
                 else
-                {
                     throw new InvalidOperationException("Invalid radius value");
-                }
             }
 
             return sphere;
@@ -599,53 +475,33 @@ namespace TinkerWorX.AccidentalNoiseLibrary
             if (!string.IsNullOrEmpty(sourceString))
             {
                 if (chain.Modules.TryGetValue(sourceString, out source))
-                {
                     scaleOffset = new ImplicitScaleOffset(source);
-                }
                 else if (double.TryParse(sourceString, NumberStyles.Any, CultureInfo.InvariantCulture, out value))
-                {
                     scaleOffset = new ImplicitScaleOffset(value);
-                }
                 else
-                {
                     throw new InvalidOperationException("Invalid source value");
-                }
             }
             else
-            {
                 throw new InvalidOperationException("Missing source");
-            }
 
             if (!string.IsNullOrEmpty(scaleString))
             {
                 if (chain.Modules.TryGetValue(scaleString, out source))
-                {
                     scaleOffset.Scale = source;
-                }
                 else if (double.TryParse(scaleString, NumberStyles.Any, CultureInfo.InvariantCulture, out value))
-                {
                     scaleOffset.Scale = value;
-                }
                 else
-                {
                     throw new InvalidOperationException("Invalid scale value");
-                }
             }
 
             if (!string.IsNullOrEmpty(offsetString))
             {
                 if (chain.Modules.TryGetValue(offsetString, out source))
-                {
                     scaleOffset.Offset = source;
-                }
                 else if (double.TryParse(offsetString, NumberStyles.Any, CultureInfo.InvariantCulture, out value))
-                {
                     scaleOffset.Offset = value;
-                }
                 else
-                {
                     throw new InvalidOperationException("Invalid offset value");
-                }
             }
 
             return scaleOffset;
@@ -669,119 +525,75 @@ namespace TinkerWorX.AccidentalNoiseLibrary
             if (!string.IsNullOrEmpty(sourceString))
             {
                 if (chain.Modules.TryGetValue(sourceString, out source))
-                {
                     scaleDomain = new ImplicitScaleDomain(source);
-                }
                 else if (double.TryParse(sourceString, NumberStyles.Any, CultureInfo.InvariantCulture, out value))
-                {
                     scaleDomain = new ImplicitScaleDomain(value);
-                }
                 else
-                {
                     throw new InvalidOperationException("Invalid source value");
-                }
             }
             else
-            {
                 throw new InvalidOperationException("Missing source");
-            }
 
             if (!string.IsNullOrEmpty(xs))
             {
                 if (chain.Modules.TryGetValue(xs, out source))
-                {
                     scaleDomain.XScale = source;
-                }
                 else if (double.TryParse(xs, NumberStyles.Any, CultureInfo.InvariantCulture, out value))
-                {
                     scaleDomain.XScale = value;
-                }
                 else
-                {
                     throw new InvalidOperationException("Invalid xs value");
-                }
             }
 
             if (!string.IsNullOrEmpty(ys))
             {
                 if (chain.Modules.TryGetValue(ys, out source))
-                {
                     scaleDomain.YScale = source;
-                }
                 else if (double.TryParse(ys, NumberStyles.Any, CultureInfo.InvariantCulture, out value))
-                {
                     scaleDomain.YScale = value;
-                }
                 else
-                {
                     throw new InvalidOperationException("Invalid ys value");
-                }
             }
 
             if (!string.IsNullOrEmpty(zs))
             {
 
                 if (chain.Modules.TryGetValue(zs, out source))
-                {
                     scaleDomain.ZScale = source;
-                }
                 else if (double.TryParse(zs, NumberStyles.Any, CultureInfo.InvariantCulture, out value))
-                {
                     scaleDomain.ZScale = value;
-                }
                 else
-                {
                     throw new InvalidOperationException("Invalid zs value");
-                }
             }
 
             if (!string.IsNullOrEmpty(vs))
             {
                 if (chain.Modules.TryGetValue(vs, out source))
-                {
                     scaleDomain.VScale = source;
-                }
                 else if (double.TryParse(vs, NumberStyles.Any, CultureInfo.InvariantCulture, out value))
-                {
                     scaleDomain.VScale = value;
-                }
                 else
-                {
                     throw new InvalidOperationException("Invalid vs value");
-                }
             }
 
             if (!string.IsNullOrEmpty(us))
             {
                 if (chain.Modules.TryGetValue(us, out source))
-                {
                     scaleDomain.UScale = source;
-                }
                 else if (double.TryParse(us, NumberStyles.Any, CultureInfo.InvariantCulture, out value))
-                {
                     scaleDomain.UScale = value;
-                }
                 else
-                {
                     throw new InvalidOperationException("Invalid us value");
-                }
             }
 
             if (!string.IsNullOrEmpty(ws))
             {
 
                 if (chain.Modules.TryGetValue(ws, out source))
-                {
                     scaleDomain.WScale = source;
-                }
                 else if (double.TryParse(ws, NumberStyles.Any, CultureInfo.InvariantCulture, out value))
-                {
                     scaleDomain.WScale = value;
-                }
                 else
-                {
                     throw new InvalidOperationException("Invalid ws value");
-                }
             }
 
             return scaleDomain;
@@ -805,117 +617,73 @@ namespace TinkerWorX.AccidentalNoiseLibrary
             if (!string.IsNullOrEmpty(sourceString))
             {
                 if (chain.Modules.TryGetValue(sourceString, out source))
-                {
                     translateDomain = new ImplicitTranslateDomain(source);
-                }
                 else if (double.TryParse(sourceString, NumberStyles.Any, CultureInfo.InvariantCulture, out value))
-                {
                     translateDomain = new ImplicitTranslateDomain(value);
-                }
                 else
-                {
                     throw new InvalidOperationException("Invalid source value");
-                }
             }
             else
-            {
                 throw new InvalidOperationException("Missing source");
-            }
 
             if (!string.IsNullOrEmpty(xa))
             {
                 if (chain.Modules.TryGetValue(xa, out source))
-                {
                     translateDomain.XAxis = source;
-                }
                 else if (double.TryParse(xa, NumberStyles.Any, CultureInfo.InvariantCulture, out value))
-                {
                     translateDomain.XAxis = value;
-                }
                 else
-                {
                     throw new InvalidOperationException("Invalid xa value");
-                }
             }
 
             if (!string.IsNullOrEmpty(ya))
             {
                 if (chain.Modules.TryGetValue(ya, out source))
-                {
                     translateDomain.YAxis = source;
-                }
                 else if (double.TryParse(ya, NumberStyles.Any, CultureInfo.InvariantCulture, out value))
-                {
                     translateDomain.YAxis = value;
-                }
                 else
-                {
                     throw new InvalidOperationException("Invalid ya value");
-                }
             }
 
             if (!string.IsNullOrEmpty(za))
             {
                 if (chain.Modules.TryGetValue(za, out source))
-                {
                     translateDomain.ZAxis = source;
-                }
                 else if (double.TryParse(za, NumberStyles.Any, CultureInfo.InvariantCulture, out value))
-                {
                     translateDomain.ZAxis = value;
-                }
                 else
-                {
                     throw new InvalidOperationException("Invalid za value");
-                }
             }
 
             if (!string.IsNullOrEmpty(va))
             {
                 if (chain.Modules.TryGetValue(va, out source))
-                {
                     translateDomain.VAxis = source;
-                }
                 else if (double.TryParse(va, NumberStyles.Any, CultureInfo.InvariantCulture, out value))
-                {
                     translateDomain.VAxis = value;
-                }
                 else
-                {
                     throw new InvalidOperationException("Invalid va value");
-                }
             }
 
             if (!string.IsNullOrEmpty(ua))
             {
                 if (chain.Modules.TryGetValue(ua, out source))
-                {
                     translateDomain.UAxis = source;
-                }
                 else if (double.TryParse(ua, NumberStyles.Any, CultureInfo.InvariantCulture, out value))
-                {
                     translateDomain.UAxis = value;
-                }
                 else
-                {
                     throw new InvalidOperationException("Invalid ua value");
-                }
             }
 
             if (!string.IsNullOrEmpty(wa))
             {
                 if (chain.Modules.TryGetValue(wa, out source))
-                {
                     translateDomain.WAxis = source;
-                }
                 else if (double.TryParse(wa, NumberStyles.Any, CultureInfo.InvariantCulture, out value))
-                {
                     translateDomain.WAxis = value;
-                }
                 else
-                {
                     throw new InvalidOperationException("Invalid wa value");
-                }
             }
 
             return translateDomain;
@@ -937,85 +705,53 @@ namespace TinkerWorX.AccidentalNoiseLibrary
             if (!string.IsNullOrEmpty(sourceString))
             {
                 if (chain.Modules.TryGetValue(sourceString, out source))
-                {
                     @select = new ImplicitSelect(source);
-                }
                 else if (double.TryParse(sourceString, NumberStyles.Any, CultureInfo.InvariantCulture, out value))
-                {
                     @select = new ImplicitSelect(value);
-                }
                 else
-                {
                     throw new InvalidOperationException("Invalid source value");
-                }
             }
             else
-            {
                 throw new InvalidOperationException("Missing source");
-            }
 
             if (!string.IsNullOrEmpty(low))
             {
                 if (chain.Modules.TryGetValue(low, out source))
-                {
                     @select.Low = source;
-                }
                 else if (double.TryParse(low, NumberStyles.Any, CultureInfo.InvariantCulture, out value))
-                {
                     @select.Low = value;
-                }
                 else
-                {
                     throw new InvalidOperationException("Invalid low value");
-                }
             }
 
             if (!string.IsNullOrEmpty(high))
             {
                 if (chain.Modules.TryGetValue(high, out source))
-                {
                     @select.High = source;
-                }
                 else if (double.TryParse(high, NumberStyles.Any, CultureInfo.InvariantCulture, out value))
-                {
                     @select.High = value;
-                }
                 else
-                {
                     throw new InvalidOperationException("Invalid high value");
-                }
             }
 
             if (!string.IsNullOrEmpty(falloff))
             {
                 if (chain.Modules.TryGetValue(falloff, out source))
-                {
                     @select.Falloff = source;
-                }
                 else if (double.TryParse(falloff, NumberStyles.Any, CultureInfo.InvariantCulture, out value))
-                {
                     @select.Falloff = value;
-                }
                 else
-                {
                     throw new InvalidOperationException("Invalid falloff value");
-                }
             }
 
             if (!string.IsNullOrEmpty(threshold))
             {
                 if (chain.Modules.TryGetValue(threshold, out source))
-                {
                     @select.Threshold = source;
-                }
                 else if (double.TryParse(threshold, NumberStyles.Any, CultureInfo.InvariantCulture, out value))
-                {
                     @select.Threshold = value;
-                }
                 else
-                {
                     throw new InvalidOperationException("Invalid threshold value");
-                }
             }
 
             return @select;

@@ -73,14 +73,14 @@
   
   <h1 id="SadConsole_Components_GoRogue_ComponentBase" data-uid="SadConsole.Components.GoRogue.ComponentBase" class="text-break">Class ComponentBase
   </h1>
-  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 summary"><p>Simplest (and optional) base class for components attached to GameObject.  Adds useful events and potential type-checks.</p>
+</div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><span class="xref">System.Object</span></div>
     <div class="level1"><span class="xref">ComponentBase</span></div>
-      <div class="level2"><a class="xref" href="SadConsole.Components.GoRogue.ActionProcessor.html">ActionProcessor</a></div>
-      <div class="level2"><a class="xref" href="SadConsole.Components.GoRogue.GameFrameProcessor.html">GameFrameProcessor</a></div>
+      <div class="level2"><a class="xref" href="SadConsole.Components.GoRogue.ComponentBase-1.html">ComponentBase&lt;TParent&gt;</a></div>
   </div>
   <div classs="implements">
     <h5>Implements</h5>
@@ -110,7 +110,8 @@
   
   <a id="SadConsole_Components_GoRogue_ComponentBase_Parent_" data-uid="SadConsole.Components.GoRogue.ComponentBase.Parent*"></a>
   <h4 id="SadConsole_Components_GoRogue_ComponentBase_Parent" data-uid="SadConsole.Components.GoRogue.ComponentBase.Parent">Parent</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The object the component is attached to.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -138,7 +139,7 @@
   <a id="SadConsole_Components_GoRogue_ComponentBase_IncompatibleWith_" data-uid="SadConsole.Components.GoRogue.ComponentBase.IncompatibleWith*"></a>
   <h4 id="SadConsole_Components_GoRogue_ComponentBase_IncompatibleWith__1_System_Object_System_EventArgs_" data-uid="SadConsole.Components.GoRogue.ComponentBase.IncompatibleWith``1(System.Object,System.EventArgs)">IncompatibleWith&lt;TComponent&gt;(Object, EventArgs)</h4>
   <div class="markdown level1 summary"><p>Add as a handler to <a class="xref" href="SadConsole.Components.GoRogue.ComponentBase.html#SadConsole_Components_GoRogue_ComponentBase_Added">Added</a> to enforce that this component may not be added to an object that has a component of type <code data-dev-comment-type="typeparamref" class="typeparamref">TComponent</code>.
-May also be used to enforce that the component can't have multiple instances of itself attached to the same object by using Added += IncompatibleWith&lt;MyOwnType&gt;;</p>
+May also be used to enforce that the component can't have multiple instances of itself attached to the same object by using Added += IncompatibleWith&lt;MyOwnType&gt;.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -237,7 +238,8 @@ May also be used to enforce that the component can't have multiple instances of 
   
   
   <h4 id="SadConsole_Components_GoRogue_ComponentBase_Added" data-uid="SadConsole.Components.GoRogue.ComponentBase.Added">Added</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Fires when the component is attached to an object.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -261,7 +263,8 @@ May also be used to enforce that the component can't have multiple instances of 
   
   
   <h4 id="SadConsole_Components_GoRogue_ComponentBase_Removed" data-uid="SadConsole.Components.GoRogue.ComponentBase.Removed">Removed</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Fires when the component is unattached from an object</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">

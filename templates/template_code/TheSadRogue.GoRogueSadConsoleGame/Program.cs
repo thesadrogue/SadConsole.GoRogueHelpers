@@ -8,7 +8,7 @@
 
         public static MapScreen MapScreen { get; set; }
 
-        private static void Main(string[] args)
+        private static void Main()
         {
             // Setup the engine and create the main window.
             SadConsole.Game.Create(StartingWidth, StartingHeight);

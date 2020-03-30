@@ -35,12 +35,8 @@ namespace BasicTutorial.Maps.TileBlueprints
             OnProcessAction = (tile, action) =>
             {
                 if (action is SadConsole.Actions.BumpTile)
-                {
                     if (tile.TileState == (int)TileStates.Door.Closed)
-                    {
                         tile.TileState = (int)TileStates.Door.Opened;
-                    }
-                }
             };
 
         }
@@ -50,13 +46,9 @@ namespace BasicTutorial.Maps.TileBlueprints
             Tile tile = base.Create(config);
 
             if (StartClosed)
-            {
                 tile.TileState = (int)TileStates.Door.Closed;
-            }
             else
-            {
                 tile.TileState = (int)TileStates.Door.Opened;
-            }
 
             return tile;
         }

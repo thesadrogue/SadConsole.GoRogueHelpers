@@ -57,9 +57,7 @@ namespace SadConsole
                 terrain.Foreground = ExploredColor;
             }
             else
-            {
                 terrain.IsVisible = false;
-            }
         }
     }
 }

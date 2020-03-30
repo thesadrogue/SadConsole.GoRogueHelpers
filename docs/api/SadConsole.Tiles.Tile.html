@@ -73,7 +73,8 @@
   
   <h1 id="SadConsole_Tiles_Tile" data-uid="SadConsole.Tiles.Tile" class="text-break">Class Tile
   </h1>
-  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 summary"><p>A terrain object that implements a flags-based system for recording Tile information.</p>
+</div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
@@ -87,7 +88,7 @@
     <div><span class="xref">GoRogue.IHasID</span></div>
     <div><span class="xref">GoRogue.IHasLayer</span></div>
     <div><span class="xref">GoRogue.IHasComponents</span></div>
-    <div><a class="xref" href="SadConsole.Factory.IFactoryObject.html">IFactoryObject</a></div>
+    <div><span class="xref">GoRogue.Factory.IFactoryObject</span></div>
   </div>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
@@ -384,32 +385,9 @@
   </h3>
   
   
-  <h4 id="SadConsole_Tiles_Tile_AppearanceDim" data-uid="SadConsole.Tiles.Tile.AppearanceDim">AppearanceDim</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected Cell AppearanceDim</code></pre>
-  </div>
-  <h5 class="fieldValue">Field Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">SadConsole.Cell</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
   <h4 id="SadConsole_Tiles_Tile_AppearanceNeverSeen" data-uid="SadConsole.Tiles.Tile.AppearanceNeverSeen">AppearanceNeverSeen</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Appearance set as the never-seen appearance for cells.  Defaults to black.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -432,32 +410,9 @@
   </table>
   
   
-  <h4 id="SadConsole_Tiles_Tile_AppearanceNormal" data-uid="SadConsole.Tiles.Tile.AppearanceNormal">AppearanceNormal</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected Cell AppearanceNormal</code></pre>
-  </div>
-  <h5 class="fieldValue">Field Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">SadConsole.Cell</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
   <h4 id="SadConsole_Tiles_Tile_DimAmount" data-uid="SadConsole.Tiles.Tile.DimAmount">DimAmount</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The amount multiplied to the color value of the normal appearance to obtain the unseen appearance, if no unseen appearance is specified.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -498,79 +453,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="SadConsole.Factory.Factory-2.html">Factory</a>&lt;<a class="xref" href="SadConsole.Tiles.TileBlueprintConfig.html">TileBlueprintConfig</a>, <a class="xref" href="SadConsole.Tiles.Tile.html">Tile</a>&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
-  <h4 id="SadConsole_Tiles_Tile_flags" data-uid="SadConsole.Tiles.Tile.flags">flags</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected int flags</code></pre>
-  </div>
-  <h5 class="fieldValue">Field Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Int32</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
-  <h4 id="SadConsole_Tiles_Tile_tileState" data-uid="SadConsole.Tiles.Tile.tileState">tileState</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected int tileState</code></pre>
-  </div>
-  <h5 class="fieldValue">Field Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Int32</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
-  <h4 id="SadConsole_Tiles_Tile_tileType" data-uid="SadConsole.Tiles.Tile.tileType">tileType</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected int tileType</code></pre>
-  </div>
-  <h5 class="fieldValue">Field Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Int32</span></td>
+        <td><span class="xref">GoRogue.Factory.Factory</span>&lt;<a class="xref" href="SadConsole.Tiles.TileBlueprintConfig.html">TileBlueprintConfig</a>, <a class="xref" href="SadConsole.Tiles.Tile.html">Tile</a>&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -581,7 +464,8 @@
   
   <a id="SadConsole_Tiles_Tile_CurrentMap_" data-uid="SadConsole.Tiles.Tile.CurrentMap*"></a>
   <h4 id="SadConsole_Tiles_Tile_CurrentMap" data-uid="SadConsole.Tiles.Tile.CurrentMap">CurrentMap</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The map containining the Tile.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -606,7 +490,8 @@
   
   <a id="SadConsole_Tiles_Tile_DefinitionId_" data-uid="SadConsole.Tiles.Tile.DefinitionId*"></a>
   <h4 id="SadConsole_Tiles_Tile_DefinitionId" data-uid="SadConsole.Tiles.Tile.DefinitionId">DefinitionId</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>ID of the blueprint that created this Tile.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -631,7 +516,8 @@
   
   <a id="SadConsole_Tiles_Tile_Description_" data-uid="SadConsole.Tiles.Tile.Description*"></a>
   <h4 id="SadConsole_Tiles_Tile_Description" data-uid="SadConsole.Tiles.Tile.Description">Description</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Arbitrary description for the Tile.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -682,7 +568,8 @@
   
   <a id="SadConsole_Tiles_Tile_IsTransparent_" data-uid="SadConsole.Tiles.Tile.IsTransparent*"></a>
   <h4 id="SadConsole_Tiles_Tile_IsTransparent" data-uid="SadConsole.Tiles.Tile.IsTransparent">IsTransparent</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Whether or not the Tile is considered transparent for the sake of FOV.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -709,7 +596,8 @@
   
   <a id="SadConsole_Tiles_Tile_IsWalkable_" data-uid="SadConsole.Tiles.Tile.IsWalkable*"></a>
   <h4 id="SadConsole_Tiles_Tile_IsWalkable" data-uid="SadConsole.Tiles.Tile.IsWalkable">IsWalkable</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Whether or not the tile is walkable for the sake of pathing.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -736,7 +624,8 @@
   
   <a id="SadConsole_Tiles_Tile_OnProcessAction_" data-uid="SadConsole.Tiles.Tile.OnProcessAction*"></a>
   <h4 id="SadConsole_Tiles_Tile_OnProcessAction" data-uid="SadConsole.Tiles.Tile.OnProcessAction">OnProcessAction</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Called automatically when the <a class="xref" href="SadConsole.Tiles.Tile.html#SadConsole_Tiles_Tile_ProcessAction_SadConsole_Actions_ActionBase_">ProcessAction(ActionBase)</a> function is invoked.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -761,7 +650,8 @@
   
   <a id="SadConsole_Tiles_Tile_OnTileFlagsChanged_" data-uid="SadConsole.Tiles.Tile.OnTileFlagsChanged*"></a>
   <h4 id="SadConsole_Tiles_Tile_OnTileFlagsChanged" data-uid="SadConsole.Tiles.Tile.OnTileFlagsChanged">OnTileFlagsChanged</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Called automatically when the Tile's <a class="xref" href="SadConsole.Tiles.Tile.html#SadConsole_Tiles_Tile_Flags">Flags</a> are changed.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -786,7 +676,8 @@
   
   <a id="SadConsole_Tiles_Tile_OnTileStateChanged_" data-uid="SadConsole.Tiles.Tile.OnTileStateChanged*"></a>
   <h4 id="SadConsole_Tiles_Tile_OnTileStateChanged" data-uid="SadConsole.Tiles.Tile.OnTileStateChanged">OnTileStateChanged</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Called automatically when the Tile's <a class="xref" href="SadConsole.Tiles.Tile.html#SadConsole_Tiles_Tile_TileState">TileState</a> changes.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -837,7 +728,8 @@
   
   <a id="SadConsole_Tiles_Tile_Title_" data-uid="SadConsole.Tiles.Tile.Title*"></a>
   <h4 id="SadConsole_Tiles_Tile_Title" data-uid="SadConsole.Tiles.Tile.Title">Title</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Arbitrary title for the Tile.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -890,7 +782,8 @@
   
   <a id="SadConsole_Tiles_Tile_ChangeAppearance_" data-uid="SadConsole.Tiles.Tile.ChangeAppearance*"></a>
   <h4 id="SadConsole_Tiles_Tile_ChangeAppearance_SadConsole_Cell_" data-uid="SadConsole.Tiles.Tile.ChangeAppearance(SadConsole.Cell)">ChangeAppearance(Cell)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Modify the appearance of the cell as specified.  The dim version of the cell will be identical, but with the colors dimmed by a factor of <a class="xref" href="SadConsole.Tiles.Tile.html#SadConsole_Tiles_Tile_DimAmount">DimAmount</a>.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -909,7 +802,8 @@
       <tr>
         <td><span class="xref">SadConsole.Cell</span></td>
         <td><span class="parametername">normal</span></td>
-        <td></td>
+        <td><p>Appearance to set.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -917,7 +811,8 @@
   
   <a id="SadConsole_Tiles_Tile_ChangeAppearance_" data-uid="SadConsole.Tiles.Tile.ChangeAppearance*"></a>
   <h4 id="SadConsole_Tiles_Tile_ChangeAppearance_SadConsole_Cell_SadConsole_Cell_" data-uid="SadConsole.Tiles.Tile.ChangeAppearance(SadConsole.Cell,SadConsole.Cell)">ChangeAppearance(Cell, Cell)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Modify normal and dim appearances as specified.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -936,12 +831,14 @@
       <tr>
         <td><span class="xref">SadConsole.Cell</span></td>
         <td><span class="parametername">normal</span></td>
-        <td></td>
+        <td><p>Appearance to set as normal appearance.</p>
+</td>
       </tr>
       <tr>
         <td><span class="xref">SadConsole.Cell</span></td>
         <td><span class="parametername">dim</span></td>
-        <td></td>
+        <td><p>Appearance to set as dim appearance.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -949,7 +846,8 @@
   
   <a id="SadConsole_Tiles_Tile_ChangeGlyph_" data-uid="SadConsole.Tiles.Tile.ChangeGlyph*"></a>
   <h4 id="SadConsole_Tiles_Tile_ChangeGlyph_System_Int32_" data-uid="SadConsole.Tiles.Tile.ChangeGlyph(System.Int32)">ChangeGlyph(Int32)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Change glyph of both the normal and dim versions of the Tile to the specified one.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -968,7 +866,8 @@
       <tr>
         <td><span class="xref">System.Int32</span></td>
         <td><span class="parametername">glyph</span></td>
-        <td></td>
+        <td><p>Glyph to change to.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -976,7 +875,8 @@
   
   <a id="SadConsole_Tiles_Tile_ProcessAction_" data-uid="SadConsole.Tiles.Tile.ProcessAction*"></a>
   <h4 id="SadConsole_Tiles_Tile_ProcessAction_SadConsole_Actions_ActionBase_" data-uid="SadConsole.Tiles.Tile.ProcessAction(SadConsole.Actions.ActionBase)">ProcessAction(ActionBase)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Callto cause the Tile to process an action.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -995,7 +895,8 @@
       <tr>
         <td><a class="xref" href="SadConsole.Actions.ActionBase.html">ActionBase</a></td>
         <td><span class="parametername">action</span></td>
-        <td></td>
+        <td><p>Action to process.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -1003,7 +904,7 @@
   
   <a id="SadConsole_Tiles_Tile_SetFlag_" data-uid="SadConsole.Tiles.Tile.SetFlag*"></a>
   <h4 id="SadConsole_Tiles_Tile_SetFlag_SadConsole_Tiles_TileFlags___" data-uid="SadConsole.Tiles.Tile.SetFlag(SadConsole.Tiles.TileFlags[])">SetFlag(TileFlags[])</h4>
-  <div class="markdown level1 summary"><p>Adds the specified flags to the <a class="xref" href="SadConsole.Tiles.Tile.html#SadConsole_Tiles_Tile_flags">flags</a> property.</p>
+  <div class="markdown level1 summary"><p>Adds the specified flags to the <a class="xref" href="SadConsole.Tiles.Tile.html#SadConsole_Tiles_Tile_Flags">Flags</a> property.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -1032,7 +933,7 @@
   
   <a id="SadConsole_Tiles_Tile_UnsetFlag_" data-uid="SadConsole.Tiles.Tile.UnsetFlag*"></a>
   <h4 id="SadConsole_Tiles_Tile_UnsetFlag_SadConsole_Tiles_TileFlags___" data-uid="SadConsole.Tiles.Tile.UnsetFlag(SadConsole.Tiles.TileFlags[])">UnsetFlag(TileFlags[])</h4>
-  <div class="markdown level1 summary"><p>Removes the specified flags to the <a class="xref" href="SadConsole.Tiles.Tile.html#SadConsole_Tiles_Tile_flags">flags</a> property.</p>
+  <div class="markdown level1 summary"><p>Removes the specified flags to the <a class="xref" href="SadConsole.Tiles.Tile.html#SadConsole_Tiles_Tile_Flags">Flags</a> property.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -1061,7 +962,8 @@
   
   <a id="SadConsole_Tiles_Tile_UpdateAppearance_" data-uid="SadConsole.Tiles.Tile.UpdateAppearance*"></a>
   <h4 id="SadConsole_Tiles_Tile_UpdateAppearance" data-uid="SadConsole.Tiles.Tile.UpdateAppearance">UpdateAppearance()</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Updates the cells appearance based on lighting/explored/seen flags.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -1072,7 +974,8 @@
   
   
   <h4 id="SadConsole_Tiles_Tile_TileChanged" data-uid="SadConsole.Tiles.Tile.TileChanged">TileChanged</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Fires whenever tile flags, state, etc change.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -1107,7 +1010,7 @@
       <span class="xref">GoRogue.IHasComponents</span>
   </div>
   <div>
-      <a class="xref" href="SadConsole.Factory.IFactoryObject.html">IFactoryObject</a>
+      <span class="xref">GoRogue.Factory.IFactoryObject</span>
   </div>
 </article>
           </div>

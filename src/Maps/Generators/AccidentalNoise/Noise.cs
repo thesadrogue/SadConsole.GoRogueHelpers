@@ -29,16 +29,11 @@ namespace TinkerWorX.AccidentalNoiseLibrary
         internal static void AddDistance(double[] f, double[] disp, double testdist, double testdisp)
         {
             // Compare the given distance to the ones already in f
-            if (testdist >= f[3])
-            {
-                return;
-            }
+            if (testdist >= f[3]) return;
 
             int index = 3;
             while (index > 0 && testdist < f[index - 1])
-            {
                 index--;
-            }
 
             for (int i = 3; i-- > index;)
             {
@@ -860,9 +855,7 @@ namespace TinkerWorX.AccidentalNoiseLibrary
             Array.Sort(a, VectorOrderingCompare);
 
             for (int c = 0; c < 4; c += 1)
-            {
                 l2[c] = a[c].Axis;
-            }
         }
 
         internal static void SortBy6(double[] l1, int[] l2)
@@ -877,9 +870,7 @@ namespace TinkerWorX.AccidentalNoiseLibrary
             Array.Sort(a, VectorOrderingCompare);
 
             for (int c = 0; c < 6; c += 1)
-            {
                 l2[c] = a[c].Axis;
-            }
         }
 
         public static double SimplexNoise(double x, double y, int seed, InterpolationDelegate interp)
@@ -925,9 +916,7 @@ namespace TinkerWorX.AccidentalNoiseLibrary
             // Calculate the contributions from the 3 corners
             double t0 = 0.5 - x0 * x0 - y0 * y0;
             if (t0 < 0)
-            {
                 n0 = 0;
-            }
             else
             {
                 t0 *= t0;
@@ -936,9 +925,7 @@ namespace TinkerWorX.AccidentalNoiseLibrary
 
             double t1 = 0.5 - x1 * x1 - y1 * y1;
             if (t1 < 0)
-            {
                 n1 = 0;
-            }
             else
             {
                 t1 *= t1;
@@ -947,9 +934,7 @@ namespace TinkerWorX.AccidentalNoiseLibrary
 
             double t2 = 0.5 - x2 * x2 - y2 * y2;
             if (t2 < 0)
-            {
                 n2 = 0;
-            }
             else
             {
                 t2 *= t2;
@@ -1078,9 +1063,7 @@ namespace TinkerWorX.AccidentalNoiseLibrary
 
             double t0 = 0.6 - x0 * x0 - y0 * y0 - z0 * z0;
             if (t0 < 0.0)
-            {
                 n0 = 0.0;
-            }
             else
             {
                 t0 *= t0;
@@ -1089,9 +1072,7 @@ namespace TinkerWorX.AccidentalNoiseLibrary
 
             double t1 = 0.6 - x1 * x1 - y1 * y1 - z1 * z1;
             if (t1 < 0.0)
-            {
                 n1 = 0.0;
-            }
             else
             {
                 t1 *= t1;
@@ -1100,9 +1081,7 @@ namespace TinkerWorX.AccidentalNoiseLibrary
 
             double t2 = 0.6 - x2 * x2 - y2 * y2 - z2 * z2;
             if (t2 < 0)
-            {
                 n2 = 0.0;
-            }
             else
             {
                 t2 *= t2;
@@ -1111,9 +1090,7 @@ namespace TinkerWorX.AccidentalNoiseLibrary
 
             double t3 = 0.6 - x3 * x3 - y3 * y3 - z3 * z3;
             if (t3 < 0)
-            {
                 n3 = 0.0;
-            }
             else
             {
                 t3 *= t3;
@@ -1230,9 +1207,7 @@ namespace TinkerWorX.AccidentalNoiseLibrary
             // Calculate the contribution from the five corners
             double t0 = 0.6 - x0 * x0 - y0 * y0 - z0 * z0 - w0 * w0;
             if (t0 < 0)
-            {
                 n0 = 0.0;
-            }
             else
             {
                 t0 *= t0;
@@ -1240,9 +1215,7 @@ namespace TinkerWorX.AccidentalNoiseLibrary
             }
             double t1 = 0.6 - x1 * x1 - y1 * y1 - z1 * z1 - w1 * w1;
             if (t1 < 0)
-            {
                 n1 = 0.0;
-            }
             else
             {
                 t1 *= t1;
@@ -1250,9 +1223,7 @@ namespace TinkerWorX.AccidentalNoiseLibrary
             }
             double t2 = 0.6 - x2 * x2 - y2 * y2 - z2 * z2 - w2 * w2;
             if (t2 < 0)
-            {
                 n2 = 0.0;
-            }
             else
             {
                 t2 *= t2;
@@ -1260,9 +1231,7 @@ namespace TinkerWorX.AccidentalNoiseLibrary
             }
             double t3 = 0.6 - x3 * x3 - y3 * y3 - z3 * z3 - w3 * w3;
             if (t3 < 0)
-            {
                 n3 = 0.0;
-            }
             else
             {
                 t3 *= t3;
@@ -1270,9 +1239,7 @@ namespace TinkerWorX.AccidentalNoiseLibrary
             }
             double t4 = 0.6 - x4 * x4 - y4 * y4 - z4 * z4 - w4 * w4;
             if (t4 < 0)
-            {
                 n4 = 0.0;
-            }
             else
             {
                 t4 *= t4;
@@ -1298,9 +1265,7 @@ namespace TinkerWorX.AccidentalNoiseLibrary
             double[] loc = { x, y, z, w };
             double s = 0;
             for (int c = 0; c < 4; ++c)
-            {
                 s += loc[c];
-            }
 
             s *= f4;
 
@@ -1308,9 +1273,7 @@ namespace TinkerWorX.AccidentalNoiseLibrary
             int[] intLoc = new[] { FastFloor(x + s), FastFloor(y + s), FastFloor(z + s), FastFloor(w + s) };
             double unskew = 0.00;
             for (int c = 0; c < 4; ++c)
-            {
                 unskew += skewLoc[c];
-            }
 
             unskew *= g4;
             double[] cellDist = new[]
@@ -1330,22 +1293,16 @@ namespace TinkerWorX.AccidentalNoiseLibrary
             {
                 int i = newDistOrder[c];
                 if (i != -1)
-                {
                     intLoc[i] += 1;
-                }
 
                 double[] u = new double[4];
                 for (int d = 0; d < 4; ++d)
-                {
                     u[d] = cellDist[d] - (intLoc[d] - skewLoc[d]) + skewOffset;
-                }
 
                 double t = cornerToFaceSquared;
 
                 for (int d = 0; d < 4; ++d)
-                {
                     t -= u[d] * u[d];
-                }
 
                 if (t > 0.0)
                 {
@@ -1384,9 +1341,7 @@ namespace TinkerWorX.AccidentalNoiseLibrary
             double[] loc = new[] { x, y, z, w, u, v };
             double s = 0.00;
             for (int c = 0; c < 6; ++c)
-            {
                 s += loc[c];
-            }
 
             s *= f4;
 
@@ -1400,9 +1355,7 @@ namespace TinkerWorX.AccidentalNoiseLibrary
             };
             double unskew = 0.0;
             for (int c = 0; c < 6; ++c)
-            {
                 unskew += skewLoc[c];
-            }
 
             unskew *= g4;
 
@@ -1415,10 +1368,7 @@ namespace TinkerWorX.AccidentalNoiseLibrary
             int[] distOrder = new[] { 0, 1, 2, 3, 4, 5 };
             SortBy6(cellDist, distOrder);
 
-            int[] newDistOrder = new[]
-            {
-                -1, distOrder[0], distOrder[1], distOrder[2], distOrder[3], distOrder[4], distOrder[5]
-            };
+            int[] newDistOrder = new[] { -1, distOrder[0], distOrder[1], distOrder[2], distOrder[3], distOrder[4], distOrder[5] };
 
             double n = 0.00;
             double skewOffset = 0.00;
@@ -1427,22 +1377,16 @@ namespace TinkerWorX.AccidentalNoiseLibrary
             {
                 int i = newDistOrder[c];
                 if (i != -1)
-                {
                     intLoc[i] += 1;
-                }
 
                 double[] uu = new double[6];
                 for (int d = 0; d < 6; ++d)
-                {
                     uu[d] = cellDist[d] - (intLoc[d] - skewLoc[d]) + skewOffset;
-                }
 
                 double t = cornerFaceSqrd;
 
                 for (int d = 0; d < 6; ++d)
-                {
                     t -= uu[d] * uu[d];
-                }
 
                 if (t > 0.0)
                 {

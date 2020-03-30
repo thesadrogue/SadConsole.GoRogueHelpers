@@ -108,23 +108,15 @@ namespace BasicTutorial.GameObjects
                 if (this == CurrentMap.ControlledGameObject)
                 {
                     foreach (Coord point in currentRegion.InnerPoints)
-                    {
                         CurrentMap.GetTerrain<Tile>(point).UnsetFlag(TileFlags.Lighted, TileFlags.InLOS);
-                    }
                     foreach (Coord point in currentRegion.OuterPoints)
-                    {
                         CurrentMap.GetTerrain<Tile>(point).UnsetFlag(TileFlags.Lighted, TileFlags.InLOS);
-                    }
 
                     foreach (Coord tile in FOVSight.CurrentFOV)
-                    {
                         CurrentMap.GetTerrain<Tile>(tile).SetFlag(TileFlags.InLOS);
-                    }
 
                     foreach (Coord tile in FOVLighted.CurrentFOV)
-                    {
                         CurrentMap.GetTerrain<Tile>(tile).SetFlag(TileFlags.Lighted);
-                    }
                 }
 
                 // We're not in this region anymore
@@ -158,14 +150,10 @@ namespace BasicTutorial.GameObjects
             if (this == CurrentMap.ControlledGameObject)
             {
                 foreach (Coord tile in FOVSight.NewlyUnseen)
-                {
                     CurrentMap.GetTerrain<Tile>(tile).UnsetFlag(TileFlags.InLOS);
-                }
 
                 foreach (Coord tile in FOVSight.NewlySeen)
-                {
                     CurrentMap.GetTerrain<Tile>(tile).SetFlag(TileFlags.InLOS);
-                }
             }
 
             // Lighting
@@ -174,14 +162,10 @@ namespace BasicTutorial.GameObjects
             if (this == CurrentMap.ControlledGameObject)
             {
                 foreach (Coord tile in FOVLighted.NewlyUnseen)
-                {
                     CurrentMap.GetTerrain<Tile>(tile).UnsetFlag(TileFlags.Lighted);
-                }
 
                 foreach (Coord tile in FOVLighted.NewlySeen)
-                {
                     CurrentMap.GetTerrain<Tile>(tile).SetFlag(TileFlags.Lighted, TileFlags.Seen);
-                }
             }
 
 
@@ -197,9 +181,7 @@ namespace BasicTutorial.GameObjects
 
                     // If player, handle room lighting
                     if (this == CurrentMap.ControlledGameObject)
-                    {
                         tile.SetFlag(TileFlags.Lighted, TileFlags.InLOS, TileFlags.Seen);
-                    }
 
                     // Add tile to visible list, for calculating if the player can see.
                     VisibleTiles.Add(tile);
@@ -211,9 +193,7 @@ namespace BasicTutorial.GameObjects
 
                     // If player, handle room lighting
                     if (this == CurrentMap.ControlledGameObject)
-                    {
                         tile.SetFlag(TileFlags.Lighted, TileFlags.InLOS, TileFlags.Seen);
-                    }
 
                     // Add tile to visible list, for calculating if the player can see.
                     VisibleTiles.Add(tile);
@@ -246,9 +226,7 @@ namespace BasicTutorial.GameObjects
             int result = 0;
 
             foreach (Items.Item item in Inventory.GetEquippedItems())
-            {
                 result += item.HealthModifier;
-            }
 
             return result;
         }
@@ -258,9 +236,7 @@ namespace BasicTutorial.GameObjects
             int result = 0;
 
             foreach (Items.Item item in Inventory.GetEquippedItems())
-            {
                 result += item.AttackModifier;
-            }
 
             return result;
         }
@@ -270,9 +246,7 @@ namespace BasicTutorial.GameObjects
             int result = 0;
 
             foreach (Items.Item item in Inventory.GetEquippedItems())
-            {
                 result += item.DefenseModifier;
-            }
 
             return result;
         }
@@ -282,9 +256,7 @@ namespace BasicTutorial.GameObjects
             int result = 0;
 
             foreach (Items.Item item in Inventory.GetEquippedItems())
-            {
                 result += item.VisibilityModifier;
-            }
 
             return result;
         }
@@ -294,9 +266,7 @@ namespace BasicTutorial.GameObjects
             int result = 0;
 
             foreach (Items.Item item in Inventory.GetEquippedItems())
-            {
                 result += item.LightingModifier;
-            }
 
             return result;
         }

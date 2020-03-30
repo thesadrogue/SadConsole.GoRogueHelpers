@@ -38,9 +38,7 @@ namespace SadConsole
                     _drawingComponentsHandleVisibility = value;
 
                     foreach (MultipleConsoleEntityDrawingComponent syncComponent in _entitySyncersByLayer)
-                    {
                         syncComponent.HandleIsVisible = value;
-                    }
                 }
             }
         }
@@ -98,9 +96,7 @@ namespace SadConsole
             _renderers = new List<Console>();
             _entitySyncersByLayer = new MultipleConsoleEntityDrawingComponent[numberOfEntityLayers];
             for (int i = 0; i < _entitySyncersByLayer.Length; i++)
-            {
                 _entitySyncersByLayer[i] = new MultipleConsoleEntityDrawingComponent();
-            }
 
             DrawingComponentsHandleVisibility = true;
 
@@ -147,16 +143,12 @@ namespace SadConsole
         {
             // Clear the cell surface to a new one if needed
             if (clearCellSurface)
-            {
                 renderer.SetSurface(null, renderer.Width, renderer.Height);
-            }
 
             // Remove syncing components, and flag the console as needing re-rendered.
             _renderers.Remove(renderer);
             foreach (MultipleConsoleEntityDrawingComponent syncer in _entitySyncersByLayer)
-            {
                 renderer.Components.Remove(syncer);
-            }
 
             renderer.IsDirty = true;
         }
@@ -170,22 +162,15 @@ namespace SadConsole
         public void ConfigureAsRenderer(Console renderer)
         {
             // Ensure we don't add components twice
-            if (_renderers.Contains(renderer))
-            {
-                return;
-            }
+            if (_renderers.Contains(renderer)) return;
 
             // Set new cell array if needed
             if (renderer.Cells != RenderingCellData)
-            {
                 renderer.SetSurface(RenderingCellData, Width, Height);
-            }
 
             _renderers.Add(renderer);
             foreach (MultipleConsoleEntityDrawingComponent syncer in _entitySyncersByLayer)
-            {
                 renderer.Components.Add(syncer);
-            }
 
             renderer.IsDirty = true; // Make sure we re-render
         }
@@ -220,10 +205,7 @@ namespace SadConsole
         public void ControlledGameObjectTypeCheck<TControlledObject>(object s, ControlledGameObjectChangedArgs e)
         {
             var map = (BasicMap)s;
-            if (map.ControlledGameObject is TControlledObject)
-            {
-                return;
-            }
+            if (map.ControlledGameObject is TControlledObject) return;
 
             throw new Exception($"{map.GetType().Name} restricts the type of object that can be assigned to its {nameof(ControlledGameObject)} property to types that inherit from/implement {typeof(TControlledObject).Name}.");
         }
@@ -240,25 +222,17 @@ namespace SadConsole
         private void GRMap_ObjectAdded(object sender, ItemEventArgs<IGameObject> e)
         {
             if (e.Item is BasicEntity entity)
-            {
                 _entitySyncersByLayer[entity.Layer - 1].Entities.Add(entity);
-            }
             else if (e.Item.Layer == 0)
-            {
                 foreach (Console renderer in _renderers)
-                {
                     renderer.IsDirty = true;
-                }
-            }
         }
 
         // Ensure entities are removed from console-syncing components
         private void GRMap_ObjectRemoved(object sender, ItemEventArgs<IGameObject> e)
         {
             if (e.Item is BasicEntity entity)
-            {
                 _entitySyncersByLayer[entity.Layer - 1].Entities.Remove(entity);
-            }
         }
     }
 
