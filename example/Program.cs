@@ -10,7 +10,7 @@ namespace BasicTutorial
 
         //public static readonly Rectangle 
 
-        private static void Main(string[] args)
+        private static void Main()
         {
             // Setup the engine and creat the main window.
             SadConsole.Game.Create(ScreenWidth, ScreenHeight);

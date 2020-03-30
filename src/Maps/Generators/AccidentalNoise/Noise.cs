@@ -1368,7 +1368,7 @@ namespace TinkerWorX.AccidentalNoiseLibrary
             int[] distOrder = new[] { 0, 1, 2, 3, 4, 5 };
             SortBy6(cellDist, distOrder);
 
-            int[] newDistOrder = new[]{ -1, distOrder[0], distOrder[1], distOrder[2], distOrder[3], distOrder[4], distOrder[5] };
+            int[] newDistOrder = new[] { -1, distOrder[0], distOrder[1], distOrder[2], distOrder[3], distOrder[4], distOrder[5] };
 
             double n = 0.00;
             double skewOffset = 0.00;

@@ -1,6 +1,6 @@
 ﻿using System;
-using Microsoft.Xna.Framework;
 using GoRogue.Factory;
+using Microsoft.Xna.Framework;
 
 namespace SadConsole.Tiles
 {

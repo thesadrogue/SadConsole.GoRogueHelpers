@@ -90,9 +90,6 @@ namespace SadConsole.Components.GoRogue
         /// <summary>
         /// Constructor.
         /// </summary>
-        public ComponentBase()
-        {
-            Added += ParentTypeCheck<TParent>;
-        }
+        public ComponentBase() => Added += ParentTypeCheck<TParent>;
     }
 }

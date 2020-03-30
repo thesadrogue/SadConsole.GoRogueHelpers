@@ -9,7 +9,7 @@ namespace StartingExample
     // Custom class for the player is used in this example just so we can handle input.  This could be done via a component, or in a main screen, but for simplicity we do it here.
     internal class Player : BasicEntity
     {
-        private static readonly Dictionary<Keys, Direction> _movementDirectionMapping = new Dictionary<Keys, Direction>
+        private static readonly Dictionary<Keys, Direction> s_movementDirectionMapping = new Dictionary<Keys, Direction>
         {
             { Keys.NumPad7, Direction.UP_LEFT }, { Keys.NumPad8, Direction.UP }, { Keys.NumPad9, Direction.UP_RIGHT },
             { Keys.NumPad4, Direction.LEFT }, { Keys.NumPad6, Direction.RIGHT },
@@ -28,11 +28,11 @@ namespace StartingExample
             Direction moveDirection = Direction.NONE;
 
             // Simplified way to check if any key we care about is pressed and set movement direction.
-            foreach (Keys key in _movementDirectionMapping.Keys)
+            foreach (Keys key in s_movementDirectionMapping.Keys)
             {
                 if (info.IsKeyPressed(key))
                 {
-                    moveDirection = _movementDirectionMapping[key];
+                    moveDirection = s_movementDirectionMapping[key];
                     break;
                 }
             }

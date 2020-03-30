@@ -10,50 +10,45 @@ namespace BasicTutorial.Items
             Success
         }
 
-        private readonly List<Item> carriedItems = new List<Item>();
-        private Item head;
-        private Item leftHand;
-        private Item rightHand;
-        private Item feet;
-        private Item body;
+        private readonly List<Item> _carriedItems = new List<Item>();
 
         public const int MaxCarriedItems = 11;
 
-        public IEnumerable<Item> CarriedItems => carriedItems;
+        public IEnumerable<Item> CarriedItems => _carriedItems;
 
-        public Item Head => head;
-        public Item LeftHand => leftHand;
-        public Item RightHand => rightHand;
-        public Item Feet => feet;
-        public Item Body => body;
+        public Item Head { get; private set; }
+        public Item LeftHand { get; private set; }
+        public Item RightHand { get; private set; }
+        public Item Feet { get; private set; }
+        public Item Body { get; private set; }
 
         public ActionResult AddItem(Item item, bool carried)
         {
             if (carried || item.Spot == InventorySpot.None)
             {
-                if (carriedItems.Count == MaxCarriedItems)
+                if (_carriedItems.Count == MaxCarriedItems)
                     return ActionResult.Failure;
 
-                carriedItems.Add(item);
+                _carriedItems.Add(item);
                 return ActionResult.Success;
             }
 
             switch (item.Spot)
             {
                 case InventorySpot.Head:
-                    head = item;
+                    Head = item;
                     break;
                 case InventorySpot.LHand:
-                    leftHand = item;
+                    LeftHand = item;
                     break;
                 case InventorySpot.RHand:
-                    rightHand = item;
+                    RightHand = item;
                     break;
                 case InventorySpot.Body:
-                    body = item;
+                    Body = item;
                     break;
                 case InventorySpot.Feet:
-                    feet = item;
+                    Feet = item;
                     break;
                 default:
                     break;
@@ -63,36 +58,36 @@ namespace BasicTutorial.Items
 
         public ActionResult RemoveItem(Item item)
         {
-            if (carriedItems.Contains(item))  // Drop item
-                carriedItems.Remove(item);
-               
+            if (_carriedItems.Contains(item))  // Drop item
+                _carriedItems.Remove(item);
+
             else
             {
                 switch (item.Spot)
                 {
                     case InventorySpot.Head:
-                        if (head == item)
-                            head = null;
+                        if (Head == item)
+                            Head = null;
 
                         break;
                     case InventorySpot.LHand:
-                        if (leftHand == item)
-                            leftHand = null;
+                        if (LeftHand == item)
+                            LeftHand = null;
 
                         break;
                     case InventorySpot.RHand:
-                        if (rightHand == item)
-                            rightHand = null;
+                        if (RightHand == item)
+                            RightHand = null;
 
                         break;
                     case InventorySpot.Body:
-                        if (body == item)
-                            body = null;
+                        if (Body == item)
+                            Body = null;
 
                         break;
                     case InventorySpot.Feet:
-                        if (feet == item)
-                            feet = null;
+                        if (Feet == item)
+                            Feet = null;
 
                         break;
                     default:
@@ -108,35 +103,35 @@ namespace BasicTutorial.Items
             switch (spot)
             {
                 case InventorySpot.Head:
-                    return head != null;
+                    return Head != null;
                 case InventorySpot.LHand:
-                    return leftHand != null;
+                    return LeftHand != null;
                 case InventorySpot.RHand:
-                    return rightHand != null;
+                    return RightHand != null;
                 case InventorySpot.Body:
-                    return body != null;
+                    return Body != null;
                 case InventorySpot.Feet:
-                    return feet != null;
+                    return Feet != null;
                 default:
                     return false;
             }
         }
 
-        public bool IsInventoryFull() => carriedItems.Count == MaxCarriedItems;
+        public bool IsInventoryFull() => _carriedItems.Count == MaxCarriedItems;
         public Item GetItem(InventorySpot spot)
         {
             switch (spot)
             {
                 case InventorySpot.Head:
-                    return head;
+                    return Head;
                 case InventorySpot.LHand:
-                    return leftHand;
+                    return LeftHand;
                 case InventorySpot.RHand:
-                    return rightHand;
+                    return RightHand;
                 case InventorySpot.Body:
-                    return body;
+                    return Body;
                 case InventorySpot.Feet:
-                    return feet;
+                    return Feet;
                 default:
                     return null;
             }
@@ -146,20 +141,20 @@ namespace BasicTutorial.Items
         {
             List<Item> items = new List<Item>(5);
 
-            if (head != null)
-                items.Add(head);
+            if (Head != null)
+                items.Add(Head);
 
-            if (leftHand != null)
-                items.Add(leftHand);
+            if (LeftHand != null)
+                items.Add(LeftHand);
 
-            if (rightHand != null)
-                items.Add(rightHand);
+            if (RightHand != null)
+                items.Add(RightHand);
 
-            if (body != null)
-                items.Add(body);
+            if (Body != null)
+                items.Add(Body);
 
-            if (feet != null)
-                items.Add(feet);
+            if (Feet != null)
+                items.Add(Feet);
 
             return items;
         }
