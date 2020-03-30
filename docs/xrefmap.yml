@@ -127,21 +127,6 @@ references:
   commentId: Overload:SadConsole.Actions.ActionBase.IsFinished
   fullName: SadConsole.Actions.ActionBase.IsFinished
   nameWithType: ActionBase.IsFinished
-- uid: SadConsole.Actions.ActionBase.OnFailure(System.Func{SadConsole.Actions.ActionBase,System.Boolean})
-  name: OnFailure(Func<ActionBase, Boolean>)
-  href: api/SadConsole.Actions.ActionBase.html#SadConsole_Actions_ActionBase_OnFailure_System_Func_SadConsole_Actions_ActionBase_System_Boolean__
-  commentId: M:SadConsole.Actions.ActionBase.OnFailure(System.Func{SadConsole.Actions.ActionBase,System.Boolean})
-  name.vb: OnFailure(Func(Of ActionBase, Boolean))
-  fullName: SadConsole.Actions.ActionBase.OnFailure(System.Func<SadConsole.Actions.ActionBase, System.Boolean>)
-  fullName.vb: SadConsole.Actions.ActionBase.OnFailure(System.Func(Of SadConsole.Actions.ActionBase, System.Boolean))
-  nameWithType: ActionBase.OnFailure(Func<ActionBase, Boolean>)
-  nameWithType.vb: ActionBase.OnFailure(Func(Of ActionBase, Boolean))
-- uid: SadConsole.Actions.ActionBase.OnFailure*
-  name: OnFailure
-  href: api/SadConsole.Actions.ActionBase.html#SadConsole_Actions_ActionBase_OnFailure_
-  commentId: Overload:SadConsole.Actions.ActionBase.OnFailure
-  fullName: SadConsole.Actions.ActionBase.OnFailure
-  nameWithType: ActionBase.OnFailure
 - uid: SadConsole.Actions.ActionBase.OnFailureMethod
   name: OnFailureMethod
   href: api/SadConsole.Actions.ActionBase.html#SadConsole_Actions_ActionBase_OnFailureMethod
@@ -160,21 +145,6 @@ references:
   commentId: Overload:SadConsole.Actions.ActionBase.OnFailureResult
   fullName: SadConsole.Actions.ActionBase.OnFailureResult
   nameWithType: ActionBase.OnFailureResult
-- uid: SadConsole.Actions.ActionBase.OnSuccess(System.Func{SadConsole.Actions.ActionBase,System.Boolean})
-  name: OnSuccess(Func<ActionBase, Boolean>)
-  href: api/SadConsole.Actions.ActionBase.html#SadConsole_Actions_ActionBase_OnSuccess_System_Func_SadConsole_Actions_ActionBase_System_Boolean__
-  commentId: M:SadConsole.Actions.ActionBase.OnSuccess(System.Func{SadConsole.Actions.ActionBase,System.Boolean})
-  name.vb: OnSuccess(Func(Of ActionBase, Boolean))
-  fullName: SadConsole.Actions.ActionBase.OnSuccess(System.Func<SadConsole.Actions.ActionBase, System.Boolean>)
-  fullName.vb: SadConsole.Actions.ActionBase.OnSuccess(System.Func(Of SadConsole.Actions.ActionBase, System.Boolean))
-  nameWithType: ActionBase.OnSuccess(Func<ActionBase, Boolean>)
-  nameWithType.vb: ActionBase.OnSuccess(Func(Of ActionBase, Boolean))
-- uid: SadConsole.Actions.ActionBase.OnSuccess*
-  name: OnSuccess
-  href: api/SadConsole.Actions.ActionBase.html#SadConsole_Actions_ActionBase_OnSuccess_
-  commentId: Overload:SadConsole.Actions.ActionBase.OnSuccess
-  fullName: SadConsole.Actions.ActionBase.OnSuccess
-  nameWithType: ActionBase.OnSuccess
 - uid: SadConsole.Actions.ActionBase.OnSuccessMethod
   name: OnSuccessMethod
   href: api/SadConsole.Actions.ActionBase.html#SadConsole_Actions_ActionBase_OnSuccessMethod
@@ -470,14 +440,14 @@ references:
   fullName: SadConsole.BasicEntity.GetConsoleComponent
   nameWithType: BasicEntity.GetConsoleComponent
 - uid: SadConsole.BasicEntity.GetConsoleComponent``1
-  name: GetConsoleComponent<T>()
+  name: GetConsoleComponent<TComponent>()
   href: api/SadConsole.BasicEntity.html#SadConsole_BasicEntity_GetConsoleComponent__1
   commentId: M:SadConsole.BasicEntity.GetConsoleComponent``1
-  name.vb: GetConsoleComponent(Of T)()
-  fullName: SadConsole.BasicEntity.GetConsoleComponent<T>()
-  fullName.vb: SadConsole.BasicEntity.GetConsoleComponent(Of T)()
-  nameWithType: BasicEntity.GetConsoleComponent<T>()
-  nameWithType.vb: BasicEntity.GetConsoleComponent(Of T)()
+  name.vb: GetConsoleComponent(Of TComponent)()
+  fullName: SadConsole.BasicEntity.GetConsoleComponent<TComponent>()
+  fullName.vb: SadConsole.BasicEntity.GetConsoleComponent(Of TComponent)()
+  nameWithType: BasicEntity.GetConsoleComponent<TComponent>()
+  nameWithType.vb: BasicEntity.GetConsoleComponent(Of TComponent)()
 - uid: SadConsole.BasicEntity.GetConsoleComponents*
   name: GetConsoleComponents
   href: api/SadConsole.BasicEntity.html#SadConsole_BasicEntity_GetConsoleComponents_
@@ -485,14 +455,14 @@ references:
   fullName: SadConsole.BasicEntity.GetConsoleComponents
   nameWithType: BasicEntity.GetConsoleComponents
 - uid: SadConsole.BasicEntity.GetConsoleComponents``1
-  name: GetConsoleComponents<T>()
+  name: GetConsoleComponents<TComponent>()
   href: api/SadConsole.BasicEntity.html#SadConsole_BasicEntity_GetConsoleComponents__1
   commentId: M:SadConsole.BasicEntity.GetConsoleComponents``1
-  name.vb: GetConsoleComponents(Of T)()
-  fullName: SadConsole.BasicEntity.GetConsoleComponents<T>()
-  fullName.vb: SadConsole.BasicEntity.GetConsoleComponents(Of T)()
-  nameWithType: BasicEntity.GetConsoleComponents<T>()
-  nameWithType.vb: BasicEntity.GetConsoleComponents(Of T)()
+  name.vb: GetConsoleComponents(Of TComponent)()
+  fullName: SadConsole.BasicEntity.GetConsoleComponents<TComponent>()
+  fullName.vb: SadConsole.BasicEntity.GetConsoleComponents(Of TComponent)()
+  nameWithType: BasicEntity.GetConsoleComponents<TComponent>()
+  nameWithType.vb: BasicEntity.GetConsoleComponents(Of TComponent)()
 - uid: SadConsole.BasicEntity.GetGoRogueComponent*
   name: GetGoRogueComponent
   href: api/SadConsole.BasicEntity.html#SadConsole_BasicEntity_GetGoRogueComponent_
@@ -1120,18 +1090,47 @@ references:
   commentId: Overload:SadConsole.Components.GoRogue.ActionProcessor.#ctor
   fullName: SadConsole.Components.GoRogue.ActionProcessor.ActionProcessor
   nameWithType: ActionProcessor.ActionProcessor
-- uid: SadConsole.Components.GoRogue.ActionProcessor.ProcessAction(SadConsole.Actions.ActionBase)
+- uid: SadConsole.Components.GoRogue.ActionProcessor`1
+  name: ActionProcessor<TParent>
+  href: api/SadConsole.Components.GoRogue.ActionProcessor-1.html
+  commentId: T:SadConsole.Components.GoRogue.ActionProcessor`1
+  name.vb: ActionProcessor(Of TParent)
+  fullName: SadConsole.Components.GoRogue.ActionProcessor<TParent>
+  fullName.vb: SadConsole.Components.GoRogue.ActionProcessor(Of TParent)
+  nameWithType: ActionProcessor<TParent>
+  nameWithType.vb: ActionProcessor(Of TParent)
+- uid: SadConsole.Components.GoRogue.ActionProcessor`1.#ctor
+  name: ActionProcessor()
+  href: api/SadConsole.Components.GoRogue.ActionProcessor-1.html#SadConsole_Components_GoRogue_ActionProcessor_1__ctor
+  commentId: M:SadConsole.Components.GoRogue.ActionProcessor`1.#ctor
+  fullName: SadConsole.Components.GoRogue.ActionProcessor<TParent>.ActionProcessor()
+  fullName.vb: SadConsole.Components.GoRogue.ActionProcessor(Of TParent).ActionProcessor()
+  nameWithType: ActionProcessor<TParent>.ActionProcessor()
+  nameWithType.vb: ActionProcessor(Of TParent).ActionProcessor()
+- uid: SadConsole.Components.GoRogue.ActionProcessor`1.#ctor*
+  name: ActionProcessor
+  href: api/SadConsole.Components.GoRogue.ActionProcessor-1.html#SadConsole_Components_GoRogue_ActionProcessor_1__ctor_
+  commentId: Overload:SadConsole.Components.GoRogue.ActionProcessor`1.#ctor
+  fullName: SadConsole.Components.GoRogue.ActionProcessor<TParent>.ActionProcessor
+  fullName.vb: SadConsole.Components.GoRogue.ActionProcessor(Of TParent).ActionProcessor
+  nameWithType: ActionProcessor<TParent>.ActionProcessor
+  nameWithType.vb: ActionProcessor(Of TParent).ActionProcessor
+- uid: SadConsole.Components.GoRogue.ActionProcessor`1.ProcessAction(SadConsole.Actions.ActionBase)
   name: ProcessAction(ActionBase)
-  href: api/SadConsole.Components.GoRogue.ActionProcessor.html#SadConsole_Components_GoRogue_ActionProcessor_ProcessAction_SadConsole_Actions_ActionBase_
-  commentId: M:SadConsole.Components.GoRogue.ActionProcessor.ProcessAction(SadConsole.Actions.ActionBase)
-  fullName: SadConsole.Components.GoRogue.ActionProcessor.ProcessAction(SadConsole.Actions.ActionBase)
-  nameWithType: ActionProcessor.ProcessAction(ActionBase)
-- uid: SadConsole.Components.GoRogue.ActionProcessor.ProcessAction*
+  href: api/SadConsole.Components.GoRogue.ActionProcessor-1.html#SadConsole_Components_GoRogue_ActionProcessor_1_ProcessAction_SadConsole_Actions_ActionBase_
+  commentId: M:SadConsole.Components.GoRogue.ActionProcessor`1.ProcessAction(SadConsole.Actions.ActionBase)
+  fullName: SadConsole.Components.GoRogue.ActionProcessor<TParent>.ProcessAction(SadConsole.Actions.ActionBase)
+  fullName.vb: SadConsole.Components.GoRogue.ActionProcessor(Of TParent).ProcessAction(SadConsole.Actions.ActionBase)
+  nameWithType: ActionProcessor<TParent>.ProcessAction(ActionBase)
+  nameWithType.vb: ActionProcessor(Of TParent).ProcessAction(ActionBase)
+- uid: SadConsole.Components.GoRogue.ActionProcessor`1.ProcessAction*
   name: ProcessAction
-  href: api/SadConsole.Components.GoRogue.ActionProcessor.html#SadConsole_Components_GoRogue_ActionProcessor_ProcessAction_
-  commentId: Overload:SadConsole.Components.GoRogue.ActionProcessor.ProcessAction
-  fullName: SadConsole.Components.GoRogue.ActionProcessor.ProcessAction
-  nameWithType: ActionProcessor.ProcessAction
+  href: api/SadConsole.Components.GoRogue.ActionProcessor-1.html#SadConsole_Components_GoRogue_ActionProcessor_1_ProcessAction_
+  commentId: Overload:SadConsole.Components.GoRogue.ActionProcessor`1.ProcessAction
+  fullName: SadConsole.Components.GoRogue.ActionProcessor<TParent>.ProcessAction
+  fullName.vb: SadConsole.Components.GoRogue.ActionProcessor(Of TParent).ProcessAction
+  nameWithType: ActionProcessor<TParent>.ProcessAction
+  nameWithType.vb: ActionProcessor(Of TParent).ProcessAction
 - uid: SadConsole.Components.GoRogue.ComponentBase
   name: ComponentBase
   href: api/SadConsole.Components.GoRogue.ComponentBase.html
@@ -1204,6 +1203,47 @@ references:
   commentId: E:SadConsole.Components.GoRogue.ComponentBase.Removed
   fullName: SadConsole.Components.GoRogue.ComponentBase.Removed
   nameWithType: ComponentBase.Removed
+- uid: SadConsole.Components.GoRogue.ComponentBase`1
+  name: ComponentBase<TParent>
+  href: api/SadConsole.Components.GoRogue.ComponentBase-1.html
+  commentId: T:SadConsole.Components.GoRogue.ComponentBase`1
+  name.vb: ComponentBase(Of TParent)
+  fullName: SadConsole.Components.GoRogue.ComponentBase<TParent>
+  fullName.vb: SadConsole.Components.GoRogue.ComponentBase(Of TParent)
+  nameWithType: ComponentBase<TParent>
+  nameWithType.vb: ComponentBase(Of TParent)
+- uid: SadConsole.Components.GoRogue.ComponentBase`1.#ctor
+  name: ComponentBase()
+  href: api/SadConsole.Components.GoRogue.ComponentBase-1.html#SadConsole_Components_GoRogue_ComponentBase_1__ctor
+  commentId: M:SadConsole.Components.GoRogue.ComponentBase`1.#ctor
+  fullName: SadConsole.Components.GoRogue.ComponentBase<TParent>.ComponentBase()
+  fullName.vb: SadConsole.Components.GoRogue.ComponentBase(Of TParent).ComponentBase()
+  nameWithType: ComponentBase<TParent>.ComponentBase()
+  nameWithType.vb: ComponentBase(Of TParent).ComponentBase()
+- uid: SadConsole.Components.GoRogue.ComponentBase`1.#ctor*
+  name: ComponentBase
+  href: api/SadConsole.Components.GoRogue.ComponentBase-1.html#SadConsole_Components_GoRogue_ComponentBase_1__ctor_
+  commentId: Overload:SadConsole.Components.GoRogue.ComponentBase`1.#ctor
+  fullName: SadConsole.Components.GoRogue.ComponentBase<TParent>.ComponentBase
+  fullName.vb: SadConsole.Components.GoRogue.ComponentBase(Of TParent).ComponentBase
+  nameWithType: ComponentBase<TParent>.ComponentBase
+  nameWithType.vb: ComponentBase(Of TParent).ComponentBase
+- uid: SadConsole.Components.GoRogue.ComponentBase`1.Parent
+  name: Parent
+  href: api/SadConsole.Components.GoRogue.ComponentBase-1.html#SadConsole_Components_GoRogue_ComponentBase_1_Parent
+  commentId: P:SadConsole.Components.GoRogue.ComponentBase`1.Parent
+  fullName: SadConsole.Components.GoRogue.ComponentBase<TParent>.Parent
+  fullName.vb: SadConsole.Components.GoRogue.ComponentBase(Of TParent).Parent
+  nameWithType: ComponentBase<TParent>.Parent
+  nameWithType.vb: ComponentBase(Of TParent).Parent
+- uid: SadConsole.Components.GoRogue.ComponentBase`1.Parent*
+  name: Parent
+  href: api/SadConsole.Components.GoRogue.ComponentBase-1.html#SadConsole_Components_GoRogue_ComponentBase_1_Parent_
+  commentId: Overload:SadConsole.Components.GoRogue.ComponentBase`1.Parent
+  fullName: SadConsole.Components.GoRogue.ComponentBase<TParent>.Parent
+  fullName.vb: SadConsole.Components.GoRogue.ComponentBase(Of TParent).Parent
+  nameWithType: ComponentBase<TParent>.Parent
+  nameWithType.vb: ComponentBase(Of TParent).Parent
 - uid: SadConsole.Components.GoRogue.GameFrameProcessor
   name: GameFrameProcessor
   href: api/SadConsole.Components.GoRogue.GameFrameProcessor.html
@@ -1222,30 +1262,99 @@ references:
   commentId: Overload:SadConsole.Components.GoRogue.GameFrameProcessor.#ctor
   fullName: SadConsole.Components.GoRogue.GameFrameProcessor.GameFrameProcessor
   nameWithType: GameFrameProcessor.GameFrameProcessor
-- uid: SadConsole.Components.GoRogue.GameFrameProcessor.Parent
+- uid: SadConsole.Components.GoRogue.GameFrameProcessor`1
+  name: GameFrameProcessor<TParent>
+  href: api/SadConsole.Components.GoRogue.GameFrameProcessor-1.html
+  commentId: T:SadConsole.Components.GoRogue.GameFrameProcessor`1
+  name.vb: GameFrameProcessor(Of TParent)
+  fullName: SadConsole.Components.GoRogue.GameFrameProcessor<TParent>
+  fullName.vb: SadConsole.Components.GoRogue.GameFrameProcessor(Of TParent)
+  nameWithType: GameFrameProcessor<TParent>
+  nameWithType.vb: GameFrameProcessor(Of TParent)
+- uid: SadConsole.Components.GoRogue.GameFrameProcessor`1.#ctor
+  name: GameFrameProcessor()
+  href: api/SadConsole.Components.GoRogue.GameFrameProcessor-1.html#SadConsole_Components_GoRogue_GameFrameProcessor_1__ctor
+  commentId: M:SadConsole.Components.GoRogue.GameFrameProcessor`1.#ctor
+  fullName: SadConsole.Components.GoRogue.GameFrameProcessor<TParent>.GameFrameProcessor()
+  fullName.vb: SadConsole.Components.GoRogue.GameFrameProcessor(Of TParent).GameFrameProcessor()
+  nameWithType: GameFrameProcessor<TParent>.GameFrameProcessor()
+  nameWithType.vb: GameFrameProcessor(Of TParent).GameFrameProcessor()
+- uid: SadConsole.Components.GoRogue.GameFrameProcessor`1.#ctor*
+  name: GameFrameProcessor
+  href: api/SadConsole.Components.GoRogue.GameFrameProcessor-1.html#SadConsole_Components_GoRogue_GameFrameProcessor_1__ctor_
+  commentId: Overload:SadConsole.Components.GoRogue.GameFrameProcessor`1.#ctor
+  fullName: SadConsole.Components.GoRogue.GameFrameProcessor<TParent>.GameFrameProcessor
+  fullName.vb: SadConsole.Components.GoRogue.GameFrameProcessor(Of TParent).GameFrameProcessor
+  nameWithType: GameFrameProcessor<TParent>.GameFrameProcessor
+  nameWithType.vb: GameFrameProcessor(Of TParent).GameFrameProcessor
+- uid: SadConsole.Components.GoRogue.GameFrameProcessor`1.Parent
   name: Parent
-  href: api/SadConsole.Components.GoRogue.GameFrameProcessor.html#SadConsole_Components_GoRogue_GameFrameProcessor_Parent
-  commentId: P:SadConsole.Components.GoRogue.GameFrameProcessor.Parent
-  fullName: SadConsole.Components.GoRogue.GameFrameProcessor.Parent
-  nameWithType: GameFrameProcessor.Parent
-- uid: SadConsole.Components.GoRogue.GameFrameProcessor.Parent*
+  href: api/SadConsole.Components.GoRogue.GameFrameProcessor-1.html#SadConsole_Components_GoRogue_GameFrameProcessor_1_Parent
+  commentId: P:SadConsole.Components.GoRogue.GameFrameProcessor`1.Parent
+  fullName: SadConsole.Components.GoRogue.GameFrameProcessor<TParent>.Parent
+  fullName.vb: SadConsole.Components.GoRogue.GameFrameProcessor(Of TParent).Parent
+  nameWithType: GameFrameProcessor<TParent>.Parent
+  nameWithType.vb: GameFrameProcessor(Of TParent).Parent
+- uid: SadConsole.Components.GoRogue.GameFrameProcessor`1.Parent*
   name: Parent
-  href: api/SadConsole.Components.GoRogue.GameFrameProcessor.html#SadConsole_Components_GoRogue_GameFrameProcessor_Parent_
-  commentId: Overload:SadConsole.Components.GoRogue.GameFrameProcessor.Parent
-  fullName: SadConsole.Components.GoRogue.GameFrameProcessor.Parent
-  nameWithType: GameFrameProcessor.Parent
-- uid: SadConsole.Components.GoRogue.GameFrameProcessor.ProcessGameFrame
+  href: api/SadConsole.Components.GoRogue.GameFrameProcessor-1.html#SadConsole_Components_GoRogue_GameFrameProcessor_1_Parent_
+  commentId: Overload:SadConsole.Components.GoRogue.GameFrameProcessor`1.Parent
+  fullName: SadConsole.Components.GoRogue.GameFrameProcessor<TParent>.Parent
+  fullName.vb: SadConsole.Components.GoRogue.GameFrameProcessor(Of TParent).Parent
+  nameWithType: GameFrameProcessor<TParent>.Parent
+  nameWithType.vb: GameFrameProcessor(Of TParent).Parent
+- uid: SadConsole.Components.GoRogue.GameFrameProcessor`1.ProcessGameFrame
   name: ProcessGameFrame()
-  href: api/SadConsole.Components.GoRogue.GameFrameProcessor.html#SadConsole_Components_GoRogue_GameFrameProcessor_ProcessGameFrame
-  commentId: M:SadConsole.Components.GoRogue.GameFrameProcessor.ProcessGameFrame
-  fullName: SadConsole.Components.GoRogue.GameFrameProcessor.ProcessGameFrame()
-  nameWithType: GameFrameProcessor.ProcessGameFrame()
-- uid: SadConsole.Components.GoRogue.GameFrameProcessor.ProcessGameFrame*
+  href: api/SadConsole.Components.GoRogue.GameFrameProcessor-1.html#SadConsole_Components_GoRogue_GameFrameProcessor_1_ProcessGameFrame
+  commentId: M:SadConsole.Components.GoRogue.GameFrameProcessor`1.ProcessGameFrame
+  fullName: SadConsole.Components.GoRogue.GameFrameProcessor<TParent>.ProcessGameFrame()
+  fullName.vb: SadConsole.Components.GoRogue.GameFrameProcessor(Of TParent).ProcessGameFrame()
+  nameWithType: GameFrameProcessor<TParent>.ProcessGameFrame()
+  nameWithType.vb: GameFrameProcessor(Of TParent).ProcessGameFrame()
+- uid: SadConsole.Components.GoRogue.GameFrameProcessor`1.ProcessGameFrame*
   name: ProcessGameFrame
-  href: api/SadConsole.Components.GoRogue.GameFrameProcessor.html#SadConsole_Components_GoRogue_GameFrameProcessor_ProcessGameFrame_
-  commentId: Overload:SadConsole.Components.GoRogue.GameFrameProcessor.ProcessGameFrame
-  fullName: SadConsole.Components.GoRogue.GameFrameProcessor.ProcessGameFrame
-  nameWithType: GameFrameProcessor.ProcessGameFrame
+  href: api/SadConsole.Components.GoRogue.GameFrameProcessor-1.html#SadConsole_Components_GoRogue_GameFrameProcessor_1_ProcessGameFrame_
+  commentId: Overload:SadConsole.Components.GoRogue.GameFrameProcessor`1.ProcessGameFrame
+  fullName: SadConsole.Components.GoRogue.GameFrameProcessor<TParent>.ProcessGameFrame
+  fullName.vb: SadConsole.Components.GoRogue.GameFrameProcessor(Of TParent).ProcessGameFrame
+  nameWithType: GameFrameProcessor<TParent>.ProcessGameFrame
+  nameWithType.vb: GameFrameProcessor(Of TParent).ProcessGameFrame
+- uid: SadConsole.Components.GoRogue.IActionProcessor
+  name: IActionProcessor
+  href: api/SadConsole.Components.GoRogue.IActionProcessor.html
+  commentId: T:SadConsole.Components.GoRogue.IActionProcessor
+  fullName: SadConsole.Components.GoRogue.IActionProcessor
+  nameWithType: IActionProcessor
+- uid: SadConsole.Components.GoRogue.IActionProcessor.ProcessAction(SadConsole.Actions.ActionBase)
+  name: ProcessAction(ActionBase)
+  href: api/SadConsole.Components.GoRogue.IActionProcessor.html#SadConsole_Components_GoRogue_IActionProcessor_ProcessAction_SadConsole_Actions_ActionBase_
+  commentId: M:SadConsole.Components.GoRogue.IActionProcessor.ProcessAction(SadConsole.Actions.ActionBase)
+  fullName: SadConsole.Components.GoRogue.IActionProcessor.ProcessAction(SadConsole.Actions.ActionBase)
+  nameWithType: IActionProcessor.ProcessAction(ActionBase)
+- uid: SadConsole.Components.GoRogue.IActionProcessor.ProcessAction*
+  name: ProcessAction
+  href: api/SadConsole.Components.GoRogue.IActionProcessor.html#SadConsole_Components_GoRogue_IActionProcessor_ProcessAction_
+  commentId: Overload:SadConsole.Components.GoRogue.IActionProcessor.ProcessAction
+  fullName: SadConsole.Components.GoRogue.IActionProcessor.ProcessAction
+  nameWithType: IActionProcessor.ProcessAction
+- uid: SadConsole.Components.GoRogue.IGameFrameProcessor
+  name: IGameFrameProcessor
+  href: api/SadConsole.Components.GoRogue.IGameFrameProcessor.html
+  commentId: T:SadConsole.Components.GoRogue.IGameFrameProcessor
+  fullName: SadConsole.Components.GoRogue.IGameFrameProcessor
+  nameWithType: IGameFrameProcessor
+- uid: SadConsole.Components.GoRogue.IGameFrameProcessor.ProcessGameFrame
+  name: ProcessGameFrame()
+  href: api/SadConsole.Components.GoRogue.IGameFrameProcessor.html#SadConsole_Components_GoRogue_IGameFrameProcessor_ProcessGameFrame
+  commentId: M:SadConsole.Components.GoRogue.IGameFrameProcessor.ProcessGameFrame
+  fullName: SadConsole.Components.GoRogue.IGameFrameProcessor.ProcessGameFrame()
+  nameWithType: IGameFrameProcessor.ProcessGameFrame()
+- uid: SadConsole.Components.GoRogue.IGameFrameProcessor.ProcessGameFrame*
+  name: ProcessGameFrame
+  href: api/SadConsole.Components.GoRogue.IGameFrameProcessor.html#SadConsole_Components_GoRogue_IGameFrameProcessor_ProcessGameFrame_
+  commentId: Overload:SadConsole.Components.GoRogue.IGameFrameProcessor.ProcessGameFrame
+  fullName: SadConsole.Components.GoRogue.IGameFrameProcessor.ProcessGameFrame
+  nameWithType: IGameFrameProcessor.ProcessGameFrame
 - uid: SadConsole.ControlledGameObjectChangedArgs
   name: ControlledGameObjectChangedArgs
   href: api/SadConsole.ControlledGameObjectChangedArgs.html
@@ -1354,325 +1463,6 @@ references:
   commentId: Overload:SadConsole.DefaultFOVVisibilityHandler.UpdateTerrainUnseen
   fullName: SadConsole.DefaultFOVVisibilityHandler.UpdateTerrainUnseen
   nameWithType: DefaultFOVVisibilityHandler.UpdateTerrainUnseen
-- uid: SadConsole.Factory
-  name: SadConsole.Factory
-  href: api/SadConsole.Factory.html
-  commentId: N:SadConsole.Factory
-  fullName: SadConsole.Factory
-  nameWithType: SadConsole.Factory
-- uid: SadConsole.Factory.BlueprintConfig
-  name: BlueprintConfig
-  href: api/SadConsole.Factory.BlueprintConfig.html
-  commentId: T:SadConsole.Factory.BlueprintConfig
-  fullName: SadConsole.Factory.BlueprintConfig
-  nameWithType: BlueprintConfig
-- uid: SadConsole.Factory.BlueprintConfig.#ctor
-  name: BlueprintConfig()
-  href: api/SadConsole.Factory.BlueprintConfig.html#SadConsole_Factory_BlueprintConfig__ctor
-  commentId: M:SadConsole.Factory.BlueprintConfig.#ctor
-  fullName: SadConsole.Factory.BlueprintConfig.BlueprintConfig()
-  nameWithType: BlueprintConfig.BlueprintConfig()
-- uid: SadConsole.Factory.BlueprintConfig.#ctor*
-  name: BlueprintConfig
-  href: api/SadConsole.Factory.BlueprintConfig.html#SadConsole_Factory_BlueprintConfig__ctor_
-  commentId: Overload:SadConsole.Factory.BlueprintConfig.#ctor
-  fullName: SadConsole.Factory.BlueprintConfig.BlueprintConfig
-  nameWithType: BlueprintConfig.BlueprintConfig
-- uid: SadConsole.Factory.BlueprintConfig.Empty
-  name: Empty
-  href: api/SadConsole.Factory.BlueprintConfig.html#SadConsole_Factory_BlueprintConfig_Empty
-  commentId: F:SadConsole.Factory.BlueprintConfig.Empty
-  fullName: SadConsole.Factory.BlueprintConfig.Empty
-  nameWithType: BlueprintConfig.Empty
-- uid: SadConsole.Factory.Factory`1
-  name: Factory<TProduced>
-  href: api/SadConsole.Factory.Factory-1.html
-  commentId: T:SadConsole.Factory.Factory`1
-  name.vb: Factory(Of TProduced)
-  fullName: SadConsole.Factory.Factory<TProduced>
-  fullName.vb: SadConsole.Factory.Factory(Of TProduced)
-  nameWithType: Factory<TProduced>
-  nameWithType.vb: Factory(Of TProduced)
-- uid: SadConsole.Factory.Factory`1.#ctor
-  name: Factory()
-  href: api/SadConsole.Factory.Factory-1.html#SadConsole_Factory_Factory_1__ctor
-  commentId: M:SadConsole.Factory.Factory`1.#ctor
-  fullName: SadConsole.Factory.Factory<TProduced>.Factory()
-  fullName.vb: SadConsole.Factory.Factory(Of TProduced).Factory()
-  nameWithType: Factory<TProduced>.Factory()
-  nameWithType.vb: Factory(Of TProduced).Factory()
-- uid: SadConsole.Factory.Factory`1.#ctor*
-  name: Factory
-  href: api/SadConsole.Factory.Factory-1.html#SadConsole_Factory_Factory_1__ctor_
-  commentId: Overload:SadConsole.Factory.Factory`1.#ctor
-  fullName: SadConsole.Factory.Factory<TProduced>.Factory
-  fullName.vb: SadConsole.Factory.Factory(Of TProduced).Factory
-  nameWithType: Factory<TProduced>.Factory
-  nameWithType.vb: Factory(Of TProduced).Factory
-- uid: SadConsole.Factory.Factory`1.Create(System.String)
-  name: Create(String)
-  href: api/SadConsole.Factory.Factory-1.html#SadConsole_Factory_Factory_1_Create_System_String_
-  commentId: M:SadConsole.Factory.Factory`1.Create(System.String)
-  fullName: SadConsole.Factory.Factory<TProduced>.Create(System.String)
-  fullName.vb: SadConsole.Factory.Factory(Of TProduced).Create(System.String)
-  nameWithType: Factory<TProduced>.Create(String)
-  nameWithType.vb: Factory(Of TProduced).Create(String)
-- uid: SadConsole.Factory.Factory`1.Create*
-  name: Create
-  href: api/SadConsole.Factory.Factory-1.html#SadConsole_Factory_Factory_1_Create_
-  commentId: Overload:SadConsole.Factory.Factory`1.Create
-  fullName: SadConsole.Factory.Factory<TProduced>.Create
-  fullName.vb: SadConsole.Factory.Factory(Of TProduced).Create
-  nameWithType: Factory<TProduced>.Create
-  nameWithType.vb: Factory(Of TProduced).Create
-- uid: SadConsole.Factory.Factory`2
-  name: Factory<TBlueprintConfig, TProduced>
-  href: api/SadConsole.Factory.Factory-2.html
-  commentId: T:SadConsole.Factory.Factory`2
-  name.vb: Factory(Of TBlueprintConfig, TProduced)
-  fullName: SadConsole.Factory.Factory<TBlueprintConfig, TProduced>
-  fullName.vb: SadConsole.Factory.Factory(Of TBlueprintConfig, TProduced)
-  nameWithType: Factory<TBlueprintConfig, TProduced>
-  nameWithType.vb: Factory(Of TBlueprintConfig, TProduced)
-- uid: SadConsole.Factory.Factory`2.#ctor
-  name: Factory()
-  href: api/SadConsole.Factory.Factory-2.html#SadConsole_Factory_Factory_2__ctor
-  commentId: M:SadConsole.Factory.Factory`2.#ctor
-  fullName: SadConsole.Factory.Factory<TBlueprintConfig, TProduced>.Factory()
-  fullName.vb: SadConsole.Factory.Factory(Of TBlueprintConfig, TProduced).Factory()
-  nameWithType: Factory<TBlueprintConfig, TProduced>.Factory()
-  nameWithType.vb: Factory(Of TBlueprintConfig, TProduced).Factory()
-- uid: SadConsole.Factory.Factory`2.#ctor*
-  name: Factory
-  href: api/SadConsole.Factory.Factory-2.html#SadConsole_Factory_Factory_2__ctor_
-  commentId: Overload:SadConsole.Factory.Factory`2.#ctor
-  fullName: SadConsole.Factory.Factory<TBlueprintConfig, TProduced>.Factory
-  fullName.vb: SadConsole.Factory.Factory(Of TBlueprintConfig, TProduced).Factory
-  nameWithType: Factory<TBlueprintConfig, TProduced>.Factory
-  nameWithType.vb: Factory(Of TBlueprintConfig, TProduced).Factory
-- uid: SadConsole.Factory.Factory`2.Add(SadConsole.Factory.IBlueprint{`0,`1})
-  name: Add(IBlueprint<TBlueprintConfig, TProduced>)
-  href: api/SadConsole.Factory.Factory-2.html#SadConsole_Factory_Factory_2_Add_SadConsole_Factory_IBlueprint__0__1__
-  commentId: M:SadConsole.Factory.Factory`2.Add(SadConsole.Factory.IBlueprint{`0,`1})
-  name.vb: Add(IBlueprint(Of TBlueprintConfig, TProduced))
-  fullName: SadConsole.Factory.Factory<TBlueprintConfig, TProduced>.Add(SadConsole.Factory.IBlueprint<TBlueprintConfig, TProduced>)
-  fullName.vb: SadConsole.Factory.Factory(Of TBlueprintConfig, TProduced).Add(SadConsole.Factory.IBlueprint(Of TBlueprintConfig, TProduced))
-  nameWithType: Factory<TBlueprintConfig, TProduced>.Add(IBlueprint<TBlueprintConfig, TProduced>)
-  nameWithType.vb: Factory(Of TBlueprintConfig, TProduced).Add(IBlueprint(Of TBlueprintConfig, TProduced))
-- uid: SadConsole.Factory.Factory`2.Add*
-  name: Add
-  href: api/SadConsole.Factory.Factory-2.html#SadConsole_Factory_Factory_2_Add_
-  commentId: Overload:SadConsole.Factory.Factory`2.Add
-  fullName: SadConsole.Factory.Factory<TBlueprintConfig, TProduced>.Add
-  fullName.vb: SadConsole.Factory.Factory(Of TBlueprintConfig, TProduced).Add
-  nameWithType: Factory<TBlueprintConfig, TProduced>.Add
-  nameWithType.vb: Factory(Of TBlueprintConfig, TProduced).Add
-- uid: SadConsole.Factory.Factory`2.BlueprintExists(System.String)
-  name: BlueprintExists(String)
-  href: api/SadConsole.Factory.Factory-2.html#SadConsole_Factory_Factory_2_BlueprintExists_System_String_
-  commentId: M:SadConsole.Factory.Factory`2.BlueprintExists(System.String)
-  fullName: SadConsole.Factory.Factory<TBlueprintConfig, TProduced>.BlueprintExists(System.String)
-  fullName.vb: SadConsole.Factory.Factory(Of TBlueprintConfig, TProduced).BlueprintExists(System.String)
-  nameWithType: Factory<TBlueprintConfig, TProduced>.BlueprintExists(String)
-  nameWithType.vb: Factory(Of TBlueprintConfig, TProduced).BlueprintExists(String)
-- uid: SadConsole.Factory.Factory`2.BlueprintExists*
-  name: BlueprintExists
-  href: api/SadConsole.Factory.Factory-2.html#SadConsole_Factory_Factory_2_BlueprintExists_
-  commentId: Overload:SadConsole.Factory.Factory`2.BlueprintExists
-  fullName: SadConsole.Factory.Factory<TBlueprintConfig, TProduced>.BlueprintExists
-  fullName.vb: SadConsole.Factory.Factory(Of TBlueprintConfig, TProduced).BlueprintExists
-  nameWithType: Factory<TBlueprintConfig, TProduced>.BlueprintExists
-  nameWithType.vb: Factory(Of TBlueprintConfig, TProduced).BlueprintExists
-- uid: SadConsole.Factory.Factory`2.Create(System.String,`0)
-  name: Create(String, TBlueprintConfig)
-  href: api/SadConsole.Factory.Factory-2.html#SadConsole_Factory_Factory_2_Create_System_String__0_
-  commentId: M:SadConsole.Factory.Factory`2.Create(System.String,`0)
-  fullName: SadConsole.Factory.Factory<TBlueprintConfig, TProduced>.Create(System.String, TBlueprintConfig)
-  fullName.vb: SadConsole.Factory.Factory(Of TBlueprintConfig, TProduced).Create(System.String, TBlueprintConfig)
-  nameWithType: Factory<TBlueprintConfig, TProduced>.Create(String, TBlueprintConfig)
-  nameWithType.vb: Factory(Of TBlueprintConfig, TProduced).Create(String, TBlueprintConfig)
-- uid: SadConsole.Factory.Factory`2.Create*
-  name: Create
-  href: api/SadConsole.Factory.Factory-2.html#SadConsole_Factory_Factory_2_Create_
-  commentId: Overload:SadConsole.Factory.Factory`2.Create
-  fullName: SadConsole.Factory.Factory<TBlueprintConfig, TProduced>.Create
-  fullName.vb: SadConsole.Factory.Factory(Of TBlueprintConfig, TProduced).Create
-  nameWithType: Factory<TBlueprintConfig, TProduced>.Create
-  nameWithType.vb: Factory(Of TBlueprintConfig, TProduced).Create
-- uid: SadConsole.Factory.Factory`2.GetBlueprint(System.String)
-  name: GetBlueprint(String)
-  href: api/SadConsole.Factory.Factory-2.html#SadConsole_Factory_Factory_2_GetBlueprint_System_String_
-  commentId: M:SadConsole.Factory.Factory`2.GetBlueprint(System.String)
-  fullName: SadConsole.Factory.Factory<TBlueprintConfig, TProduced>.GetBlueprint(System.String)
-  fullName.vb: SadConsole.Factory.Factory(Of TBlueprintConfig, TProduced).GetBlueprint(System.String)
-  nameWithType: Factory<TBlueprintConfig, TProduced>.GetBlueprint(String)
-  nameWithType.vb: Factory(Of TBlueprintConfig, TProduced).GetBlueprint(String)
-- uid: SadConsole.Factory.Factory`2.GetBlueprint*
-  name: GetBlueprint
-  href: api/SadConsole.Factory.Factory-2.html#SadConsole_Factory_Factory_2_GetBlueprint_
-  commentId: Overload:SadConsole.Factory.Factory`2.GetBlueprint
-  fullName: SadConsole.Factory.Factory<TBlueprintConfig, TProduced>.GetBlueprint
-  fullName.vb: SadConsole.Factory.Factory(Of TBlueprintConfig, TProduced).GetBlueprint
-  nameWithType: Factory<TBlueprintConfig, TProduced>.GetBlueprint
-  nameWithType.vb: Factory(Of TBlueprintConfig, TProduced).GetBlueprint
-- uid: SadConsole.Factory.Factory`2.GetEnumerator
-  name: GetEnumerator()
-  href: api/SadConsole.Factory.Factory-2.html#SadConsole_Factory_Factory_2_GetEnumerator
-  commentId: M:SadConsole.Factory.Factory`2.GetEnumerator
-  fullName: SadConsole.Factory.Factory<TBlueprintConfig, TProduced>.GetEnumerator()
-  fullName.vb: SadConsole.Factory.Factory(Of TBlueprintConfig, TProduced).GetEnumerator()
-  nameWithType: Factory<TBlueprintConfig, TProduced>.GetEnumerator()
-  nameWithType.vb: Factory(Of TBlueprintConfig, TProduced).GetEnumerator()
-- uid: SadConsole.Factory.Factory`2.GetEnumerator*
-  name: GetEnumerator
-  href: api/SadConsole.Factory.Factory-2.html#SadConsole_Factory_Factory_2_GetEnumerator_
-  commentId: Overload:SadConsole.Factory.Factory`2.GetEnumerator
-  fullName: SadConsole.Factory.Factory<TBlueprintConfig, TProduced>.GetEnumerator
-  fullName.vb: SadConsole.Factory.Factory(Of TBlueprintConfig, TProduced).GetEnumerator
-  nameWithType: Factory<TBlueprintConfig, TProduced>.GetEnumerator
-  nameWithType.vb: Factory(Of TBlueprintConfig, TProduced).GetEnumerator
-- uid: SadConsole.Factory.IBlueprint`2
-  name: IBlueprint<TBlueprintConfig, TProduced>
-  href: api/SadConsole.Factory.IBlueprint-2.html
-  commentId: T:SadConsole.Factory.IBlueprint`2
-  name.vb: IBlueprint(Of TBlueprintConfig, TProduced)
-  fullName: SadConsole.Factory.IBlueprint<TBlueprintConfig, TProduced>
-  fullName.vb: SadConsole.Factory.IBlueprint(Of TBlueprintConfig, TProduced)
-  nameWithType: IBlueprint<TBlueprintConfig, TProduced>
-  nameWithType.vb: IBlueprint(Of TBlueprintConfig, TProduced)
-- uid: SadConsole.Factory.IBlueprint`2.Create(`0)
-  name: Create(TBlueprintConfig)
-  href: api/SadConsole.Factory.IBlueprint-2.html#SadConsole_Factory_IBlueprint_2_Create__0_
-  commentId: M:SadConsole.Factory.IBlueprint`2.Create(`0)
-  fullName: SadConsole.Factory.IBlueprint<TBlueprintConfig, TProduced>.Create(TBlueprintConfig)
-  fullName.vb: SadConsole.Factory.IBlueprint(Of TBlueprintConfig, TProduced).Create(TBlueprintConfig)
-  nameWithType: IBlueprint<TBlueprintConfig, TProduced>.Create(TBlueprintConfig)
-  nameWithType.vb: IBlueprint(Of TBlueprintConfig, TProduced).Create(TBlueprintConfig)
-- uid: SadConsole.Factory.IBlueprint`2.Create*
-  name: Create
-  href: api/SadConsole.Factory.IBlueprint-2.html#SadConsole_Factory_IBlueprint_2_Create_
-  commentId: Overload:SadConsole.Factory.IBlueprint`2.Create
-  fullName: SadConsole.Factory.IBlueprint<TBlueprintConfig, TProduced>.Create
-  fullName.vb: SadConsole.Factory.IBlueprint(Of TBlueprintConfig, TProduced).Create
-  nameWithType: IBlueprint<TBlueprintConfig, TProduced>.Create
-  nameWithType.vb: IBlueprint(Of TBlueprintConfig, TProduced).Create
-- uid: SadConsole.Factory.IBlueprint`2.Id
-  name: Id
-  href: api/SadConsole.Factory.IBlueprint-2.html#SadConsole_Factory_IBlueprint_2_Id
-  commentId: P:SadConsole.Factory.IBlueprint`2.Id
-  fullName: SadConsole.Factory.IBlueprint<TBlueprintConfig, TProduced>.Id
-  fullName.vb: SadConsole.Factory.IBlueprint(Of TBlueprintConfig, TProduced).Id
-  nameWithType: IBlueprint<TBlueprintConfig, TProduced>.Id
-  nameWithType.vb: IBlueprint(Of TBlueprintConfig, TProduced).Id
-- uid: SadConsole.Factory.IBlueprint`2.Id*
-  name: Id
-  href: api/SadConsole.Factory.IBlueprint-2.html#SadConsole_Factory_IBlueprint_2_Id_
-  commentId: Overload:SadConsole.Factory.IBlueprint`2.Id
-  fullName: SadConsole.Factory.IBlueprint<TBlueprintConfig, TProduced>.Id
-  fullName.vb: SadConsole.Factory.IBlueprint(Of TBlueprintConfig, TProduced).Id
-  nameWithType: IBlueprint<TBlueprintConfig, TProduced>.Id
-  nameWithType.vb: IBlueprint(Of TBlueprintConfig, TProduced).Id
-- uid: SadConsole.Factory.IFactoryObject
-  name: IFactoryObject
-  href: api/SadConsole.Factory.IFactoryObject.html
-  commentId: T:SadConsole.Factory.IFactoryObject
-  fullName: SadConsole.Factory.IFactoryObject
-  nameWithType: IFactoryObject
-- uid: SadConsole.Factory.IFactoryObject.DefinitionId
-  name: DefinitionId
-  href: api/SadConsole.Factory.IFactoryObject.html#SadConsole_Factory_IFactoryObject_DefinitionId
-  commentId: P:SadConsole.Factory.IFactoryObject.DefinitionId
-  fullName: SadConsole.Factory.IFactoryObject.DefinitionId
-  nameWithType: IFactoryObject.DefinitionId
-- uid: SadConsole.Factory.IFactoryObject.DefinitionId*
-  name: DefinitionId
-  href: api/SadConsole.Factory.IFactoryObject.html#SadConsole_Factory_IFactoryObject_DefinitionId_
-  commentId: Overload:SadConsole.Factory.IFactoryObject.DefinitionId
-  fullName: SadConsole.Factory.IFactoryObject.DefinitionId
-  nameWithType: IFactoryObject.DefinitionId
-- uid: SadConsole.Factory.ItemNotDefinedException
-  name: ItemNotDefinedException
-  href: api/SadConsole.Factory.ItemNotDefinedException.html
-  commentId: T:SadConsole.Factory.ItemNotDefinedException
-  fullName: SadConsole.Factory.ItemNotDefinedException
-  nameWithType: ItemNotDefinedException
-- uid: SadConsole.Factory.ItemNotDefinedException.#ctor(System.String)
-  name: ItemNotDefinedException(String)
-  href: api/SadConsole.Factory.ItemNotDefinedException.html#SadConsole_Factory_ItemNotDefinedException__ctor_System_String_
-  commentId: M:SadConsole.Factory.ItemNotDefinedException.#ctor(System.String)
-  fullName: SadConsole.Factory.ItemNotDefinedException.ItemNotDefinedException(System.String)
-  nameWithType: ItemNotDefinedException.ItemNotDefinedException(String)
-- uid: SadConsole.Factory.ItemNotDefinedException.#ctor*
-  name: ItemNotDefinedException
-  href: api/SadConsole.Factory.ItemNotDefinedException.html#SadConsole_Factory_ItemNotDefinedException__ctor_
-  commentId: Overload:SadConsole.Factory.ItemNotDefinedException.#ctor
-  fullName: SadConsole.Factory.ItemNotDefinedException.ItemNotDefinedException
-  nameWithType: ItemNotDefinedException.ItemNotDefinedException
-- uid: SadConsole.Factory.SimpleBlueprint`1
-  name: SimpleBlueprint<TProduced>
-  href: api/SadConsole.Factory.SimpleBlueprint-1.html
-  commentId: T:SadConsole.Factory.SimpleBlueprint`1
-  name.vb: SimpleBlueprint(Of TProduced)
-  fullName: SadConsole.Factory.SimpleBlueprint<TProduced>
-  fullName.vb: SadConsole.Factory.SimpleBlueprint(Of TProduced)
-  nameWithType: SimpleBlueprint<TProduced>
-  nameWithType.vb: SimpleBlueprint(Of TProduced)
-- uid: SadConsole.Factory.SimpleBlueprint`1.#ctor(System.String)
-  name: SimpleBlueprint(String)
-  href: api/SadConsole.Factory.SimpleBlueprint-1.html#SadConsole_Factory_SimpleBlueprint_1__ctor_System_String_
-  commentId: M:SadConsole.Factory.SimpleBlueprint`1.#ctor(System.String)
-  fullName: SadConsole.Factory.SimpleBlueprint<TProduced>.SimpleBlueprint(System.String)
-  fullName.vb: SadConsole.Factory.SimpleBlueprint(Of TProduced).SimpleBlueprint(System.String)
-  nameWithType: SimpleBlueprint<TProduced>.SimpleBlueprint(String)
-  nameWithType.vb: SimpleBlueprint(Of TProduced).SimpleBlueprint(String)
-- uid: SadConsole.Factory.SimpleBlueprint`1.#ctor*
-  name: SimpleBlueprint
-  href: api/SadConsole.Factory.SimpleBlueprint-1.html#SadConsole_Factory_SimpleBlueprint_1__ctor_
-  commentId: Overload:SadConsole.Factory.SimpleBlueprint`1.#ctor
-  fullName: SadConsole.Factory.SimpleBlueprint<TProduced>.SimpleBlueprint
-  fullName.vb: SadConsole.Factory.SimpleBlueprint(Of TProduced).SimpleBlueprint
-  nameWithType: SimpleBlueprint<TProduced>.SimpleBlueprint
-  nameWithType.vb: SimpleBlueprint(Of TProduced).SimpleBlueprint
-- uid: SadConsole.Factory.SimpleBlueprint`1.Create
-  name: Create()
-  href: api/SadConsole.Factory.SimpleBlueprint-1.html#SadConsole_Factory_SimpleBlueprint_1_Create
-  commentId: M:SadConsole.Factory.SimpleBlueprint`1.Create
-  fullName: SadConsole.Factory.SimpleBlueprint<TProduced>.Create()
-  fullName.vb: SadConsole.Factory.SimpleBlueprint(Of TProduced).Create()
-  nameWithType: SimpleBlueprint<TProduced>.Create()
-  nameWithType.vb: SimpleBlueprint(Of TProduced).Create()
-- uid: SadConsole.Factory.SimpleBlueprint`1.Create(SadConsole.Factory.BlueprintConfig)
-  name: Create(BlueprintConfig)
-  href: api/SadConsole.Factory.SimpleBlueprint-1.html#SadConsole_Factory_SimpleBlueprint_1_Create_SadConsole_Factory_BlueprintConfig_
-  commentId: M:SadConsole.Factory.SimpleBlueprint`1.Create(SadConsole.Factory.BlueprintConfig)
-  fullName: SadConsole.Factory.SimpleBlueprint<TProduced>.Create(SadConsole.Factory.BlueprintConfig)
-  fullName.vb: SadConsole.Factory.SimpleBlueprint(Of TProduced).Create(SadConsole.Factory.BlueprintConfig)
-  nameWithType: SimpleBlueprint<TProduced>.Create(BlueprintConfig)
-  nameWithType.vb: SimpleBlueprint(Of TProduced).Create(BlueprintConfig)
-- uid: SadConsole.Factory.SimpleBlueprint`1.Create*
-  name: Create
-  href: api/SadConsole.Factory.SimpleBlueprint-1.html#SadConsole_Factory_SimpleBlueprint_1_Create_
-  commentId: Overload:SadConsole.Factory.SimpleBlueprint`1.Create
-  fullName: SadConsole.Factory.SimpleBlueprint<TProduced>.Create
-  fullName.vb: SadConsole.Factory.SimpleBlueprint(Of TProduced).Create
-  nameWithType: SimpleBlueprint<TProduced>.Create
-  nameWithType.vb: SimpleBlueprint(Of TProduced).Create
-- uid: SadConsole.Factory.SimpleBlueprint`1.Id
-  name: Id
-  href: api/SadConsole.Factory.SimpleBlueprint-1.html#SadConsole_Factory_SimpleBlueprint_1_Id
-  commentId: P:SadConsole.Factory.SimpleBlueprint`1.Id
-  fullName: SadConsole.Factory.SimpleBlueprint<TProduced>.Id
-  fullName.vb: SadConsole.Factory.SimpleBlueprint(Of TProduced).Id
-  nameWithType: SimpleBlueprint<TProduced>.Id
-  nameWithType.vb: SimpleBlueprint(Of TProduced).Id
-- uid: SadConsole.Factory.SimpleBlueprint`1.Id*
-  name: Id
-  href: api/SadConsole.Factory.SimpleBlueprint-1.html#SadConsole_Factory_SimpleBlueprint_1_Id_
-  commentId: Overload:SadConsole.Factory.SimpleBlueprint`1.Id
-  fullName: SadConsole.Factory.SimpleBlueprint<TProduced>.Id
-  fullName.vb: SadConsole.Factory.SimpleBlueprint(Of TProduced).Id
-  nameWithType: SimpleBlueprint<TProduced>.Id
-  nameWithType.vb: SimpleBlueprint(Of TProduced).Id
 - uid: SadConsole.FOVVisibilityHandler
   name: FOVVisibilityHandler
   href: api/SadConsole.FOVVisibilityHandler.html
@@ -4029,24 +3819,12 @@ references:
   commentId: Overload:SadConsole.Tiles.Tile.#ctor
   fullName: SadConsole.Tiles.Tile.Tile
   nameWithType: Tile.Tile
-- uid: SadConsole.Tiles.Tile.AppearanceDim
-  name: AppearanceDim
-  href: api/SadConsole.Tiles.Tile.html#SadConsole_Tiles_Tile_AppearanceDim
-  commentId: F:SadConsole.Tiles.Tile.AppearanceDim
-  fullName: SadConsole.Tiles.Tile.AppearanceDim
-  nameWithType: Tile.AppearanceDim
 - uid: SadConsole.Tiles.Tile.AppearanceNeverSeen
   name: AppearanceNeverSeen
   href: api/SadConsole.Tiles.Tile.html#SadConsole_Tiles_Tile_AppearanceNeverSeen
   commentId: F:SadConsole.Tiles.Tile.AppearanceNeverSeen
   fullName: SadConsole.Tiles.Tile.AppearanceNeverSeen
   nameWithType: Tile.AppearanceNeverSeen
-- uid: SadConsole.Tiles.Tile.AppearanceNormal
-  name: AppearanceNormal
-  href: api/SadConsole.Tiles.Tile.html#SadConsole_Tiles_Tile_AppearanceNormal
-  commentId: F:SadConsole.Tiles.Tile.AppearanceNormal
-  fullName: SadConsole.Tiles.Tile.AppearanceNormal
-  nameWithType: Tile.AppearanceNormal
 - uid: SadConsole.Tiles.Tile.ChangeAppearance(SadConsole.Cell)
   name: ChangeAppearance(Cell)
   href: api/SadConsole.Tiles.Tile.html#SadConsole_Tiles_Tile_ChangeAppearance_SadConsole_Cell_
@@ -4125,12 +3903,6 @@ references:
   commentId: F:SadConsole.Tiles.Tile.Factory
   fullName: SadConsole.Tiles.Tile.Factory
   nameWithType: Tile.Factory
-- uid: SadConsole.Tiles.Tile.flags
-  name: flags
-  href: api/SadConsole.Tiles.Tile.html#SadConsole_Tiles_Tile_flags
-  commentId: F:SadConsole.Tiles.Tile.flags
-  fullName: SadConsole.Tiles.Tile.flags
-  nameWithType: Tile.flags
 - uid: SadConsole.Tiles.Tile.Flags
   name: Flags
   href: api/SadConsole.Tiles.Tile.html#SadConsole_Tiles_Tile_Flags
@@ -4386,12 +4158,6 @@ references:
   commentId: E:SadConsole.Tiles.Tile.TileChanged
   fullName: SadConsole.Tiles.Tile.TileChanged
   nameWithType: Tile.TileChanged
-- uid: SadConsole.Tiles.Tile.tileState
-  name: tileState
-  href: api/SadConsole.Tiles.Tile.html#SadConsole_Tiles_Tile_tileState
-  commentId: F:SadConsole.Tiles.Tile.tileState
-  fullName: SadConsole.Tiles.Tile.tileState
-  nameWithType: Tile.tileState
 - uid: SadConsole.Tiles.Tile.TileState
   name: TileState
   href: api/SadConsole.Tiles.Tile.html#SadConsole_Tiles_Tile_TileState
@@ -4404,12 +4170,6 @@ references:
   commentId: Overload:SadConsole.Tiles.Tile.TileState
   fullName: SadConsole.Tiles.Tile.TileState
   nameWithType: Tile.TileState
-- uid: SadConsole.Tiles.Tile.tileType
-  name: tileType
-  href: api/SadConsole.Tiles.Tile.html#SadConsole_Tiles_Tile_tileType
-  commentId: F:SadConsole.Tiles.Tile.tileType
-  fullName: SadConsole.Tiles.Tile.tileType
-  nameWithType: Tile.tileType
 - uid: SadConsole.Tiles.Tile.Title
   name: Title
   href: api/SadConsole.Tiles.Tile.html#SadConsole_Tiles_Tile_Title

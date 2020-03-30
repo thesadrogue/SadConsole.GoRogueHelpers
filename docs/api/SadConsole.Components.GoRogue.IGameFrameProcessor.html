@@ -5,10 +5,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Class GameFrameProcessor
+    <title>Interface IGameFrameProcessor
    </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Class GameFrameProcessor
+    <meta name="title" content="Interface IGameFrameProcessor
    ">
     <meta name="generator" content="docfx 2.41.0.0">
     
@@ -68,72 +68,32 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="SadConsole.Components.GoRogue.GameFrameProcessor">
+            <article class="content wrap" id="_content" data-uid="SadConsole.Components.GoRogue.IGameFrameProcessor">
   
   
-  <h1 id="SadConsole_Components_GoRogue_GameFrameProcessor" data-uid="SadConsole.Components.GoRogue.GameFrameProcessor" class="text-break">Class GameFrameProcessor
+  <h1 id="SadConsole_Components_GoRogue_IGameFrameProcessor" data-uid="SadConsole.Components.GoRogue.IGameFrameProcessor" class="text-break">Interface IGameFrameProcessor
   </h1>
-  <div class="markdown level0 summary"><p>Component that can be attached to entities (non-terrain objects) that process game frames</p>
+  <div class="markdown level0 summary"><p>Interface for a component that can be attached to entities (non-terrain objects) that process game frames.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
-  <div class="inheritance">
-    <h5>Inheritance</h5>
-    <div class="level0"><span class="xref">System.Object</span></div>
-    <div class="level1"><a class="xref" href="SadConsole.Components.GoRogue.ComponentBase.html">ComponentBase</a></div>
-    <div class="level2"><a class="xref" href="SadConsole.Components.GoRogue.ComponentBase-1.html">ComponentBase</a>&lt;<span class="xref">GoRogue.GameFramework.IGameObject</span>&gt;</div>
-    <div class="level3"><a class="xref" href="SadConsole.Components.GoRogue.GameFrameProcessor-1.html">GameFrameProcessor</a>&lt;<span class="xref">GoRogue.GameFramework.IGameObject</span>&gt;</div>
-    <div class="level4"><span class="xref">GameFrameProcessor</span></div>
-  </div>
-  <div classs="implements">
-    <h5>Implements</h5>
-    <div><span class="xref">GoRogue.GameFramework.Components.IGameObjectComponent</span></div>
-    <div><a class="xref" href="SadConsole.Components.GoRogue.IGameFrameProcessor.html">IGameFrameProcessor</a></div>
-  </div>
-  <div class="inheritedMembers">
-    <h5>Inherited Members</h5>
-    <div>
-      <a class="xref" href="SadConsole.Components.GoRogue.GameFrameProcessor-1.html#SadConsole_Components_GoRogue_GameFrameProcessor_1_ProcessGameFrame">GameFrameProcessor&lt;IGameObject&gt;.ProcessGameFrame()</a>
-    </div>
-    <div>
-      <a class="xref" href="SadConsole.Components.GoRogue.GameFrameProcessor-1.html#SadConsole_Components_GoRogue_GameFrameProcessor_1_Parent">GameFrameProcessor&lt;IGameObject&gt;.Parent</a>
-    </div>
-    <div>
-      <a class="xref" href="SadConsole.Components.GoRogue.ComponentBase.html#SadConsole_Components_GoRogue_ComponentBase_ParentTypeCheck__1_System_Object_System_EventArgs_">ComponentBase.ParentTypeCheck&lt;TParent&gt;(Object, EventArgs)</a>
-    </div>
-    <div>
-      <a class="xref" href="SadConsole.Components.GoRogue.ComponentBase.html#SadConsole_Components_GoRogue_ComponentBase_IncompatibleWith__1_System_Object_System_EventArgs_">ComponentBase.IncompatibleWith&lt;TComponent&gt;(Object, EventArgs)</a>
-    </div>
-    <div>
-      <a class="xref" href="SadConsole.Components.GoRogue.ComponentBase.html#SadConsole_Components_GoRogue_ComponentBase_Added">ComponentBase.Added</a>
-    </div>
-    <div>
-      <a class="xref" href="SadConsole.Components.GoRogue.ComponentBase.html#SadConsole_Components_GoRogue_ComponentBase_Removed">ComponentBase.Removed</a>
-    </div>
-  </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="SadConsole.Components.GoRogue.html">SadConsole.Components.GoRogue</a></h6>
   <h6><strong>Assembly</strong>: SadConsole.GoRogue.dll</h6>
-  <h5 id="SadConsole_Components_GoRogue_GameFrameProcessor_syntax">Syntax</h5>
+  <h5 id="SadConsole_Components_GoRogue_IGameFrameProcessor_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public abstract class GameFrameProcessor : GameFrameProcessor&lt;IGameObject&gt;, IGameObjectComponent, IGameFrameProcessor</code></pre>
+    <pre><code class="lang-csharp hljs">public interface IGameFrameProcessor</code></pre>
   </div>
-  <h3 id="constructors">Constructors
+  <h3 id="methods">Methods
   </h3>
   
   
-  <a id="SadConsole_Components_GoRogue_GameFrameProcessor__ctor_" data-uid="SadConsole.Components.GoRogue.GameFrameProcessor.#ctor*"></a>
-  <h4 id="SadConsole_Components_GoRogue_GameFrameProcessor__ctor" data-uid="SadConsole.Components.GoRogue.GameFrameProcessor.#ctor">GameFrameProcessor()</h4>
-  <div class="markdown level1 summary"></div>
+  <a id="SadConsole_Components_GoRogue_IGameFrameProcessor_ProcessGameFrame_" data-uid="SadConsole.Components.GoRogue.IGameFrameProcessor.ProcessGameFrame*"></a>
+  <h4 id="SadConsole_Components_GoRogue_IGameFrameProcessor_ProcessGameFrame" data-uid="SadConsole.Components.GoRogue.IGameFrameProcessor.ProcessGameFrame">ProcessGameFrame()</h4>
+  <div class="markdown level1 summary"><p>Implements logic for processing a logic frame.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected GameFrameProcessor()</code></pre>
-  </div>
-  <h3 id="implements">Implements</h3>
-  <div>
-      <span class="xref">GoRogue.GameFramework.Components.IGameObjectComponent</span>
-  </div>
-  <div>
-      <a class="xref" href="SadConsole.Components.GoRogue.IGameFrameProcessor.html">IGameFrameProcessor</a>
+    <pre><code class="lang-csharp hljs">void ProcessGameFrame()</code></pre>
   </div>
 </article>
           </div>

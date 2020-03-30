@@ -73,7 +73,8 @@
   
   <h1 id="SadConsole_Tiles_Tile" data-uid="SadConsole.Tiles.Tile" class="text-break">Class Tile
   </h1>
-  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 summary"><p>A terrain object that implements a flags-based system for recording Tile information.</p>
+</div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
@@ -87,7 +88,7 @@
     <div><span class="xref">GoRogue.IHasID</span></div>
     <div><span class="xref">GoRogue.IHasLayer</span></div>
     <div><span class="xref">GoRogue.IHasComponents</span></div>
-    <div><a class="xref" href="SadConsole.Factory.IFactoryObject.html">IFactoryObject</a></div>
+    <div><span class="xref">GoRogue.Factory.IFactoryObject</span></div>
   </div>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
@@ -384,60 +385,12 @@
   </h3>
   
   
-  <h4 id="SadConsole_Tiles_Tile_AppearanceDim" data-uid="SadConsole.Tiles.Tile.AppearanceDim">AppearanceDim</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected Cell AppearanceDim</code></pre>
-  </div>
-  <h5 class="fieldValue">Field Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">SadConsole.Cell</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
   <h4 id="SadConsole_Tiles_Tile_AppearanceNeverSeen" data-uid="SadConsole.Tiles.Tile.AppearanceNeverSeen">AppearanceNeverSeen</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static Cell AppearanceNeverSeen</code></pre>
-  </div>
-  <h5 class="fieldValue">Field Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">SadConsole.Cell</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
-  <h4 id="SadConsole_Tiles_Tile_AppearanceNormal" data-uid="SadConsole.Tiles.Tile.AppearanceNormal">AppearanceNormal</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected Cell AppearanceNormal</code></pre>
   </div>
   <h5 class="fieldValue">Field Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -498,79 +451,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="SadConsole.Factory.Factory-2.html">Factory</a>&lt;<a class="xref" href="SadConsole.Tiles.TileBlueprintConfig.html">TileBlueprintConfig</a>, <a class="xref" href="SadConsole.Tiles.Tile.html">Tile</a>&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
-  <h4 id="SadConsole_Tiles_Tile_flags" data-uid="SadConsole.Tiles.Tile.flags">flags</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected int flags</code></pre>
-  </div>
-  <h5 class="fieldValue">Field Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Int32</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
-  <h4 id="SadConsole_Tiles_Tile_tileState" data-uid="SadConsole.Tiles.Tile.tileState">tileState</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected int tileState</code></pre>
-  </div>
-  <h5 class="fieldValue">Field Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Int32</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
-  <h4 id="SadConsole_Tiles_Tile_tileType" data-uid="SadConsole.Tiles.Tile.tileType">tileType</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected int tileType</code></pre>
-  </div>
-  <h5 class="fieldValue">Field Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Int32</span></td>
+        <td><span class="xref">GoRogue.Factory.Factory</span>&lt;<a class="xref" href="SadConsole.Tiles.TileBlueprintConfig.html">TileBlueprintConfig</a>, <a class="xref" href="SadConsole.Tiles.Tile.html">Tile</a>&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -1003,7 +884,7 @@
   
   <a id="SadConsole_Tiles_Tile_SetFlag_" data-uid="SadConsole.Tiles.Tile.SetFlag*"></a>
   <h4 id="SadConsole_Tiles_Tile_SetFlag_SadConsole_Tiles_TileFlags___" data-uid="SadConsole.Tiles.Tile.SetFlag(SadConsole.Tiles.TileFlags[])">SetFlag(TileFlags[])</h4>
-  <div class="markdown level1 summary"><p>Adds the specified flags to the <a class="xref" href="SadConsole.Tiles.Tile.html#SadConsole_Tiles_Tile_flags">flags</a> property.</p>
+  <div class="markdown level1 summary"><p>Adds the specified flags to the <a class="xref" href="SadConsole.Tiles.Tile.html#SadConsole_Tiles_Tile_Flags">Flags</a> property.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -1032,7 +913,7 @@
   
   <a id="SadConsole_Tiles_Tile_UnsetFlag_" data-uid="SadConsole.Tiles.Tile.UnsetFlag*"></a>
   <h4 id="SadConsole_Tiles_Tile_UnsetFlag_SadConsole_Tiles_TileFlags___" data-uid="SadConsole.Tiles.Tile.UnsetFlag(SadConsole.Tiles.TileFlags[])">UnsetFlag(TileFlags[])</h4>
-  <div class="markdown level1 summary"><p>Removes the specified flags to the <a class="xref" href="SadConsole.Tiles.Tile.html#SadConsole_Tiles_Tile_flags">flags</a> property.</p>
+  <div class="markdown level1 summary"><p>Removes the specified flags to the <a class="xref" href="SadConsole.Tiles.Tile.html#SadConsole_Tiles_Tile_Flags">Flags</a> property.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -1107,7 +988,7 @@
       <span class="xref">GoRogue.IHasComponents</span>
   </div>
   <div>
-      <a class="xref" href="SadConsole.Factory.IFactoryObject.html">IFactoryObject</a>
+      <span class="xref">GoRogue.Factory.IFactoryObject</span>
   </div>
 </article>
           </div>
