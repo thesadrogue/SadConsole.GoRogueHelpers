@@ -8,7 +8,7 @@
     <Authors>Chris3606;Thraka</Authors>
     <Description>Templates to use as starting points for creating games with the SadConsole-GoRogue integration library.</Description>
     <PackageTags>dotnet-new;templates;template;gorogue;sadconsole;roguelike;roguelikes;sadrogue;thesadrogue</PackageTags>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
 
     <IncludeContentInPack>true</IncludeContentInPack>
     <IncludeBuildOutput>false</IncludeBuildOutput>
