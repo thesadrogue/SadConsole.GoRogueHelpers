@@ -5,7 +5,7 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <LangVersion>latest</LangVersion>
     <RootNamespace>SadConsole</RootNamespace>
-    <Version>1.0.0</Version>
+    <Version>1.0.1</Version>
 	<Version Condition="'$(Configuration)'=='Debug'">$(Version)-debug</Version>
     <Authors>Chris3606;Thraka</Authors>
     <Company>TheSadRogue</Company>
@@ -14,7 +14,7 @@
     
     <!-- More nuget package settings-->
     <PackageId>SadConsole.GoRogueHelpers</PackageId>
-    <PackageReleaseNotes>Modified component system to avoid the need to explicitly cast parents frequently.  Initial full release.</PackageReleaseNotes>
+    <PackageReleaseNotes>Updated minimum version of GoRogue to fix dependency issues.</PackageReleaseNotes>
     <PackageIconUrl>https://raw.githubusercontent.com/SadConsole/SadConsole/d110fc4a0dfdaa25496c973518ea6a14a563e191/images/oD8yyro5.png</PackageIconUrl>
     <RepositoryUrl>https://github.com/thesadrogue/SadConsole.GoRogueHelpers</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
