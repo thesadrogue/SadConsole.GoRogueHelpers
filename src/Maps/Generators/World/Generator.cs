@@ -1,3 +1,5 @@
+// Code adapted from https://github.com/jongallant/WorldGeneratorFinal and http://www.jgallant.com/procedurally-generating-wrapping-world-maps-in-unity-csharp-part-1/
+
 using System;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
